@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
+  <title>Pengaturan — Admin Template</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+
+<body data-title="Pengaturan" data-nav="settings">
+  <div class="app">
+    <div class="backdrop" id="backdrop"></div>
+    <div data-include="/partials/sidebar.html"></div>
+    <div class="main">
+      <div data-include="/partials/topbar.html"></div>
+      <div class="content">
+        <nav class="breadcrumb">
+          <a href="/index.html">Beranda</a>
+          <span class="sep"><i data-lucide="chevron-right"></i></span>
+          <span class="current">Pengaturan</span>
+        </nav>
+
+        <form onsubmit="return false">
+          <!-- Umum -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Umum</h3>
+            </div>
+            <div class="p-4">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group mb-0"><label class="form-label">Nama Aplikasi</label><input
+                      class="form-control" value="Admin Panel"></div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group mb-0"><label class="form-label">Zona Waktu</label>
+                    <select class="form-control">
+                      <option>WIB (GMT+7)</option>
+                      <option>WITA (GMT+8)</option>
+                      <option>WIT (GMT+9)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group mb-0 mt-3"><label class="form-label">Bahasa</label>
+                    <select class="form-control">
+                      <option>Indonesia</option>
+                      <option>English</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group mb-0 mt-3"><label class="form-label">Format Tanggal</label>
+                    <select class="form-control">
+                      <option>DD/MM/YYYY</option>
+                      <option>YYYY-MM-DD</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notifikasi -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Notifikasi</h3>
+            </div>
+            <div class="p-4 d-flex flex-col gap-3">
+              <label class="switch"><input type="checkbox" checked><span class="track"></span> Email untuk order
+                baru</label>
+              <label class="switch"><input type="checkbox" checked><span class="track"></span> Notifikasi push di
+                browser</label>
+              <label class="switch"><input type="checkbox"><span class="track"></span> Ringkasan mingguan</label>
+            </div>
+          </div>
+
+          <!-- Keamanan -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Keamanan</h3>
+            </div>
+            <div class="p-4 d-flex flex-col gap-3">
+              <label class="switch"><input type="checkbox"><span class="track"></span> Autentikasi dua faktor
+                (2FA)</label>
+              <label class="switch"><input type="checkbox" checked><span class="track"></span> Keluar otomatis setelah
+                30 menit</label>
+            </div>
+          </div>
+
+          <div class="d-flex justify-end gap-2">
+            <button class="btn outline">Reset</button>
+            <button class="btn primary" data-toast="success" data-toast-title="Tersimpan"
+              data-toast-msg="Pengaturan berhasil diperbarui.">Simpan Pengaturan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="/assets/vendor/lucide/lucide-0.294.0.min.js"></script>
+  <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
+  <title>File Manager — Admin Template</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+
+<body data-title="File Manager" data-nav="files">
+  <div class="app">
+    <div class="backdrop" id="backdrop"></div>
+    <div data-include="/partials/sidebar.html"></div>
+    <div class="main">
+      <div data-include="/partials/topbar.html"></div>
+      <div class="content">
+        <div class="fm-toolbar">
+          <div class="fm-path">
+            <a href="/index.html">Beranda</a>
+            <i data-lucide="chevron-right" style="width:13px;height:13px;"></i>
+            <span class="text-dark">File Manager</span>
+          </div>
+          <div class="ms-auto d-flex gap-2">
+            <button class="btn outline sm"><i data-lucide="folder-plus"></i> Folder Baru</button>
+            <button class="btn primary sm"><i data-lucide="upload"></i> Unggah</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="p-4">
+            <div class="fm-grid">
+              <div class="fm-item folder">
+                <div class="ic"><i data-lucide="folder"></i></div>
+                <div class="nm">Laporan</div>
+                <div class="meta">24 item</div>
+              </div>
+              <div class="fm-item folder">
+                <div class="ic"><i data-lucide="folder"></i></div>
+                <div class="nm">Kontrak</div>
+                <div class="meta">8 item</div>
+              </div>
+              <div class="fm-item folder">
+                <div class="ic"><i data-lucide="folder"></i></div>
+                <div class="nm">Gambar</div>
+                <div class="meta">142 item</div>
+              </div>
+              <div class="fm-item file">
+                <div class="ic"><i data-lucide="file-text"></i></div>
+                <div class="nm">Proposal.pdf</div>
+                <div class="meta">2,4 MB</div>
+              </div>
+              <div class="fm-item file">
+                <div class="ic"><i data-lucide="file-spreadsheet"></i></div>
+                <div class="nm">Anggaran.xlsx</div>
+                <div class="meta">180 KB</div>
+              </div>
+              <div class="fm-item file">
+                <div class="ic"><i data-lucide="image"></i></div>
+                <div class="nm">Banner.png</div>
+                <div class="meta">640 KB</div>
+              </div>
+              <div class="fm-item file">
+                <div class="ic"><i data-lucide="file"></i></div>
+                <div class="nm">Catatan.txt</div>
+                <div class="meta">4 KB</div>
+              </div>
+              <div class="fm-item file">
+                <div class="ic"><i data-lucide="file-archive"></i></div>
+                <div class="nm">Arsip.zip</div>
+                <div class="meta">18 MB</div>
+              </div>
+              <div class="fm-item file">
+                <div class="ic"><i data-lucide="file-video"></i></div>
+                <div class="nm">Demo.mp4</div>
+                <div class="meta">44 MB</div>
+              </div>
+              <div class="fm-item file">
+                <div class="ic"><i data-lucide="file-audio"></i></div>
+                <div class="nm">Rekaman.mp3</div>
+                <div class="meta">6 MB</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/assets/vendor/lucide/lucide-0.294.0.min.js"></script>
+  <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

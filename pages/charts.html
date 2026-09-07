@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
+  <title>Charts — Admin Template</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+
+<body data-title="Charts" data-nav="ui-element" data-sub="charts">
+  <div class="app">
+    <div class="backdrop" id="backdrop"></div>
+    <div data-include="/partials/sidebar.html"></div>
+    <div class="main">
+      <div data-include="/partials/topbar.html"></div>
+      <div class="workspace">
+        <div data-include="/partials/submenu.html"></div>
+        <div class="content">
+          <nav class="breadcrumb">
+            <a>UI Element</a>
+            <span class="sep"><i data-lucide="chevron-right"></i></span>
+            <span class="current">Charts</span>
+          </nav>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="panel mb-4">
+                <div class="panel-head">
+                  <h3>Area Chart</h3>
+                </div>
+                <div class="p-3">
+                  <div id="cArea" style="height:280px;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="panel mb-4">
+                <div class="panel-head">
+                  <h3>Line Chart</h3>
+                </div>
+                <div class="p-3">
+                  <div id="cLine" style="height:280px;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="panel mb-4">
+                <div class="panel-head">
+                  <h3>Bar Chart</h3>
+                </div>
+                <div class="p-3">
+                  <div id="cBar" style="height:280px;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="panel mb-4">
+                <div class="panel-head">
+                  <h3>Donut Chart</h3>
+                </div>
+                <div class="p-3">
+                  <div id="cDonut" style="height:280px;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="panel mb-4">
+                <div class="panel-head">
+                  <h3>Radial (Target)</h3>
+                </div>
+                <div class="p-3">
+                  <div id="cRadial" style="height:280px;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="panel mb-4">
+                <div class="panel-head">
+                  <h3>Bar Bertumpuk</h3>
+                </div>
+                <div class="p-3">
+                  <div id="cStacked" style="height:280px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/assets/vendor/lucide/lucide-0.294.0.min.js"></script>
+  <script src="/assets/vendor/apexcharts/apexcharts-3.45.2.min.js"></script>
+  <script src="/assets/js/app.js"></script>
+  <script>
+    (function () {
+      var charts = [];
+      var cats = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul'];
+      function vars() {
+        var s = getComputedStyle(document.documentElement);
+        return {
+          text: s.getPropertyValue('--text-muted').trim(),
+          border: s.getPropertyValue('--border').trim(),
+          accent: s.getPropertyValue('--accent').trim(),
+          green: s.getPropertyValue('--green').trim(),
+          amber: s.getPropertyValue('--amber').trim(),
+          red: s.getPropertyValue('--red').trim(),
+          blue: s.getPropertyValue('--blue').trim()
+        };
+      }
+      function make(el, opt) { var c = new ApexCharts(document.getElementById(el), opt); c.render(); charts.push(c); }
+      function build() {
+        if (!window.ApexCharts) return;
+        charts.forEach(function (c) { c.destroy(); }); charts = [];
+        var v = vars(), dark = document.documentElement.getAttribute('data-theme') === 'dark';
+        var muted = dark ? '#4a4740' : '#cdc9bf';
+        var base = {
+          chart: { height: 280, toolbar: { show: false }, foreColor: v.text, fontFamily: 'inherit' },
+          dataLabels: { enabled: false }, grid: { borderColor: v.border, strokeDashArray: 4 },
+          tooltip: { theme: dark ? 'dark' : 'light' }, legend: { position: 'bottom' }
+        };
+
+        make('cArea', Object.assign({}, base, {
+          chart: Object.assign({ type: 'area' }, base.chart),
+          series: [{ name: 'Tahun Ini', data: [31, 40, 28, 51, 42, 85, 90] }, { name: 'Tahun Lalu', data: [45, 52, 38, 45, 60, 55, 48] }],
+          xaxis: { categories: cats }, colors: [v.accent, muted], stroke: { curve: 'smooth', width: 2.5 },
+          fill: { type: 'gradient', gradient: { opacityFrom: 0.35, opacityTo: 0.02 } }
+        }));
+
+        make('cLine', Object.assign({}, base, {
+          chart: Object.assign({ type: 'line' }, base.chart),
+          series: [{ name: 'Kunjungan', data: [28, 48, 40, 19, 86, 27, 90] }, { name: 'Target', data: [65, 59, 80, 81, 56, 55, 40] }],
+          xaxis: { categories: cats }, colors: [v.accent, muted], stroke: { curve: 'smooth', width: 2.5 }
+        }));
+
+        make('cBar', Object.assign({}, base, {
+          chart: Object.assign({ type: 'bar' }, base.chart),
+          series: [{ name: 'Penjualan', data: [44, 55, 57, 56, 61, 58, 63] }, { name: 'Retur', data: [12, 10, 14, 9, 11, 8, 10] }],
+          xaxis: { categories: cats }, colors: [v.accent, muted],
+          plotOptions: { bar: { borderRadius: 4, columnWidth: '55%' } }
+        }));
+
+        make('cDonut', {
+          chart: { type: 'donut', height: 280, foreColor: v.text, fontFamily: 'inherit' },
+          series: [44, 25, 18, 13], labels: ['Selesai', 'Diproses', 'Batal', 'Pending'],
+          colors: [v.green, v.amber, v.red, v.blue], stroke: { colors: [dark ? '#262624' : '#ffffff'] },
+          legend: { position: 'bottom' }, dataLabels: { enabled: false }, plotOptions: { pie: { donut: { size: '68%' } } },
+          tooltip: { theme: dark ? 'dark' : 'light' }
+        });
+
+        make('cRadial', {
+          chart: { type: 'radialBar', height: 280, foreColor: v.text, fontFamily: 'inherit' },
+          series: [72], labels: ['Tercapai'], colors: [v.accent],
+          plotOptions: {
+            radialBar: {
+              hollow: { size: '62%' }, track: { background: v.border },
+              dataLabels: { name: { color: v.text }, value: { color: getComputedStyle(document.documentElement).getPropertyValue('--text').trim(), fontSize: '22px', fontWeight: 600 } }
+            }
+          }
+        });
+
+        make('cStacked', Object.assign({}, base, {
+          chart: Object.assign({ type: 'bar', stacked: true }, base.chart),
+          series: [{ name: 'Simpanan', data: [23, 34, 28, 41, 35, 44, 40] }, { name: 'Pinjaman', data: [18, 20, 25, 19, 28, 22, 30] }, { name: 'Deposito', data: [10, 12, 9, 14, 11, 16, 13] }],
+          xaxis: { categories: cats }, colors: [v.accent, v.blue, v.amber],
+          plotOptions: { bar: { borderRadius: 3, columnWidth: '55%' } }
+        }));
+      }
+      document.addEventListener('ui:ready', build);
+      new MutationObserver(build).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    })();
+  </script>
+</body>
+
+</html>

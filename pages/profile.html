@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
+  <title>Profil — Admin Template</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+
+<body data-title="Profil" data-nav="profile">
+  <div class="app">
+    <div class="backdrop" id="backdrop"></div>
+    <div data-include="/partials/sidebar.html"></div>
+    <div class="main">
+      <div data-include="/partials/topbar.html"></div>
+      <div class="content">
+        <nav class="breadcrumb">
+          <a href="/index.html">Beranda</a>
+          <span class="sep"><i data-lucide="chevron-right"></i></span>
+          <span class="current">Profil</span>
+        </nav>
+
+        <div class="panel mb-4">
+          <div class="p-4">
+            <div class="pf-header">
+              <div class="pf-avatar">ZR</div>
+              <div>
+                <div class="nm">Zulfadli Rizal</div>
+                <div class="role">Administrator · BPR Bangunarta</div>
+              </div>
+              <div class="pf-stats">
+                <div class="s"><b>128</b><span>Order</span></div>
+                <div class="s"><b>34</b><span>Proyek</span></div>
+                <div class="s"><b>4,9</b><span>Rating</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="p-4">
+            <div class="tabs">
+              <button class="tab active">Profil</button>
+              <button class="tab">Aktivitas</button>
+              <button class="tab">Keamanan</button>
+            </div>
+
+            <div class="tab-panel active">
+              <form onsubmit="return false">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group"><label class="form-label">Nama Lengkap</label><input class="form-control"
+                        value="Zulfadli Rizal"></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group"><label class="form-label">Email</label><input class="form-control"
+                        value="zulfr@bprbangunarta.co.id"></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group"><label class="form-label">Telepon</label><input class="form-control"
+                        value="0812-3456-7890"></div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group"><label class="form-label">Jabatan</label><input class="form-control"
+                        value="Administrator"></div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group mb-0"><label class="form-label">Alamat</label><textarea
+                        class="form-control">Jl. Otista No. 123, Pamanukan, Subang</textarea></div>
+                  </div>
+                </div>
+                <div class="d-flex justify-end gap-2 mt-4">
+                  <button class="btn outline">Batal</button>
+                  <button class="btn primary" data-toast="success" data-toast-title="Tersimpan"
+                    data-toast-msg="Perubahan profil berhasil disimpan.">Simpan Perubahan</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="tab-panel">
+              <div class="alert info"><i data-lucide="info"></i>Belum ada aktivitas terbaru untuk ditampilkan.</div>
+            </div>
+
+            <div class="tab-panel">
+              <form onsubmit="return false">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group"><label class="form-label">Password Lama</label>
+                      <div class="input-password"><input type="password" class="form-control"
+                          placeholder="••••••••"><button type="button" class="toggle-eye"><i data-lucide="eye"
+                            class="eye-on"></i><i data-lucide="eye-off" class="eye-off"></i></button></div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group"><label class="form-label">Password Baru</label>
+                      <div class="input-password"><input type="password" class="form-control"
+                          placeholder="••••••••"><button type="button" class="toggle-eye"><i data-lucide="eye"
+                            class="eye-on"></i><i data-lucide="eye-off" class="eye-off"></i></button></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-end mt-3">
+                  <button class="btn primary" data-toast="success"
+                    data-toast-msg="Password berhasil diperbarui.">Perbarui Password</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/assets/vendor/lucide/lucide-0.294.0.min.js"></script>
+  <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
+  <title>Datatable — Admin Template</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+
+<body data-title="Datatable" data-nav="ui-element" data-sub="datatable">
+  <div class="app">
+    <div class="backdrop" id="backdrop"></div>
+
+    <div data-include="/partials/sidebar.html"></div>
+
+    <div class="main">
+      <div data-include="/partials/topbar.html"></div>
+
+      <div class="workspace">
+        <div data-include="/partials/submenu.html"></div>
+
+        <div class="content">
+          <nav class="breadcrumb">
+            <a>UI Element</a>
+            <span class="sep"><i data-lucide="chevron-right"></i></span>
+            <span class="current">Datatable</span>
+          </nav>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Daftar Pengguna</h3>
+              <button class="btn primary"><i data-lucide="plus"></i> Tambah Pengguna</button>
+            </div>
+            <div class="dt-body">
+              <table id="dataUsers" class="display" style="width:100%">
+                <thead>
+                  <tr>
+                    <th>Nama</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Jabatan</th>
+                    <th>Kantor</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>IT Support</td>
+                    <td>superadmin</td>
+                    <td>sa@bprbangunarta.co.id</td>
+                    <td>Super Admin</td>
+                    <td>Pusat</td>
+                    <td><span class="badge green">Aktif</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>Felix Setiawan</td>
+                    <td>felix</td>
+                    <td>felix@bprbangunarta.co.id</td>
+                    <td>Komisaris Utama</td>
+                    <td>Pusat</td>
+                    <td><span class="badge green">Aktif</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>Suhalim Abunawas</td>
+                    <td>suhalim</td>
+                    <td>suhalim@bprbangunarta.co.id</td>
+                    <td>Komisaris</td>
+                    <td>Pusat</td>
+                    <td><span class="badge amber">Cuti</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>Wahono</td>
+                    <td>09090192</td>
+                    <td>wah.bekti@gmail.com</td>
+                    <td>Kepala Seksi Umum</td>
+                    <td>Pamanukan</td>
+                    <td><span class="badge green">Aktif</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>Moh. Muksin</td>
+                    <td>mohmuksin</td>
+                    <td>mohmuksin@gmail.com</td>
+                    <td>Direktur Utama</td>
+                    <td>Pamanukan</td>
+                    <td><span class="badge green">Aktif</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>Wawan Irawan</td>
+                    <td>31130999</td>
+                    <td>wawan.ir.74@yahoo.com</td>
+                    <td>Kepala Kantor Kas</td>
+                    <td>Sukamandi</td>
+                    <td><span class="badge green">Aktif</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>Sopyan Asror</td>
+                    <td>70101005</td>
+                    <td>sopyanasror78@gmail.com</td>
+                    <td>Kepala Bagian Kepatuhan</td>
+                    <td>Pamanukan</td>
+                    <td><span class="badge amber">Cuti</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>Sep Deden Sugeng</td>
+                    <td>137010710</td>
+                    <td>dedensugeng@gmail.com</td>
+                    <td>Kepala Kantor Kas</td>
+                    <td>Pusakajaya</td>
+                    <td><span class="badge green">Aktif</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>Bonnie Andrew</td>
+                    <td>bonnie</td>
+                    <td>bonnieandrew30@gmail.com</td>
+                    <td>Direktur Bisnis</td>
+                    <td>Pamanukan</td>
+                    <td><span class="badge green">Aktif</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>Tri Sugiarto</td>
+                    <td>148010411</td>
+                    <td>trisugiarto73@gmail.com</td>
+                    <td>Direktur Kepatuhan</td>
+                    <td>Pamanukan</td>
+                    <td><span class="badge green">Aktif</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>Rina Marlina</td>
+                    <td>rina.m</td>
+                    <td>rina.marlina@gmail.com</td>
+                    <td>Teller</td>
+                    <td>Sukamandi</td>
+                    <td><span class="badge green">Aktif</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>Dedi Kurniawan</td>
+                    <td>dedi.k</td>
+                    <td>dedi.kurniawan@gmail.com</td>
+                    <td>Account Officer</td>
+                    <td>Pamanukan</td>
+                    <td><span class="badge red">Nonaktif</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>Nurul Hidayah</td>
+                    <td>nurul.h</td>
+                    <td>nurul.hidayah@gmail.com</td>
+                    <td>Customer Service</td>
+                    <td>Pusakajaya</td>
+                    <td><span class="badge green">Aktif</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>Agus Salim</td>
+                    <td>agus.s</td>
+                    <td>agus.salim@gmail.com</td>
+                    <td>Kolektor</td>
+                    <td>Sukamandi</td>
+                    <td><span class="badge green">Aktif</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>Sri Wahyuni</td>
+                    <td>sri.w</td>
+                    <td>sri.wahyuni@gmail.com</td>
+                    <td>Back Office</td>
+                    <td>Pamanukan</td>
+                    <td><span class="badge amber">Cuti</span></td>
+                    <td><button class="btn-icon" title="Edit"><i data-lucide="pencil"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/vendor/jquery/jquery-3.7.1.min.js"></script>
+  <script src="/assets/vendor/datatables/jquery.dataTables-1.13.8.min.js"></script>
+  <script src="/assets/vendor/lucide/lucide-0.294.0.min.js"></script>
+  <script src="/assets/js/app.js"></script>
+  <script>
+    $(function () {
+      $('#dataUsers').DataTable({
+        paging: true, lengthChange: true, searching: true, ordering: true, info: true,
+        autoWidth: false, scrollX: true, pageLength: 10,
+        language: {
+          search: 'Cari:',
+          lengthMenu: 'Tampilkan _MENU_ data',
+          info: 'Menampilkan _START_–_END_ dari _TOTAL_ data',
+          infoEmpty: 'Tidak ada data',
+          zeroRecords: 'Data tidak ditemukan',
+          paginate: { previous: 'Sebelumnya', next: 'Berikutnya' }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<div class="drawer">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">A</div>
+      <div class="name">Admin Panel</div>
+    </div>
+
+    <div class="sidebar-scroll">
+      <!-- ===== 1. SINGLE MENU ===== -->
+      <nav class="nav">
+        <a class="nav-item" data-key="dashboard" href="/index.html">
+          <i data-lucide="bar-chart-3"></i><span>Dashboard</span>
+        </a>
+
+        <a class="nav-item" data-key="ui-element" href="/pages/charts.html">
+          <i data-lucide="panel-left"></i><span>UI Element</span>
+        </a>
+
+        <a class="nav-item" data-key="files" href="/pages/files.html">
+          <i data-lucide="folder"></i><span>File Manager</span>
+        </a>
+        <a class="nav-item" data-key="code-2" href="/pages/html-parser.html">
+          <i data-lucide="code-2"></i><span>HTML Parser</span>
+        </a>
+      </nav>
+
+      <!-- ===== 2. GRUP MENU (collapse) ===== -->
+      <div class="nav-group">
+        <div class="nav-section"><span>Kredensial</span><i data-lucide="chevron-down" class="chev"></i></div>
+        <div class="nav-group-body">
+          <div class="nav">
+            <div class="nav-sub active">Perizinan</div>
+            <div class="nav-sub">Hak Akses</div>
+            <div class="nav-sub">Pengguna</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 3. MULTI-LEVEL (1 · 2 · 3) ===== -->
+      <div class="nav-group">
+        <div class="nav-section"><span>Interface</span><i data-lucide="chevron-down" class="chev"></i></div>
+        <div class="nav-group-body">
+          <div class="nav">
+            <div class="tree open">
+              <div class="tree-toggle">
+                <i data-lucide="book-open" class="ico"></i><span>Halaman</span><i data-lucide="chevron-right"
+                  class="chev"></i>
+              </div>
+              <div class="tree-children">
+                <div class="tree open">
+                  <div class="tree-toggle"><span>Autensikasi</span><i data-lucide="chevron-right" class="chev"></i>
+                  </div>
+                  <div class="tree-children">
+                    <a class="nav-sub" href="/pages/auth/login.html" target="_blank">Login</a>
+                    <a class="nav-sub" href="/pages/auth/register.html" target="_blank">Register</a>
+                    <a class="nav-sub" href="/pages/auth/reset-password.html" target="_blank">Reset Password</a>
+                    <a class="nav-sub" href="/pages/auth/forgot-password.html" target="_blank">Lupa Password</a>
+                  </div>
+                </div>
+                <div class="tree">
+                  <div class="tree-toggle"><span>Error Pages</span><i data-lucide="chevron-right" class="chev"></i>
+                  </div>
+                  <div class="tree-children">
+                    <a class="nav-sub" href="/pages/error/404.html" target="_blank">404</a>
+                    <a class="nav-sub" href="/pages/error/500.html" target="_blank">500</a>
+                  </div>
+                </div>
+                <a class="nav-sub" href="/pages/error/maintenance.html" target="_blank">Maintenance</a>
+                <a class="nav-sub" href="/pages/landing.html" target="_blank">Landing Page</a>
+                <a class="nav-sub" href="/pages/email.html" target="_blank">Email Template</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER PROFIL ===== -->
+    <div class="profile">
+      <div class="profile-menu" id="profileMenu">
+        <div class="pm-email">zulfr@bprbangunarta.co.id</div>
+        <a href="/pages/settings.html">
+          <div class="pm-item"><i data-lucide="settings"></i>Pengaturan <span class="sc">⌘ ,</span></div>
+        </a>
+        <div class="pm-item"><i data-lucide="globe"></i>Bahasa</div>
+        <div class="pm-item"><i data-lucide="help-circle"></i>Dapatkan bantuan</div>
+        <div class="pm-div"></div>
+        <a href="/pages/profile.html">
+          <div class="pm-item"><i data-lucide="user"></i>Profil Saya</div>
+        </a>
+        <div class="pm-item"><i data-lucide="shield-check"></i>Keamanan</div>
+        <div class="pm-item"><i data-lucide="star"></i>Langganan <span class="tag">Pro</span></div>
+        <div class="pm-div"></div>
+        <div class="pm-item"><i data-lucide="log-out"></i>Keluar</div>
+      </div>
+      <button class="profile-trigger" id="profileTrigger">
+        <div class="avatar">ZR</div>
+        <div class="who"><b>Zulfadli Rizal</b><small>zulfr@bprbangunarta.co.id</small></div>
+        <i data-lucide="chevrons-up-down" class="swap"></i>
+      </button>
+    </div>
+  </aside>
+</div>

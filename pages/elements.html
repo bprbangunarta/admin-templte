@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
+  <title>Elements — Admin Template</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/vendor/select2/select2-4.1.0-rc.0.min.css">
+  <link rel="stylesheet" href="/assets/vendor/flatpickr/flatpickr-4.6.13.min.css">
+  <link rel="stylesheet" href="/assets/vendor/leaflet/leaflet-1.9.4.min.css">
+  <link rel="stylesheet" href="/assets/vendor/glightbox/glightbox-3.3.0.min.css">
+  <link rel="stylesheet" href="/assets/vendor/quill/quill-1.3.7.snow.css">
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+
+<body data-title="Elements" data-nav="ui-element" data-sub="elements">
+  <div class="app">
+    <div class="backdrop" id="backdrop"></div>
+
+    <div data-include="/partials/sidebar.html"></div>
+
+    <div class="main">
+      <div data-include="/partials/topbar.html"></div>
+
+      <div class="workspace">
+        <div data-include="/partials/submenu.html"></div>
+
+        <div class="content">
+          <nav class="breadcrumb">
+            <a>UI Element</a>
+            <span class="sep"><i data-lucide="chevron-right"></i></span>
+            <span class="current">Elements</span>
+          </nav>
+
+          <!-- Alert -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Alert</h3>
+            </div>
+            <div style="padding:14px 16px;">
+              <div class="alert info"><i data-lucide="info"></i>Informasi: data berhasil dimuat.</div>
+              <div class="alert success"><i data-lucide="check-circle"></i>Sukses: perubahan telah disimpan.</div>
+              <div class="alert warning"><i data-lucide="alert-triangle"></i>Perhatian: kuota hampir habis.</div>
+              <div class="alert danger" style="margin-bottom:0;"><i data-lucide="x-circle"></i>Gagal: koneksi terputus.
+              </div>
+            </div>
+          </div>
+
+          <!-- Input & Textarea -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Input & Textarea</h3>
+            </div>
+            <div style="padding:16px;">
+              <div class="row">
+                <div class="col-4">
+                  <div class="form-group"><label class="form-label">Nama Lengkap</label><input type="text"
+                      class="form-control" placeholder="Masukkan nama"></div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group"><label class="form-label">Email</label><input type="email"
+                      class="form-control" placeholder="nama@email.com"></div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <div class="input-password">
+                      <input type="password" class="form-control" placeholder="••••••••">
+                      <button type="button" class="toggle-eye" title="Tampilkan/sembunyikan">
+                        <i data-lucide="eye" class="eye-on"></i><i data-lucide="eye-off" class="eye-off"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-4">
+                  <div class="form-group"><label class="form-label">Ukuran Kecil (.sm)</label><input type="text"
+                      class="form-control sm" placeholder="Input kecil"></div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group"><label class="form-label">Ukuran Default</label><input type="text"
+                      class="form-control" placeholder="Input default"></div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group"><label class="form-label">Ukuran Besar (.lg)</label><input type="text"
+                      class="form-control lg" placeholder="Input besar"></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label class="form-label">Nominal (input group)</label>
+                    <div class="input-group"><span class="input-group-text">Rp</span><input type="text"
+                        class="form-control" placeholder="0"><span class="input-group-text">,00</span></div>
+                  </div>
+                  <div class="form-group" style="margin-bottom:0;"><label class="form-label">Nonaktif
+                      (disabled)</label><input type="text" class="form-control" value="Tidak dapat diubah" disabled>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group" style="margin-bottom:0;"><label class="form-label">Catatan</label><textarea
+                      class="form-control" placeholder="Tulis catatan…"></textarea>
+                    <div class="form-hint">Maksimal 500 karakter.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Select & Select2 -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Select & Select2</h3>
+            </div>
+            <div style="padding:16px;">
+              <div class="row">
+                <div class="col-4">
+                  <div class="form-group" style="margin-bottom:0;"><label class="form-label">Select
+                      Native</label><select class="form-control">
+                      <option>Pilih jabatan</option>
+                      <option>Direktur Utama</option>
+                      <option>Teller</option>
+                      <option>Account Officer</option>
+                    </select></div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group" style="margin-bottom:0;"><label class="form-label">Select2
+                      (pencarian)</label><select class="select2">
+                      <option>Pamanukan</option>
+                      <option>Sukamandi</option>
+                      <option>Pusakajaya</option>
+                      <option>Pusat</option>
+                    </select></div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group" style="margin-bottom:0;"><label class="form-label">Select2
+                      (multi)</label><select class="select2-multi" multiple>
+                      <option>Simpanan</option>
+                      <option>Pinjaman</option>
+                      <option>Deposito</option>
+                      <option>Tabungan</option>
+                    </select></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Checkbox, Radio & Switch -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Checkbox, Radio & Switch</h3>
+            </div>
+            <div style="padding:16px;">
+              <div class="row">
+                <div class="col-4">
+                  <label class="form-label">Checkbox</label>
+                  <label class="form-check"><input type="checkbox" checked> Simpanan</label>
+                  <label class="form-check"><input type="checkbox"> Pinjaman</label>
+                  <label class="form-check"><input type="checkbox"> Deposito</label>
+                </div>
+                <div class="col-4">
+                  <label class="form-label">Radio</label>
+                  <label class="form-check"><input type="radio" name="jk" checked> Laki-laki</label>
+                  <label class="form-check"><input type="radio" name="jk"> Perempuan</label>
+                </div>
+                <div class="col-4">
+                  <label class="form-label">Switch</label>
+                  <label class="switch"><input type="checkbox" checked><span class="track"></span> Notifikasi
+                    aktif</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tombol -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Tombol</h3>
+            </div>
+            <div style="padding:16px;">
+              <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:14px;">
+                <button class="btn primary">Primary</button>
+                <button class="btn outline">Outline</button>
+                <button class="btn success">Success</button>
+                <button class="btn danger">Danger</button>
+                <button class="btn ghost">Ghost</button>
+              </div>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:14px;">
+                <button class="btn primary sm">Small</button>
+                <button class="btn primary">Default</button>
+                <button class="btn primary lg">Large</button>
+              </div>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:14px;">
+                <button class="btn primary"><i data-lucide="plus"></i> Tambah</button>
+                <button class="btn outline"><i data-lucide="download"></i> Unduh</button>
+                <button class="btn danger"><i data-lucide="trash-2"></i> Hapus</button>
+                <button class="btn outline" title="Setelan" style="padding:7px 9px;"><i
+                    data-lucide="settings"></i></button>
+              </div>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+                <button class="btn primary" disabled>Primary Disabled</button>
+                <button class="btn outline" disabled>Outline Disabled</button>
+                <button class="btn danger" disabled>Danger Disabled</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Validasi Form & Toast -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Validasi Form & Toast</h3>
+            </div>
+            <div class="p-4">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group mb-0">
+                    <label class="form-label">Email (tidak valid)</label>
+                    <input class="form-control is-invalid" value="nama@salah">
+                    <div class="invalid-feedback">Format email tidak valid.</div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group mb-0">
+                    <label class="form-label">Username (valid)</label>
+                    <input class="form-control is-valid" value="zulfadli">
+                    <div class="valid-feedback">Username tersedia.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap gap-2 mt-4">
+                <button class="btn success" data-toast="success" data-toast-title="Berhasil"
+                  data-toast-msg="Data berhasil disimpan.">Toast Sukses</button>
+                <button class="btn danger" data-toast="danger" data-toast-title="Gagal"
+                  data-toast-msg="Terjadi kesalahan.">Toast Error</button>
+                <button class="btn outline" data-toast="warning" data-toast-msg="Kuota hampir habis.">Toast
+                  Peringatan</button>
+                <button class="btn outline" data-toast="info" data-toast-msg="Ada pembaruan tersedia.">Toast
+                  Info</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Warna & State -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Warna & State</h3>
+            </div>
+            <div style="padding:16px;">
+              <label class="form-label">Background solid (teks otomatis kontras)</label>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
+                <div class="bg-primary" style="padding:10px 14px; border-radius:8px;">Primary</div>
+                <div class="bg-success" style="padding:10px 14px; border-radius:8px;">Success</div>
+                <div class="bg-danger" style="padding:10px 14px; border-radius:8px;">Danger</div>
+                <div class="bg-warning" style="padding:10px 14px; border-radius:8px;">Warning</div>
+                <div class="bg-info" style="padding:10px 14px; border-radius:8px;">Info</div>
+                <div class="bg-dark" style="padding:10px 14px; border-radius:8px;">Dark</div>
+                <div class="bg-light" style="padding:10px 14px; border-radius:8px;">Light</div>
+              </div>
+              <label class="form-label">Background lembut (tint)</label>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
+                <div class="bg-primary-soft" style="padding:10px 14px; border-radius:8px;">Primary</div>
+                <div class="bg-success-soft" style="padding:10px 14px; border-radius:8px;">Success</div>
+                <div class="bg-danger-soft" style="padding:10px 14px; border-radius:8px;">Danger</div>
+                <div class="bg-warning-soft" style="padding:10px 14px; border-radius:8px;">Warning</div>
+                <div class="bg-info-soft" style="padding:10px 14px; border-radius:8px;">Info</div>
+              </div>
+              <label class="form-label">Teks berwarna</label>
+              <div style="display:flex; flex-wrap:wrap; gap:14px; margin-bottom:16px; font-weight:500;">
+                <span class="text-primary">Primary</span><span class="text-success">Success</span><span
+                  class="text-danger">Danger</span><span class="text-warning">Warning</span><span
+                  class="text-info">Info</span><span class="text-muted">Muted</span>
+              </div>
+              <label class="form-label">State interaktif (arahkan / klik)</label>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+                <button class="bg-primary" style="padding:8px 14px; border:none; border-radius:8px;">Hover &amp;
+                  active</button>
+                <span class="bg-info-soft clickable"
+                  style="padding:6px 12px; border-radius:20px; font-size:var(--fs-sm); font-weight:500;">Chip
+                  clickable</span>
+                <a class="link">Tautan teks</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grid -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Grid Kolom (12 kolom)</h3>
+            </div>
+            <div style="padding:16px;">
+              <div class="row">
+                <div class="col-6">
+                  <div class="col-demo">.col-6</div>
+                </div>
+                <div class="col-6">
+                  <div class="col-demo">.col-6</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <div class="col-demo">.col-4</div>
+                </div>
+                <div class="col-4">
+                  <div class="col-demo">.col-4</div>
+                </div>
+                <div class="col-4">
+                  <div class="col-demo">.col-4</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="col-demo">.col-3</div>
+                </div>
+                <div class="col-3">
+                  <div class="col-demo">.col-3</div>
+                </div>
+                <div class="col-3">
+                  <div class="col-demo">.col-3</div>
+                </div>
+                <div class="col-3">
+                  <div class="col-demo">.col-3</div>
+                </div>
+              </div>
+              <div class="row" style="margin-bottom:0;">
+                <div class="col-3">
+                  <div class="col-demo">.col-3</div>
+                </div>
+                <div class="col-4">
+                  <div class="col-demo">.col-4</div>
+                </div>
+                <div class="col-5">
+                  <div class="col-demo">.col-5</div>
+                </div>
+              </div>
+              <div class="form-hint" style="margin-top:6px;">Di layar mobile, semua kolom otomatis menjadi lebar penuh.
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Tabs</h3>
+            </div>
+            <div style="padding:16px;">
+              <div class="tabs"><button class="tab active">Profil</button><button class="tab">Keamanan</button><button
+                  class="tab">Notifikasi</button></div>
+              <div class="tab-panel active">Konten tab <b>Profil</b> — informasi dasar pengguna.</div>
+              <div class="tab-panel">Konten tab <b>Keamanan</b> — kata sandi & sesi.</div>
+              <div class="tab-panel">Konten tab <b>Notifikasi</b> — preferensi pemberitahuan.</div>
+            </div>
+          </div>
+
+          <!-- Modal -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Modal</h3>
+            </div>
+            <div style="padding:16px; display:flex; flex-wrap:wrap; gap:8px;">
+              <button class="btn outline" data-modal-open="modalSm">Modal Kecil (.sm)</button>
+              <button class="btn primary" data-modal-open="modalDefault">Modal Default</button>
+              <button class="btn outline" data-modal-open="modalLg">Modal Besar (.lg)</button>
+            </div>
+          </div>
+
+          <!-- Progress -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Progress</h3>
+            </div>
+            <div class="p-4">
+              <div class="d-flex justify-between fs-sm text-muted mb-1"><span>Penyimpanan</span><span>72%</span>
+              </div>
+              <div class="progress mb-3">
+                <div class="bar" style="width:72%"></div>
+              </div>
+              <div class="d-flex justify-between fs-sm text-muted mb-1"><span>Bandwidth</span><span>48%</span></div>
+              <div class="progress mb-3">
+                <div class="bar blue" style="width:48%"></div>
+              </div>
+              <div class="d-flex justify-between fs-sm text-muted mb-1"><span>Kuota (hampir
+                  habis)</span><span>91%</span></div>
+              <div class="progress">
+                <div class="bar red" style="width:91%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Star Rating -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Star Rating</h3>
+            </div>
+            <div class="p-4">
+              <div class="mb-3">
+                <div class="fs-sm text-muted mb-1">Interaktif (klik)</div>
+                <div class="rating" data-value="3">
+                  <span class="on"><i data-lucide="star"></i></span><span class="on"><i
+                      data-lucide="star"></i></span><span class="on"><i data-lucide="star"></i></span><span><i
+                      data-lucide="star"></i></span><span><i data-lucide="star"></i></span>
+                </div>
+              </div>
+              <div>
+                <div class="fs-sm text-muted mb-1">Readonly (4/5)</div>
+                <div class="rating readonly">
+                  <span class="on"><i data-lucide="star"></i></span><span class="on"><i
+                      data-lucide="star"></i></span><span class="on"><i data-lucide="star"></i></span><span
+                    class="on"><i data-lucide="star"></i></span><span><i data-lucide="star"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Date Picker -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Date Picker</h3>
+            </div>
+            <div class="p-4">
+              <div class="form-group"><label class="form-label">Tanggal (single)</label><input id="dpSingle"
+                  class="form-control" placeholder="Pilih tanggal"></div>
+              <div class="form-group mb-0"><label class="form-label">Rentang tanggal (range)</label><input id="dpRange"
+                  class="form-control" placeholder="Pilih rentang"></div>
+            </div>
+          </div>
+
+          <!-- Placeholder / Skeleton -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Placeholder / Skeleton</h3>
+            </div>
+            <div class="p-4">
+              <div class="d-flex gap-3 items-center mb-3">
+                <div class="skeleton avatar"></div>
+                <div style="flex:1">
+                  <div class="skeleton line w40"></div>
+                  <div class="skeleton line w60"></div>
+                </div>
+              </div>
+              <div class="skeleton thumb"></div>
+            </div>
+          </div>
+
+          <!-- Tracking / Timeline -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Tracking / Timeline</h3>
+            </div>
+            <div class="p-4">
+              <div class="track">
+                <div class="step done">
+                  <div class="t">Pesanan dibuat</div>
+                  <div class="d">7 Sep 2026, 09:12</div>
+                </div>
+                <div class="step done">
+                  <div class="t">Pembayaran dikonfirmasi</div>
+                  <div class="d">7 Sep 2026, 09:20</div>
+                </div>
+                <div class="step done">
+                  <div class="t">Sedang diproses</div>
+                  <div class="d">7 Sep 2026, 10:05</div>
+                </div>
+                <div class="step">
+                  <div class="t">Dikirim</div>
+                  <div class="d">Menunggu</div>
+                </div>
+                <div class="step">
+                  <div class="t">Selesai</div>
+                  <div class="d">Menunggu</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Code Block (syntax highlight) -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Code Block (syntax highlight)</h3><span class="text-muted fs-sm">tempel kode ter-escape</span>
+            </div>
+            <div class="p-4">
+              <div class="code-block" data-lang="html">
+                <div class="cb-head">
+                  <div class="cb-dots"><span></span><span></span><span></span></div><span class="cb-lang">html</span>
+                </div>
+                <button class="copy" title="Salin"><i data-lucide="copy"></i></button>
+                <div class="cb-body">
+                  <pre><code class="language-html">&lt;!--[ Blockquote (Style 2) ]--&gt;
+&lt;blockquote class='s2'&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum dignissim diam, et efficitur felis commodo et.&lt;/p&gt;
+  &lt;span&gt;Anonymous&lt;/span&gt;
+&lt;/blockquote&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Color Picker -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Color Picker</h3>
+            </div>
+            <div class="p-4">
+              <div class="d-flex items-center gap-3 mb-3"><input type="color" class="form-control" value="#d97757"
+                  id="cp"><span id="cpHex" class="fs-md">#d97757</span></div>
+              <div class="color-swatches">
+                <span class="color-swatch active" data-c="#d97757" style="background:#d97757"></span>
+                <span class="color-swatch" data-c="#2f6fed" style="background:#2f6fed"></span>
+                <span class="color-swatch" data-c="#3c9a5f" style="background:#3c9a5f"></span>
+                <span class="color-swatch" data-c="#cf913a" style="background:#cf913a"></span>
+                <span class="color-swatch" data-c="#cf4a3f" style="background:#cf4a3f"></span>
+                <span class="color-swatch" data-c="#29261f" style="background:#29261f"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Signature -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Signature Pad</h3>
+            </div>
+            <div class="p-4">
+              <div class="sig-pad"><button class="btn outline sm sig-clear" id="sigClear" title="Bersihkan"><i
+                    data-lucide="trash-2"></i></button><canvas id="sigCanvas"></canvas></div>
+              <div class="d-flex justify-end mt-3"><button class="btn primary sm" id="sigSave" data-toast="success"
+                  data-toast-msg="Tanda tangan disimpan.">Simpan</button></div>
+            </div>
+          </div>
+
+          <!-- Dropzone -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Dropzone (drag &amp; drop)</h3>
+            </div>
+            <div class="p-4">
+              <div class="dropzone" id="dz"><i data-lucide="upload-cloud"></i>
+                <div>Seret berkas ke sini atau <span class="text-primary">klik untuk pilih</span></div><input
+                  type="file" id="dzInput" multiple hidden>
+              </div>
+              <div class="dz-list" id="dzList"></div>
+            </div>
+          </div>
+
+          <!-- Inline Player -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Inline Player</h3>
+            </div>
+            <div class="p-4 player">
+              <div class="fs-sm text-muted mb-1">Audio</div>
+              <audio controls src="https://www.w3schools.com/html/horse.mp3"></audio>
+              <div class="fs-sm text-muted mb-1 mt-3">Video</div>
+              <video controls poster="https://picsum.photos/seed/vid/640/360"
+                src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+            </div>
+          </div>
+
+          <!-- WYSIWYG -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>WYSIWYG Editor (Quill)</h3>
+            </div>
+            <div class="p-4">
+              <div id="editor">
+                <p>Tulis konten <b>kaya format</b> di sini…</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gallery + Lightbox -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Gallery / Photogrid + Lightbox</h3>
+            </div>
+            <div class="p-4">
+              <div class="gallery">
+                <a href="https://picsum.photos/seed/a/1000" class="glightbox"><img
+                    src="https://picsum.photos/seed/a/240" alt=""></a>
+                <a href="https://picsum.photos/seed/b/1000" class="glightbox"><img
+                    src="https://picsum.photos/seed/b/240" alt=""></a>
+                <a href="https://picsum.photos/seed/c/1000" class="glightbox"><img
+                    src="https://picsum.photos/seed/c/240" alt=""></a>
+                <a href="https://picsum.photos/seed/d/1000" class="glightbox"><img
+                    src="https://picsum.photos/seed/d/240" alt=""></a>
+                <a href="https://picsum.photos/seed/e/1000" class="glightbox"><img
+                    src="https://picsum.photos/seed/e/240" alt=""></a>
+                <a href="https://picsum.photos/seed/f/1000" class="glightbox"><img
+                    src="https://picsum.photos/seed/f/240" alt=""></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Peta interaktif (Leaflet + OpenStreetMap) -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Peta Interaktif (Leaflet + OpenStreetMap)</h3><span class="text-muted fs-sm">gratis, tanpa API
+                key</span>
+            </div>
+            <div class="p-3">
+              <div id="leafMap" style="height:340px; border-radius:8px; z-index:1;"></div>
+            </div>
+          </div>
+
+          <!-- Pricing -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Pricing Table</h3>
+            </div>
+            <div class="p-4">
+              <div class="pricing">
+                <div class="price-card">
+                  <div class="plan">Starter</div>
+                  <div class="amt">Rp 0<span>/bln</span></div>
+                  <ul class="price-list">
+                    <li><i data-lucide="check"></i> 1 pengguna</li>
+                    <li><i data-lucide="check"></i> 5 proyek</li>
+                    <li class="off"><i data-lucide="x"></i> Dukungan prioritas</li>
+                    <li class="off"><i data-lucide="x"></i> Laporan lanjutan</li>
+                  </ul>
+                  <button class="btn outline w-100">Pilih Paket</button>
+                </div>
+                <div class="price-card featured">
+                  <div class="plan">Professional</div>
+                  <div class="amt">Rp 99rb<span>/bln</span></div>
+                  <ul class="price-list">
+                    <li><i data-lucide="check"></i> 10 pengguna</li>
+                    <li><i data-lucide="check"></i> Proyek tak terbatas</li>
+                    <li><i data-lucide="check"></i> Dukungan prioritas</li>
+                    <li class="off"><i data-lucide="x"></i> Laporan lanjutan</li>
+                  </ul>
+                  <button class="btn primary w-100">Pilih Paket</button>
+                </div>
+                <div class="price-card">
+                  <div class="plan">Business</div>
+                  <div class="amt">Rp 199rb<span>/bln</span></div>
+                  <ul class="price-list">
+                    <li><i data-lucide="check"></i> Pengguna tak terbatas</li>
+                    <li><i data-lucide="check"></i> Proyek tak terbatas</li>
+                    <li><i data-lucide="check"></i> Dukungan prioritas</li>
+                    <li><i data-lucide="check"></i> Laporan lanjutan</li>
+                  </ul>
+                  <button class="btn outline w-100">Pilih Paket</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Accordion</h3>
+            </div>
+            <div class="p-4">
+              <div class="accordion">
+                <div class="acc-item open">
+                  <div class="acc-head">Bagaimana cara mengubah warna tema?<i data-lucide="chevron-down"
+                      class="chev"></i></div>
+                  <div class="acc-body">Ubah variabel <code>--accent</code> dan <code>--accent-soft</code> di blok
+                    <code>:root</code> pada <code>assets/css/app.css</code>. Seluruh komponen otomatis mengikuti.
+                  </div>
+                </div>
+                <div class="acc-item">
+                  <div class="acc-head">Apakah mendukung mode gelap?<i data-lucide="chevron-down" class="chev"></i>
+                  </div>
+                  <div class="acc-body">Ya. Klik ikon bulan/matahari di kanan atas. Preferensi tersimpan otomatis dan
+                    mengikuti pengaturan sistem secara default.</div>
+                </div>
+                <div class="acc-item">
+                  <div class="acc-head">Apakah responsif di ponsel?<i data-lucide="chevron-down" class="chev"></i></div>
+                  <div class="acc-body">Seluruh halaman dioptimalkan untuk desktop, tablet, dan ponsel — sidebar menjadi
+                    drawer, tabel bisa di-scroll, grid menyesuaikan.</div>
+                </div>
+                <div class="acc-item">
+                  <div class="acc-head">Bagaimana menambah halaman baru?<i data-lucide="chevron-down" class="chev"></i>
+                  </div>
+                  <div class="acc-body">Salin salah satu file di folder <code>pages/</code>, sertakan partial sidebar
+                    &amp; topbar, lalu atur <code>data-title</code> dan <code>data-nav</code> pada
+                    <code>&lt;body&gt;</code>.
+                  </div>
+                </div>
+                <div class="acc-item">
+                  <div class="acc-head">Apakah bisa dipakai dengan Laravel?<i data-lucide="chevron-down"
+                      class="chev"></i></div>
+                  <div class="acc-body">Bisa. Partial dipetakan ke Blade <code>@include</code>, folder
+                    <code>assets/</code> ke <code>public/assets/</code>. Lihat README untuk tabel migrasi.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calendar -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Kelender</h3>
+            </div>
+            <div class="p-4">
+              <div class="cal-head">
+                <div class="cal-title" id="calTitle">—</div>
+                <div class="d-flex gap-2">
+                  <button class="btn outline sm" id="calPrev"><i data-lucide="chevron-left"></i></button>
+                  <button class="btn outline sm" id="calNext"><i data-lucide="chevron-right"></i></button>
+                </div>
+              </div>
+              <div class="cal-grid" id="calGrid"></div>
+            </div>
+          </div>
+
+          <!-- Invoice -->
+          <div class="panel mb-4">
+            <div class="panel-head" style="padding: 10px 20px;">
+              <h3 style="margin: 0;">Invoice</h3>
+              <div class="d-flex justify-end gap-2 no-print">
+                <button type="button" class="btn outline sm" onclick="window.print()">
+                  <i data-lucide="printer"></i> Cetak
+                </button>
+                <button type="button" class="btn primary sm" data-toast="success"
+                  data-toast-msg="Invoice diunduh sebagai PDF.">
+                  <i data-lucide="download"></i> Unduh PDF
+                </button>
+              </div>
+            </div>
+
+            <div class="p-4">
+              <div class="inv-head">
+                <div>
+                  <div class="inv-title">INVOICE</div>
+                  <div class="inv-sub">#INV-2026-0142</div>
+                </div>
+                <div class="text-end">
+                  <div class="fw-semibold">Admin Panel</div>
+                  <div class="inv-sub">Jl. Otista 123, Subang<br>bpr@bangunarta.co.id</div>
+                </div>
+              </div>
+
+              <div class="inv-grid">
+                <div>
+                  <div class="lbl">Ditagih kepada</div>
+                  <div class="fw-semibold">Budi Rahardjo</div>
+                  <div class="inv-sub">Jl. Merdeka 45, Bandung<br>budi@email.com</div>
+                </div>
+                <div class="text-end">
+                  <div class="lbl">Tanggal</div>
+                  <div>7 Sep 2026</div>
+                  <div class="lbl mt-2">Jatuh tempo</div>
+                  <div>21 Sep 2026</div>
+                </div>
+              </div>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Deskripsi</th>
+                      <th>Qty</th>
+                      <th>Harga</th>
+                      <th class="text-end">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jasa pengembangan modul</td>
+                      <td>1</td>
+                      <td>Rp 3.000.000</td>
+                      <td class="text-end">Rp 3.000.000</td>
+                    </tr>
+                    <tr>
+                      <td>Lisensi tahunan</td>
+                      <td>2</td>
+                      <td>Rp 500.000</td>
+                      <td class="text-end">Rp 1.000.000</td>
+                    </tr>
+                    <tr>
+                      <td>Pemeliharaan (bulan)</td>
+                      <td>1</td>
+                      <td>Rp 500.000</td>
+                      <td class="text-end">Rp 500.000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="inv-total-row">
+                <div class="inv-totals">
+                  <div class="r"><span>Subtotal</span>Rp 4.500.000</div>
+                  <div class="r"><span>PPN 11%</span>Rp 495.000</div>
+                  <div class="r grand"><span>Total</span>Rp 4.995.000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Modal instances ===== -->
+  <div class="modal-overlay" id="modalSm">
+    <div class="modal sm">
+      <div class="modal-head">
+        <h3>Konfirmasi</h3><button class="modal-close" data-modal-close>&times;</button>
+      </div>
+      <div class="modal-body">Yakin ingin menghapus data ini?</div>
+      <div class="modal-foot"><button class="btn outline" data-modal-close>Batal</button><button class="btn danger"
+          data-modal-close>Hapus</button></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalDefault">
+    <div class="modal">
+      <div class="modal-head">
+        <h3>Tambah Pengguna</h3><button class="modal-close" data-modal-close>&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group"><label class="form-label">Nama</label><input class="form-control"
+            placeholder="Nama lengkap"></div>
+        <div class="form-group" style="margin-bottom:0;"><label class="form-label">Email</label><input
+            class="form-control" placeholder="nama@email.com"></div>
+      </div>
+      <div class="modal-foot"><button class="btn outline" data-modal-close>Batal</button><button class="btn primary"
+          data-modal-close>Simpan</button></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalLg">
+    <div class="modal lg">
+      <div class="modal-head">
+        <h3>Detail Pengguna</h3><button class="modal-close" data-modal-close>&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group" style="margin-bottom:0;"><label class="form-label">Nama</label><input
+                class="form-control" value="Zulfadli Rizal"></div>
+          </div>
+          <div class="col-6">
+            <div class="form-group" style="margin-bottom:0;"><label class="form-label">Jabatan</label><input
+                class="form-control" value="Administrator"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot"><button class="btn outline" data-modal-close>Tutup</button><button class="btn primary"
+          data-modal-close>Simpan</button></div>
+    </div>
+  </div>
+
+  <script src="/assets/vendor/jquery/jquery-3.7.1.min.js"></script>
+  <script src="/assets/vendor/select2/select2-4.1.0-rc.0.min.js"></script>
+  <script src="/assets/vendor/lucide/lucide-0.294.0.min.js"></script>
+  <script src="/assets/vendor/flatpickr/flatpickr-4.6.13.min.js"></script>
+  <script src="/assets/vendor/leaflet/leaflet-1.9.4.min.js"></script>
+  <script src="/assets/vendor/signature_pad/signature_pad-4.1.7.umd.min.js"></script>
+  <script src="/assets/vendor/glightbox/glightbox-3.3.0.min.js"></script>
+  <script src="/assets/vendor/quill/quill-1.3.7.min.js"></script>
+  <script src="/assets/vendor/highlightjs/highlight-11.9.0.min.js"></script>
+  <script src="/assets/js/app.js"></script>
+
+  <script>
+    $(function () {
+      $('.select2').select2({ width: '100%' });
+      $('.select2-multi').select2({ width: '100%', placeholder: 'Pilih beberapa' });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('ui:ready', function () {
+      if (window.flatpickr) {
+        flatpickr('#dpSingle', { dateFormat: 'd/m/Y' });
+        flatpickr('#dpRange', { mode: 'range', dateFormat: 'd/m/Y' });
+      }
+
+      // Color picker
+      var cp = document.getElementById('cp'), cpHex = document.getElementById('cpHex');
+      if (cp) {
+        cp.addEventListener('input', function () { cpHex.textContent = cp.value; });
+        document.querySelectorAll('.color-swatch').forEach(function (s) {
+          s.addEventListener('click', function () {
+            document.querySelectorAll('.color-swatch').forEach(function (x) { x.classList.remove('active'); });
+            s.classList.add('active'); cp.value = s.dataset.c; cpHex.textContent = s.dataset.c;
+          });
+        });
+      }
+
+      // Signature pad
+      var cv = document.getElementById('sigCanvas');
+      if (cv && window.SignaturePad) {
+        function fit() { var r = window.devicePixelRatio || 1; var w = cv.offsetWidth; cv.width = w * r; cv.height = 180 * r; cv.getContext('2d').scale(r, r); }
+        fit();
+        var sp = new SignaturePad(cv, { penColor: getComputedStyle(document.documentElement).getPropertyValue('--text').trim() });
+        window.addEventListener('resize', function () { fit(); sp.clear(); });
+        document.getElementById('sigClear').addEventListener('click', function () { sp.clear(); });
+      }
+
+      // Dropzone (drag & drop kustom)
+      var dz = document.getElementById('dz'), dzIn = document.getElementById('dzInput'), dzList = document.getElementById('dzList');
+      if (dz) {
+        function human(b) { return b < 1024 ? b + ' B' : b < 1048576 ? (b / 1024).toFixed(1) + ' KB' : (b / 1048576).toFixed(1) + ' MB'; }
+        function add(files) {
+          [].forEach.call(files, function (f) {
+            var el = document.createElement('div'); el.className = 'dz-file';
+            el.innerHTML = '<i data-lucide="file"></i><span>' + f.name + '</span><span class="sz">' + human(f.size) + '</span><span class="rm"><i data-lucide="x"></i></span>';
+            el.querySelector('.rm').addEventListener('click', function () { el.remove(); });
+            dzList.appendChild(el);
+          });
+          if (window.lucide) lucide.createIcons();
+        }
+        dz.addEventListener('click', function () { dzIn.click(); });
+        dzIn.addEventListener('change', function () { add(dzIn.files); });
+        ['dragover', 'dragenter'].forEach(function (e) { dz.addEventListener(e, function (ev) { ev.preventDefault(); dz.classList.add('drag'); }); });
+        ['dragleave', 'drop'].forEach(function (e) { dz.addEventListener(e, function (ev) { ev.preventDefault(); dz.classList.remove('drag'); }); });
+        dz.addEventListener('drop', function (ev) { add(ev.dataTransfer.files); });
+      }
+
+      // WYSIWYG (Quill)
+      if (window.Quill && document.getElementById('editor')) {
+        new Quill('#editor', {
+          theme: 'snow', placeholder: 'Tulis sesuatu…',
+          modules: { toolbar: [['bold', 'italic', 'underline'], [{ header: [1, 2, false] }], [{ list: 'ordered' }, { list: 'bullet' }], ['link', 'clean']] }
+        });
+      }
+
+      // Lightbox
+      if (window.GLightbox) GLightbox({ selector: '.glightbox' });
+
+      if (window.L && document.getElementById('leafMap')) {
+        var accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+        var map = L.map('leafMap').setView([-2.5, 118], 4);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19, attribution: '© OpenStreetMap'
+        }).addTo(map);
+        [['Jakarta', -6.2, 106.8], ['Surabaya', -7.25, 112.75], ['Medan', 3.6, 98.7], ['Makassar', -5.13, 119.42]]
+          .forEach(function (c) {
+            L.circleMarker([c[1], c[2]], { radius: 7, color: '#fff', weight: 2, fillColor: accent, fillOpacity: 1 })
+              .addTo(map).bindPopup('<b>' + c[0] + '</b>');
+          });
+        setTimeout(function () { map.invalidateSize(); }, 200);
+      }
+    });
+  </script>
+
+  <script>
+    (function () {
+      var events = {
+        '2026-09-07': [{ t: 'Rapat tim', c: 'blue' }],
+        '2026-09-12': [{ t: 'Rilis v1.0', c: 'green' }],
+        '2026-09-20': [{ t: 'Deadline proyek', c: '' }],
+        '2026-09-25': [{ t: 'Audit internal', c: 'blue' }]
+      };
+      var today = '2026-09-07';
+      var cur = new Date(2026, 8, 1);
+      var dow = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+      var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+      var pad = function (n) { return String(n).padStart(2, '0'); };
+
+      function render() {
+        var y = cur.getFullYear(), m = cur.getMonth();
+        document.getElementById('calTitle').textContent = months[m] + ' ' + y;
+        var start = new Date(y, m, 1).getDay();
+        var days = new Date(y, m + 1, 0).getDate();
+        var prev = new Date(y, m, 0).getDate();
+        var html = '';
+        dow.forEach(function (d) { html += '<div class="cal-dow">' + d + '</div>'; });
+        for (var i = 0; i < 42; i++) {
+          var num, cls = 'cal-cell', date = '', other = false;
+          if (i < start) { num = prev - start + 1 + i; other = true; }
+          else if (i >= start + days) { num = i - (start + days) + 1; other = true; }
+          else { num = i - start + 1; date = y + '-' + pad(m + 1) + '-' + pad(num); }
+          if (other) cls += ' other';
+          var evs = (!other && events[date]) || [];
+          if (!other && date === today) cls += ' today';
+          if (evs.length) cls += ' has-ev';
+          html += '<div class="' + cls + '"><div class="num">' + num + '</div>';
+          evs.forEach(function (e) { html += '<div class="cal-ev ' + (e.c || '') + '">' + e.t + '</div>'; });
+          html += '</div>';
+        }
+        document.getElementById('calGrid').innerHTML = html;
+      }
+      document.getElementById('calPrev').onclick = function () { cur.setMonth(cur.getMonth() - 1); render(); };
+      document.getElementById('calNext').onclick = function () { cur.setMonth(cur.getMonth() + 1); render(); };
+      render();
+    })();
+  </script>
+</body>
+
+</html>

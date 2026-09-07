@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
+  <title>Admin Panel — Kelola bisnis Anda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+
+<body>
+  <!-- NAV -->
+  <nav class="lp-nav">
+    <div class="in">
+      <div class="brand">
+        <div class="logo"
+          style="width:26px;height:26px;border-radius:7px;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:600;">
+          A</div>
+      </div>
+      <div class="brand-name">Admin Panel</div>
+      <div class="links"><a href="#fitur">Fitur</a><a href="#harga">Harga</a><a href="/pages/faq.html">FAQ</a></div>
+      <div class="right">
+        <div class="icon-btn theme-toggle" id="themeToggle" title="Ganti tema"><i data-lucide="moon" class="moon"></i><i
+            data-lucide="sun" class="sun"></i></div>
+        <a class="btn outline" href="/pages/auth/login.html">Masuk</a>
+        <a class="btn primary" href="/pages/auth/register.html">Daftar</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="lp-hero">
+    <span class="pill">✨ Versi 1.0 telah rilis</span>
+    <h1>Kelola bisnis Anda dari satu dashboard</h1>
+    <p>Template admin modern yang cepat, responsif, dan siap pakai — lengkap dengan chart, tabel, dan puluhan komponen.
+    </p>
+    <div class="cta">
+      <a class="btn primary lg" href="/index.html">Coba Gratis</a>
+      <a class="btn outline lg" href="/pages/charts.html">Lihat Demo</a>
+    </div>
+    <div class="lp-mock"><img src="https://picsum.photos/seed/dashboard/1200/680" alt="Preview dashboard"></div>
+  </header>
+
+  <!-- FITUR -->
+  <section class="lp-section" id="fitur">
+    <div class="lp-wrap">
+      <h2>Semua yang Anda butuhkan</h2>
+      <p class="sub">Komponen lengkap untuk membangun panel admin apa pun.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="ic"><i data-lucide="bar-chart-3"></i></div>
+          <h3>Analitik</h3>
+          <p>Chart interaktif (ApexCharts) untuk memantau performa secara real-time.</p>
+        </div>
+        <div class="feature-card">
+          <div class="ic"><i data-lucide="moon"></i></div>
+          <h3>Mode Gelap</h3>
+          <p>Tema terang & gelap yang tersimpan otomatis, mengikuti sistem.</p>
+        </div>
+        <div class="feature-card">
+          <div class="ic"><i data-lucide="smartphone"></i></div>
+          <h3>Responsif</h3>
+          <p>Tampil sempurna di desktop, tablet, hingga ponsel.</p>
+        </div>
+        <div class="feature-card">
+          <div class="ic"><i data-lucide="table"></i></div>
+          <h3>DataTables</h3>
+          <p>Tabel dengan pencarian, sortir, dan pagination siap pakai.</p>
+        </div>
+        <div class="feature-card">
+          <div class="ic"><i data-lucide="map"></i></div>
+          <h3>Peta</h3>
+          <p>Vector map & peta interaktif Leaflet tanpa API key.</p>
+        </div>
+        <div class="feature-card">
+          <div class="ic"><i data-lucide="shield-check"></i></div>
+          <h3>Aman</h3>
+          <p>Halaman autentikasi lengkap: login, register, reset password.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="lp-stats">
+    <div class="s"><b>12k+</b><span>Pengguna</span></div>
+    <div class="s"><b>99,9%</b><span>Uptime</span></div>
+    <div class="s"><b>4,9</b><span>Rating</span></div>
+    <div class="s"><b>24/7</b><span>Dukungan</span></div>
+  </div>
+
+  <!-- HARGA -->
+  <section class="lp-section" id="harga">
+    <div class="lp-wrap">
+      <h2>Harga sederhana</h2>
+      <p class="sub">Pilih paket yang sesuai dengan kebutuhan tim Anda.</p>
+      <div class="pricing">
+        <div class="price-card">
+          <div class="plan">Starter</div>
+          <div class="amt">Rp 0<span>/bln</span></div>
+          <ul class="price-list">
+            <li><i data-lucide="check"></i> 1 pengguna</li>
+            <li><i data-lucide="check"></i> 5 proyek</li>
+            <li class="off"><i data-lucide="x"></i> Dukungan prioritas</li>
+          </ul>
+          <a class="btn outline w-100" href="/pages/auth/register.html">Mulai</a>
+        </div>
+        <div class="price-card featured">
+          <div class="plan">Professional</div>
+          <div class="amt">Rp 99rb<span>/bln</span></div>
+          <ul class="price-list">
+            <li><i data-lucide="check"></i> 10 pengguna</li>
+            <li><i data-lucide="check"></i> Proyek tak terbatas</li>
+            <li><i data-lucide="check"></i> Dukungan prioritas</li>
+          </ul>
+          <a class="btn primary w-100" href="/pages/auth/register.html">Pilih Paket</a>
+        </div>
+        <div class="price-card">
+          <div class="plan">Business</div>
+          <div class="amt">Rp 199rb<span>/bln</span></div>
+          <ul class="price-list">
+            <li><i data-lucide="check"></i> Pengguna tak terbatas</li>
+            <li><i data-lucide="check"></i> Laporan lanjutan</li>
+            <li><i data-lucide="check"></i> SLA khusus</li>
+          </ul>
+          <a class="btn outline w-100" href="/pages/auth/register.html">Hubungi Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="lp-wrap" style="padding-bottom:56px;">
+    <div class="lp-cta">
+      <h2>Siap memulai?</h2>
+      <p>Coba dashboard admin lengkap hari ini — gratis, tanpa kartu kredit.</p>
+      <a class="btn primary lg" href="/index.html">Masuk ke Dashboard</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="lp-footer">
+    <div class="in">
+      <div>© 2026 Admin Panel · BPR Bangunarta</div>
+      <div class="d-flex gap-3"><a href="#">Privasi</a><a href="#">Syarat</a><a href="/pages/faq.html">Bantuan</a></div>
+    </div>
+  </footer>
+
+  <script src="/assets/vendor/lucide/lucide-0.294.0.min.js"></script>
+  <script src="/assets/js/app.js"></script>
+</body>
+
+</html>
