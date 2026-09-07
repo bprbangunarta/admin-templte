@@ -111,6 +111,39 @@
             </div>
           </div>
 
+          <!-- Validasi Form -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Validasi Form</h3>
+              <span class="text-muted fs-sm">state: error, sukses, wajib diisi</span>
+            </div>
+            <div style="padding:16px;">
+              <div class="row">
+                <div class="col-4">
+                  <div class="form-group">
+                    <label class="form-label">Username <span class="req">*</span></label>
+                    <input type="text" class="form-control is-invalid" value="ab">
+                    <div class="form-error"><i data-lucide="alert-circle"></i>Minimal 4 karakter.</div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <label class="form-label">Email <span class="req">*</span></label>
+                    <input type="email" class="form-control is-valid" value="rina@bprbangunarta.co.id">
+                    <div class="form-success"><i data-lucide="check-circle"></i>Email tersedia.</div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group" style="margin-bottom:0;">
+                    <label class="form-label">NIP <span class="req">*</span></label>
+                    <input type="text" class="form-control" placeholder="Wajib diisi" required>
+                    <div class="form-hint">Nomor Induk Pegawai (16 digit).</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Select & Select2 -->
           <div class="panel mb-4">
             <div class="panel-head">
@@ -205,6 +238,12 @@
                 <button class="btn primary" disabled>Primary Disabled</button>
                 <button class="btn outline" disabled>Outline Disabled</button>
                 <button class="btn danger" disabled>Danger Disabled</button>
+              </div>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:10px;">
+                <button class="btn primary" data-loading-demo>Simpan</button>
+                <button class="btn primary loading">Memuat</button>
+                <button class="btn outline loading">Memuat</button>
+                <span class="text-muted fs-sm">klik “Simpan” untuk lihat state loading 2 dtk</span>
               </div>
             </div>
           </div>
@@ -442,6 +481,20 @@
                 </div>
               </div>
               <div class="skeleton thumb"></div>
+            </div>
+          </div>
+
+          <!-- Empty State -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Empty State</h3>
+              <span class="text-muted fs-sm">saat data kosong / hasil filter nihil</span>
+            </div>
+            <div class="empty-state">
+              <div class="es-ic"><i data-lucide="inbox"></i></div>
+              <h4>Belum ada data</h4>
+              <p>Data pengguna belum tersedia. Tambahkan pengguna pertama untuk mulai mengelola akses.</p>
+              <button class="btn primary"><i data-lucide="plus"></i> Tambah Pengguna</button>
             </div>
           </div>
 

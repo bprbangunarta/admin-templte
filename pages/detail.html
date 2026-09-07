@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
+  <title>Detail Pengguna — Admin Template</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+
+<body data-title="Detail Pengguna">
+  <div class="app">
+    <div class="backdrop" id="backdrop"></div>
+    <div data-include="/partials/sidebar.html"></div>
+
+    <div class="main">
+      <div data-include="/partials/topbar.html"></div>
+
+      <div class="workspace">
+        <div class="content">
+          <nav class="breadcrumb">
+            <a href="/pages/datatable.html">Pengguna</a>
+            <span class="sep"><i data-lucide="chevron-right"></i></span>
+            <span class="current">Detail</span>
+          </nav>
+
+          <div class="row">
+            <!-- Kartu profil -->
+            <div class="col-4">
+              <div class="panel mb-4">
+                <div style="padding:20px; text-align:center;">
+                  <div class="avatar" style="width:72px; height:72px; font-size:24px; margin:0 auto 12px;">RM</div>
+                  <h3 style="font-size:var(--fs-lg); font-weight:600;">Rina Marlina</h3>
+                  <div class="text-muted fs-base" style="margin-top:2px;">Teller · Sukamandi</div>
+                  <div style="margin-top:10px;"><span class="badge green">Aktif</span></div>
+                  <div style="display:flex; gap:8px; justify-content:center; margin-top:16px;">
+                    <button class="btn primary sm"><i data-lucide="pencil"></i> Edit</button>
+                    <button class="btn outline sm"><i data-lucide="key-round"></i> Reset Sandi</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Informasi -->
+            <div class="col-8">
+              <div class="panel mb-4">
+                <div class="panel-head"><h3>Informasi Pegawai</h3></div>
+                <div style="padding:4px 16px 12px;">
+                  <dl class="desc-list">
+                    <dt>Nama Lengkap</dt><dd>Rina Marlina</dd>
+                    <dt>Username</dt><dd>rina.m</dd>
+                    <dt>Email</dt><dd>rina.marlina@gmail.com</dd>
+                    <dt>Jabatan</dt><dd>Teller</dd>
+                    <dt>Kantor</dt><dd>Sukamandi</dd>
+                    <dt>NIP</dt><dd>1990031420240012</dd>
+                    <dt>Bergabung</dt><dd>14 Maret 2024</dd>
+                    <dt>Status</dt><dd><span class="badge green">Aktif</span></dd>
+                  </dl>
+                </div>
+              </div>
+
+              <!-- Aktivitas -->
+              <div class="panel">
+                <div class="panel-head"><h3>Aktivitas Terakhir</h3></div>
+                <div style="padding:16px 16px 16px 20px;">
+                  <div class="track">
+                    <div class="step done"><div class="t">Login berhasil</div><div class="d">7 Sep 2026, 08:03 · IP 10.20.3.11</div></div>
+                    <div class="step done"><div class="t">Mengubah data nasabah #10245</div><div class="d">6 Sep 2026, 15:47</div></div>
+                    <div class="step done"><div class="t">Cetak laporan transaksi harian</div><div class="d">6 Sep 2026, 16:10</div></div>
+                    <div class="step"><div class="t">Sandi terakhir diubah</div><div class="d">1 Agu 2026</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/vendor/lucide/lucide-0.294.0.min.js"></script>
+  <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

@@ -13,11 +13,9 @@ admin-template/
 │   ├── elements.html          # Katalog komponen (form, tombol, grid, modal, validasi, toast, dll)
 │   ├── profile.html           # Profil pengguna (header + tabs + form)
 │   ├── settings.html          # Pengaturan (umum, notifikasi, keamanan)
-│   ├── invoice.html           # Invoice (siap cetak)
-│   ├── calendar.html          # Kalender bulanan (grid dinamis)
+│   ├── wizard.html            # Form wizard multi-langkah (stepper)
+│   ├── detail.html            # Halaman detail/show record (desc-list + timeline)
 │   ├── charts.html            # Galeri chart (ApexCharts): area, line, bar, donut, radial
-│   ├── components.html        # Progress, rating, date picker, skeleton, pricing, gallery, tracking, code, peta Leaflet
-│   ├── faq.html               # FAQ (accordion)
 │   ├── html-parser.html       # Alat escape HTML (untuk code block/Blogger)
 │   ├── files.html             # File manager (folder & file grid)
 │   ├── landing.html           # Landing page frontend (hero, fitur, harga, footer)
@@ -120,6 +118,12 @@ utilitas warna (`.bg-*`, `.text-*`, `.bg-*-soft`), **DataTables** (`pages/datata
 **vector map** (dashboard), dan **charts** (ApexCharts: area/line/bar/donut/radial — `pages/charts.html`).
 Chart & map **theme-aware**: warnanya dibaca dari CSS variable dan otomatis dibangun ulang saat dark mode.
 
+Tambahan: **command palette** pencarian (⌘K / Ctrl+K), **dropdown notifikasi** (lonceng + badge),
+**tombol loading** (`.btn.loading`), **empty state** (`.empty-state`), **skeleton**, **timeline** (`.track`),
+**form wizard** (`.js-wizard` — `pages/wizard.html`), dan **halaman detail** (`.desc-list` — `pages/detail.html`).
+Aksesibilitas: toggle memakai `<button>` + `aria-expanded`, focus-trap pada palette & modal,
+`:focus-visible`, serta menghormati `prefers-reduced-motion`.
+
 **Toast** dipanggil dari mana saja: `toast('Tersimpan', { type:'success', title:'Berhasil' })`
 atau lewat atribut `data-toast="success" data-toast-msg="..."` pada tombol.
 
@@ -162,9 +166,10 @@ Semua vendor disimpan di dalam proyek (bukan CDN) agar berjalan offline dan vers
 | GLightbox      | 3.3.0        | `assets/vendor/glightbox/`                                  |
 | Quill (WYSIWYG)| 1.3.7        | `assets/vendor/quill/`                                      |
 | highlight.js   | 11.9.0       | `assets/vendor/highlightjs/` (syntax highlight code block)  |
+| Inter (font)   | 5.0.16       | `assets/vendor/inter/` (woff2 400/500/600, `@font-face`)    |
 
-> Font **Inter** masih via Google Fonts. Untuk 100% offline, unduh Inter ke
-> `assets/fonts/` dan ganti `@import`/`<link>` di `index.html` dgn `@font-face` lokal.
+> Font **Inter** kini di-host lokal (`@font-face` di `app.css`) — 100% offline,
+> tanpa dependensi Google Fonts.
 
 ### Cara update versi
 

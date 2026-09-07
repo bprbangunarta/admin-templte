@@ -266,6 +266,16 @@
       });
     });
 
+    // demo tombol loading: <button data-loading-demo>
+    document.querySelectorAll('[data-loading-demo]').forEach(btn => btn.addEventListener('click', () => {
+      if (btn.classList.contains('loading')) return;
+      btn.classList.add('loading');
+      setTimeout(() => {
+        btn.classList.remove('loading');
+        if (window.toast) toast('Data berhasil disimpan.', { type: 'success', title: 'Tersimpan' });
+      }, 2000);
+    }));
+
     // tombol demo toast: <button data-toast="success" data-toast-title="..." data-toast-msg="...">
     document.querySelectorAll('[data-toast]').forEach(b => b.addEventListener('click', () => {
       toast(b.getAttribute('data-toast-msg') || 'Ini contoh notifikasi.', {
@@ -283,6 +293,29 @@
     if (themeBtn) themeBtn.addEventListener('click', () => {
       const dark = document.documentElement.getAttribute('data-theme') === 'dark';
       setTheme(dark ? 'light' : 'dark');
+    });
+
+    // form wizard (stepper): <div class="js-wizard"> … </div>
+    document.querySelectorAll('.js-wizard').forEach(wz => {
+      const steps = [...wz.querySelectorAll('.wiz-step')];
+      const panes = [...wz.querySelectorAll('.wiz-pane')];
+      const prev = wz.querySelector('[data-wiz="prev"]');
+      const next = wz.querySelector('[data-wiz="next"]');
+      const submit = wz.querySelector('[data-wiz="submit"]');
+      let cur = 0;
+      const show = i => {
+        cur = Math.max(0, Math.min(i, panes.length - 1));
+        panes.forEach((p, x) => p.classList.toggle('active', x === cur));
+        steps.forEach((s, x) => { s.classList.toggle('active', x === cur); s.classList.toggle('done', x < cur); });
+        if (prev) prev.disabled = cur === 0;
+        const last = cur === panes.length - 1;
+        if (next) next.hidden = last;
+        if (submit) submit.hidden = !last;
+      };
+      if (prev) prev.addEventListener('click', () => show(cur - 1));
+      if (next) next.addEventListener('click', () => show(cur + 1));
+      steps.forEach((s, i) => s.addEventListener('click', () => { if (i <= cur) show(i); }));
+      show(0);
     });
 
     initCmdK(setTheme);

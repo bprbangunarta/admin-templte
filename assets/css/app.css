@@ -56,6 +56,9 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* atribut [hidden] selalu menang atas display komponen (.btn, .cmdk, dll) */
+[hidden] { display: none !important; }
+
 /* semua tautan tanpa garis bawah secara default */
 a { text-decoration: none; color: inherit; }
 
@@ -600,6 +603,39 @@ select.form-control {
 .btn.danger  { background: var(--red);   border-color: var(--red);   color: #fff; }
 .btn.success:hover, .btn.danger:hover { filter: brightness(1.05); }
 .btn.success:active, .btn.danger:active { filter: brightness(.93); }
+
+/* Tombol loading (spinner) */
+.btn.loading { color: transparent !important; pointer-events: none; position: relative; }
+.btn.loading > * { visibility: hidden; }
+.btn.loading::after {
+  content: ""; position: absolute; width: 15px; height: 15px;
+  border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%;
+  color: #fff; animation: spin .6s linear infinite;
+}
+.btn.outline.loading::after, .btn.ghost.loading::after { color: var(--accent); }
+/* @keyframes spin didefinisikan di bagian PAGE LOADER */
+
+/* ============================================================
+   VALIDASI FORM
+   ============================================================ */
+.form-control.is-invalid { border-color: var(--red); }
+.form-control.is-invalid:focus { box-shadow: 0 0 0 3px color-mix(in srgb, var(--red) 20%, transparent); }
+.form-control.is-valid { border-color: var(--green); }
+.form-control.is-valid:focus { box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 20%, transparent); }
+.form-error { display: flex; align-items: center; gap: 5px; font-size: var(--fs-sm); color: var(--red); margin-top: 5px; }
+.form-error svg { width: 13px; height: 13px; flex-shrink: 0; }
+.form-success { display: flex; align-items: center; gap: 5px; font-size: var(--fs-sm); color: var(--green); margin-top: 5px; }
+.form-success svg { width: 13px; height: 13px; flex-shrink: 0; }
+.form-label .req { color: var(--red); margin-left: 2px; }
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+.empty-state { text-align: center; padding: 40px 20px; }
+.empty-state .es-ic { width: 52px; height: 52px; margin: 0 auto 12px; border-radius: 14px; background: var(--bg-sidebar); border: 1px solid var(--border); display: grid; place-items: center; color: var(--text-faint); }
+.empty-state .es-ic svg { width: 24px; height: 24px; }
+.empty-state h4 { font-size: var(--fs-md); font-weight: 600; margin-bottom: 4px; }
+.empty-state p { font-size: var(--fs-base); color: var(--text-muted); max-width: 320px; margin: 0 auto 14px; line-height: 1.5; }
 
 /* ============================================================
    GRID KOLOM (12 kolom, reusable, compact)
@@ -1473,3 +1509,29 @@ table.table-sm th, table.table-sm td { padding: 6px 12px; }
 /* badge biru (melengkapi green/amber/red) */
 .badge.blue { background: #e7ecfb; color: var(--blue); }
 :root[data-theme="dark"] .badge.blue { background: #233150; color: #9dbdf0; }
+
+/* ============================================================
+   FORM WIZARD (stepper multi-langkah)
+   ============================================================ */
+.wiz-steps { display: flex; align-items: flex-start; padding: 4px 4px 0; }
+.wiz-step { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; gap: 6px; }
+.wiz-step::before { content: ""; position: absolute; top: 14px; left: -50%; width: 100%; height: 2px; background: var(--border-strong); z-index: 0; }
+.wiz-step:first-child::before { display: none; }
+.wiz-step.done::before, .wiz-step.active::before { background: var(--accent); }
+.wiz-step .dot { position: relative; z-index: 1; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-content); border: 2px solid var(--border-strong); color: var(--text-faint); font-size: var(--fs-base); font-weight: 600; }
+.wiz-step .dot svg { width: 15px; height: 15px; }
+.wiz-step.active .dot { border-color: var(--accent); color: var(--accent); }
+.wiz-step.done .dot { background: var(--accent); border-color: var(--accent); color: #fff; }
+.wiz-step .lbl { font-size: var(--fs-sm); color: var(--text-muted); max-width: 110px; }
+.wiz-step.active .lbl { color: var(--text); font-weight: 500; }
+.wiz-pane { display: none; padding-top: 18px; }
+.wiz-pane.active { display: block; animation: cmdk-fade .2s ease; }
+.wiz-foot { display: flex; justify-content: space-between; gap: 8px; padding-top: 16px; margin-top: 16px; border-top: 1px solid var(--border); }
+@media (max-width: 560px) { .wiz-step .lbl { display: none; } }
+
+/* Description list (halaman detail/show) */
+.desc-list { display: grid; grid-template-columns: 150px 1fr; gap: 0; }
+.desc-list dt { padding: 10px 0; color: var(--text-muted); font-size: var(--fs-base); border-bottom: 1px solid var(--border); }
+.desc-list dd { padding: 10px 0; font-size: var(--fs-base); border-bottom: 1px solid var(--border); }
+.desc-list dt:last-of-type, .desc-list dd:last-of-type { border-bottom: none; }
+@media (max-width: 560px) { .desc-list { grid-template-columns: 1fr; } .desc-list dt { padding-bottom: 0; border-bottom: none; } .desc-list dd { padding-top: 2px; } }

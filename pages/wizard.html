@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
+  <title>Form Wizard — Admin Template</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+
+<body data-title="Form Wizard">
+  <div class="app">
+    <div class="backdrop" id="backdrop"></div>
+    <div data-include="/partials/sidebar.html"></div>
+
+    <div class="main">
+      <div data-include="/partials/topbar.html"></div>
+
+      <div class="workspace">
+        <div class="content">
+          <nav class="breadcrumb">
+            <a>Interface</a>
+            <span class="sep"><i data-lucide="chevron-right"></i></span>
+            <span class="current">Form Wizard</span>
+          </nav>
+
+          <div class="panel" style="max-width:720px;">
+            <div class="panel-head">
+              <h3>Pendaftaran Pegawai</h3>
+              <span class="text-muted fs-sm">3 langkah</span>
+            </div>
+            <div style="padding:18px;">
+              <div class="js-wizard">
+                <!-- Stepper -->
+                <div class="wiz-steps">
+                  <div class="wiz-step"><span class="dot">1</span><span class="lbl">Data Diri</span></div>
+                  <div class="wiz-step"><span class="dot">2</span><span class="lbl">Kepegawaian</span></div>
+                  <div class="wiz-step"><span class="dot">3</span><span class="lbl">Konfirmasi</span></div>
+                </div>
+
+                <!-- Langkah 1 -->
+                <div class="wiz-pane">
+                  <div class="row">
+                    <div class="col-6"><div class="form-group"><label class="form-label">Nama Lengkap <span class="req">*</span></label><input type="text" class="form-control" placeholder="Nama pegawai"></div></div>
+                    <div class="col-6"><div class="form-group"><label class="form-label">Email <span class="req">*</span></label><input type="email" class="form-control" placeholder="nama@bprbangunarta.co.id"></div></div>
+                    <div class="col-6"><div class="form-group"><label class="form-label">No. Telepon</label><input type="tel" class="form-control" placeholder="08xx"></div></div>
+                    <div class="col-6"><div class="form-group" style="margin-bottom:0;"><label class="form-label">Tanggal Lahir</label><input type="date" class="form-control"></div></div>
+                  </div>
+                </div>
+
+                <!-- Langkah 2 -->
+                <div class="wiz-pane">
+                  <div class="row">
+                    <div class="col-6"><div class="form-group"><label class="form-label">Jabatan <span class="req">*</span></label><select class="form-control"><option>Teller</option><option>Customer Service</option><option>Account Officer</option><option>Back Office</option></select></div></div>
+                    <div class="col-6"><div class="form-group"><label class="form-label">Kantor <span class="req">*</span></label><select class="form-control"><option>Pusat</option><option>Pamanukan</option><option>Sukamandi</option><option>Pusakajaya</option></select></div></div>
+                    <div class="col-6"><div class="form-group"><label class="form-label">NIP</label><input type="text" class="form-control" placeholder="16 digit"></div></div>
+                    <div class="col-6"><div class="form-group" style="margin-bottom:0;"><label class="form-label">Tanggal Bergabung</label><input type="date" class="form-control"></div></div>
+                  </div>
+                </div>
+
+                <!-- Langkah 3 -->
+                <div class="wiz-pane">
+                  <div class="alert info" style="margin-bottom:14px;"><i data-lucide="info"></i><div>Periksa kembali data sebelum menyimpan. Data dapat diubah setelah tersimpan.</div></div>
+                  <dl class="desc-list">
+                    <dt>Nama</dt><dd>—</dd>
+                    <dt>Email</dt><dd>—</dd>
+                    <dt>Jabatan</dt><dd>—</dd>
+                    <dt>Kantor</dt><dd>—</dd>
+                  </dl>
+                </div>
+
+                <!-- Navigasi -->
+                <div class="wiz-foot">
+                  <button class="btn outline" data-wiz="prev"><i data-lucide="chevron-left"></i> Kembali</button>
+                  <div style="display:flex; gap:8px;">
+                    <button class="btn primary" data-wiz="next">Lanjut <i data-lucide="chevron-right"></i></button>
+                    <button class="btn success" data-wiz="submit" hidden><i data-lucide="check"></i> Simpan</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/vendor/lucide/lucide-0.294.0.min.js"></script>
+  <script src="/assets/js/app.js"></script>
+</body>
+
+</html>
