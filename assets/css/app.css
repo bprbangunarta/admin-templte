@@ -1320,3 +1320,19 @@ input[type="color"].form-control { padding: 3px; height: 34px; width: 56px; curs
 
 /* varian simple (prev/next + info) */
 .pagination.simple .info { font-size: var(--fs-base); color: var(--text-muted); margin: 0 10px; }
+
+/* ============================================================
+   VARIAN TABEL (bordered, striped, compact)
+   ============================================================ */
+table.table-bordered { border: 1px solid var(--border); }
+table.table-bordered th, table.table-bordered td { border: 1px solid var(--border); }
+table.table-striped tbody tr:nth-child(odd) { background: var(--bg-sidebar); }
+table.table-striped tbody tr:hover { background: var(--bg-hover); }
+table.table-sm th, table.table-sm td { padding: 6px 12px; }
+.table-num { color: var(--text-muted); width: 1%; white-space: nowrap; }
+.table-progress { display: flex; align-items: center; gap: 10px; min-width: 160px; }
+.table-progress .progress { flex: 1; }
+
+/* badge biru (melengkapi green/amber/red) */
+.badge.blue { background: #e7ecfb; color: var(--blue); }
+:root[data-theme="dark"] .badge.blue { background: #233150; color: #9dbdf0; }

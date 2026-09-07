@@ -1,13 +1,20 @@
 // DataTables — auto-init: <table class="js-datatable">
-// Opsi via atribut: data-page-length="10", data-scroll-x (ada = aktif)
+// Opsi via atribut (default aktif; set "false" untuk mematikan):
+//   data-searching, data-length-change, data-info, data-ordering, data-paging
+//   data-page-length="10"
 document.addEventListener('ui:ready', function () {
   if (!window.jQuery || !jQuery.fn.DataTable) return;
+  var on = function (el, name) { return el.getAttribute(name) !== 'false'; };
   jQuery('.js-datatable').each(function () {
     if (jQuery.fn.DataTable.isDataTable(this)) return;
     jQuery(this).DataTable({
-      paging: true, lengthChange: true, searching: true, ordering: true, info: true,
+      paging: on(this, 'data-paging'),
+      lengthChange: on(this, 'data-length-change'),
+      searching: on(this, 'data-searching'),
+      ordering: on(this, 'data-ordering'),
+      info: on(this, 'data-info'),
       autoWidth: false,
-      scrollX: this.hasAttribute('data-scroll-x') ? true : true,
+      scrollX: true,
       pageLength: parseInt(this.getAttribute('data-page-length') || '10', 10),
       language: {
         search: 'Cari:',
