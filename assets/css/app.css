@@ -1298,3 +1298,25 @@ input[type="color"].form-control { padding: 3px; height: 34px; width: 56px; curs
 .fm-item.file .ic { color: var(--text-muted); }
 .fm-item .nm { font-size: var(--fs-base); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .fm-item .meta { font-size: var(--fs-sm); color: var(--text-faint); margin-top: 2px; }
+
+/* ============================================================
+   PAGINATION (3 varian: default, rounded, simple)
+   ============================================================ */
+.pagination { display: inline-flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.pagination .page {
+  min-width: 32px; height: 32px; padding: 0 10px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border-strong); background: var(--bg-content); color: var(--text);
+  border-radius: 7px; font-size: var(--fs-base); cursor: pointer; text-decoration: none; user-select: none;
+}
+.pagination .page:hover { background: var(--bg-hover); }
+.pagination .page.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pagination .page.disabled { color: var(--text-faint); pointer-events: none; opacity: .6; }
+.pagination .page svg { width: 15px; height: 15px; }
+.pagination .ellipsis { padding: 0 4px; color: var(--text-faint); align-self: flex-end; }
+
+/* varian pill/rounded */
+.pagination.rounded .page { border-radius: 50%; width: 32px; padding: 0; }
+
+/* varian simple (prev/next + info) */
+.pagination.simple .info { font-size: var(--fs-base); color: var(--text-muted); margin: 0 10px; }

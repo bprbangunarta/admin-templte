@@ -209,6 +209,19 @@
       dz.addEventListener('drop', ev => add(ev.dataTransfer.files));
     });
 
+    // pagination: klik nomor halaman jadi aktif (prev/next pakai data-nav, dibiarkan)
+    document.querySelectorAll('.pagination').forEach(p => {
+      p.querySelectorAll('.page').forEach(pg => {
+        if (pg.classList.contains('disabled')) return;
+        pg.addEventListener('click', e => {
+          e.preventDefault();
+          if (pg.hasAttribute('data-nav')) return;
+          p.querySelectorAll('.page').forEach(x => { if (!x.hasAttribute('data-nav')) x.classList.remove('active'); });
+          pg.classList.add('active');
+        });
+      });
+    });
+
     // tombol demo toast: <button data-toast="success" data-toast-title="..." data-toast-msg="...">
     document.querySelectorAll('[data-toast]').forEach(b => b.addEventListener('click', () => {
       toast(b.getAttribute('data-toast-msg') || 'Ini contoh notifikasi.', {
