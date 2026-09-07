@@ -90,7 +90,9 @@
             <span class="text-muted fs-sm">Sebaran pengguna per wilayah</span>
           </div>
           <div class="p-3">
-            <div id="vmap" style="height:340px;"></div>
+            <div id="vmap" class="js-vectormap"
+              data-markers='[["Jakarta",-6.2,106.8],["Surabaya",-7.25,112.75],["Medan",3.6,98.7]]'
+              style="height:340px;"></div>
           </div>
         </div>
 
@@ -178,78 +180,34 @@
   <script src="/assets/vendor/jsvectormap/world.js"></script>
   <script src="/assets/vendor/apexcharts/apexcharts-3.45.2.min.js"></script>
   <script src="/assets/js/app.js"></script>
+  <!-- peta (auto-init dari .js-vectormap) + helper tema chart -->
+  <script src="/assets/js/init/vectormap.js"></script>
+  <script src="/assets/js/init/apexcharts.js"></script>
   <script>
-    (function () {
-      function build() {
-        var el = document.getElementById('vmap');
-        if (!el || !window.jsVectorMap) return;
-        var dark = document.documentElement.getAttribute('data-theme') === 'dark';
-        if (window._vmap) { try { window._vmap.destroy(); } catch (e) { } el.innerHTML = ''; }
-        window._vmap = new jsVectorMap({
-          selector: '#vmap', map: 'world', zoomButtons: true, backgroundColor: 'transparent',
-          regionStyle: { initial: { fill: dark ? '#3a3832' : '#dcd9cf' }, hover: { fill: '#d97757' } },
-          markerStyle: { initial: { fill: '#d97757', stroke: '#fff', 'stroke-width': 1.5, r: 5 } },
-          markers: [
-            { name: 'Jakarta', coords: [-6.2, 106.8] },
-            { name: 'Surabaya', coords: [-7.25, 112.75] },
-            { name: 'Medan', coords: [3.6, 98.7] }
-          ]
-        });
-      }
-      // bangun setelah layout siap; bangun ulang saat tema berganti
-      document.addEventListener('ui:ready', build);
-      new MutationObserver(build).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-    })();
-  </script>
-  <script>
-    (function () {
-      var revenue, donut;
-      function vars() {
-        var s = getComputedStyle(document.documentElement);
-        return {
-          text: s.getPropertyValue('--text-muted').trim(),
-          border: s.getPropertyValue('--border').trim(),
-          accent: s.getPropertyValue('--accent').trim(),
-          green: s.getPropertyValue('--green').trim(),
-          amber: s.getPropertyValue('--amber').trim(),
-          red: s.getPropertyValue('--red').trim()
-        };
-      }
-      function build() {
-        if (!window.ApexCharts) return;
-        var v = vars(), dark = document.documentElement.getAttribute('data-theme') === 'dark';
-        if (revenue) revenue.destroy();
-        if (donut) donut.destroy();
-
-        revenue = new ApexCharts(document.getElementById('chartRevenue'), {
-          chart: { type: 'area', height: 280, toolbar: { show: false }, foreColor: v.text, fontFamily: 'inherit' },
-          series: [{ name: 'Pendapatan', data: [92, 105, 98, 120, 135, 142] }],
-          xaxis: { categories: ['Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep'], axisBorder: { color: v.border }, axisTicks: { color: v.border } },
-          colors: [v.accent],
-          stroke: { curve: 'smooth', width: 2.5 },
-          fill: { type: 'gradient', gradient: { opacityFrom: 0.35, opacityTo: 0.02 } },
-          grid: { borderColor: v.border, strokeDashArray: 4 },
-          dataLabels: { enabled: false },
-          tooltip: { theme: dark ? 'dark' : 'light' }
-        });
-        revenue.render();
-
-        donut = new ApexCharts(document.getElementById('chartDonut'), {
-          chart: { type: 'donut', height: 280, foreColor: v.text, fontFamily: 'inherit' },
-          series: [62, 28, 10],
-          labels: ['Selesai', 'Diproses', 'Batal'],
-          colors: [v.green, v.amber, v.red],
-          stroke: { colors: [dark ? '#262624' : '#ffffff'] },
-          legend: { position: 'bottom' },
-          dataLabels: { enabled: false },
-          plotOptions: { pie: { donut: { size: '68%' } } },
-          tooltip: { theme: dark ? 'dark' : 'light' }
-        });
-        donut.render();
-      }
-      document.addEventListener('ui:ready', build);
-      new MutationObserver(build).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-    })();
+    // data chart khusus halaman; tema & rebuild ditangani ApexTheme
+    var _revenue, _donut;
+    ApexTheme.onReady(function (v) {
+      if (_revenue) _revenue.destroy();
+      if (_donut) _donut.destroy();
+      _revenue = new ApexCharts(document.getElementById('chartRevenue'), {
+        chart: { type: 'area', height: 280, toolbar: { show: false }, foreColor: v.text, fontFamily: 'inherit' },
+        series: [{ name: 'Pendapatan', data: [92, 105, 98, 120, 135, 142] }],
+        xaxis: { categories: ['Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep'], axisBorder: { color: v.border }, axisTicks: { color: v.border } },
+        colors: [v.accent], stroke: { curve: 'smooth', width: 2.5 },
+        fill: { type: 'gradient', gradient: { opacityFrom: 0.35, opacityTo: 0.02 } },
+        grid: { borderColor: v.border, strokeDashArray: 4 }, dataLabels: { enabled: false },
+        tooltip: { theme: v.dark ? 'dark' : 'light' }
+      });
+      _revenue.render();
+      _donut = new ApexCharts(document.getElementById('chartDonut'), {
+        chart: { type: 'donut', height: 280, foreColor: v.text, fontFamily: 'inherit' },
+        series: [62, 28, 10], labels: ['Selesai', 'Diproses', 'Batal'],
+        colors: [v.green, v.amber, v.red], stroke: { colors: [v.dark ? '#262624' : '#ffffff'] },
+        legend: { position: 'bottom' }, dataLabels: { enabled: false },
+        plotOptions: { pie: { donut: { size: '68%' } } }, tooltip: { theme: v.dark ? 'dark' : 'light' }
+      });
+      _donut.render();
+    });
   </script>
 </body>
 

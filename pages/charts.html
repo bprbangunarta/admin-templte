@@ -96,28 +96,14 @@
   <script src="/assets/vendor/lucide/lucide-0.294.0.min.js"></script>
   <script src="/assets/vendor/apexcharts/apexcharts-3.45.2.min.js"></script>
   <script src="/assets/js/app.js"></script>
+  <script src="/assets/js/init/apexcharts.js"></script>
   <script>
     (function () {
-      var charts = [];
-      var cats = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul'];
-      function vars() {
-        var s = getComputedStyle(document.documentElement);
-        return {
-          text: s.getPropertyValue('--text-muted').trim(),
-          border: s.getPropertyValue('--border').trim(),
-          accent: s.getPropertyValue('--accent').trim(),
-          green: s.getPropertyValue('--green').trim(),
-          amber: s.getPropertyValue('--amber').trim(),
-          red: s.getPropertyValue('--red').trim(),
-          blue: s.getPropertyValue('--blue').trim()
-        };
-      }
+      var charts = [], cats = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul'];
       function make(el, opt) { var c = new ApexCharts(document.getElementById(el), opt); c.render(); charts.push(c); }
-      function build() {
-        if (!window.ApexCharts) return;
+      ApexTheme.onReady(function (v) {
         charts.forEach(function (c) { c.destroy(); }); charts = [];
-        var v = vars(), dark = document.documentElement.getAttribute('data-theme') === 'dark';
-        var muted = dark ? '#4a4740' : '#cdc9bf';
+        var muted = v.muted, dark = v.dark;
         var base = {
           chart: { height: 280, toolbar: { show: false }, foreColor: v.text, fontFamily: 'inherit' },
           dataLabels: { enabled: false }, grid: { borderColor: v.border, strokeDashArray: 4 },
@@ -169,9 +155,7 @@
           xaxis: { categories: cats }, colors: [v.accent, v.blue, v.amber],
           plotOptions: { bar: { borderRadius: 3, columnWidth: '55%' } }
         }));
-      }
-      document.addEventListener('ui:ready', build);
-      new MutationObserver(build).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+      });
     })();
   </script>
 </body>

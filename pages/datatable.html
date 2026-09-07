@@ -37,7 +37,7 @@
               <button class="btn primary"><i data-lucide="plus"></i> Tambah Pengguna</button>
             </div>
             <div class="dt-body">
-              <table id="dataUsers" class="display" style="width:100%">
+              <table id="dataUsers" class="display js-datatable" style="width:100%">
                 <thead>
                   <tr>
                     <th>Nama</th>
@@ -198,22 +198,7 @@
   <script src="/assets/vendor/datatables/jquery.dataTables-1.13.8.min.js"></script>
   <script src="/assets/vendor/lucide/lucide-0.294.0.min.js"></script>
   <script src="/assets/js/app.js"></script>
-  <script>
-    $(function () {
-      $('#dataUsers').DataTable({
-        paging: true, lengthChange: true, searching: true, ordering: true, info: true,
-        autoWidth: false, scrollX: true, pageLength: 10,
-        language: {
-          search: 'Cari:',
-          lengthMenu: 'Tampilkan _MENU_ data',
-          info: 'Menampilkan _START_–_END_ dari _TOTAL_ data',
-          infoEmpty: 'Tidak ada data',
-          zeroRecords: 'Data tidak ditemukan',
-          paginate: { previous: 'Sebelumnya', next: 'Berikutnya' }
-        }
-      });
-    });
-  </script>
+  <script src="/assets/js/init/datatable.js"></script>
 </body>
 
 </html>

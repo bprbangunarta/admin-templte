@@ -174,6 +174,41 @@
       }
     });
 
+    // color picker (generik): .color-field { input[type=color], .color-hex, .color-swatch[data-c] }
+    document.querySelectorAll('.color-field').forEach(f => {
+      const inp = f.querySelector('input[type="color"]'), hex = f.querySelector('.color-hex');
+      if (inp && hex) inp.addEventListener('input', () => { hex.textContent = inp.value; });
+      f.querySelectorAll('.color-swatch').forEach(s => s.addEventListener('click', () => {
+        f.querySelectorAll('.color-swatch').forEach(x => x.classList.remove('active'));
+        s.classList.add('active');
+        if (inp) inp.value = s.dataset.c;
+        if (hex) hex.textContent = s.dataset.c;
+      }));
+    });
+
+    // dropzone (generik): .dropzone berisi input[type=file], hasil ke .dz-list terdekat
+    document.querySelectorAll('.dropzone').forEach(dz => {
+      const input = dz.querySelector('input[type="file"]');
+      const list = dz.parentElement.querySelector('.dz-list');
+      if (!input) return;
+      const human = b => b < 1024 ? b + ' B' : b < 1048576 ? (b / 1024).toFixed(1) + ' KB' : (b / 1048576).toFixed(1) + ' MB';
+      const add = files => {
+        if (!list) return;
+        [].forEach.call(files, f => {
+          const el = document.createElement('div'); el.className = 'dz-file';
+          el.innerHTML = '<i data-lucide="file"></i><span>' + f.name + '</span><span class="sz">' + human(f.size) + '</span><span class="rm"><i data-lucide="x"></i></span>';
+          el.querySelector('.rm').addEventListener('click', () => el.remove());
+          list.appendChild(el);
+        });
+        if (window.lucide) lucide.createIcons();
+      };
+      dz.addEventListener('click', () => input.click());
+      input.addEventListener('change', () => add(input.files));
+      ['dragover', 'dragenter'].forEach(e => dz.addEventListener(e, ev => { ev.preventDefault(); dz.classList.add('drag'); }));
+      ['dragleave', 'drop'].forEach(e => dz.addEventListener(e, ev => { ev.preventDefault(); dz.classList.remove('drag'); }));
+      dz.addEventListener('drop', ev => add(ev.dataTransfer.files));
+    });
+
     // tombol demo toast: <button data-toast="success" data-toast-title="..." data-toast-msg="...">
     document.querySelectorAll('[data-toast]').forEach(b => b.addEventListener('click', () => {
       toast(b.getAttribute('data-toast-msg') || 'Ini contoh notifikasi.', {

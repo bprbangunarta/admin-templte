@@ -425,9 +425,9 @@
             </div>
             <div class="p-4">
               <div class="form-group"><label class="form-label">Tanggal (single)</label><input id="dpSingle"
-                  class="form-control" placeholder="Pilih tanggal"></div>
+                  class="form-control" data-flatpickr placeholder="Pilih tanggal"></div>
               <div class="form-group mb-0"><label class="form-label">Rentang tanggal (range)</label><input id="dpRange"
-                  class="form-control" placeholder="Pilih rentang"></div>
+                  class="form-control" data-flatpickr data-mode="range" placeholder="Pilih rentang"></div>
             </div>
           </div>
 
@@ -506,9 +506,9 @@
             <div class="panel-head">
               <h3>Color Picker</h3>
             </div>
-            <div class="p-4">
+            <div class="p-4 color-field">
               <div class="d-flex items-center gap-3 mb-3"><input type="color" class="form-control" value="#d97757"
-                  id="cp"><span id="cpHex" class="fs-md">#d97757</span></div>
+                  id="cp"><span id="cpHex" class="fs-md color-hex">#d97757</span></div>
               <div class="color-swatches">
                 <span class="color-swatch active" data-c="#d97757" style="background:#d97757"></span>
                 <span class="color-swatch" data-c="#2f6fed" style="background:#2f6fed"></span>
@@ -527,7 +527,7 @@
             </div>
             <div class="p-4">
               <div class="sig-pad"><button class="btn outline sm sig-clear" id="sigClear" title="Bersihkan"><i
-                    data-lucide="trash-2"></i></button><canvas id="sigCanvas"></canvas></div>
+                    data-lucide="trash-2"></i></button><canvas id="sigCanvas" class="js-signature"></canvas></div>
               <div class="d-flex justify-end mt-3"><button class="btn primary sm" id="sigSave" data-toast="success"
                   data-toast-msg="Tanda tangan disimpan.">Simpan</button></div>
             </div>
@@ -567,7 +567,7 @@
               <h3>WYSIWYG Editor (Quill)</h3>
             </div>
             <div class="p-4">
-              <div id="editor">
+              <div id="editor" class="js-quill">
                 <p>Tulis konten <b>kaya format</b> di sini…</p>
               </div>
             </div>
@@ -603,7 +603,9 @@
                 key</span>
             </div>
             <div class="p-3">
-              <div id="leafMap" style="height:340px; border-radius:8px; z-index:1;"></div>
+              <div id="leafMap" class="js-leaflet" data-center="-2.5,118" data-zoom="4"
+                data-markers='[["Jakarta",-6.2,106.8],["Surabaya",-7.25,112.75],["Medan",3.6,98.7],["Makassar",-5.13,119.42]]'
+                style="height:340px; border-radius:8px; z-index:1;"></div>
             </div>
           </div>
 
@@ -862,88 +864,13 @@
   <script src="/assets/vendor/highlightjs/highlight-11.9.0.min.js"></script>
   <script src="/assets/js/app.js"></script>
 
-  <script>
-    $(function () {
-      $('.select2').select2({ width: '100%' });
-      $('.select2-multi').select2({ width: '100%', placeholder: 'Pilih beberapa' });
-    });
-  </script>
-
-  <script>
-    document.addEventListener('ui:ready', function () {
-      if (window.flatpickr) {
-        flatpickr('#dpSingle', { dateFormat: 'd/m/Y' });
-        flatpickr('#dpRange', { mode: 'range', dateFormat: 'd/m/Y' });
-      }
-
-      // Color picker
-      var cp = document.getElementById('cp'), cpHex = document.getElementById('cpHex');
-      if (cp) {
-        cp.addEventListener('input', function () { cpHex.textContent = cp.value; });
-        document.querySelectorAll('.color-swatch').forEach(function (s) {
-          s.addEventListener('click', function () {
-            document.querySelectorAll('.color-swatch').forEach(function (x) { x.classList.remove('active'); });
-            s.classList.add('active'); cp.value = s.dataset.c; cpHex.textContent = s.dataset.c;
-          });
-        });
-      }
-
-      // Signature pad
-      var cv = document.getElementById('sigCanvas');
-      if (cv && window.SignaturePad) {
-        function fit() { var r = window.devicePixelRatio || 1; var w = cv.offsetWidth; cv.width = w * r; cv.height = 180 * r; cv.getContext('2d').scale(r, r); }
-        fit();
-        var sp = new SignaturePad(cv, { penColor: getComputedStyle(document.documentElement).getPropertyValue('--text').trim() });
-        window.addEventListener('resize', function () { fit(); sp.clear(); });
-        document.getElementById('sigClear').addEventListener('click', function () { sp.clear(); });
-      }
-
-      // Dropzone (drag & drop kustom)
-      var dz = document.getElementById('dz'), dzIn = document.getElementById('dzInput'), dzList = document.getElementById('dzList');
-      if (dz) {
-        function human(b) { return b < 1024 ? b + ' B' : b < 1048576 ? (b / 1024).toFixed(1) + ' KB' : (b / 1048576).toFixed(1) + ' MB'; }
-        function add(files) {
-          [].forEach.call(files, function (f) {
-            var el = document.createElement('div'); el.className = 'dz-file';
-            el.innerHTML = '<i data-lucide="file"></i><span>' + f.name + '</span><span class="sz">' + human(f.size) + '</span><span class="rm"><i data-lucide="x"></i></span>';
-            el.querySelector('.rm').addEventListener('click', function () { el.remove(); });
-            dzList.appendChild(el);
-          });
-          if (window.lucide) lucide.createIcons();
-        }
-        dz.addEventListener('click', function () { dzIn.click(); });
-        dzIn.addEventListener('change', function () { add(dzIn.files); });
-        ['dragover', 'dragenter'].forEach(function (e) { dz.addEventListener(e, function (ev) { ev.preventDefault(); dz.classList.add('drag'); }); });
-        ['dragleave', 'drop'].forEach(function (e) { dz.addEventListener(e, function (ev) { ev.preventDefault(); dz.classList.remove('drag'); }); });
-        dz.addEventListener('drop', function (ev) { add(ev.dataTransfer.files); });
-      }
-
-      // WYSIWYG (Quill)
-      if (window.Quill && document.getElementById('editor')) {
-        new Quill('#editor', {
-          theme: 'snow', placeholder: 'Tulis sesuatu…',
-          modules: { toolbar: [['bold', 'italic', 'underline'], [{ header: [1, 2, false] }], [{ list: 'ordered' }, { list: 'bullet' }], ['link', 'clean']] }
-        });
-      }
-
-      // Lightbox
-      if (window.GLightbox) GLightbox({ selector: '.glightbox' });
-
-      if (window.L && document.getElementById('leafMap')) {
-        var accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
-        var map = L.map('leafMap').setView([-2.5, 118], 4);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 19, attribution: '© OpenStreetMap'
-        }).addTo(map);
-        [['Jakarta', -6.2, 106.8], ['Surabaya', -7.25, 112.75], ['Medan', 3.6, 98.7], ['Makassar', -5.13, 119.42]]
-          .forEach(function (c) {
-            L.circleMarker([c[1], c[2]], { radius: 7, color: '#fff', weight: 2, fillColor: accent, fillOpacity: 1 })
-              .addTo(map).bindPopup('<b>' + c[0] + '</b>');
-          });
-        setTimeout(function () { map.invalidateSize(); }, 200);
-      }
-    });
-  </script>
+  <!-- init per vendor (auto-init via class/atribut) -->
+  <script src="/assets/js/init/select2.js"></script>
+  <script src="/assets/js/init/flatpickr.js"></script>
+  <script src="/assets/js/init/signature.js"></script>
+  <script src="/assets/js/init/quill.js"></script>
+  <script src="/assets/js/init/glightbox.js"></script>
+  <script src="/assets/js/init/leaflet.js"></script>
 
   <script>
     (function () {
