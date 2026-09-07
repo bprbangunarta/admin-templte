@@ -681,6 +681,7 @@ table.dataTable thead th.sorting_desc::after  { content: "▼"; color: var(--tex
 .dataTables_paginate .paginate_button.current { background: var(--accent); border-color: var(--accent); color: #fff !important; }
 .dataTables_paginate .paginate_button.disabled { color: var(--text-faint) !important; opacity: .6; cursor: default; background: var(--bg-content); }
 .dataTables_paginate .ellipsis { padding: 0 4px; color: var(--text-faint); }
+.dataTables_paginate .paginate_button svg { width: 15px; height: 15px; display: block; }
 
 /* responsif: kontrol menumpuk di layar sempit */
 @media (max-width: 560px) {

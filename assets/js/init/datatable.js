@@ -22,7 +22,10 @@ document.addEventListener('ui:ready', function () {
         info: 'Menampilkan _START_–_END_ dari _TOTAL_ data',
         infoEmpty: 'Tidak ada data',
         zeroRecords: 'Data tidak ditemukan',
-        paginate: { previous: 'Sebelumnya', next: 'Berikutnya' }
+        paginate: {
+          previous: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>',
+          next: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>'
+        }
       }
     });
   });
