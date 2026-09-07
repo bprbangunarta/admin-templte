@@ -666,18 +666,21 @@ table.dataTable thead th.sorting_asc::after   { content: "▲"; color: var(--tex
 table.dataTable thead th.sorting_desc::after  { content: "▼"; color: var(--text-muted); }
 
 /* info & pagination */
-.dataTables_wrapper .dataTables_info { float: left; padding-top: 14px; color: var(--text-muted); font-size: var(--fs-sm); }
-.dataTables_wrapper .dataTables_paginate { float: right; padding-top: 8px; }
+/* info & pagination sejajar (tinggi sama = 32px) */
+.dataTables_wrapper .dataTables_info { float: left; margin-top: 14px; line-height: 32px; padding-top: 0; color: var(--text-muted); font-size: var(--fs-sm); }
+.dataTables_wrapper .dataTables_paginate { float: right; margin-top: 14px; padding-top: 0; display: flex; align-items: center; gap: 4px; }
+/* samakan dengan komponen .pagination */
 .dataTables_paginate .paginate_button {
-  display: inline-block; min-width: 26px; text-align: center;
-  padding: 5px 9px; margin-left: 4px;
+  min-width: 32px; height: 32px; padding: 0 10px;
+  display: inline-flex; align-items: center; justify-content: center; margin-left: 0;
   border: 1px solid var(--border-strong); border-radius: 7px;
   background: var(--bg-content); color: var(--text) !important;
   font-size: var(--fs-base); cursor: pointer; text-decoration: none;
 }
 .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled) { background: var(--bg-hover); }
 .dataTables_paginate .paginate_button.current { background: var(--accent); border-color: var(--accent); color: #fff !important; }
-.dataTables_paginate .paginate_button.disabled { color: var(--text-faint) !important; cursor: default; background: var(--bg-content); }
+.dataTables_paginate .paginate_button.disabled { color: var(--text-faint) !important; opacity: .6; cursor: default; background: var(--bg-content); }
+.dataTables_paginate .ellipsis { padding: 0 4px; color: var(--text-faint); }
 
 /* responsif: kontrol menumpuk di layar sempit */
 @media (max-width: 560px) {
