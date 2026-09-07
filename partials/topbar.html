@@ -1,23 +1,50 @@
 <header class="topbar">
-  <div class="icon-btn menu-btn" id="menuBtn" title="Sembunyikan / tampilkan sidebar"><i data-lucide="panel-left"></i></div>
+  <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Buka atau tutup menu"><i data-lucide="panel-left"></i></button>
   <h1>Admin</h1>
 
   <!-- Pencarian: tombol yang membuka command palette (⌘K / Ctrl+K) -->
-  <button type="button" class="searchbar" id="searchOpen" title="Cari (⌘K)">
+  <button type="button" class="searchbar" id="searchOpen" aria-label="Cari (Ctrl+K)" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk">
     <i data-lucide="search"></i>
     <span class="ph">Cari menu atau halaman…</span>
     <kbd class="kbd"><span class="mod">⌘</span>K</kbd>
   </button>
 
   <div class="topbar-actions">
-    <button type="button" class="icon-btn search-sm" id="searchOpenSm" title="Cari"><i data-lucide="search"></i></button>
-    <button type="button" class="icon-btn theme-toggle" id="themeToggle" title="Ganti tema terang/gelap">
+    <button type="button" class="icon-btn search-sm" id="searchOpenSm" aria-label="Cari" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk"><i data-lucide="search"></i></button>
+    <button type="button" class="icon-btn theme-toggle" id="themeToggle" aria-label="Ganti tema terang atau gelap">
       <i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i>
     </button>
-    <button type="button" class="icon-btn bell" title="Notifikasi">
+    <button type="button" class="icon-btn bell" id="notifBtn" aria-label="Notifikasi (10 belum dibaca)" aria-haspopup="true" aria-expanded="false">
       <i data-lucide="bell"></i>
       <span class="ndot">10</span>
     </button>
+  </div>
+
+  <!-- Panel dropdown notifikasi -->
+  <div class="notif-pop" id="notifPop" hidden>
+    <div class="notif-head">
+      <span>Notifikasi</span>
+      <button type="button" class="notif-readall">Tandai dibaca</button>
+    </div>
+    <div class="notif-list">
+      <a href="#" class="notif-item unread">
+        <span class="ni-ic green"><i data-lucide="user-plus"></i></span>
+        <span class="ni-tx"><span class="ni-tt">Pengguna baru terdaftar</span><span class="ni-sub">Rina Marlina menambahkan akun</span><span class="ni-time">2 menit lalu</span></span>
+      </a>
+      <a href="#" class="notif-item unread">
+        <span class="ni-ic amber"><i data-lucide="alert-triangle"></i></span>
+        <span class="ni-tx"><span class="ni-tt">Percobaan login gagal</span><span class="ni-sub">3 kali dari IP 10.20.1.5</span><span class="ni-time">18 menit lalu</span></span>
+      </a>
+      <a href="#" class="notif-item unread">
+        <span class="ni-ic blue"><i data-lucide="file-text"></i></span>
+        <span class="ni-tx"><span class="ni-tt">Laporan harian siap</span><span class="ni-sub">Rekap transaksi 7 Sep 2026</span><span class="ni-time">1 jam lalu</span></span>
+      </a>
+      <a href="#" class="notif-item">
+        <span class="ni-ic red"><i data-lucide="shield-alert"></i></span>
+        <span class="ni-tx"><span class="ni-tt">Sesi kedaluwarsa</span><span class="ni-sub">Perlu login ulang di perangkat lama</span><span class="ni-time">3 jam lalu</span></span>
+      </a>
+    </div>
+    <a href="#" class="notif-foot">Lihat semua notifikasi</a>
   </div>
 </header>
 
@@ -27,10 +54,10 @@
   <div class="cmdk-box" role="dialog" aria-modal="true" aria-label="Pencarian">
     <div class="cmdk-input">
       <i data-lucide="search"></i>
-      <input type="text" id="cmdkInput" placeholder="Cari menu, halaman, atau perintah…" autocomplete="off" spellcheck="false">
+      <input type="text" id="cmdkInput" placeholder="Cari menu, halaman, atau perintah…" autocomplete="off" spellcheck="false" aria-label="Kata kunci pencarian">
       <kbd class="kbd">Esc</kbd>
     </div>
-    <div class="cmdk-list" id="cmdkList"></div>
+    <div class="cmdk-list" id="cmdkList" role="listbox" aria-label="Hasil pencarian"></div>
     <div class="cmdk-foot">
       <span><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd> navigasi</span>
       <span><kbd class="kbd">↵</kbd> buka</span>

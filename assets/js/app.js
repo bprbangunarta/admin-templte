@@ -9,7 +9,7 @@
     await Promise.all([...nodes].map(async node => {
       const url = node.getAttribute('data-include');
       try {
-        const res = await fetch(url);
+        const res = await fetch(url, { cache: 'no-cache' });
         if (!res.ok) throw new Error(res.status);
         node.outerHTML = await res.text();
       } catch (e) {
@@ -79,17 +79,42 @@
 
     // grup menu collapse
     document.querySelectorAll('.nav-section').forEach(h =>
-      h.addEventListener('click', () => h.closest('.nav-group').classList.toggle('collapsed')));
+      h.addEventListener('click', () => {
+        const collapsed = h.closest('.nav-group').classList.toggle('collapsed');
+        h.setAttribute('aria-expanded', String(!collapsed));
+      }));
 
     // multi-level tree
     document.querySelectorAll('.tree-toggle, .tree > .sub-item').forEach(t =>
-      t.addEventListener('click', e => { e.stopPropagation(); t.closest('.tree').classList.toggle('open'); }));
+      t.addEventListener('click', e => {
+        e.stopPropagation();
+        const open = t.closest('.tree').classList.toggle('open');
+        t.setAttribute('aria-expanded', String(open));
+      }));
 
     // menu profil
     if (trigger && profMenu) {
-      trigger.addEventListener('click', e => { e.stopPropagation(); profMenu.classList.toggle('open'); });
+      const syncProf = () => trigger.setAttribute('aria-expanded', String(profMenu.classList.contains('open')));
+      trigger.setAttribute('aria-haspopup', 'true');
+      trigger.addEventListener('click', e => { e.stopPropagation(); profMenu.classList.toggle('open'); syncProf(); });
       document.addEventListener('click', e => {
-        if (!profMenu.contains(e.target) && !trigger.contains(e.target)) profMenu.classList.remove('open');
+        if (!profMenu.contains(e.target) && !trigger.contains(e.target)) { profMenu.classList.remove('open'); syncProf(); }
+      });
+    }
+
+    // dropdown notifikasi
+    const notifBtn = document.getElementById('notifBtn');
+    const notifPop = document.getElementById('notifPop');
+    if (notifBtn && notifPop) {
+      const setN = open => { notifPop.hidden = !open; notifBtn.setAttribute('aria-expanded', String(open)); };
+      notifBtn.addEventListener('click', e => { e.stopPropagation(); setN(notifPop.hidden); });
+      document.addEventListener('click', e => { if (!notifPop.contains(e.target) && !notifBtn.contains(e.target)) setN(false); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && !notifPop.hidden) { setN(false); notifBtn.focus(); } });
+      const readAll = notifPop.querySelector('.notif-readall');
+      if (readAll) readAll.addEventListener('click', () => {
+        notifPop.querySelectorAll('.notif-item.unread').forEach(i => i.classList.remove('unread'));
+        const dot = notifBtn.querySelector('.ndot'); if (dot) dot.remove();
+        notifBtn.setAttribute('aria-label', 'Notifikasi');
       });
     }
 
@@ -124,16 +149,35 @@
       wrap.classList.toggle('show', show);
     }));
 
-    // modal
-    const closeModal = m => m && m.classList.remove('open');
+    // modal (dengan focus-trap + kembalikan fokus)
+    const FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+    let modalReturn = null;
+    const closeModal = m => {
+      if (!m) return;
+      m.classList.remove('open');
+      if (modalReturn && modalReturn.focus) modalReturn.focus();
+      modalReturn = null;
+    };
+    const openModal = m => {
+      if (!m) return;
+      modalReturn = document.activeElement;
+      m.classList.add('open');
+      const f = m.querySelector(FOCUSABLE); if (f) setTimeout(() => f.focus(), 30);
+    };
     document.querySelectorAll('[data-modal-open]').forEach(btn =>
-      btn.addEventListener('click', () => {
-        const m = document.getElementById(btn.getAttribute('data-modal-open'));
-        if (m) m.classList.add('open');
-      }));
+      btn.addEventListener('click', () => openModal(document.getElementById(btn.getAttribute('data-modal-open')))));
     document.querySelectorAll('.modal-overlay').forEach(ov => {
       ov.addEventListener('click', e => { if (e.target === ov) closeModal(ov); });
       ov.querySelectorAll('[data-modal-close]').forEach(b => b.addEventListener('click', () => closeModal(ov)));
+      // focus-trap dalam modal
+      ov.addEventListener('keydown', e => {
+        if (e.key !== 'Tab') return;
+        const items = [...ov.querySelectorAll(FOCUSABLE)].filter(el => el.offsetParent !== null);
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      });
     });
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(closeModal);
@@ -271,7 +315,9 @@
         run: () => { const d = document.documentElement.getAttribute('data-theme') === 'dark'; setTheme(d ? 'light' : 'dark'); } },
     ];
 
-    let view = [], sel = 0;
+    let view = [], sel = 0, lastFocus = null;
+    const triggers = ['searchOpen', 'searchOpenSm'].map(id => document.getElementById(id)).filter(Boolean);
+    const setExpanded = v => triggers.forEach(t => t.setAttribute('aria-expanded', String(v)));
 
     const esc = s => s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
     const render = () => {
@@ -300,13 +346,15 @@
       if (it.run) it.run();
       else if (it.h) location.href = it.h;
     };
-    const open = () => { cmdk.hidden = false; input.value = ''; filter(); setTimeout(() => input.focus(), 30); };
-    function close() { cmdk.hidden = true; }
+    const open = () => { lastFocus = document.activeElement; cmdk.hidden = false; setExpanded(true); input.value = ''; filter(); setTimeout(() => input.focus(), 30); };
+    function close() {
+      cmdk.hidden = true; setExpanded(false);
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
 
-    ['searchOpen', 'searchOpenSm'].forEach(id => {
-      const b = document.getElementById(id);
-      if (b) b.addEventListener('click', open);
-    });
+    triggers.forEach(b => b.addEventListener('click', open));
+    // jaga fokus tetap di dalam palette (focus trap sederhana — hanya input yang fokusabel)
+    cmdk.addEventListener('keydown', e => { if (e.key === 'Tab') { e.preventDefault(); input.focus(); } });
     cmdk.querySelectorAll('[data-cmdk-close]').forEach(b => b.addEventListener('click', close));
     input.addEventListener('input', filter);
     list.addEventListener('mousemove', e => {
