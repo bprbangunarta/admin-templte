@@ -231,12 +231,99 @@
     }));
 
     // toggle tema terang/gelap
+    const setTheme = next => {
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    };
     const themeBtn = document.getElementById('themeToggle');
     if (themeBtn) themeBtn.addEventListener('click', () => {
       const dark = document.documentElement.getAttribute('data-theme') === 'dark';
-      const next = dark ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      try { localStorage.setItem('theme', next); } catch (e) {}
+      setTheme(dark ? 'light' : 'dark');
+    });
+
+    initCmdK(setTheme);
+  }
+
+  /* ---- Command palette (pencarian ⌘K / Ctrl+K) ---- */
+  function initCmdK(setTheme) {
+    const cmdk = document.getElementById('cmdk');
+    if (!cmdk) return;
+    const input = document.getElementById('cmdkInput');
+    const list  = document.getElementById('cmdkList');
+    const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+
+    // ganti simbol ⌘ menjadi Ctrl di non-Mac
+    if (!isMac) document.querySelectorAll('.searchbar .kbd .mod').forEach(m => { m.textContent = 'Ctrl'; m.style.fontSize = 'var(--fs-xs)'; });
+
+    const items = [
+      { t: 'Dashboard',   s: 'Ringkasan & statistik', i: 'layout-dashboard', h: '/index.html', g: 'Halaman' },
+      { t: 'Datatable',   s: 'Tabel data interaktif', i: 'table', h: '/pages/datatable.html', g: 'Halaman' },
+      { t: 'Elements',    s: 'Form, komponen & UI',   i: 'layout-grid', h: '/pages/elements.html', g: 'Halaman' },
+      { t: 'Charts',      s: 'Grafik & visualisasi',  i: 'pie-chart', h: '/pages/charts.html', g: 'Halaman' },
+      { t: 'File Manager',s: 'Kelola berkas',         i: 'folder', h: '/pages/files.html', g: 'Halaman' },
+      { t: 'HTML Parser', s: 'Alat parse HTML',       i: 'code-2', h: '/pages/html-parser.html', g: 'Halaman' },
+      { t: 'FAQ',         s: 'Pertanyaan umum',       i: 'help-circle', h: '/pages/elements.html', g: 'Halaman' },
+      { t: 'Profil',      s: 'Pengaturan akun',       i: 'user', h: '/pages/profile.html', g: 'Halaman' },
+      { t: 'Pengaturan',  s: 'Konfigurasi aplikasi',  i: 'settings', h: '/pages/settings.html', g: 'Halaman' },
+      { t: 'Landing Page',s: 'Halaman publik',        i: 'globe', h: '/pages/landing.html', g: 'Halaman' },
+      { t: 'Email',       s: 'Template email',        i: 'mail', h: '/pages/email.html', g: 'Halaman' },
+      { t: 'Ganti tema terang/gelap', s: 'Perintah', i: 'sun-moon', g: 'Perintah',
+        run: () => { const d = document.documentElement.getAttribute('data-theme') === 'dark'; setTheme(d ? 'light' : 'dark'); } },
+    ];
+
+    let view = [], sel = 0;
+
+    const esc = s => s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+    const render = () => {
+      if (!view.length) { list.innerHTML = '<div class="cmdk-empty">Tidak ada hasil.</div>'; return; }
+      let html = '', lastG = '';
+      view.forEach((it, idx) => {
+        if (it.g !== lastG) { html += '<div class="cmdk-group">' + esc(it.g) + '</div>'; lastG = it.g; }
+        html += '<div class="cmdk-item' + (idx === sel ? ' active' : '') + '" data-i="' + idx + '">' +
+          '<span class="ic"><i data-lucide="' + it.i + '"></i></span>' +
+          '<span class="tx"><span class="tt">' + esc(it.t) + '</span><span class="sub">' + esc(it.s) + '</span></span>' +
+          '<span class="go"><i data-lucide="corner-down-left"></i></span></div>';
+      });
+      list.innerHTML = html;
+      if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });
+      const a = list.querySelector('.cmdk-item.active');
+      if (a) a.scrollIntoView({ block: 'nearest' });
+    };
+    const filter = () => {
+      const q = input.value.trim().toLowerCase();
+      view = q ? items.filter(it => (it.t + ' ' + it.s).toLowerCase().includes(q)) : items.slice();
+      sel = 0; render();
+    };
+    const go = it => {
+      if (!it) return;
+      close();
+      if (it.run) it.run();
+      else if (it.h) location.href = it.h;
+    };
+    const open = () => { cmdk.hidden = false; input.value = ''; filter(); setTimeout(() => input.focus(), 30); };
+    function close() { cmdk.hidden = true; }
+
+    ['searchOpen', 'searchOpenSm'].forEach(id => {
+      const b = document.getElementById(id);
+      if (b) b.addEventListener('click', open);
+    });
+    cmdk.querySelectorAll('[data-cmdk-close]').forEach(b => b.addEventListener('click', close));
+    input.addEventListener('input', filter);
+    list.addEventListener('mousemove', e => {
+      const el = e.target.closest('.cmdk-item'); if (!el) return;
+      const i = +el.dataset.i; if (i !== sel) { sel = i; render(); }
+    });
+    list.addEventListener('click', e => {
+      const el = e.target.closest('.cmdk-item'); if (el) go(view[+el.dataset.i]);
+    });
+    input.addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); sel = Math.min(sel + 1, view.length - 1); render(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(sel - 1, 0); render(); }
+      else if (e.key === 'Enter') { e.preventDefault(); go(view[sel]); }
+    });
+    document.addEventListener('keydown', e => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); cmdk.hidden ? open() : close(); }
+      else if (e.key === 'Escape' && !cmdk.hidden) close();
     });
   }
 

@@ -1,13 +1,40 @@
 <header class="topbar">
-  <div class="icon-btn menu-btn" id="menuBtn" title="Sembunyikan / tampilkan sidebar"><i data-lucide="panel-left"></i>
-  </div>
+  <div class="icon-btn menu-btn" id="menuBtn" title="Sembunyikan / tampilkan sidebar"><i data-lucide="panel-left"></i></div>
   <h1>Admin</h1>
-  <div class="search">
+
+  <!-- Pencarian: tombol yang membuka command palette (⌘K / Ctrl+K) -->
+  <button type="button" class="searchbar" id="searchOpen" title="Cari (⌘K)">
     <i data-lucide="search"></i>
-    <input placeholder="Cari…">
+    <span class="ph">Cari menu atau halaman…</span>
+    <kbd class="kbd"><span class="mod">⌘</span>K</kbd>
+  </button>
+
+  <div class="topbar-actions">
+    <button type="button" class="icon-btn search-sm" id="searchOpenSm" title="Cari"><i data-lucide="search"></i></button>
+    <button type="button" class="icon-btn theme-toggle" id="themeToggle" title="Ganti tema terang/gelap">
+      <i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i>
+    </button>
+    <button type="button" class="icon-btn bell" title="Notifikasi">
+      <i data-lucide="bell"></i>
+      <span class="ndot">10</span>
+    </button>
   </div>
-  <div class="icon-btn theme-toggle" id="themeToggle" title="Ganti tema terang/gelap">
-    <i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i>
-  </div>
-  <div class="icon-btn"><i data-lucide="bell"></i></div>
 </header>
+
+<!-- Command palette pencarian -->
+<div class="cmdk" id="cmdk" hidden>
+  <div class="cmdk-scrim" data-cmdk-close></div>
+  <div class="cmdk-box" role="dialog" aria-modal="true" aria-label="Pencarian">
+    <div class="cmdk-input">
+      <i data-lucide="search"></i>
+      <input type="text" id="cmdkInput" placeholder="Cari menu, halaman, atau perintah…" autocomplete="off" spellcheck="false">
+      <kbd class="kbd">Esc</kbd>
+    </div>
+    <div class="cmdk-list" id="cmdkList"></div>
+    <div class="cmdk-foot">
+      <span><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd> navigasi</span>
+      <span><kbd class="kbd">↵</kbd> buka</span>
+      <span><kbd class="kbd">esc</kbd> tutup</span>
+    </div>
+  </div>
+</div>
