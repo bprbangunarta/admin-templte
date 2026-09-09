@@ -50,9 +50,13 @@ python3 -m http.server 8777
 
 - **DRY** — sidebar/topbar/submenu ditulis sekali di `partials/`, dimuat di tiap halaman
   lewat `<div data-include="/partials/sidebar.html"></div>` (ditangani `app.js`).
-- **Menu aktif & judul** diatur dari atribut `<body>`:
-  `data-title`, `data-nav` (menu utama aktif), `data-sub` (sub-menu aktif).
-  Cocokkan dengan `data-key` pada item menu di partial.
+- **Menu aktif** ditentukan **otomatis dari URL** halaman: `app.js` mencocokkan
+  `location.pathname` dengan atribut `href` tiap item menu, lalu menambah class
+  `.active` (dan membuka otomatis semua grup/tree induknya). Tidak perlu atribut
+  khusus per halaman — cukup pastikan `href` menu benar. Pola ini setara
+  `request()->routeIs()` di Laravel (lihat bagian *Migrasi ke Laravel*).
+- **Judul topbar** diatur lewat `<body data-title="...">` (mengisi `<h1>` di topbar).
+  Di Laravel ini setara `@section('title','...')`.
 - **Ikon** memakai [Lucide](https://lucide.dev/icons/):
   cukup `<i data-lucide="nama-ikon"></i>` (dirender otomatis oleh `app.js`).
 - **Sidebar mini** (desktop): tombol menu di topbar menciutkan sidebar jadi *rail* ikon;
@@ -203,3 +207,18 @@ Struktur ini memetakan 1:1:
 | `pages/*.html`            | `resources/views/*.blade.php` (`@extends`) |
 | `data-include`            | `@include('partials.sidebar')`       |
 | path `/assets/...`        | `{{ asset('assets/...') }}`          |
+| `<body>` per halaman      | satu layout `layouts/app.blade.php` + `@yield('content')` |
+| `<body data-title="X">`   | `@section('title','X')` → `<h1>@yield('title')</h1>` |
+| menu aktif (URL-based JS)  | `@class(['active' => request()->routeIs('users.*')])` di item menu |
+
+Karena menu aktif di versi statis sudah berbasis URL (bukan atribut `<body>`),
+perpindahannya lurus: **hapus** `app.js` bagian penanda aktif, lalu render class
+`active` langsung di partial Blade dengan `request()->routeIs()`. Contoh item:
+
+```blade
+<a class="nav-sub @class(['active' => request()->routeIs('manajemen.peran')])"
+   href="{{ route('manajemen.peran') }}">Peran</a>
+```
+
+Untuk membuka otomatis grup/tree induk saat anaknya aktif, cukup cek pola route
+di elemen `.tree`, mis. `@class(['open' => request()->routeIs('manajemen.*')])`.

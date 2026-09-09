@@ -18,16 +18,27 @@
     }));
   }
 
-  /* Set judul topbar & tandai menu aktif dari atribut <body> */
+  /* Judul topbar dari <body data-title>, lalu tandai menu aktif dari URL saat ini.
+     Menu aktif dicocokkan URL halaman ⇄ href menu — setara request()->routeIs()
+     di Laravel. Di Blade cukup ganti baris .active ini dgn
+     @class(['active' => request()->routeIs('...')]) pada tiap item. */
   function applyState() {
     const b = document.body;
     if (b.dataset.title) {
       const h = document.querySelector('.topbar h1');
       if (h) h.textContent = b.dataset.title;
     }
-    document.querySelectorAll('[data-key]').forEach(el => el.classList.remove('active'));
-    [b.dataset.nav, b.dataset.sub].filter(Boolean).forEach(key => {
-      document.querySelectorAll('[data-key="' + key + '"]').forEach(el => el.classList.add('active'));
+
+    // path dinormalkan: buang trailing slash & /index.html agar "/" == "/index.html"
+    const norm = p => (p || '').replace(/\/index\.html$/, '').replace(/\/+$/, '') || '/';
+    const here = norm(location.pathname);
+
+    document.querySelectorAll('.nav-item, .nav-sub, .sub-item').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.nav-item[href], .nav-sub[href], .sub-item[href]').forEach(a => {
+      if (a.target === '_blank') return;
+      const href = a.getAttribute('href');
+      if (!href || href === '#') return;
+      if (norm(new URL(href, location.href).pathname) === here) a.classList.add('active');
     });
 
     // buka otomatis semua grup/tree induk dari item yang aktif
