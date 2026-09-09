@@ -76,11 +76,11 @@
     });
     if (backdrop) backdrop.addEventListener('click', () => app.classList.add('collapsed'));
 
-    // grup menu collapse
+    // grup menu buka/tutup (konsisten dgn .tree: pakai class .open)
     document.querySelectorAll('.nav-section').forEach(h =>
       h.addEventListener('click', () => {
-        const collapsed = h.closest('.nav-group').classList.toggle('collapsed');
-        h.setAttribute('aria-expanded', String(!collapsed));
+        const open = h.closest('.nav-group').classList.toggle('open');
+        h.setAttribute('aria-expanded', String(open));
       }));
 
     // multi-level tree
