@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
   <title>File Manager — Admin Template</title>
-  <link rel="stylesheet" href="/assets/css/app.css">
+  <link rel="stylesheet" href="../assets/css/app.css">
 </head>
 
-<body data-title="File Manager">
+<body>
   <div class="app">
     <div class="backdrop" id="backdrop"></div>
   <div class="drawer">
@@ -22,18 +22,18 @@
       <div class="sidebar-scroll">
         <!-- ===== 1. SINGLE MENU ===== -->
         <nav class="nav">
-          <a class="nav-item" href="/index.html">
+          <a class="nav-item" href="../index.html">
             <i data-lucide="bar-chart-3"></i><span>Dashboard</span>
           </a>
 
-          <a class="nav-item" href="/pages/charts.html">
+          <a class="nav-item" href="../pages/charts.html">
             <i data-lucide="panel-left"></i><span>UI Element</span>
           </a>
 
-          <a class="nav-item active" href="/pages/files.html">
+          <a class="nav-item active" href="../pages/files.html">
             <i data-lucide="folder"></i><span>File Manager</span>
           </a>
-          <a class="nav-item" href="/pages/html-parser.html">
+          <a class="nav-item" href="../pages/html-parser.html">
             <i data-lucide="code-2"></i><span>HTML Parser</span>
           </a>
 
@@ -43,9 +43,9 @@
               <i data-lucide="layers" class="ico"></i><span>Manajemen</span><i data-lucide="chevron-right" class="chev"></i>
             </button>
             <div class="tree-children">
-              <a class="nav-sub" href="/pages/manajemen/pengguna.html">Pengguna</a>
-              <a class="nav-sub" href="/pages/manajemen/peran.html">Peran</a>
-              <a class="nav-sub" href="/pages/manajemen/perizinan.html">Perizinan</a>
+              <a class="nav-sub" href="../pages/manajemen/pengguna.html">Pengguna</a>
+              <a class="nav-sub" href="../pages/manajemen/peran.html">Peran</a>
+              <a class="nav-sub" href="../pages/manajemen/perizinan.html">Perizinan</a>
             </div>
           </div>
         </nav>
@@ -55,9 +55,9 @@
           <button type="button" class="nav-section" aria-expanded="true"><span>Kredensial</span><i data-lucide="chevron-down" class="chev"></i></button>
           <div class="nav-group-body">
             <div class="nav">
-              <a class="nav-sub" href="/pages/kredensial/perizinan.html">Perizinan</a>
-              <a class="nav-sub" href="/pages/kredensial/hak-akses.html">Hak Akses</a>
-              <a class="nav-sub" href="/pages/kredensial/pengguna.html">Pengguna</a>
+              <a class="nav-sub" href="../pages/kredensial/perizinan.html">Perizinan</a>
+              <a class="nav-sub" href="../pages/kredensial/hak-akses.html">Hak Akses</a>
+              <a class="nav-sub" href="../pages/kredensial/pengguna.html">Pengguna</a>
             </div>
           </div>
         </div>
@@ -76,25 +76,25 @@
                     <button type="button" class="tree-toggle" aria-expanded="false"><span>Autensikasi</span><i data-lucide="chevron-right" class="chev"></i>
                     </button>
                     <div class="tree-children">
-                      <a class="nav-sub" href="/pages/auth/login.html" target="_blank">Login</a>
-                      <a class="nav-sub" href="/pages/auth/register.html" target="_blank">Register</a>
-                      <a class="nav-sub" href="/pages/auth/reset-password.html" target="_blank">Reset Password</a>
-                      <a class="nav-sub" href="/pages/auth/forgot-password.html" target="_blank">Lupa Password</a>
+                      <a class="nav-sub" href="../pages/auth/login.html" target="_blank">Login</a>
+                      <a class="nav-sub" href="../pages/auth/register.html" target="_blank">Register</a>
+                      <a class="nav-sub" href="../pages/auth/reset-password.html" target="_blank">Reset Password</a>
+                      <a class="nav-sub" href="../pages/auth/forgot-password.html" target="_blank">Lupa Password</a>
                     </div>
                   </div>
                   <div class="tree">
                     <button type="button" class="tree-toggle" aria-expanded="false"><span>Error Pages</span><i data-lucide="chevron-right" class="chev"></i>
                     </button>
                     <div class="tree-children">
-                      <a class="nav-sub" href="/pages/error/404.html" target="_blank">404</a>
-                      <a class="nav-sub" href="/pages/error/500.html" target="_blank">500</a>
+                      <a class="nav-sub" href="../pages/error/404.html" target="_blank">404</a>
+                      <a class="nav-sub" href="../pages/error/500.html" target="_blank">500</a>
                     </div>
                   </div>
-                  <a class="nav-sub" href="/pages/error/maintenance.html" target="_blank">Maintenance</a>
-                  <a class="nav-sub" href="/pages/landing.html" target="_blank">Landing Page</a>
-                  <a class="nav-sub" href="/pages/email.html" target="_blank">Email Template</a>
-                  <a class="nav-sub" href="/pages/wizard.html">Form Wizard</a>
-                  <a class="nav-sub" href="/pages/detail.html">Detail Pengguna</a>
+                  <a class="nav-sub" href="../pages/error/maintenance.html" target="_blank">Maintenance</a>
+                  <a class="nav-sub" href="../pages/landing.html" target="_blank">Landing Page</a>
+                  <a class="nav-sub" href="../pages/email.html" target="_blank">Email Template</a>
+                  <a class="nav-sub" href="../pages/wizard.html">Form Wizard</a>
+                  <a class="nav-sub" href="../pages/detail.html">Detail Pengguna</a>
                 </div>
               </div>
             </div>
@@ -106,13 +106,13 @@
       <div class="profile">
         <div class="profile-menu" id="profileMenu">
           <div class="pm-email">zulfr@bprbangunarta.co.id</div>
-          <a href="/pages/settings.html">
+          <a href="../pages/settings.html">
             <div class="pm-item"><i data-lucide="settings"></i>Pengaturan <span class="sc">⌘ ,</span></div>
           </a>
           <div class="pm-item"><i data-lucide="globe"></i>Bahasa</div>
           <div class="pm-item"><i data-lucide="help-circle"></i>Dapatkan bantuan</div>
           <div class="pm-div"></div>
-          <a href="/pages/profile.html">
+          <a href="../pages/profile.html">
             <div class="pm-item"><i data-lucide="user"></i>Profil Saya</div>
           </a>
           <div class="pm-item"><i data-lucide="shield-check"></i>Keamanan</div>
@@ -129,11 +129,77 @@
     </aside>
   </div>
     <div class="main">
-      <div data-include="/partials/topbar.html"></div>
+      <header class="topbar">
+        <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Buka atau tutup menu"><i data-lucide="panel-left"></i></button>
+        <h1>File Manager</h1>
+
+        <!-- Pencarian: tombol yang membuka command palette (⌘K / Ctrl+K) -->
+        <button type="button" class="searchbar" id="searchOpen" aria-label="Cari (Ctrl+K)" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk">
+          <i data-lucide="search"></i>
+          <span class="ph">Cari menu atau halaman…</span>
+          <kbd class="kbd"><span class="mod">⌘</span>K</kbd>
+        </button>
+
+        <div class="topbar-actions">
+          <button type="button" class="icon-btn search-sm" id="searchOpenSm" aria-label="Cari" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk"><i data-lucide="search"></i></button>
+          <button type="button" class="icon-btn theme-toggle" id="themeToggle" aria-label="Ganti tema terang atau gelap">
+            <i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i>
+          </button>
+          <button type="button" class="icon-btn bell" id="notifBtn" aria-label="Notifikasi (10 belum dibaca)" aria-haspopup="true" aria-expanded="false">
+            <i data-lucide="bell"></i>
+            <span class="ndot">10</span>
+          </button>
+        </div>
+
+        <!-- Panel dropdown notifikasi -->
+        <div class="notif-pop" id="notifPop" hidden>
+          <div class="notif-head">
+            <span>Notifikasi</span>
+            <button type="button" class="notif-readall">Tandai dibaca</button>
+          </div>
+          <div class="notif-list">
+            <a href="#" class="notif-item unread">
+              <span class="ni-ic green"><i data-lucide="user-plus"></i></span>
+              <span class="ni-tx"><span class="ni-tt">Pengguna baru terdaftar</span><span class="ni-sub">Rina Marlina menambahkan akun</span><span class="ni-time">2 menit lalu</span></span>
+            </a>
+            <a href="#" class="notif-item unread">
+              <span class="ni-ic amber"><i data-lucide="alert-triangle"></i></span>
+              <span class="ni-tx"><span class="ni-tt">Percobaan login gagal</span><span class="ni-sub">3 kali dari IP 10.20.1.5</span><span class="ni-time">18 menit lalu</span></span>
+            </a>
+            <a href="#" class="notif-item unread">
+              <span class="ni-ic blue"><i data-lucide="file-text"></i></span>
+              <span class="ni-tx"><span class="ni-tt">Laporan harian siap</span><span class="ni-sub">Rekap transaksi 7 Sep 2026</span><span class="ni-time">1 jam lalu</span></span>
+            </a>
+            <a href="#" class="notif-item">
+              <span class="ni-ic red"><i data-lucide="shield-alert"></i></span>
+              <span class="ni-tx"><span class="ni-tt">Sesi kedaluwarsa</span><span class="ni-sub">Perlu login ulang di perangkat lama</span><span class="ni-time">3 jam lalu</span></span>
+            </a>
+          </div>
+          <a href="#" class="notif-foot">Lihat semua notifikasi</a>
+        </div>
+      </header>
+
+      <!-- Command palette pencarian -->
+      <div class="cmdk" id="cmdk" hidden>
+        <div class="cmdk-scrim" data-cmdk-close></div>
+        <div class="cmdk-box" role="dialog" aria-modal="true" aria-label="Pencarian">
+          <div class="cmdk-input">
+            <i data-lucide="search"></i>
+            <input type="text" id="cmdkInput" placeholder="Cari menu, halaman, atau perintah…" autocomplete="off" spellcheck="false" aria-label="Kata kunci pencarian">
+            <kbd class="kbd">Esc</kbd>
+          </div>
+          <div class="cmdk-list" id="cmdkList" role="listbox" aria-label="Hasil pencarian"></div>
+          <div class="cmdk-foot">
+            <span><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd> navigasi</span>
+            <span><kbd class="kbd">↵</kbd> buka</span>
+            <span><kbd class="kbd">esc</kbd> tutup</span>
+          </div>
+        </div>
+      </div>
       <div class="content">
         <div class="fm-toolbar">
           <div class="fm-path">
-            <a href="/index.html">Beranda</a>
+            <a href="../index.html">Beranda</a>
             <i data-lucide="chevron-right" style="width:13px;height:13px;"></i>
             <span class="text-dark">File Manager</span>
           </div>
@@ -202,8 +268,8 @@
       </div>
     </div>
   </div>
-  <script src="/assets/vendor/lucide/lucide-0.294.0.min.js"></script>
-  <script src="/assets/js/app.js"></script>
+  <script src="../assets/vendor/lucide/lucide-0.294.0.min.js"></script>
+  <script src="../assets/js/app.js"></script>
 </body>
 
 </html>

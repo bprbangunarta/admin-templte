@@ -24,13 +24,13 @@ admin-template/
 │   │   ├── login.html  register.html  forgot-password.html  reset-password.html
 │   └── error/                 # 404, 500, Maintenance
 │       ├── 404.html  500.html  maintenance.html
-├── partials/                  # Potongan HTML reusable (di-include via JS)
-│   ├── sidebar.html           # Sidebar utama + menu profil
+├── partials/                  # REFERENSI master (disalin manual ke tiap halaman;
+│   ├── sidebar.html           #   jadi @include Blade saat migrasi ke Laravel)
 │   ├── topbar.html            # Header atas
 │   └── submenu.html           # Sub-sidebar (dual sidebar)
 ├── assets/
 │   ├── css/app.css            # Design system (satu sumber gaya)
-│   ├── js/app.js              # Loader partial + interaksi (menu, modal, tabs, dll)
+│   ├── js/app.js              # Interaksi (menu, modal, tabs, dll) — TANPA loader partial
 │   ├── img/                   # Gambar / logo
 │   └── vendor/                # Library pihak ketiga (di-host lokal, bukan CDN)
 │       ├── jquery/  datatables/  select2/  lucide/
@@ -39,26 +39,29 @@ admin-template/
 
 ## Cara menjalankan
 
-Karena partial dimuat via `fetch()`, jalankan lewat HTTP server (bukan `file://`):
+Template ini **HTML statis murni** — tanpa build, tanpa fetch/include. Path aset &
+tautan memakai bentuk **relatif**, jadi bisa **dibuka langsung** dengan dobel-klik
+file `.html` (`file://`) tanpa server apa pun.
+
+Opsional, kalau ingin lewat server (mis. agar URL rapi):
 
 ```bash
-python3 -m http.server 8777
+python3 -m http.server 8777   # atau Live Server / XAMPP / server statis apa saja
 # buka http://localhost:8777/
 ```
 
 ## Konsep penting
 
-- **Partial** — `topbar` (dan `submenu`/subsidebar pada halaman tertentu) dimuat lewat
-  `<div data-include="/partials/topbar.html"></div>` (ditangani `app.js`).
-- **Sidebar & menu aktif (pola AdminLTE)** — sidebar **disalin di tiap halaman** (bukan
-  di-include), dan class ditulis **langsung di markup**:
-  `class="nav-item active"` untuk item aktif, `class="tree open"` untuk grup yang terbuka.
-  Jadi status aktif terlihat & diatur di file HTML halaman itu sendiri — `app.js`
-  **tidak** ikut menandai menu. `partials/sidebar.html` & `partials/submenu.html` menjadi
-  **referensi master** (contoh: Dashboard aktif) untuk disalin / dijadikan partial Blade.
-  Di Laravel cukup 1 partial + `@class(['active' => request()->routeIs('...')])`
+- **Semua struktur ditulis langsung di tiap halaman (pola AdminLTE)** — sidebar,
+  topbar, dan submenu **disalin inline** di setiap file halaman, **bukan** di-include.
+  Tidak ada `data-include`, tidak ada `fetch`, tidak ada build step.
+- **Menu aktif & grup terbuka lewat class di markup** — `class="active"` pada item
+  aktif, `class="open"` pada grup/tree yang terbuka. Status ini terlihat & diatur
+  langsung di HTML halaman itu — `app.js` **tidak** menandai menu.
+  `partials/*.html` hanya **referensi master** untuk disalin (dan kelak jadi partial Blade).
+  Di Laravel: 1 partial + `@class(['active' => request()->routeIs('...')])`
   (lihat bagian *Migrasi ke Laravel*).
-- **Judul topbar** diatur lewat `<body data-title="...">` (mengisi `<h1>` di topbar).
+- **Judul topbar** ditulis langsung di `<h1>` pada topbar tiap halaman.
   Di Laravel ini setara `@section('title','...')`.
 - **Ikon** memakai [Lucide](https://lucide.dev/icons/):
   cukup `<i data-lucide="nama-ikon"></i>` (dirender otomatis oleh `app.js`).
@@ -206,13 +209,14 @@ Struktur ini memetakan 1:1:
 | Statis                    | Laravel                              |
 |---------------------------|--------------------------------------|
 | `assets/`                 | `public/assets/`                     |
-| `partials/*.html`         | `resources/views/partials/*.blade.php` (`@include`) |
+| `partials/*.html` (referensi) | `resources/views/partials/*.blade.php` |
 | `pages/*.html`            | `resources/views/*.blade.php` (`@extends`) |
-| `data-include`            | `@include('partials.sidebar')`       |
+| sidebar/topbar disalin tiap halaman | satu partial + `@include('partials.sidebar')` (DRY kembali) |
 | path `/assets/...`        | `{{ asset('assets/...') }}`          |
 | `<body>` per halaman      | satu layout `layouts/app.blade.php` + `@yield('content')` |
-| `<body data-title="X">`   | `@section('title','X')` → `<h1>@yield('title')</h1>` |
-| sidebar disalin tiap halaman | satu partial `partials/sidebar.blade.php` + `@include` |
+| `<h1>Judul</h1>` di topbar | `@section('title','Judul')` → `<h1>@yield('title')</h1>` |
+| `class="active"` di item menu | `@class(['active' => request()->routeIs('users.*')])` |
+| `class="tree open"` di grup | `@class(['tree','open' => request()->routeIs('users.*')])` |
 | `class="active"` di item menu | `@class(['active' => request()->routeIs('users.*')])` |
 | `class="tree open"` di grup | `@class(['tree','open' => request()->routeIs('users.*')])` |
 

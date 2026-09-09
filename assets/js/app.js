@@ -1,34 +1,11 @@
 // ============================================================
-// Admin Template — loader partial + interaksi bersama
+// Admin Template — interaksi bersama (HTML statis, tanpa build)
 // ============================================================
+// Struktur (sidebar/topbar/submenu) ditulis langsung di tiap halaman — pola
+// AdminLTE. Menu aktif & grup terbuka ditandai dgn class `active`/`open` di
+// markup halaman itu sendiri (bukan JS). Di Laravel: jadikan partial Blade &
+// render class-nya dgn @class(['active' => request()->routeIs('...')]).
 (function () {
-
-  /* Muat semua <div data-include="..."></div> lalu ganti dgn isi partial */
-  async function loadIncludes() {
-    const nodes = document.querySelectorAll('[data-include]');
-    await Promise.all([...nodes].map(async node => {
-      const url = node.getAttribute('data-include');
-      try {
-        const res = await fetch(url, { cache: 'no-cache' });
-        if (!res.ok) throw new Error(res.status);
-        node.outerHTML = await res.text();
-      } catch (e) {
-        console.error('Gagal memuat partial:', url, e);
-      }
-    }));
-  }
-
-  /* Judul topbar dari <body data-title>. Menu aktif TIDAK diatur di sini:
-     class `active` (menu aktif) & `open` (grup terbuka) ditulis langsung di
-     markup sidebar tiap halaman — pola AdminLTE. Di Laravel jadikan 1 partial &
-     render class-nya dgn @class(['active' => request()->routeIs('...')]). */
-  function applyState() {
-    const b = document.body;
-    if (b.dataset.title) {
-      const h = document.querySelector('.topbar h1');
-      if (h) h.textContent = b.dataset.title;
-    }
-  }
 
   /* Toast global: toast('pesan', { type:'success', title:'Judul', timeout:3500 }) */
   function toast(msg, opts) {
@@ -407,10 +384,8 @@
     });
   }
 
-  document.addEventListener('DOMContentLoaded', async () => {
-    await loadIncludes();
-    applyState();
-    // render ikon Lucide (termasuk yang ada di partial) — stroke tipis agar senada
+  document.addEventListener('DOMContentLoaded', () => {
+    // render ikon Lucide — stroke tipis agar senada
     if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });
     initUI();
 
