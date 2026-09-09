@@ -1,14 +1,16 @@
-<aside class="subsidebar">
-  <div class="sub-head">Sub Menu</div>
-  <a class="sub-item" href="/pages/charts.html"><i data-lucide="pie-chart"></i>Charts</a>
-  <a class="sub-item" href="/pages/datatable.html"><i data-lucide="table"></i>Datatable</a>
-  <a class="sub-item" href="/pages/elements.html"><i data-lucide="layout-grid"></i>Elements</a>
-  <div class="tree">
-    <button type="button" class="sub-item" aria-expanded="false"><i data-lucide="list"></i>Multi Menu<i data-lucide="chevron-down" class="chev"></i></button>
-    <div class="tree-children">
-      <a class="sub-item" href="#">Sub Menu 1</a>
-      <a class="sub-item" href="#">Sub Menu 2</a>
-      <a class="sub-item" href="#">Sub Menu 3</a>
+  <!-- SUBSIDEBAR (dual sidebar). Pola sama: class `active` ditulis di markup.
+       Di Laravel: @class(['sub-item','active'=>request()->routeIs('charts')]). -->
+  <aside class="subsidebar">
+    <div class="sub-head">Sub Menu</div>
+    <a class="sub-item active" href="/pages/charts.html"><i data-lucide="pie-chart"></i>Charts</a>
+    <a class="sub-item" href="/pages/datatable.html"><i data-lucide="table"></i>Datatable</a>
+    <a class="sub-item" href="/pages/elements.html"><i data-lucide="layout-grid"></i>Elements</a>
+    <div class="tree">
+      <button type="button" class="sub-item" aria-expanded="false"><i data-lucide="list"></i>Multi Menu<i data-lucide="chevron-down" class="chev"></i></button>
+      <div class="tree-children">
+        <a class="sub-item" href="#">Sub Menu 1</a>
+        <a class="sub-item" href="#">Sub Menu 2</a>
+        <a class="sub-item" href="#">Sub Menu 3</a>
+      </div>
     </div>
-  </div>
-</aside>
+  </aside>

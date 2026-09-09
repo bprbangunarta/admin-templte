@@ -48,13 +48,16 @@ python3 -m http.server 8777
 
 ## Konsep penting
 
-- **DRY** — sidebar/topbar/submenu ditulis sekali di `partials/`, dimuat di tiap halaman
-  lewat `<div data-include="/partials/sidebar.html"></div>` (ditangani `app.js`).
-- **Menu aktif** ditentukan **otomatis dari URL** halaman: `app.js` mencocokkan
-  `location.pathname` dengan atribut `href` tiap item menu, lalu menambah class
-  `.active` (dan membuka otomatis semua grup/tree induknya). Tidak perlu atribut
-  khusus per halaman — cukup pastikan `href` menu benar. Pola ini setara
-  `request()->routeIs()` di Laravel (lihat bagian *Migrasi ke Laravel*).
+- **Partial** — `topbar` (dan `submenu`/subsidebar pada halaman tertentu) dimuat lewat
+  `<div data-include="/partials/topbar.html"></div>` (ditangani `app.js`).
+- **Sidebar & menu aktif (pola AdminLTE)** — sidebar **disalin di tiap halaman** (bukan
+  di-include), dan class ditulis **langsung di markup**:
+  `class="nav-item active"` untuk item aktif, `class="tree open"` untuk grup yang terbuka.
+  Jadi status aktif terlihat & diatur di file HTML halaman itu sendiri — `app.js`
+  **tidak** ikut menandai menu. `partials/sidebar.html` & `partials/submenu.html` menjadi
+  **referensi master** (contoh: Dashboard aktif) untuk disalin / dijadikan partial Blade.
+  Di Laravel cukup 1 partial + `@class(['active' => request()->routeIs('...')])`
+  (lihat bagian *Migrasi ke Laravel*).
 - **Judul topbar** diatur lewat `<body data-title="...">` (mengisi `<h1>` di topbar).
   Di Laravel ini setara `@section('title','...')`.
 - **Ikon** memakai [Lucide](https://lucide.dev/icons/):
@@ -209,16 +212,21 @@ Struktur ini memetakan 1:1:
 | path `/assets/...`        | `{{ asset('assets/...') }}`          |
 | `<body>` per halaman      | satu layout `layouts/app.blade.php` + `@yield('content')` |
 | `<body data-title="X">`   | `@section('title','X')` → `<h1>@yield('title')</h1>` |
-| menu aktif (URL-based JS)  | `@class(['active' => request()->routeIs('users.*')])` di item menu |
+| sidebar disalin tiap halaman | satu partial `partials/sidebar.blade.php` + `@include` |
+| `class="active"` di item menu | `@class(['active' => request()->routeIs('users.*')])` |
+| `class="tree open"` di grup | `@class(['tree','open' => request()->routeIs('users.*')])` |
 
-Karena menu aktif di versi statis sudah berbasis URL (bukan atribut `<body>`),
-perpindahannya lurus: **hapus** `app.js` bagian penanda aktif, lalu render class
-`active` langsung di partial Blade dengan `request()->routeIs()`. Contoh item:
+Di versi statis, class `active`/`open` ditulis manual di sidebar tiap halaman (pola
+AdminLTE). Di Laravel, kembalikan DRY: cukup **satu** partial sidebar, dan tentukan
+class-nya per-request dengan `request()->routeIs()`. Contoh item & grup:
 
 ```blade
-<a class="nav-sub @class(['active' => request()->routeIs('manajemen.peran')])"
+{{-- item aktif --}}
+<a @class(['nav-sub', 'active' => request()->routeIs('manajemen.peran')])
    href="{{ route('manajemen.peran') }}">Peran</a>
-```
 
-Untuk membuka otomatis grup/tree induk saat anaknya aktif, cukup cek pola route
-di elemen `.tree`, mis. `@class(['open' => request()->routeIs('manajemen.*')])`.
+{{-- grup/tree terbuka bila salah satu anaknya aktif --}}
+<div @class(['tree', 'open' => request()->routeIs('manajemen.*')])>
+  ...
+</div>
+```
