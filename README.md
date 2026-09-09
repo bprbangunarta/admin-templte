@@ -20,22 +20,22 @@ admin-template/
 │   ├── files.html             # File manager (folder & file grid)
 │   ├── landing.html           # Landing page frontend (hero, fitur, harga, footer)
 │   ├── email.html             # Template email siap kirim (inline-styled)
+│   ├── manajemen/            # Contoh grup tree: pengguna, peran, perizinan
+│   ├── kredensial/           # Contoh grup section: perizinan, hak-akses, pengguna
 │   ├── auth/                  # Login, Register, Lupa/Reset Password (layar penuh)
 │   │   ├── login.html  register.html  forgot-password.html  reset-password.html
 │   └── error/                 # 404, 500, Maintenance
 │       ├── 404.html  500.html  maintenance.html
-├── partials/                  # REFERENSI master (disalin manual ke tiap halaman;
-│   ├── sidebar.html           #   jadi @include Blade saat migrasi ke Laravel)
-│   ├── topbar.html            # Header atas
-│   └── submenu.html           # Sub-sidebar (dual sidebar)
 ├── assets/
 │   ├── css/app.css            # Design system (satu sumber gaya)
-│   ├── js/app.js              # Interaksi (menu, modal, tabs, dll) — TANPA loader partial
-│   ├── img/                   # Gambar / logo
+│   ├── js/app.js              # Interaksi (menu, modal, tabs, dll) — HTML statis, tanpa include
 │   └── vendor/                # Library pihak ketiga (di-host lokal, bukan CDN)
 │       ├── jquery/  datatables/  select2/  lucide/
 └── README.md
 ```
+
+> Struktur (sidebar/topbar/submenu) ditulis **inline di tiap halaman** (pola AdminLTE),
+> bukan lewat file partial. Untuk mengubah menu, edit langsung di halaman terkait.
 
 ## Cara menjalankan
 
@@ -58,8 +58,7 @@ python3 -m http.server 8777   # atau Live Server / XAMPP / server statis apa saj
 - **Menu aktif & grup terbuka lewat class di markup** — `class="active"` pada item
   aktif, `class="open"` pada grup/tree yang terbuka. Status ini terlihat & diatur
   langsung di HTML halaman itu — `app.js` **tidak** menandai menu.
-  `partials/*.html` hanya **referensi master** untuk disalin (dan kelak jadi partial Blade).
-  Di Laravel: 1 partial + `@class(['active' => request()->routeIs('...')])`
+  Di Laravel: cukup 1 partial + `@class(['active' => request()->routeIs('...')])`
   (lihat bagian *Migrasi ke Laravel*).
 - **Judul topbar** ditulis langsung di `<h1>` pada topbar tiap halaman.
   Di Laravel ini setara `@section('title','...')`.
@@ -209,7 +208,7 @@ Struktur ini memetakan 1:1:
 | Statis                    | Laravel                              |
 |---------------------------|--------------------------------------|
 | `assets/`                 | `public/assets/`                     |
-| `partials/*.html` (referensi) | `resources/views/partials/*.blade.php` |
+| sidebar/topbar inline (per halaman) | ekstrak jadi `resources/views/partials/*.blade.php` |
 | `pages/*.html`            | `resources/views/*.blade.php` (`@extends`) |
 | sidebar/topbar disalin tiap halaman | satu partial + `@include('partials.sidebar')` (DRY kembali) |
 | path `/assets/...`        | `{{ asset('assets/...') }}`          |
