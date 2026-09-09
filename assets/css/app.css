@@ -130,7 +130,7 @@ html, body {
 .brand .name { font-size: var(--fs-md); font-weight: 600; letter-spacing: -0.01em; }
 
 /* area menu yang bisa scroll bila panjang */
-.sidebar-scroll { flex: 1; overflow-y: auto; overflow-x: hidden; }
+.sidebar-scroll { flex: 1; overflow-y: auto; overflow-x: hidden; padding-top: 8px; }
 .sidebar-scroll::-webkit-scrollbar { width: 8px; }
 .sidebar-scroll::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 8px; }
 
