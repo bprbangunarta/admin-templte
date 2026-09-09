@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
+  <title>Pengguna — Admin Template</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+
+<body data-title="Pengguna" data-sub="kred-pengguna">
+  <div class="app">
+    <div class="backdrop" id="backdrop"></div>
+    <div data-include="/partials/sidebar.html"></div>
+
+    <div class="main">
+      <div data-include="/partials/topbar.html"></div>
+
+      <div class="workspace">
+        <div class="content">
+          <nav class="breadcrumb">
+            <a href="#">Kredensial</a>
+            <span class="sep"><i data-lucide="chevron-right"></i></span>
+            <span class="current">Pengguna</span>
+          </nav>
+
+          <div class="panel">
+            <div class="empty-state">
+              <div class="es-ic"><i data-lucide="users"></i></div>
+              <h4>Halaman Pengguna</h4>
+              <p>Placeholder untuk menu <b>Kredensial › Pengguna</b>. Ganti isi ini dengan konten sesungguhnya.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/vendor/lucide/lucide-0.294.0.min.js"></script>
+  <script src="/assets/js/app.js"></script>
+</body>
+
+</html>
