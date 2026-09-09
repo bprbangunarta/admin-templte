@@ -116,7 +116,10 @@ html, body {
 
 .brand {
   display: flex; align-items: center; gap: 8px;
-  padding: 6px 7px 10px;
+  height: 40px;                 /* = topbar 48px − padding-top sidebar 8px, agar garis sejajar */
+  margin: 0 -6px;               /* rentangkan garis penuh lebar sidebar (offset padding sidebar) */
+  padding: 0 13px;              /* 7px asli + 6px kompensasi margin, posisi logo tetap */
+  border-bottom: 1px solid var(--border);
 }
 .brand .logo {
   width: 22px; height: 22px; border-radius: 6px;
@@ -1085,6 +1088,11 @@ body, .sidebar, .topbar, .panel, .stat, .form-control, .btn, .drawer, .subsideba
   .app.mini .sidebar .nav-item { justify-content: center; gap: 0; padding-left: 0; padding-right: 0; }
   .app.mini .sidebar .nav-item > span { display: none; }
   .app.mini .sidebar .nav-group { display: none; }
+  /* menu tree (punya submenu) di rail: ikon saja, submenu disembunyikan */
+  .app.mini .sidebar .nav > .tree > .tree-toggle { justify-content: center; gap: 0; padding-left: 0; padding-right: 0; }
+  .app.mini .sidebar .nav > .tree > .tree-toggle > span,
+  .app.mini .sidebar .nav > .tree > .tree-toggle > .chev { display: none; }
+  .app.mini .sidebar .nav > .tree > .tree-children { display: none; }
   .app.mini .sidebar .profile { padding-left: 0; padding-right: 0; }
   .app.mini .sidebar .profile-trigger { justify-content: center; gap: 0; padding-left: 0; padding-right: 0; border-color: transparent; }
   .app.mini .sidebar .profile-trigger .who,
@@ -1092,11 +1100,15 @@ body, .sidebar, .topbar, .panel, .stat, .form-control, .btn, .drawer, .subsideba
 
   /* hover → mengembang penuh sebagai overlay */
   .app.mini .sidebar:hover { width: var(--sidebar-w); overflow-y: auto; box-shadow: 6px 0 28px rgba(0,0,0,.12); }
-  .app.mini .sidebar:hover .brand { justify-content: flex-start; padding: 6px 7px 10px; }
+  .app.mini .sidebar:hover .brand { justify-content: flex-start; padding: 0 13px; }
   .app.mini .sidebar:hover .brand .name { display: block; }
   .app.mini .sidebar:hover .nav-item { justify-content: flex-start; gap: 9px; padding: 5px 8px; }
   .app.mini .sidebar:hover .nav-item > span { display: inline; }
   .app.mini .sidebar:hover .nav-group { display: block; }
+  .app.mini .sidebar:hover .nav > .tree > .tree-toggle { justify-content: flex-start; gap: 9px; padding: 5px 8px; }
+  .app.mini .sidebar:hover .nav > .tree > .tree-toggle > span { display: inline; }
+  .app.mini .sidebar:hover .nav > .tree > .tree-toggle > .chev { display: inline-flex; }
+  .app.mini .sidebar:hover .nav > .tree.open > .tree-children { display: block; }
   .app.mini .sidebar:hover .profile { padding: 7px 4px 4px; }
   .app.mini .sidebar:hover .profile-trigger { justify-content: flex-start; gap: 9px; padding: 7px 8px; border-color: var(--border); }
   .app.mini .sidebar:hover .profile-trigger .who,
