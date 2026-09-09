@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
-  <title>Pengaturan — Admin Template</title>
+  <title>Detail Artikel — Admin Template</title>
   <link rel="stylesheet" href="../assets/css/app.css">
 </head>
 
@@ -50,13 +50,13 @@
           </div>
 
           <!-- menu Blog -->
-          <div class="tree">
-            <button type="button" class="tree-toggle" aria-expanded="false">
+          <div class="tree open">
+            <button type="button" class="tree-toggle" aria-expanded="true">
               <i data-lucide="newspaper" class="ico"></i><span>Blog</span><i data-lucide="chevron-right" class="chev"></i>
             </button>
             <div class="tree-children">
               <a class="nav-sub" href="blog.html">Semua Artikel</a>
-              <a class="nav-sub" href="blog-detail.html">Detail Artikel</a>
+              <a class="nav-sub active" href="blog-detail.html">Detail Artikel</a>
             </div>
           </div>
         </nav>
@@ -139,10 +139,11 @@
       </div>
     </aside>
   </div>
+
     <div class="main">
       <header class="topbar">
         <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Buka atau tutup menu"><i data-lucide="panel-left"></i></button>
-        <h1>Pengaturan</h1>
+        <h1>Detail Artikel</h1>
 
         <!-- Pencarian: tombol yang membuka command palette (⌘K / Ctrl+K) -->
         <button type="button" class="searchbar" id="searchOpen" aria-label="Cari (Ctrl+K)" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk">
@@ -207,90 +208,193 @@
           </div>
         </div>
       </div>
-      <div class="content">
-        <nav class="breadcrumb">
-          <a href="../index.html">Beranda</a>
-          <span class="sep"><i data-lucide="chevron-right"></i></span>
-          <span class="current">Pengaturan</span>
-        </nav>
 
-        <form onsubmit="return false">
-          <!-- Umum -->
-          <div class="panel mb-4">
-            <div class="panel-head">
-              <h3>Umum</h3>
+      <div class="workspace">
+        <div class="content">
+          <nav class="breadcrumb">
+            <a href="../index.html">Beranda</a>
+            <span class="sep"><i data-lucide="chevron-right"></i></span>
+            <a href="blog.html">Blog</a>
+            <span class="sep"><i data-lucide="chevron-right"></i></span>
+            <span class="current">Detail Artikel</span>
+          </nav>
+
+          <div class="row">
+            <!-- Artikel -->
+            <div class="col-8">
+              <article>
+                <header class="article-hero">
+                  <div class="kick">TUTORIAL · PANDUAN</div>
+                  <h1>Membangun Dashboard Admin yang Rapi dengan Design Token</h1>
+                  <div class="article-meta">
+                    <div class="avatar">ZR</div>
+                    <span class="who">Zulfadli Rizal</span>
+                    <span class="dot"></span>
+                    <span>7 September 2026</span>
+                    <span class="dot"></span>
+                    <span class="mi"><i data-lucide="clock"></i> 8 menit baca</span>
+                    <span class="dot"></span>
+                    <span class="mi"><i data-lucide="message-circle"></i> 12 komentar</span>
+                  </div>
+                </header>
+
+                <div class="article-cover">
+                  <i data-lucide="layout-dashboard"></i>
+                </div>
+
+                <div class="article">
+                  <p>Konsistensi visual adalah fondasi setiap dashboard yang enak dipakai. Alih-alih menuliskan nilai warna dan ukuran berulang-ulang, kita bisa memusatkannya dalam <em>design token</em> — sekumpulan variabel yang menjadi satu sumber kebenaran untuk seluruh antarmuka.</p>
+
+                  <h2>Apa itu Design Token?</h2>
+                  <p>Design token adalah nama yang mewakili keputusan desain: warna latar, warna teks, radius sudut, jarak, hingga tipografi. Di CSS, token diwujudkan sebagai <em>custom property</em> pada <code>:root</code>, lalu dipakai ulang di seluruh komponen.</p>
+
+                  <pre><code>:root {
+  --bg-content: #fcfcfb;
+  --text: #29261f;
+  --accent: #d97757;
+  --radius: 9px;
+}</code></pre>
+
+                  <p>Dengan pola ini, mengganti tema cukup menimpa nilai token pada selektor <code>:root[data-theme="dark"]</code> — seluruh halaman ikut berubah tanpa menyentuh satu pun komponen.</p>
+
+                  <blockquote>
+                    <p>“Satu perubahan token, ratusan komponen ikut menyesuaikan. Itulah kekuatan sistem yang terpusat.”</p>
+                  </blockquote>
+
+                  <h2>Menyusun Skala yang Konsisten</h2>
+                  <p>Gunakan skala tipografi dan spacing yang berjenjang agar hierarki terasa alami. Beberapa prinsip yang kami pakai:</p>
+                  <ul>
+                    <li><b>Tipografi compact</b> — rentang ukuran rapat (11–19px) agar padat informasi namun tetap terbaca.</li>
+                    <li><b>Warna hangat</b> — latar <em>near-white</em> dengan aksen clay untuk kesan tenang.</li>
+                    <li><b>Radius seragam</b> — satu nilai radius utama dipakai di kartu, tombol, dan input.</li>
+                  </ul>
+
+                  <h3>Mode Gelap Tanpa Duplikasi</h3>
+                  <p>Karena setiap komponen membaca token, mode gelap cukup mendefinisikan ulang nilai warnanya. Tidak perlu menulis ulang gaya komponen — pendekatan ini menekan ukuran CSS sekaligus mengurangi risiko inkonsistensi.</p>
+
+                  <p>Hasil akhirnya: antarmuka yang <a href="#">konsisten, mudah dirawat</a>, dan siap tumbuh seiring bertambahnya halaman baru.</p>
+                </div>
+
+                <!-- Tag -->
+                <div class="article-tags">
+                  <span class="lbl">Tag:</span>
+                  <a class="blog-chip" href="#">CSS</a>
+                  <a class="blog-chip" href="#">Design Token</a>
+                  <a class="blog-chip" href="#">Dark Mode</a>
+                  <a class="blog-chip" href="#">UI</a>
+                </div>
+
+                <!-- Bagikan -->
+                <div class="share-row">
+                  <span class="lbl">Bagikan artikel ini</span>
+                  <button class="btn sm"><i data-lucide="twitter"></i> Twitter</button>
+                  <button class="btn sm"><i data-lucide="facebook"></i> Facebook</button>
+                  <button class="btn sm"><i data-lucide="link"></i> Salin tautan</button>
+                </div>
+
+                <!-- Penulis -->
+                <div class="author-box">
+                  <div class="avatar">ZR</div>
+                  <div>
+                    <h4>Zulfadli Rizal</h4>
+                    <div class="role">Front-End Engineer</div>
+                    <p>Menulis tentang antarmuka, sistem desain, dan praktik front-end yang rapi. Suka menyederhanakan hal rumit menjadi komponen yang mudah dipakai ulang.</p>
+                  </div>
+                </div>
+
+                <!-- Navigasi antar artikel -->
+                <div class="row" style="margin-top:8px;">
+                  <div class="col-6">
+                    <a class="panel hoverable" href="blog-detail.html" style="display:block; padding:14px 16px;">
+                      <div class="text-muted fs-sm"><i data-lucide="arrow-left" style="width:13px;height:13px;vertical-align:-2px;"></i> Sebelumnya</div>
+                      <div style="font-weight:600; margin-top:4px;">7 Prinsip Warna untuk Antarmuka</div>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a class="panel hoverable" href="blog-detail.html" style="display:block; padding:14px 16px; text-align:right;">
+                      <div class="text-muted fs-sm">Berikutnya <i data-lucide="arrow-right" style="width:13px;height:13px;vertical-align:-2px;"></i></div>
+                      <div style="font-weight:600; margin-top:4px;">Optimasi Waktu Muat Tanpa Build Tool</div>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Komentar -->
+                <div class="panel" style="margin-top:8px;">
+                  <div class="panel-head"><h3>Komentar (12)</h3></div>
+                  <div style="padding:16px;">
+                    <div class="track" style="--dummy:0;">
+                      <div style="display:flex; gap:12px; padding-bottom:16px; border-bottom:1px solid var(--border);">
+                        <div class="avatar">BR</div>
+                        <div>
+                          <div><b>Budi Rahardjo</b> <span class="text-faint fs-sm">· 2 jam lalu</span></div>
+                          <p class="text-muted" style="font-size:var(--fs-base); line-height:1.55; margin-top:4px;">Penjelasan token-nya jelas banget. Langsung saya terapkan di proyek internal.</p>
+                        </div>
+                      </div>
+                      <div style="display:flex; gap:12px; padding-top:16px;">
+                        <div class="avatar">SW</div>
+                        <div>
+                          <div><b>Siti Wulandari</b> <span class="text-faint fs-sm">· kemarin</span></div>
+                          <p class="text-muted" style="font-size:var(--fs-base); line-height:1.55; margin-top:4px;">Bagian dark mode tanpa duplikasi itu insight yang berguna. Terima kasih!</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group" style="margin:16px 0 8px;">
+                      <textarea class="form-control" rows="3" placeholder="Tulis komentar…"></textarea>
+                    </div>
+                    <button class="btn primary"><i data-lucide="send"></i> Kirim Komentar</button>
+                  </div>
+                </div>
+              </article>
             </div>
-            <div class="p-4">
-              <div class="row">
-                <div class="col-6">
-                  <div class="form-group mb-0"><label class="form-label">Nama Aplikasi</label><input
-                      class="form-control" value="Admin Panel"></div>
-                </div>
-                <div class="col-6">
-                  <div class="form-group mb-0"><label class="form-label">Zona Waktu</label>
-                    <select class="form-control">
-                      <option>WIB (GMT+7)</option>
-                      <option>WITA (GMT+8)</option>
-                      <option>WIT (GMT+9)</option>
-                    </select>
+
+            <!-- Sidebar kanan -->
+            <div class="col-4">
+              <div class="widget toc">
+                <div class="widget-head"><i data-lucide="list"></i> Daftar Isi</div>
+                <a href="#" class="active">Apa itu Design Token?</a>
+                <a href="#">Menyusun Skala yang Konsisten</a>
+                <a href="#">Mode Gelap Tanpa Duplikasi</a>
+              </div>
+
+              <div class="widget">
+                <div class="widget-head"><i data-lucide="flame"></i> Artikel Terkait</div>
+                <div class="pp-item">
+                  <div class="pp-num">01</div>
+                  <div class="pp-tx">
+                    <a class="pp-title" href="blog-detail.html">Apa yang Baru di Versi 2.4</a>
+                    <div class="pp-meta">Rilis · 5 mnt</div>
                   </div>
                 </div>
-                <div class="col-6">
-                  <div class="form-group mb-0 mt-3"><label class="form-label">Bahasa</label>
-                    <select class="form-control">
-                      <option>Indonesia</option>
-                      <option>English</option>
-                    </select>
+                <div class="pp-item">
+                  <div class="pp-num">02</div>
+                  <div class="pp-tx">
+                    <a class="pp-title" href="blog-detail.html">7 Prinsip Warna untuk Antarmuka</a>
+                    <div class="pp-meta">Tips · 6 mnt</div>
                   </div>
                 </div>
-                <div class="col-6">
-                  <div class="form-group mb-0 mt-3"><label class="form-label">Format Tanggal</label>
-                    <select class="form-control">
-                      <option>DD/MM/YYYY</option>
-                      <option>YYYY-MM-DD</option>
-                    </select>
+                <div class="pp-item">
+                  <div class="pp-num">03</div>
+                  <div class="pp-tx">
+                    <a class="pp-title" href="blog-detail.html">Optimasi Waktu Muat Tanpa Build Tool</a>
+                    <div class="pp-meta">Tutorial · 7 mnt</div>
                   </div>
+                </div>
+              </div>
+
+              <div class="widget">
+                <div class="widget-head"><i data-lucide="tag"></i> Tag</div>
+                <div class="tagcloud">
+                  <a href="#">CSS</a><a href="#">Dark Mode</a><a href="#">UI</a>
+                  <a href="#">Performa</a><a href="#">Design Token</a>
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- Notifikasi -->
-          <div class="panel mb-4">
-            <div class="panel-head">
-              <h3>Notifikasi</h3>
-            </div>
-            <div class="p-4 d-flex flex-col gap-3">
-              <label class="switch"><input type="checkbox" checked><span class="track"></span> Email untuk order
-                baru</label>
-              <label class="switch"><input type="checkbox" checked><span class="track"></span> Notifikasi push di
-                browser</label>
-              <label class="switch"><input type="checkbox"><span class="track"></span> Ringkasan mingguan</label>
-            </div>
-          </div>
-
-          <!-- Keamanan -->
-          <div class="panel mb-4">
-            <div class="panel-head">
-              <h3>Keamanan</h3>
-            </div>
-            <div class="p-4 d-flex flex-col gap-3">
-              <label class="switch"><input type="checkbox"><span class="track"></span> Autentikasi dua faktor
-                (2FA)</label>
-              <label class="switch"><input type="checkbox" checked><span class="track"></span> Keluar otomatis setelah
-                30 menit</label>
-            </div>
-          </div>
-
-          <div class="d-flex justify-end gap-2">
-            <button class="btn outline">Reset</button>
-            <button class="btn primary" data-toast="success" data-toast-title="Tersimpan"
-              data-toast-msg="Pengaturan berhasil diperbarui.">Simpan Pengaturan</button>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
+
   <script src="../assets/vendor/lucide/lucide-0.294.0.min.js"></script>
   <script src="../assets/js/app.js"></script>
 </body>

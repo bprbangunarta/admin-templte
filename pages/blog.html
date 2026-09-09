@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
-  <title>Pengaturan — Admin Template</title>
+  <title>Blog — Admin Template</title>
   <link rel="stylesheet" href="../assets/css/app.css">
 </head>
 
@@ -50,12 +50,12 @@
           </div>
 
           <!-- menu Blog -->
-          <div class="tree">
-            <button type="button" class="tree-toggle" aria-expanded="false">
+          <div class="tree open">
+            <button type="button" class="tree-toggle" aria-expanded="true">
               <i data-lucide="newspaper" class="ico"></i><span>Blog</span><i data-lucide="chevron-right" class="chev"></i>
             </button>
             <div class="tree-children">
-              <a class="nav-sub" href="blog.html">Semua Artikel</a>
+              <a class="nav-sub active" href="blog.html">Semua Artikel</a>
               <a class="nav-sub" href="blog-detail.html">Detail Artikel</a>
             </div>
           </div>
@@ -139,10 +139,11 @@
       </div>
     </aside>
   </div>
+
     <div class="main">
       <header class="topbar">
         <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Buka atau tutup menu"><i data-lucide="panel-left"></i></button>
-        <h1>Pengaturan</h1>
+        <h1>Blog</h1>
 
         <!-- Pencarian: tombol yang membuka command palette (⌘K / Ctrl+K) -->
         <button type="button" class="searchbar" id="searchOpen" aria-label="Cari (Ctrl+K)" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk">
@@ -207,90 +208,212 @@
           </div>
         </div>
       </div>
-      <div class="content">
-        <nav class="breadcrumb">
-          <a href="../index.html">Beranda</a>
-          <span class="sep"><i data-lucide="chevron-right"></i></span>
-          <span class="current">Pengaturan</span>
-        </nav>
 
-        <form onsubmit="return false">
-          <!-- Umum -->
-          <div class="panel mb-4">
-            <div class="panel-head">
-              <h3>Umum</h3>
+      <div class="workspace">
+        <div class="content">
+          <nav class="breadcrumb">
+            <a href="../index.html">Beranda</a>
+            <span class="sep"><i data-lucide="chevron-right"></i></span>
+            <span class="current">Blog</span>
+          </nav>
+
+          <div class="page-head">
+            <h2>Blog</h2>
+            <p>Artikel, tutorial, dan catatan rilis terbaru dari tim.</p>
+          </div>
+
+          <!-- Toolbar filter kategori -->
+          <div class="blog-toolbar">
+            <div class="blog-chips">
+              <button class="blog-chip active">Semua</button>
+              <button class="blog-chip">Tutorial</button>
+              <button class="blog-chip">Berita</button>
+              <button class="blog-chip">Tips &amp; Trik</button>
+              <button class="blog-chip">Rilis</button>
             </div>
-            <div class="p-4">
-              <div class="row">
-                <div class="col-6">
-                  <div class="form-group mb-0"><label class="form-label">Nama Aplikasi</label><input
-                      class="form-control" value="Admin Panel"></div>
+            <span class="blog-count">Menampilkan 5 dari 24 artikel</span>
+          </div>
+
+          <div class="row">
+            <!-- Kolom utama -->
+            <div class="col-8">
+              <!-- Artikel unggulan -->
+              <article class="blog-card blog-feature mb-4">
+                <div class="blog-thumb">
+                  <i data-lucide="layout-dashboard"></i>
+                  <span class="tag-pill">Tutorial</span>
+                  <button class="bm" aria-label="Simpan"><i data-lucide="bookmark"></i></button>
                 </div>
-                <div class="col-6">
-                  <div class="form-group mb-0"><label class="form-label">Zona Waktu</label>
-                    <select class="form-control">
-                      <option>WIB (GMT+7)</option>
-                      <option>WITA (GMT+8)</option>
-                      <option>WIT (GMT+9)</option>
-                    </select>
+                <div class="blog-body">
+                  <div class="blog-kicker"><b>Tutorial</b> · Panduan</div>
+                  <h3 class="blog-title"><a href="blog-detail.html">Membangun Dashboard Admin yang Rapi dengan Design Token</a></h3>
+                  <p class="blog-excerpt">Pelajari cara menyusun sistem warna, tipografi, dan spacing memakai CSS variable agar konsisten di mode terang maupun gelap — tanpa framework berat.</p>
+                  <div class="post-meta">
+                    <div class="avatar">ZR</div>
+                    <span class="who">Zulfadli Rizal</span>
+                    <span class="dot"></span>
+                    <span>7 Sep 2026</span>
+                    <span class="dot"></span>
+                    <span class="mi"><i data-lucide="clock"></i> 8 mnt baca</span>
                   </div>
                 </div>
-                <div class="col-6">
-                  <div class="form-group mb-0 mt-3"><label class="form-label">Bahasa</label>
-                    <select class="form-control">
-                      <option>Indonesia</option>
-                      <option>English</option>
-                    </select>
+              </article>
+
+              <!-- Grid artikel -->
+              <div class="blog-grid">
+                <article class="blog-card">
+                  <div class="blog-thumb">
+                    <i data-lucide="palette"></i>
+                    <span class="tag-pill">Tips</span>
+                    <button class="bm" aria-label="Simpan"><i data-lucide="bookmark"></i></button>
+                  </div>
+                  <div class="blog-body">
+                    <div class="blog-kicker"><b>Tips &amp; Trik</b> · UI</div>
+                    <h3 class="blog-title"><a href="blog-detail.html">7 Prinsip Warna untuk Antarmuka yang Nyaman Dibaca</a></h3>
+                    <p class="blog-excerpt">Kontras, hierarki, dan aksen — panduan singkat memilih palet yang tetap terbaca di segala kondisi layar.</p>
+                    <div class="post-meta">
+                      <div class="avatar">ZR</div><span class="who">Zulfadli Rizal</span>
+                      <span class="dot"></span><span>6 Sep 2026</span>
+                      <span class="mi" style="margin-left:auto;"><i data-lucide="message-circle"></i> 12</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="blog-card">
+                  <div class="blog-thumb">
+                    <i data-lucide="gauge"></i>
+                    <span class="tag-pill">Tutorial</span>
+                    <button class="bm" aria-label="Simpan"><i data-lucide="bookmark"></i></button>
+                  </div>
+                  <div class="blog-body">
+                    <div class="blog-kicker"><b>Tutorial</b> · Performa</div>
+                    <h3 class="blog-title"><a href="blog-detail.html">Mengoptimalkan Waktu Muat Halaman Tanpa Build Tool</a></h3>
+                    <p class="blog-excerpt">Teknik lazy-load, preconnect, dan pemecahan aset agar halaman statis tetap ngebut.</p>
+                    <div class="post-meta">
+                      <div class="avatar">ZR</div><span class="who">Zulfadli Rizal</span>
+                      <span class="dot"></span><span>4 Sep 2026</span>
+                      <span class="mi" style="margin-left:auto;"><i data-lucide="message-circle"></i> 5</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="blog-card">
+                  <div class="blog-thumb">
+                    <i data-lucide="shield-check"></i>
+                    <span class="tag-pill">Berita</span>
+                    <button class="bm" aria-label="Simpan"><i data-lucide="bookmark"></i></button>
+                  </div>
+                  <div class="blog-body">
+                    <div class="blog-kicker"><b>Berita</b> · Keamanan</div>
+                    <h3 class="blog-title"><a href="blog-detail.html">Rilis Fitur Otentikasi Dua Faktor untuk Semua Akun</a></h3>
+                    <p class="blog-excerpt">Lapisan keamanan tambahan kini aktif — begini cara mengatur dan memulihkannya.</p>
+                    <div class="post-meta">
+                      <div class="avatar">ZR</div><span class="who">Zulfadli Rizal</span>
+                      <span class="dot"></span><span>2 Sep 2026</span>
+                      <span class="mi" style="margin-left:auto;"><i data-lucide="message-circle"></i> 9</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="blog-card">
+                  <div class="blog-thumb">
+                    <i data-lucide="rocket"></i>
+                    <span class="tag-pill">Rilis</span>
+                    <button class="bm" aria-label="Simpan"><i data-lucide="bookmark"></i></button>
+                  </div>
+                  <div class="blog-body">
+                    <div class="blog-kicker"><b>Rilis</b> · v2.4</div>
+                    <h3 class="blog-title"><a href="blog-detail.html">Apa yang Baru di Versi 2.4: Command Palette &amp; Dark Mode</a></h3>
+                    <p class="blog-excerpt">Pencarian cepat ⌘K, mode gelap otomatis, dan puluhan perbaikan kecil lainnya.</p>
+                    <div class="post-meta">
+                      <div class="avatar">ZR</div><span class="who">Zulfadli Rizal</span>
+                      <span class="dot"></span><span>29 Agu 2026</span>
+                      <span class="mi" style="margin-left:auto;"><i data-lucide="message-circle"></i> 18</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Pagination -->
+              <div class="pagination" style="justify-content:center; margin-top:22px;">
+                <a class="page disabled" href="#" aria-label="Sebelumnya"><i data-lucide="chevron-left"></i></a>
+                <a class="page active" href="#">1</a>
+                <a class="page" href="#">2</a>
+                <a class="page" href="#">3</a>
+                <span class="ellipsis">…</span>
+                <a class="page" href="#">6</a>
+                <a class="page" href="#" aria-label="Berikutnya"><i data-lucide="chevron-right"></i></a>
+              </div>
+            </div>
+
+            <!-- Sidebar kanan -->
+            <div class="col-4">
+              <div class="widget">
+                <div class="widget-head"><i data-lucide="flame"></i> Artikel Populer</div>
+                <div class="pp-item">
+                  <div class="pp-num">01</div>
+                  <div class="pp-tx">
+                    <a class="pp-title" href="blog-detail.html">Membangun Dashboard Admin dengan Design Token</a>
+                    <div class="pp-meta">Tutorial · 8 mnt</div>
                   </div>
                 </div>
-                <div class="col-6">
-                  <div class="form-group mb-0 mt-3"><label class="form-label">Format Tanggal</label>
-                    <select class="form-control">
-                      <option>DD/MM/YYYY</option>
-                      <option>YYYY-MM-DD</option>
-                    </select>
+                <div class="pp-item">
+                  <div class="pp-num">02</div>
+                  <div class="pp-tx">
+                    <a class="pp-title" href="blog-detail.html">Apa yang Baru di Versi 2.4</a>
+                    <div class="pp-meta">Rilis · 5 mnt</div>
+                  </div>
+                </div>
+                <div class="pp-item">
+                  <div class="pp-num">03</div>
+                  <div class="pp-tx">
+                    <a class="pp-title" href="blog-detail.html">7 Prinsip Warna untuk Antarmuka</a>
+                    <div class="pp-meta">Tips · 6 mnt</div>
+                  </div>
+                </div>
+                <div class="pp-item">
+                  <div class="pp-num">04</div>
+                  <div class="pp-tx">
+                    <a class="pp-title" href="blog-detail.html">Optimasi Waktu Muat Tanpa Build Tool</a>
+                    <div class="pp-meta">Tutorial · 7 mnt</div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          <!-- Notifikasi -->
-          <div class="panel mb-4">
-            <div class="panel-head">
-              <h3>Notifikasi</h3>
-            </div>
-            <div class="p-4 d-flex flex-col gap-3">
-              <label class="switch"><input type="checkbox" checked><span class="track"></span> Email untuk order
-                baru</label>
-              <label class="switch"><input type="checkbox" checked><span class="track"></span> Notifikasi push di
-                browser</label>
-              <label class="switch"><input type="checkbox"><span class="track"></span> Ringkasan mingguan</label>
-            </div>
-          </div>
+              <div class="widget">
+                <div class="widget-head"><i data-lucide="folder"></i> Kategori</div>
+                <div class="cat-list">
+                  <a href="#">Tutorial <span class="n">12</span></a>
+                  <a href="#">Tips &amp; Trik <span class="n">7</span></a>
+                  <a href="#">Berita <span class="n">3</span></a>
+                  <a href="#">Rilis <span class="n">2</span></a>
+                </div>
+              </div>
 
-          <!-- Keamanan -->
-          <div class="panel mb-4">
-            <div class="panel-head">
-              <h3>Keamanan</h3>
-            </div>
-            <div class="p-4 d-flex flex-col gap-3">
-              <label class="switch"><input type="checkbox"><span class="track"></span> Autentikasi dua faktor
-                (2FA)</label>
-              <label class="switch"><input type="checkbox" checked><span class="track"></span> Keluar otomatis setelah
-                30 menit</label>
-            </div>
-          </div>
+              <div class="widget">
+                <div class="widget-head"><i data-lucide="tag"></i> Tag Populer</div>
+                <div class="tagcloud">
+                  <a href="#">CSS</a><a href="#">Dark Mode</a><a href="#">UI</a>
+                  <a href="#">Performa</a><a href="#">Keamanan</a><a href="#">Design Token</a>
+                  <a href="#">Aksesibilitas</a><a href="#">HTML</a>
+                </div>
+              </div>
 
-          <div class="d-flex justify-end gap-2">
-            <button class="btn outline">Reset</button>
-            <button class="btn primary" data-toast="success" data-toast-title="Tersimpan"
-              data-toast-msg="Pengaturan berhasil diperbarui.">Simpan Pengaturan</button>
+              <div class="widget widget-cta">
+                <div class="widget-head" style="justify-content:center;"><i data-lucide="mail"></i> Newsletter</div>
+                <p>Dapatkan artikel terbaru langsung ke email Anda.</p>
+                <div class="form-group" style="margin-bottom:8px;">
+                  <input type="email" class="form-control" placeholder="nama@email.com">
+                </div>
+                <button class="btn primary w-100">Berlangganan</button>
+              </div>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
+
   <script src="../assets/vendor/lucide/lucide-0.294.0.min.js"></script>
   <script src="../assets/js/app.js"></script>
 </body>

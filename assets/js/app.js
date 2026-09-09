@@ -315,6 +315,8 @@
       { t: 'Charts',      s: 'Grafik & visualisasi',  i: 'pie-chart', h: '/pages/charts.html', g: 'Halaman' },
       { t: 'File Manager',s: 'Kelola berkas',         i: 'folder', h: '/pages/files.html', g: 'Halaman' },
       { t: 'HTML Parser', s: 'Alat parse HTML',       i: 'code-2', h: '/pages/html-parser.html', g: 'Halaman' },
+      { t: 'Blog',        s: 'Artikel & tutorial',    i: 'newspaper', h: '/pages/blog.html', g: 'Halaman' },
+      { t: 'Detail Artikel', s: 'Contoh halaman artikel', i: 'file-text', h: '/pages/blog-detail.html', g: 'Halaman' },
       { t: 'FAQ',         s: 'Pertanyaan umum',       i: 'help-circle', h: '/pages/elements.html', g: 'Halaman' },
       { t: 'Profil',      s: 'Pengaturan akun',       i: 'user', h: '/pages/profile.html', g: 'Halaman' },
       { t: 'Pengaturan',  s: 'Konfigurasi aplikasi',  i: 'settings', h: '/pages/settings.html', g: 'Halaman' },
