@@ -29,6 +29,24 @@
     [b.dataset.nav, b.dataset.sub].filter(Boolean).forEach(key => {
       document.querySelectorAll('[data-key="' + key + '"]').forEach(el => el.classList.add('active'));
     });
+
+    // buka otomatis semua grup/tree induk dari item yang aktif
+    document.querySelectorAll('.nav-item.active, .nav-sub.active, .sub-item.active').forEach(el => {
+      let node = el.parentElement;
+      while (node) {
+        if (node.classList.contains('tree')) {
+          node.classList.add('open');
+          const tog = node.querySelector(':scope > .tree-toggle, :scope > .sub-item');
+          if (tog) tog.setAttribute('aria-expanded', 'true');
+        }
+        if (node.classList.contains('nav-group')) {
+          node.classList.remove('collapsed');
+          const sec = node.querySelector(':scope > .nav-section');
+          if (sec) sec.setAttribute('aria-expanded', 'true');
+        }
+        node = node.parentElement;
+      }
+    });
   }
 
   /* Toast global: toast('pesan', { type:'success', title:'Judul', timeout:3500 }) */
