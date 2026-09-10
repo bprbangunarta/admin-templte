@@ -1712,22 +1712,22 @@ table.table-sm th, table.table-sm td { padding: 6px 12px; }
 .pf-cover::after { content: ""; position: absolute; inset: 0;
   background: radial-gradient(circle at 86% 22%, rgba(217,119,87,.20), transparent 46%); }
 
-/* header identitas: avatar menimpa cover + aksi di kanan, lalu nama/jabatan di bawah */
+/* header identitas: avatar menimpa cover; nama & aksi satu baris di bawahnya */
 .pf-hero { padding: 0 20px 18px; position: relative; }
-.pf-hero-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: -40px; }
-.avatar-wrap { position: relative; flex-shrink: 0; }
+.avatar-wrap { display: inline-block; position: relative; margin-top: -46px; }
 .pf-avatar.lg { width: 92px; height: 92px; font-size: 30px; border: 4px solid var(--bg-card); box-shadow: 0 3px 12px rgba(40,32,20,.14); }
+.pf-bar { display: flex; align-items: center; justify-content: space-between; gap: 14px 20px; flex-wrap: wrap; margin-top: 12px; }
 :root[data-theme="dark"] .pf-avatar.lg { box-shadow: 0 3px 12px rgba(0,0,0,.4); }
 .avatar-cam { position: absolute; right: 2px; bottom: 2px; width: 30px; height: 30px; border-radius: 50%;
   border: 2px solid var(--bg-card); background: var(--accent); color: #fff; display: grid; place-items: center; cursor: pointer; transition: filter .12s; }
 .avatar-cam:hover { filter: brightness(1.07); }
 .avatar-cam svg { width: 15px; height: 15px; }
 
-.pf-id { min-width: 0; margin-top: 14px; }
+.pf-id { min-width: 0; }
 .pf-id .nm { font-size: var(--fs-xl); font-weight: 600; letter-spacing: -.02em; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; line-height: 1.25; }
 .pf-id .role { color: var(--text-muted); font-size: var(--fs-md); margin-top: 3px; }
-.pf-actions { display: flex; gap: 8px; padding-bottom: 6px; flex-shrink: 0; }
-@media (max-width: 620px) { .pf-actions { padding-bottom: 0; margin-top: 4px; } }
+.pf-actions { display: flex; gap: 8px; flex-shrink: 0; }
+@media (max-width: 620px) { .pf-actions { width: 100%; } }
 
 /* lencana kecil (terverifikasi, dsb.) */
 .pf-badge { display: inline-flex; align-items: center; gap: 4px; font-size: var(--fs-xs); font-weight: 600; padding: 2px 8px; border-radius: 20px; background: var(--accent-soft); color: var(--accent); }
