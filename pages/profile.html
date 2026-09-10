@@ -132,7 +132,7 @@
           <div class="pm-item"><i data-lucide="log-out"></i>Keluar</div>
         </div>
         <button class="profile-trigger" id="profileTrigger">
-          <div class="avatar">ZR</div>
+          <div class="avatar js-avatar"><span class="av-fallback">ZR</span></div>
           <div class="who"><b>Zulfadli Rizal</b><small>zulfr@bprbangunarta.co.id</small></div>
           <i data-lucide="chevrons-up-down" class="swap"></i>
         </button>
@@ -214,96 +214,209 @@
           <span class="current">Profil</span>
         </nav>
 
+        <!-- ===== HEADER: cover + avatar (dengan unggah foto) ===== -->
         <div class="panel mb-4">
-          <div class="p-4">
-            <div class="pf-header">
-              <div class="pf-avatar">ZR</div>
-              <div>
-                <div class="nm">Zulfadli Rizal</div>
-                <div class="role">Administrator · BPR Bangunarta</div>
+          <div class="pf-cover"></div>
+          <div class="pf-hero">
+            <div class="avatar-wrap">
+              <div class="pf-avatar lg js-avatar" id="avatarHero"><span class="av-fallback">ZR</span></div>
+              <button type="button" class="avatar-cam" data-avatar-pick aria-label="Ubah foto profil" title="Ubah foto profil"><i data-lucide="camera"></i></button>
+            </div>
+            <div class="pf-id">
+              <div class="nm">Zulfadli Rizal <span class="pf-badge"><i data-lucide="badge-check"></i> Terverifikasi</span></div>
+              <div class="role">Administrator · BPR Bangunarta</div>
+            </div>
+            <div class="pf-actions">
+              <button class="btn outline" data-avatar-pick><i data-lucide="upload"></i> Unggah Foto</button>
+              <button class="btn primary"><i data-lucide="share-2"></i> Bagikan</button>
+            </div>
+          </div>
+          <!-- input file tersembunyi, dipakai bersama semua tombol unggah -->
+          <input type="file" id="avatarInput" accept="image/*" hidden>
+        </div>
+
+        <!-- ===== STAT STRIP ===== -->
+        <div class="stat-grid mb-4">
+          <div class="stat"><div class="label">Order Ditangani</div><div class="value">128</div><div class="delta up">▲ 6 minggu ini</div></div>
+          <div class="stat"><div class="label">Proyek</div><div class="value">34</div><div class="delta up">▲ 2 baru</div></div>
+          <div class="stat"><div class="label">Rating</div><div class="value">4,9</div><div class="delta up">dari 5,0</div></div>
+          <div class="stat"><div class="label">Masa Kerja</div><div class="value">2 th</div><div class="delta">sejak 2024</div></div>
+        </div>
+
+        <div class="row">
+          <!-- ===== KOLOM KIRI ===== -->
+          <div class="col-4">
+            <div class="panel mb-4">
+              <div class="panel-head"><h3>Tentang</h3></div>
+              <div class="p-4">
+                <p class="text-muted" style="font-size:var(--fs-base); line-height:1.6; margin-bottom:14px;">
+                  Administrator sistem di BPR Bangunarta. Menangani manajemen pengguna, hak akses, dan operasional harian aplikasi.
+                </p>
+                <dl class="desc-list">
+                  <dt>Email</dt><dd>zulfr@bprbangunarta.co.id</dd>
+                  <dt>Telepon</dt><dd>0812-3456-7890</dd>
+                  <dt>Lokasi</dt><dd>Pamanukan, Subang</dd>
+                  <dt>Departemen</dt><dd>Teknologi Informasi</dd>
+                  <dt>Bergabung</dt><dd>14 Maret 2024</dd>
+                  <dt>Status</dt><dd><span class="badge green">Aktif</span></dd>
+                </dl>
               </div>
-              <div class="pf-stats">
-                <div class="s"><b>128</b><span>Order</span></div>
-                <div class="s"><b>34</b><span>Proyek</span></div>
-                <div class="s"><b>4,9</b><span>Rating</span></div>
+            </div>
+
+            <div class="panel mb-4">
+              <div class="panel-head"><h3>Kelengkapan Profil</h3></div>
+              <div class="p-4">
+                <div class="d-flex items-center justify-between mb-2" style="font-size:var(--fs-base);">
+                  <span class="text-muted">Terisi</span><b>85%</b>
+                </div>
+                <div class="progress mb-3"><div class="bar" style="width:85%"></div></div>
+                <div class="d-flex items-center gap-2" style="font-size:var(--fs-sm); color:var(--text-muted);">
+                  <i data-lucide="circle-alert" style="width:14px;height:14px;color:var(--amber);"></i>
+                  Lengkapi foto profil &amp; tautan sosial untuk mencapai 100%.
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head"><h3>Tautan</h3></div>
+              <div class="p-4 d-flex flex-wrap gap-2">
+                <a href="#" class="btn outline sm"><i data-lucide="globe"></i> Website</a>
+                <a href="#" class="btn outline sm"><i data-lucide="linkedin"></i> LinkedIn</a>
+                <a href="#" class="btn outline sm"><i data-lucide="github"></i> GitHub</a>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="panel">
-          <div class="p-4">
-            <div class="tabs">
-              <button class="tab active">Profil</button>
-              <button class="tab">Aktivitas</button>
-              <button class="tab">Keamanan</button>
-            </div>
-
-            <div class="tab-panel active">
-              <form onsubmit="return false">
-                <div class="row">
-                  <div class="col-6">
-                    <div class="form-group"><label class="form-label">Nama Lengkap</label><input class="form-control"
-                        value="Zulfadli Rizal"></div>
-                  </div>
-                  <div class="col-6">
-                    <div class="form-group"><label class="form-label">Email</label><input class="form-control"
-                        value="zulfr@bprbangunarta.co.id"></div>
-                  </div>
-                  <div class="col-6">
-                    <div class="form-group"><label class="form-label">Telepon</label><input class="form-control"
-                        value="0812-3456-7890"></div>
-                  </div>
-                  <div class="col-6">
-                    <div class="form-group"><label class="form-label">Jabatan</label><input class="form-control"
-                        value="Administrator"></div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-group mb-0"><label class="form-label">Alamat</label><textarea
-                        class="form-control">Jl. Otista No. 123, Pamanukan, Subang</textarea></div>
-                  </div>
+          <!-- ===== KOLOM KANAN ===== -->
+          <div class="col-8">
+            <div class="panel">
+              <div class="p-4">
+                <div class="tabs">
+                  <button class="tab active">Profil</button>
+                  <button class="tab">Aktivitas</button>
+                  <button class="tab">Keamanan</button>
                 </div>
-                <div class="d-flex justify-end gap-2 mt-4">
-                  <button class="btn outline">Batal</button>
-                  <button class="btn primary" data-toast="success" data-toast-title="Tersimpan"
-                    data-toast-msg="Perubahan profil berhasil disimpan.">Simpan Perubahan</button>
-                </div>
-              </form>
-            </div>
 
-            <div class="tab-panel">
-              <div class="alert info"><i data-lucide="info"></i>Belum ada aktivitas terbaru untuk ditampilkan.</div>
-            </div>
-
-            <div class="tab-panel">
-              <form onsubmit="return false">
-                <div class="row">
-                  <div class="col-6">
-                    <div class="form-group"><label class="form-label">Password Lama</label>
-                      <div class="input-password"><input type="password" class="form-control"
-                          placeholder="••••••••"><button type="button" class="toggle-eye"><i data-lucide="eye"
-                            class="eye-on"></i><i data-lucide="eye-off" class="eye-off"></i></button></div>
+                <!-- Tab: Profil -->
+                <div class="tab-panel active">
+                  <!-- Kotak unggah foto -->
+                  <div class="avatar-upload">
+                    <div class="prev js-avatar"><span class="av-fallback">ZR</span></div>
+                    <div class="au-info">
+                      <div class="t">Foto Profil</div>
+                      <p>Format JPG, PNG, atau GIF. Ukuran maksimal 2&nbsp;MB.</p>
+                    </div>
+                    <div class="au-actions">
+                      <button type="button" class="btn outline sm" data-avatar-pick><i data-lucide="camera"></i> Ganti Foto</button>
+                      <button type="button" class="btn sm" data-avatar-remove><i data-lucide="trash-2"></i> Hapus</button>
                     </div>
                   </div>
-                  <div class="col-6">
-                    <div class="form-group"><label class="form-label">Password Baru</label>
-                      <div class="input-password"><input type="password" class="form-control"
-                          placeholder="••••••••"><button type="button" class="toggle-eye"><i data-lucide="eye"
-                            class="eye-on"></i><i data-lucide="eye-off" class="eye-off"></i></button></div>
+
+                  <form onsubmit="return false">
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="form-group"><label class="form-label">Nama Lengkap</label><input class="form-control" value="Zulfadli Rizal"></div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group"><label class="form-label">Email</label><input class="form-control" value="zulfr@bprbangunarta.co.id"></div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group"><label class="form-label">Telepon</label><input class="form-control" value="0812-3456-7890"></div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group"><label class="form-label">Jabatan</label><input class="form-control" value="Administrator"></div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group"><label class="form-label">Departemen</label>
+                          <select class="form-control">
+                            <option>Teknologi Informasi</option>
+                            <option>Operasional</option>
+                            <option>Kepatuhan</option>
+                            <option>Bisnis</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group"><label class="form-label">Lokasi</label><input class="form-control" value="Pamanukan, Subang"></div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group mb-0"><label class="form-label">Bio</label><textarea class="form-control" rows="3">Administrator sistem di BPR Bangunarta.</textarea></div>
+                      </div>
                     </div>
+                    <div class="d-flex justify-end gap-2 mt-4">
+                      <button class="btn outline">Batal</button>
+                      <button class="btn primary" data-toast="success" data-toast-title="Tersimpan" data-toast-msg="Perubahan profil berhasil disimpan.">Simpan Perubahan</button>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- Tab: Aktivitas -->
+                <div class="tab-panel">
+                  <div class="track">
+                    <div class="step done"><div class="t">Masuk ke sistem</div><div class="d">Hari ini, 08:03 · IP 10.20.3.11</div></div>
+                    <div class="step done"><div class="t">Memperbarui data pengguna "Rina Marlina"</div><div class="d">Kemarin, 15:47</div></div>
+                    <div class="step done"><div class="t">Menambahkan peran "Auditor"</div><div class="d">8 Sep 2026, 10:12</div></div>
+                    <div class="step done"><div class="t">Mengekspor laporan transaksi harian</div><div class="d">7 Sep 2026, 16:30</div></div>
+                    <div class="step"><div class="t">Mengubah kata sandi</div><div class="d">1 Agu 2026</div></div>
                   </div>
                 </div>
-                <div class="d-flex justify-end mt-3">
-                  <button class="btn primary" data-toast="success"
-                    data-toast-msg="Password berhasil diperbarui.">Perbarui Password</button>
+
+                <!-- Tab: Keamanan -->
+                <div class="tab-panel">
+                  <form onsubmit="return false">
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="form-group"><label class="form-label">Password Lama</label>
+                          <div class="input-password"><input type="password" class="form-control" placeholder="••••••••"><button type="button" class="toggle-eye"><i data-lucide="eye" class="eye-on"></i><i data-lucide="eye-off" class="eye-off"></i></button></div>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="form-group"><label class="form-label">Password Baru</label>
+                          <div class="input-password"><input type="password" class="form-control" placeholder="••••••••"><button type="button" class="toggle-eye"><i data-lucide="eye" class="eye-on"></i><i data-lucide="eye-off" class="eye-off"></i></button></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-end mt-3">
+                      <button class="btn primary" data-toast="success" data-toast-msg="Password berhasil diperbarui.">Perbarui Password</button>
+                    </div>
+                  </form>
+
+                  <div style="border-top:1px solid var(--border); margin:20px 0;"></div>
+
+                  <div class="d-flex items-center justify-between gap-3 flex-wrap">
+                    <div>
+                      <div style="font-weight:600; font-size:var(--fs-md);">Autentikasi Dua Faktor (2FA)</div>
+                      <div class="text-muted" style="font-size:var(--fs-sm); margin-top:2px;">Tambahkan lapisan keamanan ekstra saat masuk.</div>
+                    </div>
+                    <label class="switch"><input type="checkbox" checked><span class="track"></span></label>
+                  </div>
+
+                  <div style="border-top:1px solid var(--border); margin:20px 0;"></div>
+
+                  <h3 style="font-size:var(--fs-md); font-weight:600; margin-bottom:6px;">Sesi Aktif</h3>
+                  <div class="session-item">
+                    <div class="s-ic"><i data-lucide="monitor"></i></div>
+                    <div class="s-tx"><div class="t">MacBook Pro · Chrome <span class="badge green">Perangkat ini</span></div><div class="d">Pamanukan · aktif sekarang</div></div>
+                  </div>
+                  <div class="session-item">
+                    <div class="s-ic"><i data-lucide="smartphone"></i></div>
+                    <div class="s-tx"><div class="t">iPhone 14 · Safari</div><div class="d">Subang · 2 jam lalu</div></div>
+                    <div class="s-act"><button class="btn outline sm" data-toast="info" data-toast-msg="Sesi telah dikeluarkan.">Keluar</button></div>
+                  </div>
+                  <div class="session-item">
+                    <div class="s-ic"><i data-lucide="tablet"></i></div>
+                    <div class="s-tx"><div class="t">iPad · Safari</div><div class="d">Bandung · kemarin</div></div>
+                    <div class="s-act"><button class="btn outline sm" data-toast="info" data-toast-msg="Sesi telah dikeluarkan.">Keluar</button></div>
+                  </div>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
   <script src="../assets/vendor/lucide/lucide-0.294.0.min.js"></script>
   <script src="../assets/js/app.js"></script>
 </body>

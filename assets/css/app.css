@@ -1697,3 +1697,56 @@ table.table-sm th, table.table-sm td { padding: 6px 12px; }
 /* Daftar isi (TOC) */
 .toc a { display: block; padding: 5px 0 5px 11px; border-left: 2px solid var(--border); color: var(--text-muted); font-size: var(--fs-base); }
 .toc a:hover, .toc a.active { color: var(--accent); border-color: var(--accent); }
+
+/* ============================================================
+   PROFIL — redesign: cover, avatar besar + unggah foto
+   ============================================================ */
+/* dukungan foto pada avatar apa pun (.js-avatar) */
+.js-avatar { position: relative; overflow: hidden; }
+.js-avatar .av-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.js-avatar.has-img .av-fallback { display: none; }
+
+/* cover / banner */
+.pf-cover { height: 116px; border-radius: var(--radius) var(--radius) 0 0; position: relative; overflow: hidden;
+  background: linear-gradient(120deg, var(--accent-soft), var(--bg-hover)); }
+.pf-cover::after { content: ""; position: absolute; inset: 0;
+  background: radial-gradient(circle at 86% 22%, rgba(217,119,87,.20), transparent 46%); }
+
+/* baris identitas dengan avatar menimpa cover */
+.pf-hero { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; padding: 0 20px 18px; margin-top: -46px; position: relative; }
+.avatar-wrap { position: relative; flex-shrink: 0; }
+.pf-avatar.lg { width: 96px; height: 96px; font-size: 32px; border: 4px solid var(--bg-card); box-shadow: 0 3px 12px rgba(40,32,20,.14); }
+:root[data-theme="dark"] .pf-avatar.lg { box-shadow: 0 3px 12px rgba(0,0,0,.4); }
+.avatar-cam { position: absolute; right: 2px; bottom: 2px; width: 30px; height: 30px; border-radius: 50%;
+  border: 2px solid var(--bg-card); background: var(--accent); color: #fff; display: grid; place-items: center; cursor: pointer; transition: filter .12s; }
+.avatar-cam:hover { filter: brightness(1.07); }
+.avatar-cam svg { width: 15px; height: 15px; }
+
+.pf-id { padding-bottom: 4px; min-width: 0; }
+.pf-id .nm { font-size: var(--fs-xl); font-weight: 600; letter-spacing: -.02em; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.pf-id .role { color: var(--text-muted); font-size: var(--fs-md); margin-top: 2px; }
+.pf-actions { margin-left: auto; display: flex; gap: 8px; padding-bottom: 4px; }
+@media (max-width: 620px) { .pf-actions { margin-left: 0; width: 100%; } }
+
+/* lencana kecil (terverifikasi, dsb.) */
+.pf-badge { display: inline-flex; align-items: center; gap: 4px; font-size: var(--fs-xs); font-weight: 600; padding: 2px 8px; border-radius: 20px; background: var(--accent-soft); color: var(--accent); }
+.pf-badge svg { width: 12px; height: 12px; }
+
+/* kotak unggah avatar (di tab Profil) */
+.avatar-upload { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 16px; margin-bottom: 18px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-sidebar); }
+.avatar-upload .prev { width: 64px; height: 64px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-size: 22px; font-weight: 600; flex-shrink: 0; }
+.avatar-upload .au-info { min-width: 0; }
+.avatar-upload .au-info .t { font-weight: 600; font-size: var(--fs-md); }
+.avatar-upload .au-info p { color: var(--text-muted); font-size: var(--fs-sm); margin-top: 2px; line-height: 1.5; }
+.avatar-upload .au-actions { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+@media (max-width: 620px) { .avatar-upload .au-actions { margin-left: 0; width: 100%; } }
+
+/* daftar sesi aktif (tab Keamanan) */
+.session-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.session-item:last-child { border-bottom: none; }
+.session-item .s-ic { width: 36px; height: 36px; border-radius: 9px; background: var(--bg-sidebar); border: 1px solid var(--border); display: grid; place-items: center; color: var(--text-muted); flex-shrink: 0; }
+.session-item .s-ic svg { width: 17px; height: 17px; }
+.session-item .s-tx { min-width: 0; }
+.session-item .s-tx .t { font-size: var(--fs-base); font-weight: 500; }
+.session-item .s-tx .d { font-size: var(--fs-sm); color: var(--text-muted); margin-top: 1px; }
+.session-item .s-act { margin-left: auto; }

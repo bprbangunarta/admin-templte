@@ -294,7 +294,55 @@
       show(0);
     });
 
+    initAvatarUpload();
     initCmdK(setTheme);
+  }
+
+  /* ---- Unggah avatar (foto profil) ----
+     - tombol [data-avatar-pick] membuka dialog file (#avatarInput)
+     - foto diterapkan ke semua .js-avatar (header, form, sidebar)
+     - disimpan di localStorage agar bertahan saat halaman dimuat ulang
+     - tombol [data-avatar-remove] mengembalikan ke inisial          */
+  function initAvatarUpload() {
+    const input = document.getElementById('avatarInput');
+    const KEY = 'profileAvatar';
+    const targets = () => document.querySelectorAll('.js-avatar');
+
+    const apply = url => targets().forEach(el => {
+      let img = el.querySelector('.av-img');
+      if (url) {
+        if (!img) { img = document.createElement('img'); img.className = 'av-img'; img.alt = 'Foto profil'; el.appendChild(img); }
+        img.src = url; el.classList.add('has-img');
+      } else { if (img) img.remove(); el.classList.remove('has-img'); }
+    });
+
+    // pulihkan foto tersimpan (berlaku di halaman mana pun yang punya .js-avatar)
+    let saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
+    if (saved) apply(saved);
+
+    if (!input) return; // halaman tanpa uploader: cukup memulihkan foto di atas
+
+    document.querySelectorAll('[data-avatar-pick]').forEach(b => b.addEventListener('click', () => input.click()));
+
+    input.addEventListener('change', () => {
+      const f = input.files && input.files[0];
+      if (!f) return;
+      if (!/^image\//.test(f.type)) { toast('Berkas harus berupa gambar (JPG, PNG, dll).', { type: 'danger', title: 'Format tidak didukung' }); input.value = ''; return; }
+      if (f.size > 2 * 1024 * 1024) { toast('Ukuran maksimal 2 MB.', { type: 'danger', title: 'Berkas terlalu besar' }); input.value = ''; return; }
+      const r = new FileReader();
+      r.onload = () => {
+        apply(r.result);
+        try { localStorage.setItem(KEY, r.result); } catch (e) {}
+        toast('Foto profil berhasil diperbarui.', { type: 'success', title: 'Tersimpan' });
+      };
+      r.readAsDataURL(f);
+      input.value = '';
+    });
+
+    document.querySelectorAll('[data-avatar-remove]').forEach(b => b.addEventListener('click', () => {
+      apply(null); try { localStorage.removeItem(KEY); } catch (e) {}
+      toast('Foto profil dihapus, kembali ke inisial.', { type: 'info', title: 'Dihapus' });
+    }));
   }
 
   /* ---- Command palette (pencarian ⌘K / Ctrl+K) ---- */
