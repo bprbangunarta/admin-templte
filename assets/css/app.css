@@ -655,6 +655,9 @@ select.form-control {
    ============================================================ */
 .row { display: flex; flex-wrap: wrap; margin: 0 -7px; }
 .row > [class*="col-"] { padding: 0 7px; margin-bottom: 14px; }
+/* Cegah margin ganda: .form-group terakhir di dalam kolom tidak menambah jarak
+   lagi (jarak antar-baris cukup dari margin kolom). Atur jarak via .mb-* pd kolom. */
+.row > [class*="col-"] > .form-group:last-child { margin-bottom: 0; }
 .col-1  { flex: 0 0 8.3333%;  max-width: 8.3333%; }
 .col-2  { flex: 0 0 16.6667%; max-width: 16.6667%; }
 .col-3  { flex: 0 0 25%;      max-width: 25%; }
