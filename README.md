@@ -173,7 +173,7 @@ Semua vendor disimpan di dalam proyek (bukan CDN) agar berjalan offline dan vers
 | jsVectorMap    | 1.5.3        | `assets/vendor/jsvectormap/` (css, js, `world.js`)          |
 | ApexCharts     | 3.45.2       | `assets/vendor/apexcharts/apexcharts-3.45.2.min.js`         |
 | flatpickr      | 4.6.13       | `assets/vendor/flatpickr/` (date picker single & range)     |
-| Leaflet + OSM  | 1.9.4        | `assets/vendor/leaflet/` (peta interaktif, tanpa API key)   |
+| Leaflet        | 1.9.4        | `assets/vendor/leaflet/` (peta interaktif; basemap Esri Gray, tanpa API key) |
 | signature_pad  | 4.1.7        | `assets/vendor/signature_pad/`                              |
 | GLightbox      | 3.3.0        | `assets/vendor/glightbox/`                                  |
 | Quill (WYSIWYG)| 1.3.7        | `assets/vendor/quill/`                                      |
