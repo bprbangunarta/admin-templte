@@ -118,12 +118,12 @@ html, body {
 
 .brand {
   display: flex; align-items: center; gap: 9px;
-  height: 40px;                 /* = topbar 48px − padding-top sidebar 8px, agar garis sejajar */
-  margin: 0 -6px;               /* rentangkan garis penuh lebar sidebar (offset padding sidebar) */
+  height: 48px;                 /* penuh setinggi topbar → konten tersentar sejajar topbar */
+  margin: -8px -6px 0;          /* -8px membatalkan padding-top sidebar (mulai y=0); -6px rentangkan garis penuh */
   padding: 0 14px;              /* logo sejajar tepat dgn ikon menu (6px pad sidebar + 8px nav-item) */
   border-bottom: 1px solid var(--border);
 }
-/* logo gambar (SVG Mutiara) — badge sudah menyatu di SVG */
+/* logo (SVG Mutiara) — badge memakai var(--accent) → otomatis menyesuaikan dark mode */
 .brand .brand-logo { width: 26px; height: 26px; flex-shrink: 0; display: block; }
 .brand .logo {
   width: 22px; height: 22px; border-radius: 6px;
