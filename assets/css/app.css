@@ -125,9 +125,6 @@ html, body {
 }
 /* logo (SVG Mutiara) — badge memakai var(--accent) → otomatis menyesuaikan dark mode */
 .brand .brand-logo { width: 26px; height: 26px; flex-shrink: 0; display: block; }
-/* logo lockup (badge + teks jadi satu gambar); teks pakai currentColor agar adaptif dark */
-.brand .brand-lockup { height: 30px; width: auto; flex-shrink: 0; display: block; color: var(--text); }
-.brand .brand-mark { width: 26px; height: 26px; flex-shrink: 0; display: none; }  /* hanya utk mode mini */
 .brand .logo {
   width: 22px; height: 22px; border-radius: 6px;
   background: var(--accent); color: #fff;
@@ -1125,8 +1122,6 @@ body, .sidebar, .topbar, .panel, .stat, .form-control, .btn, .drawer, .subsideba
   /* isi rail: ikon saja, terpusat */
   .app.mini .sidebar .brand { justify-content: center; padding-left: 0; padding-right: 0; }
   .app.mini .sidebar .brand .name { display: none; }
-  .app.mini .sidebar .brand .brand-lockup { display: none; }   /* sembunyikan lockup penuh */
-  .app.mini .sidebar .brand .brand-mark { display: block; }    /* tampilkan badge saja */
   .app.mini .sidebar .nav-item { justify-content: center; gap: 0; padding-left: 0; padding-right: 0; }
   .app.mini .sidebar .nav-item > span { display: none; }
   .app.mini .sidebar .nav-group { display: none; }
@@ -1144,8 +1139,6 @@ body, .sidebar, .topbar, .panel, .stat, .form-control, .btn, .drawer, .subsideba
   .app.mini .sidebar:hover { width: var(--sidebar-w); overflow-y: auto; box-shadow: 6px 0 28px rgba(0,0,0,.12); }
   .app.mini .sidebar:hover .brand { justify-content: flex-start; padding: 0 13px; }
   .app.mini .sidebar:hover .brand .name { display: block; }
-  .app.mini .sidebar:hover .brand .brand-lockup { display: block; }  /* kembalikan lockup saat hover */
-  .app.mini .sidebar:hover .brand .brand-mark { display: none; }
   .app.mini .sidebar:hover .nav-item { justify-content: flex-start; gap: 9px; padding: 5px 8px; }
   .app.mini .sidebar:hover .nav-item > span { display: inline; }
   .app.mini .sidebar:hover .nav-group { display: block; }
