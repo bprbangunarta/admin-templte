@@ -2348,8 +2348,8 @@ hr.divider { border: 0; border-top: 1px solid var(--border); margin: 16px 0; }
 
 /* --- landing: brand lockup (pakai logo bertekst, adaptif tema) --- */
 .lp-brand { display: flex; align-items: center; text-decoration: none; }
-.lp-brand-logo { height: 28px; width: auto; display: block; color: var(--text); }
-.lp-foot .brand-row .lp-brand-logo { height: 26px; }
+.lp-brand-logo { height: 34px; width: auto; display: block; color: var(--text); }
+.lp-foot .brand-row .lp-brand-logo { height: 30px; }
 
 /* --- landing: Blog / artikel --- */
 .lp-blog { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -2372,7 +2372,7 @@ hr.divider { border: 0; border-top: 1px solid var(--border); margin: 16px 0; }
   .lp-nav .right { gap: 6px; }
   .lp-nav .right .btn.outline { display: none; }      /* sisakan Buy Now + toggle */
   .lp-nav .right .btn { padding-inline: 12px; }
-  .lp-brand-logo { height: 24px; }
+  .lp-brand-logo { height: 28px; }
 }
 @media (max-width: 360px) {
   .lp-nav .brand-name, .lp-nav .right .theme-toggle { display: none; }
