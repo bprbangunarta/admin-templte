@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
-  <title>Dashboard — Mutiara</title>
+  <title>Sales Dashboard — Mutiara</title>
   <link rel="icon" type="image/svg+xml" href="assets/img/logo-mark.svg">
   <meta name="description" content="Mutiara: Compact Mutiara Responsive HTML">
   <meta name="apple-mobile-web-app-title" content="Mutiara">
@@ -201,7 +201,7 @@
     <div class="main">
       <header class="topbar">
         <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Buka atau tutup menu"><i data-lucide="panel-left"></i></button>
-        <h1>Dashboard Penjualan</h1>
+        <h1>Sales Dashboard</h1>
 
         <!-- Pencarian: tombol yang membuka command palette (⌘K / Ctrl+K) -->
         <button type="button" class="searchbar" id="searchOpen" aria-label="Cari (Ctrl+K)" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk">
@@ -270,17 +270,17 @@
       <div class="content">
         <div class="dash-head">
           <div class="ttl">
-            <h2>Ringkasan Penjualan</h2>
-            <p>Performa toko periode 1–12 September 2026 · diperbarui 5 menit lalu</p>
+            <h2>Sales Overview</h2>
+            <p>Store performance for Sep 1–12, 2026 · updated 5 minutes ago</p>
           </div>
           <div class="tools">
             <div class="seg" id="periodSeg">
-              <button>7 Hari</button>
-              <button class="active">30 Hari</button>
-              <button>Tahun</button>
+              <button>7 Days</button>
+              <button class="active">30 Days</button>
+              <button>Year</button>
             </div>
-            <button class="btn outline sm"><i data-lucide="calendar"></i> 1–12 Sep</button>
-            <button class="btn primary sm"><i data-lucide="download"></i> Ekspor</button>
+            <button class="btn outline sm"><i data-lucide="calendar"></i> Sep 1–12</button>
+            <button class="btn primary sm"><i data-lucide="download"></i> Export</button>
           </div>
         </div>
 
@@ -289,48 +289,48 @@
           <div class="kpi">
             <div class="kpi-top">
               <span class="kpi-ic a"><i data-lucide="wallet"></i></span>
-              <span class="label">Total Penjualan</span>
+              <span class="label">Total Sales</span>
             </div>
-            <div class="value">Rp 1,84 M</div>
-            <div class="kpi-foot"><span class="delta up">▲ 12,5%</span><span class="sub">vs bulan lalu</span></div>
+            <div class="value">Rp 1.84 B</div>
+            <div class="kpi-foot"><span class="delta up">▲ 12.5%</span><span class="sub">vs last month</span></div>
             <div class="spark" id="spark1"></div>
           </div>
           <div class="kpi">
             <div class="kpi-top">
               <span class="kpi-ic b"><i data-lucide="shopping-cart"></i></span>
-              <span class="label">Pesanan</span>
+              <span class="label">Orders</span>
             </div>
-            <div class="value">3.482</div>
-            <div class="kpi-foot"><span class="delta up">▲ 8,1%</span><span class="sub">vs bulan lalu</span></div>
+            <div class="value">3,482</div>
+            <div class="kpi-foot"><span class="delta up">▲ 8.1%</span><span class="sub">vs last month</span></div>
             <div class="spark" id="spark2"></div>
           </div>
           <div class="kpi">
             <div class="kpi-top">
               <span class="kpi-ic g"><i data-lucide="user-plus"></i></span>
-              <span class="label">Pelanggan Baru</span>
+              <span class="label">New Customers</span>
             </div>
             <div class="value">612</div>
-            <div class="kpi-foot"><span class="delta up">▲ 5,4%</span><span class="sub">vs bulan lalu</span></div>
+            <div class="kpi-foot"><span class="delta up">▲ 5.4%</span><span class="sub">vs last month</span></div>
             <div class="spark" id="spark3"></div>
           </div>
           <div class="kpi">
             <div class="kpi-top">
               <span class="kpi-ic m"><i data-lucide="receipt"></i></span>
-              <span class="label">Rata-rata Order</span>
+              <span class="label">Avg. Order Value</span>
             </div>
-            <div class="value">Rp 528rb</div>
-            <div class="kpi-foot"><span class="delta down">▼ 2,1%</span><span class="sub">vs bulan lalu</span></div>
+            <div class="value">Rp 528 K</div>
+            <div class="kpi-foot"><span class="delta down">▼ 2.1%</span><span class="sub">vs last month</span></div>
             <div class="spark" id="spark4"></div>
           </div>
         </div>
 
-        <!-- Tren + kategori -->
-        <div class="row">
+        <!-- Revenue + category -->
+        <div class="row equal">
           <div class="col-8">
             <div class="panel mb-4">
               <div class="panel-head">
-                <h3>Pendapatan &amp; Pesanan</h3>
-                <span class="text-muted fs-sm">12 bulan terakhir</span>
+                <h3>Revenue &amp; Orders</h3>
+                <span class="text-muted fs-sm">Last 12 months</span>
               </div>
               <div class="p-3">
                 <div id="chartSales" style="height:300px;"></div>
@@ -340,7 +340,7 @@
           <div class="col-4">
             <div class="panel mb-4">
               <div class="panel-head">
-                <h3>Penjualan per Kategori</h3>
+                <h3>Sales by Category</h3>
               </div>
               <div class="p-3">
                 <div id="chartCategory" style="height:300px;"></div>
@@ -349,16 +349,16 @@
           </div>
         </div>
 
-        <!-- Target + produk + map -->
-        <div class="row">
+        <!-- Target + map -->
+        <div class="row equal">
           <div class="col-4">
             <div class="panel mb-4">
-              <div class="panel-head"><h3>Pencapaian Target</h3><span class="text-muted fs-sm">September</span></div>
+              <div class="panel-head"><h3>Target Achievement</h3><span class="text-muted fs-sm">September</span></div>
               <div class="p-3">
                 <div id="chartTarget" style="height:220px;"></div>
                 <div class="tgt-sum">
-                  <div class="cell"><b>Rp 1,84 M</b><small>Tercapai</small></div>
-                  <div class="cell"><b>Rp 2,35 M</b><small>Target</small></div>
+                  <div class="cell"><b>Rp 1.84 B</b><small>Achieved</small></div>
+                  <div class="cell"><b>Rp 2.35 B</b><small>Target</small></div>
                 </div>
               </div>
             </div>
@@ -366,8 +366,8 @@
           <div class="col-8">
             <div class="panel mb-4">
               <div class="panel-head">
-                <h3>Sebaran Penjualan Wilayah</h3>
-                <span class="text-muted fs-sm">Nilai transaksi per kota</span>
+                <h3>Sales by Region</h3>
+                <span class="text-muted fs-sm">Transaction value per city</span>
               </div>
               <div class="p-3">
                 <div id="vmap" class="js-vectormap"
@@ -378,44 +378,44 @@
           </div>
         </div>
 
-        <!-- Pesanan terbaru + produk terlaris -->
-        <div class="row">
+        <!-- Recent orders + top products -->
+        <div class="row equal">
           <div class="col-8">
             <div class="panel mb-4">
               <div class="panel-head">
-                <h3>Pesanan Terbaru</h3>
-                <a href="pages/tables-basic.html" class="btn outline sm">Lihat semua</a>
+                <h3>Recent Orders</h3>
+                <a href="pages/tables-basic.html" class="btn outline sm">View all</a>
               </div>
               <div class="table-wrap">
                 <table>
                   <thead>
-                    <tr><th>Pelanggan</th><th>Produk</th><th>Tanggal</th><th>Jumlah</th><th>Status</th></tr>
+                    <tr><th>Customer</th><th>Product</th><th>Date</th><th>Amount</th><th>Status</th></tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td><div class="user-cell"><div class="avatar">BR</div><span>Budi Rahardjo</span></div></td>
-                      <td>Headset Nirkabel</td><td>12 Sep 2026</td><td>Rp 1.250.000</td>
-                      <td><span class="badge green">Selesai</span></td>
+                      <td>Wireless Headset</td><td>Sep 12, 2026</td><td>Rp 1,250,000</td>
+                      <td><span class="badge green">Completed</span></td>
                     </tr>
                     <tr>
                       <td><div class="user-cell"><div class="avatar">SW</div><span>Siti Wulandari</span></div></td>
-                      <td>Sepatu Lari Pro</td><td>12 Sep 2026</td><td>Rp 890.000</td>
-                      <td><span class="badge amber">Diproses</span></td>
+                      <td>Running Shoes Pro</td><td>Sep 12, 2026</td><td>Rp 890,000</td>
+                      <td><span class="badge amber">Processing</span></td>
                     </tr>
                     <tr>
                       <td><div class="user-cell"><div class="avatar">AH</div><span>Ahmad Hidayat</span></div></td>
-                      <td>Smartwatch Seri 6</td><td>11 Sep 2026</td><td>Rp 2.400.000</td>
-                      <td><span class="badge green">Selesai</span></td>
+                      <td>Smartwatch Series 6</td><td>Sep 11, 2026</td><td>Rp 2,400,000</td>
+                      <td><span class="badge green">Completed</span></td>
                     </tr>
                     <tr>
                       <td><div class="user-cell"><div class="avatar">DK</div><span>Dewi Kartika</span></div></td>
-                      <td>Tas Ransel Kanvas</td><td>11 Sep 2026</td><td>Rp 560.000</td>
-                      <td><span class="badge red">Batal</span></td>
+                      <td>Canvas Backpack</td><td>Sep 11, 2026</td><td>Rp 560,000</td>
+                      <td><span class="badge red">Cancelled</span></td>
                     </tr>
                     <tr>
                       <td><div class="user-cell"><div class="avatar">RP</div><span>Rizky Pratama</span></div></td>
-                      <td>Kamera Mirrorless</td><td>10 Sep 2026</td><td>Rp 1.780.000</td>
-                      <td><span class="badge amber">Diproses</span></td>
+                      <td>Mirrorless Camera</td><td>Sep 10, 2026</td><td>Rp 1,780,000</td>
+                      <td><span class="badge amber">Processing</span></td>
                     </tr>
                   </tbody>
                 </table>
@@ -424,42 +424,42 @@
           </div>
           <div class="col-4">
             <div class="panel mb-4">
-              <div class="panel-head"><h3>Produk Terlaris</h3><span class="text-muted fs-sm">Unit terjual</span></div>
+              <div class="panel-head"><h3>Top Products</h3><span class="text-muted fs-sm">Units sold</span></div>
               <div class="p-3">
                 <div class="prod">
                   <span class="thumb kpi-ic a"><i data-lucide="headphones"></i></span>
-                  <div class="pn"><b>Headset Nirkabel</b><small>Elektronik</small>
+                  <div class="pn"><b>Wireless Headset</b><small>Electronics</small>
                     <div class="prod-bar"><i style="width:92%;background:var(--accent)"></i></div>
                   </div>
-                  <div class="pv">1.284<small>unit</small></div>
+                  <div class="pv">1,284<small>units</small></div>
                 </div>
                 <div class="prod">
                   <span class="thumb kpi-ic b"><i data-lucide="watch"></i></span>
-                  <div class="pn"><b>Smartwatch Seri 6</b><small>Elektronik</small>
+                  <div class="pn"><b>Smartwatch Series 6</b><small>Electronics</small>
                     <div class="prod-bar"><i style="width:74%;background:var(--blue)"></i></div>
                   </div>
-                  <div class="pv">1.032<small>unit</small></div>
+                  <div class="pv">1,032<small>units</small></div>
                 </div>
                 <div class="prod">
                   <span class="thumb kpi-ic g"><i data-lucide="footprints"></i></span>
-                  <div class="pn"><b>Sepatu Lari Pro</b><small>Olahraga</small>
+                  <div class="pn"><b>Running Shoes Pro</b><small>Sports</small>
                     <div class="prod-bar"><i style="width:61%;background:var(--green)"></i></div>
                   </div>
-                  <div class="pv">846<small>unit</small></div>
+                  <div class="pv">846<small>units</small></div>
                 </div>
                 <div class="prod">
                   <span class="thumb kpi-ic m"><i data-lucide="backpack"></i></span>
-                  <div class="pn"><b>Tas Ransel Kanvas</b><small>Fashion</small>
+                  <div class="pn"><b>Canvas Backpack</b><small>Fashion</small>
                     <div class="prod-bar"><i style="width:48%;background:var(--amber)"></i></div>
                   </div>
-                  <div class="pv">655<small>unit</small></div>
+                  <div class="pv">655<small>units</small></div>
                 </div>
                 <div class="prod">
                   <span class="thumb kpi-ic a"><i data-lucide="camera"></i></span>
-                  <div class="pn"><b>Kamera Mirrorless</b><small>Elektronik</small>
+                  <div class="pn"><b>Mirrorless Camera</b><small>Electronics</small>
                     <div class="prod-bar"><i style="width:35%;background:var(--accent)"></i></div>
                   </div>
-                  <div class="pv">421<small>unit</small></div>
+                  <div class="pv">421<small>units</small></div>
                 </div>
               </div>
             </div>
@@ -500,13 +500,13 @@
       _sales = new ApexCharts(document.getElementById('chartSales'), {
         chart: { type: 'line', height: 300, toolbar: { show: false }, foreColor: v.text, fontFamily: 'inherit', stacked: false },
         series: [
-          { name: 'Pendapatan (jt)', type: 'column', data: [120, 132, 128, 145, 150, 138, 156, 162, 158, 170, 178, 184] },
-          { name: 'Pesanan', type: 'line', data: [280, 300, 290, 330, 320, 305, 340, 360, 350, 372, 380, 348] }
+          { name: 'Revenue (Rp M)', type: 'column', data: [120, 132, 128, 145, 150, 138, 156, 162, 158, 170, 178, 184] },
+          { name: 'Orders', type: 'line', data: [280, 300, 290, 330, 320, 305, 340, 360, 350, 372, 380, 348] }
         ],
-        xaxis: { categories: ['Okt', 'Nov', 'Des', 'Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep'], axisBorder: { color: v.border }, axisTicks: { color: v.border } },
+        xaxis: { categories: ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'], axisBorder: { color: v.border }, axisTicks: { color: v.border } },
         yaxis: [
-          { title: { text: 'Pendapatan (jt)' }, labels: { style: { colors: v.text } } },
-          { opposite: true, title: { text: 'Pesanan' }, labels: { style: { colors: v.text } } }
+          { title: { text: 'Revenue (Rp M)' }, labels: { style: { colors: v.text } } },
+          { opposite: true, title: { text: 'Orders' }, labels: { style: { colors: v.text } } }
         ],
         colors: [v.accent, v.blue], stroke: { curve: 'smooth', width: [0, 3] },
         plotOptions: { bar: { columnWidth: '45%', borderRadius: 4 } },
@@ -518,10 +518,10 @@
 
       _cat = new ApexCharts(document.getElementById('chartCategory'), {
         chart: { type: 'donut', height: 300, foreColor: v.text, fontFamily: 'inherit' },
-        series: [42, 26, 16, 10, 6], labels: ['Elektronik', 'Fashion', 'Olahraga', 'Rumah Tangga', 'Lainnya'],
+        series: [42, 26, 16, 10, 6], labels: ['Electronics', 'Fashion', 'Sports', 'Home', 'Others'],
         colors: [v.accent, v.blue, v.green, v.amber, v.muted], stroke: { colors: [v.dark ? '#262624' : '#ffffff'] },
         legend: { position: 'bottom' }, dataLabels: { enabled: false },
-        plotOptions: { pie: { donut: { size: '66%', labels: { show: true, total: { show: true, label: 'Total', formatter: function () { return 'Rp 1,84 M'; } } } } } },
+        plotOptions: { pie: { donut: { size: '66%', labels: { show: true, total: { show: true, label: 'Total', formatter: function () { return 'Rp 1.84 B'; } } } } } },
         tooltip: { theme: v.dark ? 'dark' : 'light', y: { formatter: function (x) { return x + '%'; } } }
       });
       _cat.render();

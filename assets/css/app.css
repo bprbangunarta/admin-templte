@@ -681,6 +681,9 @@ select.form-control {
 .row.equal > [class*="col-"] { display: flex; }
 .row.equal > [class*="col-"] > .panel { display: flex; flex-direction: column; width: 100%; }
 .row.equal > [class*="col-"] > .panel > .panel-body { flex: 1 1 auto; }
+/* body non-panel-body (mis. .p-3 chart, .table-wrap) juga memenuhi tinggi */
+.row.equal > [class*="col-"] > .panel > .p-3,
+.row.equal > [class*="col-"] > .panel > .table-wrap { flex: 1 1 auto; }
 .col-1  { flex: 0 0 8.3333%;  max-width: 8.3333%; }
 .col-2  { flex: 0 0 16.6667%; max-width: 16.6667%; }
 .col-3  { flex: 0 0 25%;      max-width: 25%; }
@@ -2220,3 +2223,12 @@ hr.divider { border: 0; border-top: 1px solid var(--border); margin: 16px 0; }
 .tgt-sum .cell { text-align: center; }
 .tgt-sum .cell b { display: block; font-size: var(--fs-md); font-weight: 700; }
 .tgt-sum .cell small { color: var(--text-muted); font-size: 12px; }
+
+/* --- dash-head responsif (mobile): toolbar rapi, tidak sesak --- */
+@media (max-width: 680px) {
+  .dash-head { flex-direction: column; align-items: stretch; }
+  .dash-head .tools { flex-wrap: wrap; }
+  .dash-head .seg { flex: 1 0 100%; }
+  .dash-head .seg button { flex: 1; white-space: nowrap; }
+  .dash-head .tools > .btn { flex: 1; justify-content: center; white-space: nowrap; }
+}
