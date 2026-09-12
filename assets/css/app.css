@@ -1798,3 +1798,31 @@ table.table-sm th, table.table-sm td { padding: 6px 12px; }
 .prose dl dt { font-weight: 600; }
 .prose dl dd { color: var(--text-muted); margin: 2px 0 10px; }
 .prose dl dd:last-child { margin-bottom: 0; }
+
+/* ikon di dalam addon input-group */
+.input-group-text svg { width: 15px; height: 15px; }
+
+/* ============================================================
+   CAROUSEL (.carousel .js-carousel) — ringan, tanpa vendor
+   ============================================================ */
+.carousel { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); background: var(--bg-hover); }
+.carousel-track { display: flex; transition: transform .4s ease; }
+.carousel-slide { position: relative; flex: 0 0 100%; min-width: 100%; }
+.carousel-slide img { display: block; width: 100%; height: 300px; object-fit: cover; }
+@media (max-width: 560px) { .carousel-slide img { height: 210px; } }
+.carousel-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 30px 18px 16px; color: #fff; background: linear-gradient(transparent, rgba(20,16,10,.72)); }
+.carousel-cap h4 { font-size: var(--fs-lg); font-weight: 600; }
+.carousel-cap p { font-size: var(--fs-base); opacity: .92; margin-top: 2px; }
+.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; border: none; background: rgba(255,255,255,.92); color: #29261f; display: grid; place-items: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.18); z-index: 2; transition: background .15s; }
+.carousel-btn:hover { background: #fff; }
+.carousel-btn.prev { left: 12px; } .carousel-btn.next { right: 12px; }
+.carousel-btn svg { width: 18px; height: 18px; }
+.carousel-dots { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; justify-content: center; gap: 6px; z-index: 2; }
+.carousel-dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: rgba(255,255,255,.5); cursor: pointer; padding: 0; transition: background .15s, width .15s; }
+.carousel-dot:hover { background: rgba(255,255,255,.8); }
+.carousel-dot.active { background: #fff; width: 20px; border-radius: 20px; }
+
+/* badge angka pada item menu sidebar (mis. jumlah) */
+.nav-item .nav-badge { margin-left: auto; }
+.nav-badge { min-width: 18px; height: 18px; padding: 0 6px; display: inline-grid; place-items: center; background: var(--accent); color: #fff; font-size: var(--fs-xs); font-weight: 600; line-height: 1; border-radius: 20px; flex-shrink: 0; }
+.app.mini .sidebar:not(:hover) .nav-badge { display: none; }

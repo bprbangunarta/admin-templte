@@ -295,7 +295,82 @@
     });
 
     initAvatarUpload();
+    initInputMask();
+    initCarousel();
     initCmdK(setTheme);
+  }
+
+  /* ---- Input mask ringan (tanpa vendor) ----
+     <input data-mask="99/99/9999">  token: 9=digit, a=huruf, *=alfanumerik,
+     selain itu dianggap literal (mis. / ( ) - . spasi) dan disisipkan otomatis. */
+  function initInputMask() {
+    var tok = { '9': /\d/, 'a': /[a-zA-Z]/, '*': /[a-zA-Z0-9]/ };
+    function format(val, mask) {
+      var out = '', p = 0;
+      for (var i = 0; i < mask.length && p < val.length;) {
+        var mc = mask[i];
+        if (tok[mc]) {
+          if (tok[mc].test(val[p])) { out += val[p]; i++; p++; }
+          else { p++; }                    // lewati karakter tak valid
+        } else {
+          out += mc; i++;                  // sisipkan literal
+          if (val[p] === mc) p++;          // konsumsi bila user mengetik literal itu
+        }
+      }
+      return out;
+    }
+    document.querySelectorAll('input[data-mask]').forEach(function (el) {
+      var mask = el.getAttribute('data-mask');
+      if (/^[9]/.test(mask.replace(/[^9a*]/g, '')[0] || '9')) el.setAttribute('inputmode', 'numeric');
+      var run = function () {
+        var s = el.selectionStart, before = el.value;
+        el.value = format(el.value, mask);
+        // pertahankan posisi kursor secara sederhana
+        try { el.setSelectionRange(s + (el.value.length - before.length), s + (el.value.length - before.length)); } catch (e) {}
+      };
+      el.addEventListener('input', run);
+    });
+  }
+
+  /* ---- Carousel ringan (tanpa vendor) ----
+     <div class="carousel js-carousel" data-autoplay="5000"> .carousel-track > .carousel-slide … </div> */
+  function initCarousel() {
+    document.querySelectorAll('.js-carousel').forEach(function (c) {
+      var track = c.querySelector('.carousel-track');
+      var slides = [].slice.call(c.querySelectorAll('.carousel-slide'));
+      if (!track || slides.length === 0) return;
+      var dotsWrap = c.querySelector('.carousel-dots');
+      var i = 0, timer = null, delay = parseInt(c.getAttribute('data-autoplay') || '0', 10);
+
+      if (dotsWrap) slides.forEach(function (s, idx) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+        b.setAttribute('aria-label', 'Slide ' + (idx + 1));
+        b.addEventListener('click', function () { go(idx); reset(); });
+        dotsWrap.appendChild(b);
+      });
+      var dots = dotsWrap ? [].slice.call(dotsWrap.children) : [];
+
+      function go(n) {
+        i = (n + slides.length) % slides.length;
+        track.style.transform = 'translateX(' + (-i * 100) + '%)';
+        dots.forEach(function (d, x) { d.classList.toggle('active', x === i); });
+      }
+      function next() { go(i + 1); }
+      function prev() { go(i - 1); }
+      function reset() { if (delay) { clearInterval(timer); timer = setInterval(next, delay); } }
+
+      var pn = c.querySelector('[data-carousel="prev"]'), nx = c.querySelector('[data-carousel="next"]');
+      if (pn) pn.addEventListener('click', function () { prev(); reset(); });
+      if (nx) nx.addEventListener('click', function () { next(); reset(); });
+
+      if (delay) {
+        reset();
+        c.addEventListener('mouseenter', function () { clearInterval(timer); });
+        c.addEventListener('mouseleave', reset);
+      }
+      go(0);
+    });
   }
 
   /* ---- Unggah avatar (foto profil) ----

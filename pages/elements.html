@@ -498,6 +498,61 @@
             </div>
           </div>
 
+          <!-- Input Addon & Input Masks -->
+          <div class="row">
+            <div class="col-6">
+              <div class="panel mb-4">
+                <div class="panel-head"><h3>Input Addon</h3></div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <div class="input-group"><span class="input-group-text">@</span><input class="form-control" placeholder="username"></div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Nominal</label>
+                    <div class="input-group"><span class="input-group-text">Rp</span><input class="form-control" placeholder="0"><span class="input-group-text">,00</span></div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Email (dengan ikon)</label>
+                    <div class="input-group"><span class="input-group-text"><i data-lucide="mail"></i></span><input type="email" class="form-control" placeholder="nama@email.com"></div>
+                  </div>
+                  <div class="form-group mb-0">
+                    <label class="form-label">Website</label>
+                    <div class="input-group"><span class="input-group-text"><i data-lucide="globe"></i></span><span class="input-group-text">https://</span><input class="form-control" placeholder="domain.com"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="panel mb-4">
+                <div class="panel-head"><h3>Input Masks</h3><span class="text-muted fs-sm">format otomatis</span></div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label class="form-label">Tanggal (dd/mm/yyyy)</label>
+                    <div class="input-group"><span class="input-group-text"><i data-lucide="calendar"></i></span><input class="form-control" data-mask="99/99/9999" placeholder="dd/mm/yyyy"></div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Telepon</label>
+                    <div class="input-group"><span class="input-group-text"><i data-lucide="phone"></i></span><input class="form-control" data-mask="(999) 9999-9999" placeholder="(021) 1234-5678"></div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">NPWP</label>
+                    <input class="form-control" data-mask="99.999.999.9-999.999" placeholder="00.000.000.0-000.000">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Kartu Kredit</label>
+                    <input class="form-control" data-mask="9999 9999 9999 9999" placeholder="0000 0000 0000 0000">
+                  </div>
+                  <div class="form-group mb-0">
+                    <label class="form-label">Alamat IP</label>
+                    <div class="input-group"><span class="input-group-text"><i data-lucide="laptop"></i></span><input class="form-control" data-mask="999.999.999.999" placeholder="192.168.001.001"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Select & Select2 -->
           <div class="panel mb-4">
             <div class="panel-head">
@@ -996,6 +1051,32 @@
                     src="https://picsum.photos/seed/e/240" alt=""></a>
                 <a href="https://picsum.photos/seed/f/1000" class="glightbox"><img
                     src="https://picsum.photos/seed/f/240" alt=""></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel -->
+          <div class="panel mb-4">
+            <div class="panel-head"><h3>Carousel</h3><span class="text-muted fs-sm">geser otomatis, tanpa vendor</span></div>
+            <div class="p-4">
+              <div class="carousel js-carousel" data-autoplay="5000">
+                <div class="carousel-track">
+                  <div class="carousel-slide">
+                    <img src="https://picsum.photos/seed/car1/960/400" alt="Slide 1">
+                    <div class="carousel-cap"><h4>Analitik Real-time</h4><p>Pantau performa sistem secara langsung.</p></div>
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="https://picsum.photos/seed/car2/960/400" alt="Slide 2">
+                    <div class="carousel-cap"><h4>Manajemen Pengguna</h4><p>Kelola akses & peran dengan mudah.</p></div>
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="https://picsum.photos/seed/car3/960/400" alt="Slide 3">
+                    <div class="carousel-cap"><h4>Laporan Terjadwal</h4><p>Ekspor rekap otomatis setiap hari.</p></div>
+                  </div>
+                </div>
+                <button type="button" class="carousel-btn prev" data-carousel="prev" aria-label="Sebelumnya"><i data-lucide="chevron-left"></i></button>
+                <button type="button" class="carousel-btn next" data-carousel="next" aria-label="Berikutnya"><i data-lucide="chevron-right"></i></button>
+                <div class="carousel-dots"></div>
               </div>
             </div>
           </div>
