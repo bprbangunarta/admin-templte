@@ -24,7 +24,7 @@
 </head>
 
 <body>
-  <!-- Preloader: disembunyikan otomatis oleh app.js setelah halaman siap -->
+  <!-- Preloader: auto-hidden by app.js once the page is ready -->
   <div class="page-loader" id="pageLoader">
     <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
       <img src="assets/img/logo-mark.svg" alt="Mutiara" style="width:46px; height:46px;">
@@ -200,69 +200,69 @@
 
     <div class="main">
       <header class="topbar">
-        <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Buka atau tutup menu"><i data-lucide="panel-left"></i></button>
+        <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Toggle menu"><i data-lucide="panel-left"></i></button>
         <h1>Sales Dashboard</h1>
 
-        <!-- Pencarian: tombol yang membuka command palette (⌘K / Ctrl+K) -->
-        <button type="button" class="searchbar" id="searchOpen" aria-label="Cari (Ctrl+K)" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk">
+        <!-- Search: opens the command palette (⌘K / Ctrl+K) -->
+        <button type="button" class="searchbar" id="searchOpen" aria-label="Search (Ctrl+K)" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk">
           <i data-lucide="search"></i>
-          <span class="ph">Cari menu atau halaman…</span>
+          <span class="ph">Search menu or page…</span>
           <kbd class="kbd"><span class="mod">⌘</span>K</kbd>
         </button>
 
         <div class="topbar-actions">
-          <button type="button" class="icon-btn search-sm" id="searchOpenSm" aria-label="Cari" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk"><i data-lucide="search"></i></button>
-          <button type="button" class="icon-btn theme-toggle" id="themeToggle" aria-label="Ganti tema terang atau gelap">
+          <button type="button" class="icon-btn search-sm" id="searchOpenSm" aria-label="Search" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk"><i data-lucide="search"></i></button>
+          <button type="button" class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle light or dark theme">
             <i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i>
           </button>
-          <button type="button" class="icon-btn bell" id="notifBtn" aria-label="Notifikasi (10 belum dibaca)" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="icon-btn bell" id="notifBtn" aria-label="Notifications (10 unread)" aria-haspopup="true" aria-expanded="false">
             <i data-lucide="bell"></i>
             <span class="ndot">10</span>
           </button>
         </div>
 
-        <!-- Panel dropdown notifikasi -->
+        <!-- Notifications dropdown -->
         <div class="notif-pop" id="notifPop" hidden>
           <div class="notif-head">
-            <span>Notifikasi</span>
-            <button type="button" class="notif-readall">Tandai dibaca</button>
+            <span>Notifications</span>
+            <button type="button" class="notif-readall">Mark as read</button>
           </div>
           <div class="notif-list">
             <a href="#" class="notif-item unread">
               <span class="ni-ic green"><i data-lucide="user-plus"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Pengguna baru terdaftar</span><span class="ni-sub">Rina Marlina menambahkan akun</span><span class="ni-time">2 menit lalu</span></span>
+              <span class="ni-tx"><span class="ni-tt">New user registered</span><span class="ni-sub">Rina Marlina added an account</span><span class="ni-time">2 minutes ago</span></span>
             </a>
             <a href="#" class="notif-item unread">
               <span class="ni-ic amber"><i data-lucide="alert-triangle"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Percobaan login gagal</span><span class="ni-sub">3 kali dari IP 10.20.1.5</span><span class="ni-time">18 menit lalu</span></span>
+              <span class="ni-tx"><span class="ni-tt">Failed login attempt</span><span class="ni-sub">3 times from IP 10.20.1.5</span><span class="ni-time">18 minutes ago</span></span>
             </a>
             <a href="#" class="notif-item unread">
               <span class="ni-ic blue"><i data-lucide="file-text"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Laporan harian siap</span><span class="ni-sub">Rekap transaksi 7 Sep 2026</span><span class="ni-time">1 jam lalu</span></span>
+              <span class="ni-tx"><span class="ni-tt">Daily report ready</span><span class="ni-sub">Transaction summary Sep 7, 2026</span><span class="ni-time">1 hour ago</span></span>
             </a>
             <a href="#" class="notif-item">
               <span class="ni-ic red"><i data-lucide="shield-alert"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Sesi kedaluwarsa</span><span class="ni-sub">Perlu login ulang di perangkat lama</span><span class="ni-time">3 jam lalu</span></span>
+              <span class="ni-tx"><span class="ni-tt">Session expired</span><span class="ni-sub">Re-login required on old device</span><span class="ni-time">3 hours ago</span></span>
             </a>
           </div>
-          <a href="#" class="notif-foot">Lihat semua notifikasi</a>
+          <a href="#" class="notif-foot">View all notifications</a>
         </div>
       </header>
 
-      <!-- Command palette pencarian -->
+      <!-- Search command palette -->
       <div class="cmdk" id="cmdk" hidden>
         <div class="cmdk-scrim" data-cmdk-close></div>
-        <div class="cmdk-box" role="dialog" aria-modal="true" aria-label="Pencarian">
+        <div class="cmdk-box" role="dialog" aria-modal="true" aria-label="Search">
           <div class="cmdk-input">
             <i data-lucide="search"></i>
-            <input type="text" id="cmdkInput" placeholder="Cari menu, halaman, atau perintah…" autocomplete="off" spellcheck="false" aria-label="Kata kunci pencarian">
+            <input type="text" id="cmdkInput" placeholder="Search menu, page, or command…" autocomplete="off" spellcheck="false" aria-label="Search query">
             <kbd class="kbd">Esc</kbd>
           </div>
-          <div class="cmdk-list" id="cmdkList" role="listbox" aria-label="Hasil pencarian"></div>
+          <div class="cmdk-list" id="cmdkList" role="listbox" aria-label="Search results"></div>
           <div class="cmdk-foot">
-            <span><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd> navigasi</span>
-            <span><kbd class="kbd">↵</kbd> buka</span>
-            <span><kbd class="kbd">esc</kbd> tutup</span>
+            <span><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd> navigate</span>
+            <span><kbd class="kbd">↵</kbd> open</span>
+            <span><kbd class="kbd">esc</kbd> close</span>
           </div>
         </div>
       </div>
@@ -477,7 +477,7 @@
   <script src="assets/js/init/vectormap.js"></script>
   <script src="assets/js/init/apexcharts.js"></script>
   <script>
-    // data chart khusus halaman; tema & rebuild ditangani ApexTheme
+    // page-specific chart data; theming & rebuild handled by ApexTheme
     var _sales, _cat, _tgt, _sp = [];
     function spark(el, data, color) {
       var c = new ApexCharts(el, {

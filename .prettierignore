@@ -1,0 +1,10 @@
+# Vendor / third-party (jangan diformat ulang)
+assets/vendor/
+assets/fonts/
+**/*.min.js
+**/*.min.css
+
+# Berkas non-sumber
+*.svg
+*.map
+node_modules/

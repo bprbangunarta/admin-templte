@@ -494,7 +494,7 @@
     }));
   }
 
-  /* ---- Command palette (pencarian ⌘K / Ctrl+K) ---- */
+  /* ---- Command palette (search ⌘K / Ctrl+K) ---- */
   function initCmdK(setTheme) {
     const cmdk = document.getElementById('cmdk');
     if (!cmdk) return;
@@ -506,21 +506,21 @@
     if (!isMac) document.querySelectorAll('.searchbar .kbd .mod').forEach(m => { m.textContent = 'Ctrl'; m.style.fontSize = 'var(--fs-xs)'; });
 
     const items = [
-      { t: 'Dashboard',   s: 'Ringkasan & statistik', i: 'layout-dashboard', h: '/index.html', g: 'Halaman' },
-      { t: 'Datatable',   s: 'Tabel data interaktif', i: 'table', h: '/pages/datatable.html', g: 'Halaman' },
-      { t: 'Elements',    s: 'Form, komponen & UI',   i: 'layout-grid', h: '/pages/elements.html', g: 'Halaman' },
-      { t: 'Charts',      s: 'Grafik & visualisasi',  i: 'pie-chart', h: '/pages/charts.html', g: 'Halaman' },
-      { t: 'File Manager',s: 'Kelola berkas',         i: 'folder', h: '/pages/files.html', g: 'Halaman' },
-      { t: 'HTML Parser', s: 'Alat parse HTML',       i: 'code-2', h: '/pages/html-parser.html', g: 'Halaman' },
-      { t: 'Blog',        s: 'Artikel & tutorial',    i: 'newspaper', h: '/pages/blog.html', g: 'Halaman' },
-      { t: 'Detail Artikel', s: 'Contoh halaman artikel', i: 'file-text', h: '/pages/blog-detail.html', g: 'Halaman' },
-      { t: 'FAQ',         s: 'Pertanyaan umum',       i: 'help-circle', h: '/pages/elements.html', g: 'Halaman' },
-      { t: 'Profil',      s: 'Pengaturan akun',       i: 'user', h: '/pages/profile.html', g: 'Halaman' },
-      { t: 'Pengaturan',  s: 'Konfigurasi aplikasi',  i: 'settings', h: '/pages/settings.html', g: 'Halaman' },
-      { t: 'Landing Page',s: 'Halaman publik',        i: 'globe', h: '/pages/landing.html', g: 'Halaman' },
-      { t: 'Mailbox',     s: 'Kotak masuk email',     i: 'inbox', h: '/pages/mailbox.html', g: 'Halaman' },
-      { t: 'Email',       s: 'Template email',        i: 'mail', h: '/pages/email.html', g: 'Halaman' },
-      { t: 'Ganti tema terang/gelap', s: 'Perintah', i: 'sun-moon', g: 'Perintah',
+      { t: 'Dashboard',   s: 'Overview & statistics', i: 'layout-dashboard', h: '/index.html', g: 'Pages' },
+      { t: 'Datatable',   s: 'Interactive data table', i: 'table', h: '/pages/datatable.html', g: 'Pages' },
+      { t: 'Elements',    s: 'Forms, components & UI', i: 'layout-grid', h: '/pages/elements.html', g: 'Pages' },
+      { t: 'Charts',      s: 'Graphs & visualization', i: 'pie-chart', h: '/pages/charts.html', g: 'Pages' },
+      { t: 'File Manager',s: 'Manage files',          i: 'folder', h: '/pages/files.html', g: 'Pages' },
+      { t: 'HTML Parser', s: 'HTML parsing tool',     i: 'code-2', h: '/pages/html-parser.html', g: 'Pages' },
+      { t: 'Blog',        s: 'Articles & tutorials',  i: 'newspaper', h: '/pages/blog.html', g: 'Pages' },
+      { t: 'Article Detail', s: 'Sample article page', i: 'file-text', h: '/pages/blog-detail.html', g: 'Pages' },
+      { t: 'FAQ',         s: 'Common questions',      i: 'help-circle', h: '/pages/elements.html', g: 'Pages' },
+      { t: 'Profile',     s: 'Account settings',      i: 'user', h: '/pages/profile.html', g: 'Pages' },
+      { t: 'Settings',    s: 'App configuration',     i: 'settings', h: '/pages/settings.html', g: 'Pages' },
+      { t: 'Landing Page',s: 'Public page',           i: 'globe', h: '/pages/landing.html', g: 'Pages' },
+      { t: 'Mailbox',     s: 'Email inbox',           i: 'inbox', h: '/pages/mailbox.html', g: 'Pages' },
+      { t: 'Email',       s: 'Email template',        i: 'mail', h: '/pages/email.html', g: 'Pages' },
+      { t: 'Toggle light/dark theme', s: 'Command', i: 'sun-moon', g: 'Commands',
         run: () => { const d = document.documentElement.getAttribute('data-theme') === 'dark'; setTheme(d ? 'light' : 'dark'); } },
     ];
 
@@ -530,7 +530,7 @@
 
     const esc = s => s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
     const render = () => {
-      if (!view.length) { list.innerHTML = '<div class="cmdk-empty">Tidak ada hasil.</div>'; return; }
+      if (!view.length) { list.innerHTML = '<div class="cmdk-empty">No results.</div>'; return; }
       let html = '', lastG = '';
       view.forEach((it, idx) => {
         if (it.g !== lastG) { html += '<div class="cmdk-group">' + esc(it.g) + '</div>'; lastG = it.g; }
