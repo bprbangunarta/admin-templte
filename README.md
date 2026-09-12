@@ -124,6 +124,8 @@ struktur konsisten dgn `.modal-*`; footer default rata kanan, `.panel-foot.betwe
 untuk info kiri + aksi kanan; `.row.equal` → kartu sebaris tinggi sama & footer sejajar),
 **Typography** (`.prose` — heading h1–h6, penekanan teks, blockquote, list
 ordered/unordered/unstyled, description list),
+**Panel berwarna** (`.panel.primary/info/success/warning/danger/dark` — garis atas
+berwarna spt `box-primary` AdminLTE; `.tinted` mewarnai judul),
 Form (input, textarea, select, **Select2**, checkbox, radio, switch, input group,
 password + ikon mata), **validasi form** (`.is-invalid`/`.is-valid` + feedback),
 tombol (varian + ukuran + ikon + state hover/active/disabled), alert, **breadcrumb**,
@@ -186,6 +188,9 @@ Semua vendor disimpan di dalam proyek (bukan CDN) agar berjalan offline dan vers
 | Quill (WYSIWYG)| 1.3.7        | `assets/vendor/quill/`                                      |
 | highlight.js   | 11.9.0       | `assets/vendor/highlightjs/` (syntax highlight code block)  |
 | Inter (font)   | 5.0.16       | `assets/vendor/inter/` (woff2 400/500/600, `@font-face`)    |
+
+> Gambar demo (gallery, carousel, avatar) memakai placeholder SVG lokal di
+> `assets/img/ph/` — 100% offline, tanpa layanan gambar eksternal.
 
 > Font **Inter** kini di-host lokal (`@font-face` di `app.css`) — 100% offline,
 > tanpa dependensi Google Fonts.

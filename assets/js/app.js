@@ -403,6 +403,8 @@
       if (!track || slides.length === 0) return;
       var dotsWrap = c.querySelector('.carousel-dots');
       var i = 0, timer = null, delay = parseInt(c.getAttribute('data-autoplay') || '0', 10);
+      // hormati preferensi kurangi-gerak: matikan autoplay
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) delay = 0;
 
       if (dotsWrap) slides.forEach(function (s, idx) {
         var b = document.createElement('button');
