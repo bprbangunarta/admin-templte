@@ -1003,6 +1003,7 @@ table.dataTable thead th.sorting_desc::after  { content: "▼"; color: var(--tex
 
 /* display */
 .d-none{display:none!important}.d-block{display:block!important}.d-inline{display:inline!important}.d-inline-block{display:inline-block!important}
+.overflow-visible{overflow:visible!important}.overflow-hidden{overflow:hidden!important}.overflow-auto{overflow:auto!important}
 .d-flex{display:flex!important}.d-inline-flex{display:inline-flex!important}.d-grid{display:grid!important}
 
 /* flex helpers */
@@ -1401,6 +1402,9 @@ body, .sidebar, .topbar, .panel, .stat, .form-control, .btn, .drawer, .subsideba
 .flatpickr-calendar.arrowTop:before, .flatpickr-calendar.arrowTop:after { border-bottom-color: var(--bg-content); }
 span.flatpickr-weekday { background: transparent; }
 .flatpickr-monthDropdown-months, .numInputWrapper { color: var(--text); }
+/* FIX: sel hari (max-width 39px dari base) tidak sejajar dgn weekday (44px).
+   Lepas cap agar hari mengisi 14,2857% (=lebar weekday) → kolom sejajar. */
+.flatpickr-day { max-width: none; }
 
 /* ============================================================
    BATCH 2: signature, dropzone, color picker, quill, player
