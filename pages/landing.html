@@ -1,149 +1,320 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
-  <title>Admin Panel — Kelola bisnis Anda</title>
+  <title>Mutiara — Compact Admin Dashboard Template</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/logo-mark.svg">
+  <meta name="description" content="Mutiara is a compact, responsive HTML admin dashboard template — 46 pages, 70+ components, dark mode, no build step.">
   <link rel="stylesheet" href="../assets/css/app.css">
 </head>
 
 <body>
   <!-- NAV -->
-  <nav class="lp-nav">
+  <nav class="lp-nav glass">
     <div class="in">
-      <div class="brand">
-        <div class="logo"
-          style="width:26px;height:26px;border-radius:7px;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:600;">
-          A</div>
-      </div>
-      <div class="brand-name">Admin Panel</div>
-      <div class="links"><a href="#fitur">Fitur</a><a href="#harga">Harga</a><a href="../pages/faq.html">FAQ</a></div>
+      <svg class="brand-logo" viewBox="0 0 48 48" role="img" aria-label="Mutiara">
+        <defs><radialGradient id="mp" cx="0.38" cy="0.33" r="0.8">
+          <stop offset="0" stop-color="#ffffff"/><stop offset="0.55" stop-color="#fbeee8"/><stop offset="1" stop-color="#e4c7b8"/>
+        </radialGradient></defs>
+        <rect x="2" y="2" width="44" height="44" rx="13" fill="var(--accent)"/>
+        <ellipse cx="24" cy="11" rx="18" ry="8" fill="#ffffff" opacity="0.12"/>
+        <circle cx="24" cy="24" r="12.5" fill="url(#mp)"/>
+        <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.32"/>
+        <ellipse cx="19.8" cy="19.5" rx="4" ry="2.8" fill="#ffffff" opacity="0.9"/>
+      </svg>
+      <div class="brand-name">Mutiara</div>
+      <div class="links"><a href="#features">Features</a><a href="#showcase">Showcase</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></div>
       <div class="right">
-        <div class="icon-btn theme-toggle" id="themeToggle" title="Ganti tema"><i data-lucide="moon" class="moon"></i><i
-            data-lucide="sun" class="sun"></i></div>
-        <a class="btn outline" href="../pages/auth/login.html">Masuk</a>
-        <a class="btn primary" href="../pages/auth/register.html">Daftar</a>
+        <div class="icon-btn theme-toggle" id="themeToggle" title="Toggle theme"><i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i></div>
+        <a class="btn outline" href="../index.html">Live Preview</a>
+        <a class="btn primary" href="#pricing">Buy Now</a>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
   <header class="lp-hero">
-    <span class="pill">✨ Versi 1.0 telah rilis</span>
-    <h1>Kelola bisnis Anda dari satu dashboard</h1>
-    <p>Template admin modern yang cepat, responsif, dan siap pakai — lengkap dengan chart, tabel, dan puluhan komponen.
-    </p>
+    <span class="pill">✨ Version 1.0 — now available</span>
+    <h1>The compact admin template that ships <span class="grad-text">production-ready</span></h1>
+    <p>Mutiara is a fast, responsive HTML dashboard kit with 46 pages and 70+ components. No build step, no framework lock-in — just clean code you can drop into any project.</p>
     <div class="cta">
-      <a class="btn primary lg" href="../index.html">Coba Gratis</a>
-      <a class="btn outline lg" href="../pages/charts.html">Lihat Demo</a>
+      <a class="btn primary lg" href="#pricing">Get Mutiara — $49</a>
+      <a class="btn outline lg" href="../index.html"><i data-lucide="play"></i> Live Preview</a>
     </div>
-    <div class="lp-mock"><img src="../assets/img/ph/1.svg" alt="Preview dashboard"></div>
+    <div class="rating">
+      <span class="stars">★★★★★</span> 4.9/5 · loved by 1,200+ developers
+    </div>
+
+    <div class="lp-browser">
+      <div class="bar">
+        <span class="dot" style="background:#e5695b"></span>
+        <span class="dot" style="background:#e0a52e"></span>
+        <span class="dot" style="background:#4f9d78"></span>
+        <span class="url">app.mutiara.dev/dashboard</span>
+      </div>
+      <img src="../assets/img/ph/1.svg" alt="Mutiara dashboard preview">
+    </div>
+
+    <div class="lp-logos">
+      <span class="lbl">Built with battle-tested libraries</span>
+      <span class="t"><i data-lucide="bar-chart-3"></i> ApexCharts</span>
+      <span class="t"><i data-lucide="table"></i> DataTables</span>
+      <span class="t"><i data-lucide="map"></i> Leaflet</span>
+      <span class="t"><i data-lucide="edit-3"></i> Quill</span>
+      <span class="t"><i data-lucide="calendar"></i> flatpickr</span>
+      <span class="t"><i data-lucide="sparkles"></i> Lucide</span>
+    </div>
   </header>
 
-  <!-- FITUR -->
-  <section class="lp-section" id="fitur">
+  <!-- FEATURES -->
+  <section class="lp-section" id="features">
     <div class="lp-wrap">
-      <h2>Semua yang Anda butuhkan</h2>
-      <p class="sub">Komponen lengkap untuk membangun panel admin apa pun.</p>
+      <span class="lp-eyebrow">Features</span>
+      <h2>Everything you need to build faster</h2>
+      <p class="sub">A complete toolkit for any admin panel — thoughtfully designed and ready to customize.</p>
       <div class="feature-grid">
         <div class="feature-card">
-          <div class="ic"><i data-lucide="bar-chart-3"></i></div>
-          <h3>Analitik</h3>
-          <p>Chart interaktif (ApexCharts) untuk memantau performa secara real-time.</p>
+          <div class="ic"><i data-lucide="zap"></i></div>
+          <h3>No build step</h3>
+          <p>Pure HTML, CSS &amp; vanilla JS. Open a file and it just works — no npm, no bundler, no config.</p>
         </div>
         <div class="feature-card">
           <div class="ic"><i data-lucide="moon"></i></div>
-          <h3>Mode Gelap</h3>
-          <p>Tema terang & gelap yang tersimpan otomatis, mengikuti sistem.</p>
+          <h3>Dark mode built-in</h3>
+          <p>Token-based theming that adapts automatically and remembers the visitor's choice.</p>
         </div>
         <div class="feature-card">
           <div class="ic"><i data-lucide="smartphone"></i></div>
-          <h3>Responsif</h3>
-          <p>Tampil sempurna di desktop, tablet, hingga ponsel.</p>
+          <h3>Fully responsive</h3>
+          <p>Pixel-perfect from ultrawide desktops down to phones, with a collapsible icon rail.</p>
         </div>
         <div class="feature-card">
-          <div class="ic"><i data-lucide="table"></i></div>
-          <h3>DataTables</h3>
-          <p>Tabel dengan pencarian, sortir, dan pagination siap pakai.</p>
+          <div class="ic"><i data-lucide="bar-chart-3"></i></div>
+          <h3>Charts &amp; maps</h3>
+          <p>Interactive ApexCharts, vector maps and Leaflet — all theme-aware, no API keys required.</p>
         </div>
         <div class="feature-card">
-          <div class="ic"><i data-lucide="map"></i></div>
-          <h3>Peta</h3>
-          <p>Vector map & peta interaktif Leaflet tanpa API key.</p>
+          <div class="ic"><i data-lucide="layout-grid"></i></div>
+          <h3>70+ components</h3>
+          <p>Cards, tables, modals, toasts, forms, editors, wizards, timelines and much more.</p>
         </div>
         <div class="feature-card">
           <div class="ic"><i data-lucide="shield-check"></i></div>
-          <h3>Aman</h3>
-          <p>Halaman autentikasi lengkap: login, register, reset password.</p>
+          <h3>Auth &amp; errors</h3>
+          <p>Ready-made login, register, password reset, plus 404 / 500 / maintenance pages.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENTO / NUMBERS -->
+  <section class="lp-section" style="padding-top:0;">
+    <div class="lp-wrap">
+      <div class="lp-bento">
+        <div class="cell accent">
+          <div class="n">46<small> pages</small></div>
+          <p>Dashboards, apps, tables, forms, auth and error pages — all wired and consistent.</p>
+        </div>
+        <div class="cell">
+          <div class="n">70<small>+</small></div>
+          <p>Reusable UI components in one catalog.</p>
+        </div>
+        <div class="cell">
+          <div class="ic"><i data-lucide="package"></i></div>
+          <div class="n" style="font-size:24px;">13 libraries</div>
+          <p>Self-hosted, version-pinned vendors.</p>
+        </div>
+        <div class="cell wide">
+          <div class="ic"><i data-lucide="palette"></i></div>
+          <div class="n" style="font-size:22px;">Design tokens &amp; compact UI</div>
+          <p>A warm near-white palette with a clay accent, driven entirely by CSS variables — restyle the whole template by editing a handful of tokens.</p>
+        </div>
+        <div class="cell">
+          <div class="ic"><i data-lucide="command"></i></div>
+          <div class="n" style="font-size:22px;">⌘K palette</div>
+          <p>Instant search across pages &amp; actions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE -->
+  <section class="lp-section" id="showcase" style="background:var(--bg-sidebar);">
+    <div class="lp-wrap">
+      <span class="lp-eyebrow">Showcase</span>
+      <h2>Beautiful out of the box</h2>
+      <p class="sub">Every screen is crafted with the same attention to spacing, type and rhythm.</p>
+      <div class="lp-shots">
+        <div class="lp-shot"><img src="../assets/img/ph/2.svg" alt="Sales dashboard"><div class="cap"><i data-lucide="layout-dashboard"></i> Sales Dashboard</div></div>
+        <div class="lp-shot"><img src="../assets/img/ph/3.svg" alt="Mailbox"><div class="cap"><i data-lucide="inbox"></i> Mailbox</div></div>
+        <div class="lp-shot"><img src="../assets/img/ph/4.svg" alt="Data tables"><div class="cap"><i data-lucide="table"></i> Data Tables</div></div>
+        <div class="lp-shot"><img src="../assets/img/ph/5.svg" alt="Forms & editor"><div class="cap"><i data-lucide="edit-3"></i> Forms &amp; Editor</div></div>
       </div>
     </div>
   </section>
 
   <!-- STATS -->
   <div class="lp-stats">
-    <div class="s"><b>12k+</b><span>Pengguna</span></div>
-    <div class="s"><b>99,9%</b><span>Uptime</span></div>
-    <div class="s"><b>4,9</b><span>Rating</span></div>
-    <div class="s"><b>24/7</b><span>Dukungan</span></div>
+    <div class="s"><b>1,200+</b><span>Developers</span></div>
+    <div class="s"><b>4.9/5</b><span>Average rating</span></div>
+    <div class="s"><b>46</b><span>Pages</span></div>
+    <div class="s"><b>12 mo</b><span>Free updates</span></div>
   </div>
 
-  <!-- HARGA -->
-  <section class="lp-section" id="harga">
+  <!-- PRICING -->
+  <section class="lp-section" id="pricing">
     <div class="lp-wrap">
-      <h2>Harga sederhana</h2>
-      <p class="sub">Pilih paket yang sesuai dengan kebutuhan tim Anda.</p>
+      <span class="lp-eyebrow">Pricing</span>
+      <h2>One-time payment, yours forever</h2>
+      <p class="sub">Buy once, use on real projects. No subscriptions, no hidden fees.</p>
       <div class="pricing">
         <div class="price-card">
-          <div class="plan">Starter</div>
-          <div class="amt">Rp 0<span>/bln</span></div>
+          <div class="plan">Personal</div>
+          <div class="amt">$49<span>/ one-time</span></div>
           <ul class="price-list">
-            <li><i data-lucide="check"></i> 1 pengguna</li>
-            <li><i data-lucide="check"></i> 5 proyek</li>
-            <li class="off"><i data-lucide="x"></i> Dukungan prioritas</li>
+            <li><i data-lucide="check"></i> 1 end product</li>
+            <li><i data-lucide="check"></i> 46 pages &amp; 70+ components</li>
+            <li><i data-lucide="check"></i> 6 months updates</li>
+            <li class="off"><i data-lucide="x"></i> Team usage</li>
           </ul>
-          <a class="btn outline w-100" href="../pages/auth/register.html">Mulai</a>
+          <a class="btn outline w-100" href="#">Buy Personal</a>
         </div>
         <div class="price-card featured">
-          <div class="plan">Professional</div>
-          <div class="amt">Rp 99rb<span>/bln</span></div>
+          <div class="plan">Team <span class="tag">Popular</span></div>
+          <div class="amt">$99<span>/ one-time</span></div>
           <ul class="price-list">
-            <li><i data-lucide="check"></i> 10 pengguna</li>
-            <li><i data-lucide="check"></i> Proyek tak terbatas</li>
-            <li><i data-lucide="check"></i> Dukungan prioritas</li>
+            <li><i data-lucide="check"></i> Unlimited end products</li>
+            <li><i data-lucide="check"></i> Up to 10 developers</li>
+            <li><i data-lucide="check"></i> 12 months updates</li>
+            <li><i data-lucide="check"></i> Priority support</li>
           </ul>
-          <a class="btn primary w-100" href="../pages/auth/register.html">Pilih Paket</a>
+          <a class="btn primary w-100" href="#">Buy Team</a>
         </div>
         <div class="price-card">
-          <div class="plan">Business</div>
-          <div class="amt">Rp 199rb<span>/bln</span></div>
+          <div class="plan">Extended</div>
+          <div class="amt">$249<span>/ one-time</span></div>
           <ul class="price-list">
-            <li><i data-lucide="check"></i> Pengguna tak terbatas</li>
-            <li><i data-lucide="check"></i> Laporan lanjutan</li>
-            <li><i data-lucide="check"></i> SLA khusus</li>
+            <li><i data-lucide="check"></i> SaaS / resale license</li>
+            <li><i data-lucide="check"></i> Unlimited developers</li>
+            <li><i data-lucide="check"></i> Lifetime updates</li>
+            <li><i data-lucide="check"></i> Dedicated support</li>
           </ul>
-          <a class="btn outline w-100" href="../pages/auth/register.html">Hubungi Sales</a>
+          <a class="btn outline w-100" href="#">Contact Sales</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="lp-section" style="padding-top:0;">
+    <div class="lp-wrap">
+      <span class="lp-eyebrow">Loved by builders</span>
+      <h2>What developers say</h2>
+      <p class="sub">Real feedback from teams shipping with Mutiara.</p>
+      <div class="lp-testi">
+        <div class="testi">
+          <span class="stars">★★★★★</span>
+          <p>"Cleanest admin template I've bought. The compact UI and dark mode are exactly what our internal tools needed — dropped it in without a build step."</p>
+          <div class="who"><span class="av" style="background:#d97757">AR</span><div><b>Andi Rahman</b><small>Lead Engineer, Fintrack</small></div></div>
+        </div>
+        <div class="testi">
+          <span class="stars">★★★★★</span>
+          <p>"The component catalog saved us weeks. Everything is themeable through CSS variables, so matching our brand took minutes, not days."</p>
+          <div class="who"><span class="av" style="background:#4a7fb5">SL</span><div><b>Sarah Lim</b><small>Product Designer, Northwind</small></div></div>
+        </div>
+        <div class="testi">
+          <span class="stars">★★★★★</span>
+          <p>"Charts, maps, mailbox, wizards — it's all here and it's fast. No framework overhead, just solid HTML and CSS. Worth every cent."</p>
+          <div class="who"><span class="av" style="background:#4f9d78">MK</span><div><b>Marcus Kwon</b><small>Founder, Deploybase</small></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="lp-section" id="faq" style="background:var(--bg-sidebar);">
+    <div class="lp-wrap">
+      <span class="lp-eyebrow">FAQ</span>
+      <h2>Questions, answered</h2>
+      <p class="sub">Everything you need to know before you buy.</p>
+      <div class="lp-faq">
+        <details open>
+          <summary>Do I need a build tool or framework? <i data-lucide="plus" class="pm"></i></summary>
+          <div class="a">No. Mutiara is plain HTML, CSS and vanilla JavaScript. There is no npm install, no bundler and no framework — open any page in a browser and it works. All vendor libraries are self-hosted and version-pinned.</div>
+        </details>
+        <details>
+          <summary>Can I use it in commercial projects? <i data-lucide="plus" class="pm"></i></summary>
+          <div class="a">Yes. The Personal license covers one end product, the Team license covers unlimited products for up to ten developers, and the Extended license adds SaaS and resale rights.</div>
+        </details>
+        <details>
+          <summary>Does it support dark mode? <i data-lucide="plus" class="pm"></i></summary>
+          <div class="a">Absolutely. Theming is token-based, so light and dark are both first-class and every component — including charts and maps — adapts automatically. The visitor's choice is remembered.</div>
+        </details>
+        <details>
+          <summary>What's included in updates? <i data-lucide="plus" class="pm"></i></summary>
+          <div class="a">New components, pages, bug fixes and improvements. Personal includes 6 months, Team 12 months, and Extended gets lifetime updates.</div>
+        </details>
+        <details>
+          <summary>Is support available? <i data-lucide="plus" class="pm"></i></summary>
+          <div class="a">Yes — all licenses include email support, and Team and Extended plans get priority responses. We're happy to help you integrate and customize.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
-  <section class="lp-wrap" style="padding-bottom:56px;">
-    <div class="lp-cta">
-      <h2>Siap memulai?</h2>
-      <p>Coba dashboard admin lengkap hari ini — gratis, tanpa kartu kredit.</p>
-      <a class="btn primary lg" href="../index.html">Masuk ke Dashboard</a>
+  <section class="lp-wrap" style="padding:56px 20px;">
+    <div class="lp-cta grad">
+      <h2>Start building with Mutiara today</h2>
+      <p>Ship your next admin panel in hours, not weeks. One purchase, unlimited possibilities.</p>
+      <a class="btn light lg" href="#pricing">Get Mutiara — $49</a>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="lp-footer">
+  <footer class="lp-foot">
     <div class="in">
-      <div>© 2026 Admin Panel · BPR Bangunarta</div>
-      <div class="d-flex gap-3"><a href="#">Privasi</a><a href="#">Syarat</a><a href="../pages/faq.html">Bantuan</a></div>
+      <div class="col">
+        <div class="brand-row">
+          <svg class="brand-logo" viewBox="0 0 48 48" role="img" aria-label="Mutiara">
+            <rect x="2" y="2" width="44" height="44" rx="13" fill="var(--accent)"/>
+            <ellipse cx="24" cy="11" rx="18" ry="8" fill="#ffffff" opacity="0.12"/>
+            <circle cx="24" cy="24" r="12.5" fill="url(#mp)"/>
+            <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.32"/>
+            <ellipse cx="19.8" cy="19.5" rx="4" ry="2.8" fill="#ffffff" opacity="0.9"/>
+          </svg>
+          <b>Mutiara</b>
+        </div>
+        <p>A compact, responsive HTML admin dashboard template. Built for developers who value clean code and fast delivery.</p>
+      </div>
+      <div class="col">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#showcase">Showcase</a>
+        <a href="#pricing">Pricing</a>
+        <a href="../index.html">Live Preview</a>
+      </div>
+      <div class="col">
+        <h4>Resources</h4>
+        <a href="../pages/elements.html">Components</a>
+        <a href="#faq">FAQ</a>
+        <a href="../pages/html-parser.html">Tools</a>
+        <a href="#">Changelog</a>
+      </div>
+      <div class="col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">License</a>
+        <a href="#">Privacy</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="bottom">
+      <div>© 2026 Mutiara. Crafted with care.</div>
+      <div class="d-flex gap-3"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">License</a></div>
     </div>
   </footer>
 
