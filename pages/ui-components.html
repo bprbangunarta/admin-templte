@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
+  <title>Components — Mutiara</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/logo-mark.svg">
+  <link rel="stylesheet" href="../assets/vendor/select2/select2-4.1.0-rc.0.min.css">
+  <link rel="stylesheet" href="../assets/vendor/flatpickr/flatpickr-4.6.13.min.css">
+  <link rel="stylesheet" href="../assets/vendor/leaflet/leaflet-1.9.4.min.css">
+  <link rel="stylesheet" href="../assets/vendor/glightbox/glightbox-3.3.0.min.css">
+  <link rel="stylesheet" href="../assets/vendor/quill/quill-1.3.7.snow.css">
+  <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+
+<body>
+  <div class="app">
+    <div class="backdrop" id="backdrop"></div>
+  <div class="drawer">
+    <aside class="sidebar">
+      <div class="brand">
+        <svg class="brand-logo" viewBox="0 0 48 48" role="img" aria-label="Mutiara">
+          <defs><radialGradient id="mp" cx="0.38" cy="0.33" r="0.8">
+            <stop offset="0" stop-color="#ffffff"/><stop offset="0.55" stop-color="#fbeee8"/><stop offset="1" stop-color="#e4c7b8"/>
+          </radialGradient></defs>
+          <rect x="2" y="2" width="44" height="44" rx="13" fill="var(--accent)"/>
+          <ellipse cx="24" cy="11" rx="18" ry="8" fill="#ffffff" opacity="0.12"/>
+          <circle cx="24" cy="24" r="12.5" fill="url(#mp)"/>
+          <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.32"/>
+          <ellipse cx="19.8" cy="19.5" rx="4" ry="2.8" fill="#ffffff" opacity="0.9"/>
+        </svg>
+        <div class="name">Mutiara</div>
+      </div>
+
+      <div class="sidebar-scroll">
+        <nav class="nav">
+          <a class="nav-item" href="../index.html"><i data-lucide="layout-dashboard"></i><span>Dashboard</span><span class="nav-badge">4</span></a>
+        </nav>
+
+        <div class="nav-group open">
+          <button type="button" class="nav-section" aria-expanded="true"><span>UI Kit</span><i data-lucide="chevron-down" class="chev"></i></button>
+          <div class="nav-group-body"><div class="nav">
+            <div class="tree open">
+              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="layout-grid" class="ico"></i><span>UI Elements</span><i data-lucide="chevron-right" class="chev"></i></button>
+              <div class="tree-children">
+                  <a class="nav-sub active" href="ui-components.html">Components</a>
+                  <a class="nav-sub" href="ui-buttons.html">Buttons</a>
+                  <a class="nav-sub" href="ui-typography.html">Typography</a>
+                  <a class="nav-sub" href="ui-icons.html">Icons</a>
+                  <a class="nav-sub" href="ui-cards.html">Cards</a>
+                  <a class="nav-sub" href="ui-modals.html">Modals & Toasts</a>
+                  <a class="nav-sub" href="ui-loaders.html">Loaders & Progress</a>
+                  <a class="nav-sub" href="ui-media.html">Media</a>
+              </div>
+            </div>
+            <div class="tree open">
+              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="clipboard-list" class="ico"></i><span>Forms</span><i data-lucide="chevron-right" class="chev"></i></button>
+              <div class="tree-children">
+                  <a class="nav-sub" href="form-elements.html">Form Elements</a>
+                  <a class="nav-sub" href="form-advanced.html">Advanced Inputs</a>
+                  <a class="nav-sub" href="form-editor.html">Editor</a>
+                  <a class="nav-sub" href="wizard.html">Form Wizard</a>
+              </div>
+            </div>
+            <div class="tree open">
+              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="table" class="ico"></i><span>Tables</span><i data-lucide="chevron-right" class="chev"></i></button>
+              <div class="tree-children">
+                  <a class="nav-sub" href="tables-basic.html">Basic Tables</a>
+                  <a class="nav-sub" href="datatable.html">DataTables</a>
+              </div>
+            </div>
+            <div class="tree open">
+              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="bar-chart-3" class="ico"></i><span>Charts &amp; Maps</span><i data-lucide="chevron-right" class="chev"></i></button>
+              <div class="tree-children">
+                  <a class="nav-sub" href="charts.html">Charts</a>
+                  <a class="nav-sub" href="maps.html">Maps</a>
+                  <a class="nav-sub" href="calendar.html">Calendar</a>
+              </div>
+            </div>
+          </div></div>
+        </div>
+
+        <div class="nav-group open">
+          <button type="button" class="nav-section" aria-expanded="true"><span>Apps</span><i data-lucide="chevron-down" class="chev"></i></button>
+          <div class="nav-group-body"><div class="nav">
+            <a class="nav-sub" href="files.html">File Manager</a>
+            <div class="tree open">
+              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="newspaper" class="ico"></i><span>Blog</span><i data-lucide="chevron-right" class="chev"></i></button>
+              <div class="tree-children">
+                  <a class="nav-sub" href="blog.html">All Articles</a>
+                  <a class="nav-sub" href="blog-detail.html">Article Detail</a>
+              </div>
+            </div>
+            <a class="nav-sub" href="email.html">Mailbox</a>
+            <a class="nav-sub" href="invoice.html">Invoice</a>
+            <a class="nav-sub" href="pricing.html">Pricing</a>
+          </div></div>
+        </div>
+
+        <div class="nav-group open">
+          <button type="button" class="nav-section" aria-expanded="true"><span>Access Control</span><i data-lucide="chevron-down" class="chev"></i></button>
+          <div class="nav-group-body"><div class="nav">
+            <div class="tree open">
+              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="layers" class="ico"></i><span>Management</span><i data-lucide="chevron-right" class="chev"></i></button>
+              <div class="tree-children">
+                  <a class="nav-sub" href="manajemen/pengguna.html">Users</a>
+                  <a class="nav-sub" href="manajemen/peran.html">Roles</a>
+                  <a class="nav-sub" href="manajemen/perizinan.html">Permissions</a>
+              </div>
+            </div>
+          </div></div>
+        </div>
+
+        <div class="nav-group open">
+          <button type="button" class="nav-section" aria-expanded="true"><span>Credentials</span><i data-lucide="chevron-down" class="chev"></i></button>
+          <div class="nav-group-body"><div class="nav">
+            <a class="nav-sub" href="kredensial/perizinan.html">Permissions</a>
+            <a class="nav-sub" href="kredensial/hak-akses.html">Access Rights</a>
+            <a class="nav-sub" href="kredensial/pengguna.html">Users</a>
+          </div></div>
+        </div>
+
+        <div class="nav-group open">
+          <button type="button" class="nav-section" aria-expanded="true"><span>Pages</span><i data-lucide="chevron-down" class="chev"></i></button>
+          <div class="nav-group-body"><div class="nav">
+            <a class="nav-sub" href="profile.html">Profile</a>
+            <a class="nav-sub" href="settings.html">Settings</a>
+            <a class="nav-sub" href="detail.html">Detail / Show</a>
+            <div class="tree open">
+              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="log-in" class="ico"></i><span>Authentication</span><i data-lucide="chevron-right" class="chev"></i></button>
+              <div class="tree-children">
+                  <a class="nav-sub" href="auth/login.html" target="_blank">Login</a>
+                  <a class="nav-sub" href="auth/register.html" target="_blank">Register</a>
+                  <a class="nav-sub" href="auth/forgot-password.html" target="_blank">Forgot Password</a>
+                  <a class="nav-sub" href="auth/reset-password.html" target="_blank">Reset Password</a>
+              </div>
+            </div>
+            <div class="tree open">
+              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="triangle-alert" class="ico"></i><span>Error Pages</span><i data-lucide="chevron-right" class="chev"></i></button>
+              <div class="tree-children">
+                  <a class="nav-sub" href="error/404.html" target="_blank">404</a>
+                  <a class="nav-sub" href="error/500.html" target="_blank">500</a>
+                  <a class="nav-sub" href="error/maintenance.html" target="_blank">Maintenance</a>
+              </div>
+            </div>
+            <a class="nav-sub" href="landing.html" target="_blank">Landing Page</a>
+            <a class="nav-sub" href="blank.html">Blank Page</a>
+          </div></div>
+        </div>
+
+        <div class="nav-group open">
+          <button type="button" class="nav-section" aria-expanded="true"><span>Tools</span><i data-lucide="chevron-down" class="chev"></i></button>
+          <div class="nav-group-body"><div class="nav">
+            <a class="nav-sub" href="html-parser.html">HTML Parser</a>
+            <a class="nav-sub" href="assertions.html">Assertions</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="profile">
+        <div class="profile-menu" id="profileMenu">
+          <div class="pm-email">zulfr@bprbangunarta.co.id</div>
+          <a href="settings.html"><div class="pm-item"><i data-lucide="settings"></i>Settings <span class="sc">⌘ ,</span></div></a>
+          <div class="pm-item"><i data-lucide="globe"></i>Language</div>
+          <div class="pm-item"><i data-lucide="help-circle"></i>Get help</div>
+          <div class="pm-div"></div>
+          <a href="profile.html"><div class="pm-item"><i data-lucide="user"></i>My Profile</div></a>
+          <div class="pm-item"><i data-lucide="shield-check"></i>Security</div>
+          <div class="pm-item"><i data-lucide="star"></i>Subscription <span class="tag">Pro</span></div>
+          <div class="pm-div"></div>
+          <div class="pm-item"><i data-lucide="log-out"></i>Logout</div>
+        </div>
+        <button class="profile-trigger" id="profileTrigger">
+          <div class="avatar">ZR</div>
+          <div class="who"><b>Zulfadli Rizal</b><small>zulfr@bprbangunarta.co.id</small></div>
+          <i data-lucide="chevrons-up-down" class="swap"></i>
+        </button>
+      </div>
+    </aside>
+  </div>
+
+    <div class="main">
+      <header class="topbar">
+        <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Toggle menu"><i data-lucide="panel-left"></i></button>
+        <h1>Components</h1>
+        <button type="button" class="searchbar" id="searchOpen" aria-label="Search (Ctrl+K)" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk">
+          <i data-lucide="search"></i><span class="ph">Search menu or page…</span><kbd class="kbd"><span class="mod">⌘</span>K</kbd>
+        </button>
+        <div class="topbar-actions">
+          <button type="button" class="icon-btn search-sm" id="searchOpenSm" aria-label="Search" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk"><i data-lucide="search"></i></button>
+          <button type="button" class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle light or dark theme"><i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i></button>
+          <button type="button" class="icon-btn bell" id="notifBtn" aria-label="Notifications" aria-haspopup="true" aria-expanded="false"><i data-lucide="bell"></i><span class="ndot">10</span></button>
+        </div>
+        <div class="notif-pop" id="notifPop" hidden>
+          <div class="notif-head"><span>Notifications</span><button type="button" class="notif-readall">Mark read</button></div>
+          <div class="notif-list">
+            <a href="#" class="notif-item unread"><span class="ni-ic green"><i data-lucide="user-plus"></i></span><span class="ni-tx"><span class="ni-tt">New user registered</span><span class="ni-sub">Rina Marlina added an account</span><span class="ni-time">2 min ago</span></span></a>
+            <a href="#" class="notif-item unread"><span class="ni-ic amber"><i data-lucide="alert-triangle"></i></span><span class="ni-tx"><span class="ni-tt">Failed login attempt</span><span class="ni-sub">3x from IP 10.20.1.5</span><span class="ni-time">18 min ago</span></span></a>
+            <a href="#" class="notif-item"><span class="ni-ic blue"><i data-lucide="file-text"></i></span><span class="ni-tx"><span class="ni-tt">Daily report ready</span><span class="ni-sub">Transactions recap</span><span class="ni-time">1 h ago</span></span></a>
+          </div>
+          <a href="#" class="notif-foot">See all notifications</a>
+        </div>
+      </header>
+
+      <div class="cmdk" id="cmdk" hidden>
+        <div class="cmdk-scrim" data-cmdk-close></div>
+        <div class="cmdk-box" role="dialog" aria-modal="true" aria-label="Search">
+          <div class="cmdk-input"><i data-lucide="search"></i><input type="text" id="cmdkInput" placeholder="Search menu, page, or command…" autocomplete="off" spellcheck="false" aria-label="Search keyword"><kbd class="kbd">Esc</kbd></div>
+          <div class="cmdk-list" id="cmdkList" role="listbox" aria-label="Search results"></div>
+          <div class="cmdk-foot"><span><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd> navigate</span><span><kbd class="kbd">↵</kbd> open</span><span><kbd class="kbd">esc</kbd> close</span></div>
+        </div>
+      </div>
+
+      <div class="workspace">
+        <div class="content">
+          <nav class="breadcrumb"><span>UI Kit</span><span class="sep"><i data-lucide="chevron-right"></i></span><span>UI Elements</span><span class="sep"><i data-lucide="chevron-right"></i></span><span class="current">Components</span></nav>
+
+          <!-- Alert -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Alert</h3>
+            </div>
+            <div style="padding:14px 16px;">
+              <div class="alert info"><i data-lucide="info"></i>Informasi: data berhasil dimuat.</div>
+              <div class="alert success"><i data-lucide="check-circle"></i>Sukses: perubahan telah disimpan.</div>
+              <div class="alert warning"><i data-lucide="alert-triangle"></i>Perhatian: kuota hampir habis.</div>
+              <div class="alert danger" style="margin-bottom:0;"><i data-lucide="x-circle"></i>Gagal: koneksi terputus.
+              </div>
+            </div>
+          </div>
+
+          <!-- Badges & Status Dots -->
+          <div class="row equal">
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Badges</h3></div>
+                <div class="panel-body">
+                  <div class="text-muted fs-sm mb-2">Soft</div>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge primary">Primary</span>
+                    <span class="badge green">Aktif</span>
+                    <span class="badge amber">Tertunda</span>
+                    <span class="badge red">Gagal</span>
+                    <span class="badge blue">Info</span>
+                    <span class="badge gray">Draft</span>
+                  </div>
+                  <div class="text-muted fs-sm mb-2">Solid</div>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge solid primary">Primary</span>
+                    <span class="badge solid green">Sukses</span>
+                    <span class="badge solid amber">Peringatan</span>
+                    <span class="badge solid red">Bahaya</span>
+                    <span class="badge solid blue">Info</span>
+                  </div>
+                  <div class="text-muted fs-sm mb-2">Outline · Dot · Count</div>
+                  <div class="d-flex flex-wrap gap-2" style="align-items:center;">
+                    <span class="badge outline">Outline</span>
+                    <span class="badge green"><span class="bdot"></span>Online</span>
+                    <span class="badge red"><span class="bdot"></span>Offline</span>
+                    <span class="badge count">3</span>
+                    <span class="badge count">12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Status Dots</h3></div>
+                <div class="panel-body">
+                  <div class="d-flex flex-wrap" style="gap:14px 24px;">
+                    <span class="status-dot green pulse">Online</span>
+                    <span class="status-dot amber">Idle</span>
+                    <span class="status-dot red">Sibuk</span>
+                    <span class="status-dot gray">Offline</span>
+                    <span class="status-dot blue">Sinkronisasi</span>
+                  </div>
+                  <div class="text-muted fs-sm" style="margin-top:14px; line-height:1.6;">
+                    Titik status ringkas untuk menandai kondisi. Tambah <code>.pulse</code> untuk animasi denyut (mis. status online).
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Avatars & Tooltips/Popovers -->
+          <div class="row equal">
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Avatars</h3></div>
+                <div class="panel-body">
+                  <div class="text-muted fs-sm mb-2">Ukuran</div>
+                  <div class="d-flex items-center flex-wrap gap-2 mb-3">
+                    <span class="avatar sm">ZR</span>
+                    <span class="avatar">ZR</span>
+                    <span class="avatar lg">ZR</span>
+                    <span class="avatar xl">ZR</span>
+                    <span class="avatar lg square">BR</span>
+                  </div>
+                  <div class="text-muted fs-sm mb-2">Gambar · Status · Grup</div>
+                  <div class="d-flex items-center flex-wrap" style="gap:14px;">
+                    <span class="avatar lg"><img src="../assets/img/ph/1.svg" alt=""></span>
+                    <span class="avatar-badge"><span class="avatar lg"><img src="../assets/img/ph/3.svg" alt=""></span><span class="a-status green"></span></span>
+                    <span class="avatar-badge"><span class="avatar lg">SW</span><span class="a-status amber"></span></span>
+                    <span class="avatar-group">
+                      <span class="avatar"><img src="../assets/img/ph/2.svg" alt=""></span>
+                      <span class="avatar"><img src="../assets/img/ph/5.svg" alt=""></span>
+                      <span class="avatar">AH</span>
+                      <span class="avatar more">+5</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="panel overflow-visible">
+                <div class="panel-head"><h3>Tooltips &amp; Popovers</h3></div>
+                <div class="panel-body">
+                  <div class="text-muted fs-sm mb-2">Tooltip (hover)</div>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <button class="btn" data-tooltip="Tooltip di atas">Atas</button>
+                    <button class="btn" data-tooltip="Tooltip di bawah" data-tooltip-pos="bottom">Bawah</button>
+                    <button class="btn-icon" data-tooltip="Setelan" style="background:var(--bg-content);border:1px solid var(--border-strong);color:var(--text-muted);"><i data-lucide="settings"></i></button>
+                  </div>
+                  <div class="text-muted fs-sm mb-2">Popover (klik)</div>
+                  <div class="popover-wrap">
+                    <button class="btn primary" data-popover aria-haspopup="dialog" aria-expanded="false"><i data-lucide="info"></i> Buka Popover</button>
+                    <div class="popover" hidden>
+                      <h5>Judul Popover</h5>
+                      <p>Panel kecil yang muncul saat diklik. Klik di luar atau tekan Esc untuk menutup.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tag & Trend -->
+          <div class="row equal">
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Tag</h3><span class="text-muted fs-sm">label/kategori, bisa dihapus</span></div>
+                <div class="panel-body">
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="tag">Default</span>
+                    <span class="tag primary">Primary</span>
+                    <span class="tag green">Aktif</span>
+                    <span class="tag amber">Draft</span>
+                    <span class="tag red">Blokir</span>
+                    <span class="tag blue">Info</span>
+                  </div>
+                  <div class="d-flex flex-wrap gap-2">
+                    <span class="tag primary">React <span class="x"><i data-lucide="x"></i></span></span>
+                    <span class="tag primary">Laravel <span class="x"><i data-lucide="x"></i></span></span>
+                    <span class="tag primary">Tailwind <span class="x"><i data-lucide="x"></i></span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Trend</h3><span class="text-muted fs-sm">naik / turun ringkas</span></div>
+                <div class="panel-body">
+                  <div class="d-flex flex-wrap items-center gap-3 mb-3">
+                    <span class="trend up"><i data-lucide="trending-up"></i> 12,5%</span>
+                    <span class="trend down"><i data-lucide="trending-down"></i> 3,2%</span>
+                    <span class="trend flat"><i data-lucide="minus"></i> 0%</span>
+                  </div>
+                  <div class="d-flex items-center gap-3">
+                    <div><div class="text-muted fs-sm">Pendapatan</div><div style="font-size:var(--fs-xl);font-weight:600;">Rp 142jt</div></div>
+                    <span class="trend up"><i data-lucide="arrow-up-right"></i> 8,1%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ribbon & Cookie Banner -->
+          <div class="row equal">
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Ribbon</h3><span class="text-muted fs-sm">pita sudut kartu</span></div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="panel ribbon-wrap" style="border:1px solid var(--border);">
+                        <span class="ribbon">PRO</span>
+                        <div class="panel-body"><b>Paket Pro</b><div class="text-muted fs-sm" style="margin-top:2px;">Fitur lengkap.</div></div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="panel ribbon-wrap" style="border:1px solid var(--border);">
+                        <span class="ribbon green">NEW</span>
+                        <div class="panel-body"><b>Modul Baru</b><div class="text-muted fs-sm" style="margin-top:2px;">Baru dirilis.</div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Cookie Banner</h3><span class="text-muted fs-sm">muncul otomatis saat kunjungan pertama</span></div>
+                <div class="panel-body">
+                  <div class="cookie-banner" style="position:static; left:auto; right:auto; bottom:auto; max-width:none; margin:0; box-shadow:none;">
+                    <p>Kami menggunakan cookie untuk meningkatkan pengalaman Anda.</p>
+                    <div class="ck-actions">
+                      <button class="btn outline">Tolak</button>
+                      <button class="btn primary">Terima</button>
+                    </div>
+                  </div>
+                  <div class="d-flex items-center gap-2" style="margin-top:12px;">
+                    <button class="btn outline sm" data-cookie-reset><i data-lucide="refresh-ccw"></i> Tampilkan ulang banner asli</button>
+                    <span class="text-muted fs-sm">reset persetujuan &amp; muat ulang</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Tabs</h3>
+            </div>
+            <div class="panel-body">
+              <div class="tabs"><button class="tab active">Profil</button><button class="tab">Keamanan</button><button
+                  class="tab">Notifikasi</button></div>
+              <div class="tab-panel active">Konten tab <b>Profil</b> — informasi dasar pengguna.</div>
+              <div class="tab-panel">Konten tab <b>Keamanan</b> — kata sandi & sesi.</div>
+              <div class="tab-panel">Konten tab <b>Notifikasi</b> — preferensi pemberitahuan.</div>
+            </div>
+          </div>
+
+          <!-- Accordion -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Accordion</h3>
+            </div>
+            <div class="panel-body">
+              <div class="accordion">
+                <div class="acc-item open">
+                  <div class="acc-head">Bagaimana cara mengubah warna tema?<i data-lucide="chevron-down"
+                      class="chev"></i></div>
+                  <div class="acc-body">Ubah variabel <code>--accent</code> dan <code>--accent-soft</code> di blok
+                    <code>:root</code> pada <code>assets/css/app.css</code>. Seluruh komponen otomatis mengikuti.
+                  </div>
+                </div>
+                <div class="acc-item">
+                  <div class="acc-head">Apakah mendukung mode gelap?<i data-lucide="chevron-down" class="chev"></i>
+                  </div>
+                  <div class="acc-body">Ya. Klik ikon bulan/matahari di kanan atas. Preferensi tersimpan otomatis dan
+                    mengikuti pengaturan sistem secara default.</div>
+                </div>
+                <div class="acc-item">
+                  <div class="acc-head">Apakah responsif di ponsel?<i data-lucide="chevron-down" class="chev"></i></div>
+                  <div class="acc-body">Seluruh halaman dioptimalkan untuk desktop, tablet, dan ponsel — sidebar menjadi
+                    drawer, tabel bisa di-scroll, grid menyesuaikan.</div>
+                </div>
+                <div class="acc-item">
+                  <div class="acc-head">Bagaimana menambah halaman baru?<i data-lucide="chevron-down" class="chev"></i>
+                  </div>
+                  <div class="acc-body">Salin salah satu file di folder <code>pages/</code>, sertakan partial sidebar
+                    &amp; topbar, atur <code>data-title</code> pada <code>&lt;body&gt;</code> untuk judul topbar.
+                    Menu aktif otomatis dari URL — cukup pastikan <code>href</code> item menu di sidebar benar.
+                  </div>
+                </div>
+                <div class="acc-item">
+                  <div class="acc-head">Apakah bisa dipakai dengan Laravel?<i data-lucide="chevron-down"
+                      class="chev"></i></div>
+                  <div class="acc-body">Bisa. Partial dipetakan ke Blade <code>@include</code>, folder
+                    <code>assets/</code> ke <code>public/assets/</code>. Lihat README untuk tabel migrasi.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Pagination</h3>
+            </div>
+            <div class="panel-body d-flex flex-col gap-4">
+              <div>
+                <div class="fs-sm text-muted mb-2">Default (bernomor)</div>
+                <div class="pagination">
+                  <a class="page disabled" data-nav href="#"><i data-lucide="chevron-left"></i></a>
+                  <a class="page active" href="#">1</a>
+                  <a class="page" href="#">2</a>
+                  <a class="page" href="#">3</a>
+                  <span class="ellipsis">…</span>
+                  <a class="page" href="#">8</a>
+                  <a class="page" data-nav href="#"><i data-lucide="chevron-right"></i></a>
+                </div>
+              </div>
+              <div>
+                <div class="fs-sm text-muted mb-2">Rounded (pill)</div>
+                <div class="pagination rounded">
+                  <a class="page" data-nav href="#"><i data-lucide="chevron-left"></i></a>
+                  <a class="page" href="#">1</a>
+                  <a class="page active" href="#">2</a>
+                  <a class="page" href="#">3</a>
+                  <a class="page" href="#">4</a>
+                  <a class="page" data-nav href="#"><i data-lucide="chevron-right"></i></a>
+                </div>
+              </div>
+              <div>
+                <div class="fs-sm text-muted mb-2">Simple (prev/next + info)</div>
+                <div class="pagination simple">
+                  <a class="page" data-nav href="#"><i data-lucide="chevron-left"></i> Sebelumnya</a>
+                  <span class="info">Halaman 2 dari 8</span>
+                  <a class="page" data-nav href="#">Berikutnya <i data-lucide="chevron-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Empty State -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Empty State</h3>
+              <span class="text-muted fs-sm">saat data kosong / hasil filter nihil</span>
+            </div>
+            <div class="empty-state">
+              <div class="es-ic"><i data-lucide="inbox"></i></div>
+              <h4>Belum ada data</h4>
+              <p>Data pengguna belum tersedia. Tambahkan pengguna pertama untuk mulai mengelola akses.</p>
+              <button class="btn primary"><i data-lucide="plus"></i> Tambah Pengguna</button>
+            </div>
+          </div>
+
+          <!-- Grid -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Grid Kolom (12 kolom)</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-6">
+                  <div class="col-demo">.col-6</div>
+                </div>
+                <div class="col-6">
+                  <div class="col-demo">.col-6</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <div class="col-demo">.col-4</div>
+                </div>
+                <div class="col-4">
+                  <div class="col-demo">.col-4</div>
+                </div>
+                <div class="col-4">
+                  <div class="col-demo">.col-4</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="col-demo">.col-3</div>
+                </div>
+                <div class="col-3">
+                  <div class="col-demo">.col-3</div>
+                </div>
+                <div class="col-3">
+                  <div class="col-demo">.col-3</div>
+                </div>
+                <div class="col-3">
+                  <div class="col-demo">.col-3</div>
+                </div>
+              </div>
+              <div class="row" style="margin-bottom:0;">
+                <div class="col-3">
+                  <div class="col-demo">.col-3</div>
+                </div>
+                <div class="col-4">
+                  <div class="col-demo">.col-4</div>
+                </div>
+                <div class="col-5">
+                  <div class="col-demo">.col-5</div>
+                </div>
+              </div>
+              <div class="form-hint" style="margin-top:6px;">Di layar mobile, semua kolom otomatis menjadi lebar penuh.
+              </div>
+            </div>
+          </div>
+
+          <!-- Warna & State -->
+          <div class="panel mb-4">
+            <div class="panel-head">
+              <h3>Warna & State</h3>
+            </div>
+            <div class="panel-body">
+              <label class="form-label">Background solid (teks otomatis kontras)</label>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
+                <div class="bg-primary" style="padding:10px 14px; border-radius:8px;">Primary</div>
+                <div class="bg-success" style="padding:10px 14px; border-radius:8px;">Success</div>
+                <div class="bg-danger" style="padding:10px 14px; border-radius:8px;">Danger</div>
+                <div class="bg-warning" style="padding:10px 14px; border-radius:8px;">Warning</div>
+                <div class="bg-info" style="padding:10px 14px; border-radius:8px;">Info</div>
+                <div class="bg-dark" style="padding:10px 14px; border-radius:8px;">Dark</div>
+                <div class="bg-light" style="padding:10px 14px; border-radius:8px;">Light</div>
+              </div>
+              <label class="form-label">Background lembut (tint)</label>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
+                <div class="bg-primary-soft" style="padding:10px 14px; border-radius:8px;">Primary</div>
+                <div class="bg-success-soft" style="padding:10px 14px; border-radius:8px;">Success</div>
+                <div class="bg-danger-soft" style="padding:10px 14px; border-radius:8px;">Danger</div>
+                <div class="bg-warning-soft" style="padding:10px 14px; border-radius:8px;">Warning</div>
+                <div class="bg-info-soft" style="padding:10px 14px; border-radius:8px;">Info</div>
+              </div>
+              <label class="form-label">Teks berwarna</label>
+              <div style="display:flex; flex-wrap:wrap; gap:14px; margin-bottom:16px; font-weight:500;">
+                <span class="text-primary">Primary</span><span class="text-success">Success</span><span
+                  class="text-danger">Danger</span><span class="text-warning">Warning</span><span
+                  class="text-info">Info</span><span class="text-muted">Muted</span>
+              </div>
+              <label class="form-label">State interaktif (arahkan / klik)</label>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+                <button class="bg-primary" style="padding:8px 14px; border:none; border-radius:8px;">Hover &amp;
+                  active</button>
+                <span class="bg-info-soft clickable"
+                  style="padding:6px 12px; border-radius:20px; font-size:var(--fs-sm); font-weight:500;">Chip
+                  clickable</span>
+                <a class="link">Tautan teks</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/vendor/jquery/jquery-3.7.1.min.js"></script>
+  <script src="../assets/vendor/select2/select2-4.1.0-rc.0.min.js"></script>
+  <script src="../assets/vendor/lucide/lucide-0.294.0.min.js"></script>
+  <script src="../assets/vendor/flatpickr/flatpickr-4.6.13.min.js"></script>
+  <script src="../assets/vendor/leaflet/leaflet-1.9.4.min.js"></script>
+  <script src="../assets/vendor/signature_pad/signature_pad-4.1.7.umd.min.js"></script>
+  <script src="../assets/vendor/glightbox/glightbox-3.3.0.min.js"></script>
+  <script src="../assets/vendor/quill/quill-1.3.7.min.js"></script>
+  <script src="../assets/vendor/highlightjs/highlight-11.9.0.min.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/init/select2.js"></script>
+  <script src="../assets/js/init/flatpickr.js"></script>
+  <script src="../assets/js/init/signature.js"></script>
+  <script src="../assets/js/init/quill.js"></script>
+  <script src="../assets/js/init/glightbox.js"></script>
+  <script src="../assets/js/init/leaflet.js"></script>
+  <script src="../assets/js/init/calendar.js"></script>
+</body>
+
+</html>
