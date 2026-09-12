@@ -139,7 +139,7 @@ html, body {
 .sidebar-scroll::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 8px; }
 
 /* Item menu utama */
-.nav { display: flex; flex-direction: column; gap: 1px; }
+.nav { display: flex; flex-direction: column; gap: 3px; }
 .nav-item {
   display: flex; align-items: center; gap: 9px;
   padding: 5px 8px;
@@ -202,7 +202,7 @@ html, body {
 .tree-toggle .chev { margin-left: auto; width: 13px; height: 13px; color: var(--text-faint); transition: transform .18s ease; }
 .tree.open > .tree-toggle .chev { transform: rotate(90deg); }
 .tree-children { display: none; margin-left: 15px; padding-left: 4px; border-left: 1px solid var(--border-strong); }
-.tree.open > .tree-children { display: block; }
+.tree.open > .tree-children { display: flex; flex-direction: column; gap: 3px; }
 .tree-children .tree-toggle { color: var(--text-muted); }
 .tree-children .tree-toggle:hover { color: var(--text); }
 

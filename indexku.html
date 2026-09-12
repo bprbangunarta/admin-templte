@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
-  <title>Dashboard — Mutiara: Compact Mutiara Responsive HTML</title>
+  <title>Sales Dashboard — Mutiara</title>
   <link rel="icon" type="image/svg+xml" href="assets/img/logo-mark.svg">
   <meta name="description" content="Mutiara: Compact Mutiara Responsive HTML">
   <meta name="apple-mobile-web-app-title" content="Mutiara">
@@ -24,14 +24,11 @@
 </head>
 
 <body>
+  <!-- Preloader: auto-hidden by app.js once the page is ready -->
   <div class="page-loader" id="pageLoader">
     <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
       <img src="assets/img/logo-mark.svg" alt="Mutiara" style="width:46px; height:46px;">
-      <span class="loader dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
+      <span class="loader dots"><span></span><span></span><span></span></span>
     </div>
   </div>
 
@@ -49,14 +46,12 @@
                 <stop offset="1" stop-color="#e4c7b8" />
               </radialGradient>
             </defs>
-
             <rect x="2" y="2" width="44" height="44" rx="13" fill="var(--accent)" />
             <ellipse cx="24" cy="11" rx="18" ry="8" fill="#ffffff" opacity="0.12" />
             <circle cx="24" cy="24" r="12.5" fill="url(#mp)" />
             <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.32" />
             <ellipse cx="19.8" cy="19.5" rx="4" ry="2.8" fill="#ffffff" opacity="0.9" />
           </svg>
-
           <div class="name">Mutiara</div>
         </div>
 
@@ -65,8 +60,168 @@
             <a class="nav-item active" href="index.html">
               <i data-lucide="layout-dashboard"></i>
               <span>Dashboard</span>
+              <span class="nav-badge">4</span>
             </a>
+
+            <div class="tree">
+              <button type="button" class="tree-toggle" aria-expanded="false">
+                <i data-lucide="layers" class="ico"></i><span>Manajemen</span><i data-lucide="chevron-right"
+                  class="chev"></i>
+              </button>
+              <div class="tree-children">
+                <a class="nav-sub" href="pages/manajemen/pengguna.html">Pengguna</a>
+                <a class="nav-sub" href="pages/manajemen/peran.html">Peran</a>
+                <a class="nav-sub" href="pages/manajemen/perizinan.html">Perizinan</a>
+              </div>
+            </div>
           </nav>
+
+          <div class="nav-group open">
+            <button type="button" class="nav-section" aria-expanded="true"><span>UI Kit</span><i
+                data-lucide="chevron-down" class="chev"></i></button>
+            <div class="nav-group-body">
+              <div class="nav">
+                <div class="tree open">
+                  <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="layout-grid"
+                      class="ico"></i><span>UI Elements</span><i data-lucide="chevron-right" class="chev"></i></button>
+                  <div class="tree-children">
+                    <a class="nav-sub" href="pages/ui-components.html">Components</a>
+                    <a class="nav-sub" href="pages/ui-buttons.html">Buttons</a>
+                    <a class="nav-sub" href="pages/ui-typography.html">Typography</a>
+                    <a class="nav-sub" href="pages/ui-icons.html">Icons</a>
+                    <a class="nav-sub" href="pages/ui-cards.html">Cards</a>
+                    <a class="nav-sub" href="pages/ui-modals.html">Modals & Toasts</a>
+                    <a class="nav-sub" href="pages/ui-loaders.html">Loaders & Progress</a>
+                    <a class="nav-sub" href="pages/ui-media.html">Media</a>
+                  </div>
+                </div>
+                <div class="tree open">
+                  <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="clipboard-list"
+                      class="ico"></i><span>Forms</span><i data-lucide="chevron-right" class="chev"></i></button>
+                  <div class="tree-children">
+                    <a class="nav-sub" href="pages/form-elements.html">Form Elements</a>
+                    <a class="nav-sub" href="pages/form-advanced.html">Advanced Inputs</a>
+                    <a class="nav-sub" href="pages/form-editor.html">Editor</a>
+                    <a class="nav-sub" href="pages/wizard.html">Form Wizard</a>
+                  </div>
+                </div>
+                <div class="tree open">
+                  <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="table"
+                      class="ico"></i><span>Tables</span><i data-lucide="chevron-right" class="chev"></i></button>
+                  <div class="tree-children">
+                    <a class="nav-sub" href="pages/tables-basic.html">Basic Tables</a>
+                    <a class="nav-sub" href="pages/datatable.html">DataTables</a>
+                  </div>
+                </div>
+                <div class="tree open">
+                  <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="bar-chart-3"
+                      class="ico"></i><span>Charts &amp; Maps</span><i data-lucide="chevron-right"
+                      class="chev"></i></button>
+                  <div class="tree-children">
+                    <a class="nav-sub" href="pages/charts.html">Charts</a>
+                    <a class="nav-sub" href="pages/maps.html">Maps</a>
+                    <a class="nav-sub" href="pages/calendar.html">Calendar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-group open">
+            <button type="button" class="nav-section" aria-expanded="true"><span>Apps</span><i
+                data-lucide="chevron-down" class="chev"></i></button>
+            <div class="nav-group-body">
+              <div class="nav">
+                <a class="nav-sub" href="pages/files.html">File Manager</a>
+                <div class="tree open">
+                  <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="newspaper"
+                      class="ico"></i><span>Blog</span><i data-lucide="chevron-right" class="chev"></i></button>
+                  <div class="tree-children">
+                    <a class="nav-sub" href="pages/blog.html">All Articles</a>
+                    <a class="nav-sub" href="pages/blog-detail.html">Article Detail</a>
+                  </div>
+                </div>
+                <a class="nav-sub" href="pages/mailbox.html">Mailbox</a>
+                <a class="nav-sub" href="pages/invoice.html">Invoice</a>
+                <a class="nav-sub" href="pages/pricing.html">Pricing</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-group open">
+            <button type="button" class="nav-section" aria-expanded="true"><span>Access Control</span><i
+                data-lucide="chevron-down" class="chev"></i></button>
+            <div class="nav-group-body">
+              <div class="nav">
+                <div class="tree open">
+                  <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="layers"
+                      class="ico"></i><span>Management</span><i data-lucide="chevron-right" class="chev"></i></button>
+                  <div class="tree-children">
+                    <a class="nav-sub" href="pages/manajemen/pengguna.html">Users</a>
+                    <a class="nav-sub" href="pages/manajemen/peran.html">Roles</a>
+                    <a class="nav-sub" href="pages/manajemen/perizinan.html">Permissions</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-group open">
+            <button type="button" class="nav-section" aria-expanded="true"><span>Credentials</span><i
+                data-lucide="chevron-down" class="chev"></i></button>
+            <div class="nav-group-body">
+              <div class="nav">
+                <a class="nav-sub" href="pages/kredensial/perizinan.html">Permissions</a>
+                <a class="nav-sub" href="pages/kredensial/hak-akses.html">Access Rights</a>
+                <a class="nav-sub" href="pages/kredensial/pengguna.html">Users</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-group open">
+            <button type="button" class="nav-section" aria-expanded="true"><span>Pages</span><i
+                data-lucide="chevron-down" class="chev"></i></button>
+            <div class="nav-group-body">
+              <div class="nav">
+                <a class="nav-sub" href="pages/profile.html">Profile</a>
+                <a class="nav-sub" href="pages/settings.html">Settings</a>
+                <a class="nav-sub" href="pages/detail.html">Detail / Show</a>
+                <div class="tree open">
+                  <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="log-in"
+                      class="ico"></i><span>Authentication</span><i data-lucide="chevron-right"
+                      class="chev"></i></button>
+                  <div class="tree-children">
+                    <a class="nav-sub" href="pages/auth/login.html" target="_blank">Login</a>
+                    <a class="nav-sub" href="pages/auth/register.html" target="_blank">Register</a>
+                    <a class="nav-sub" href="pages/auth/forgot-password.html" target="_blank">Forgot Password</a>
+                    <a class="nav-sub" href="pages/auth/reset-password.html" target="_blank">Reset Password</a>
+                  </div>
+                </div>
+                <div class="tree open">
+                  <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="triangle-alert"
+                      class="ico"></i><span>Error Pages</span><i data-lucide="chevron-right" class="chev"></i></button>
+                  <div class="tree-children">
+                    <a class="nav-sub" href="pages/error/404.html" target="_blank">404</a>
+                    <a class="nav-sub" href="pages/error/500.html" target="_blank">500</a>
+                    <a class="nav-sub" href="pages/error/maintenance.html" target="_blank">Maintenance</a>
+                  </div>
+                </div>
+                <a class="nav-sub" href="pages/landing.html" target="_blank">Landing Page</a>
+                <a class="nav-sub" href="pages/blank.html">Blank Page</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-group open">
+            <button type="button" class="nav-section" aria-expanded="true"><span>Tools</span><i
+                data-lucide="chevron-down" class="chev"></i></button>
+            <div class="nav-group-body">
+              <div class="nav">
+                <a class="nav-sub" href="pages/html-parser.html">HTML Parser</a>
+                <a class="nav-sub" href="pages/assertions.html">Assertions</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="profile">
@@ -97,82 +252,78 @@
 
     <div class="main">
       <header class="topbar">
-        <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Buka atau tutup menu"><i
+        <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Toggle menu"><i
             data-lucide="panel-left"></i></button>
-        <h1>Dashboard</h1>
+        <h1>Sales Dashboard</h1>
 
+        <!-- Search: opens the command palette (⌘K / Ctrl+K) -->
         <button type="button" class="searchbar" id="searchOpen" aria-label="Search (Ctrl+K)" aria-haspopup="dialog"
           aria-expanded="false" aria-controls="cmdk">
           <i data-lucide="search"></i>
-          <span class="ph">Search…</span>
+          <span class="ph">Search menu or page…</span>
           <kbd class="kbd"><span class="mod">⌘</span>K</kbd>
         </button>
 
         <div class="topbar-actions">
-          <button type="button" class="icon-btn search-sm" id="searchOpenSm" aria-label="Search" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk">
-            <i data-lucide="search"></i>
+          <button type="button" class="icon-btn search-sm" id="searchOpenSm" aria-label="Search" aria-haspopup="dialog"
+            aria-expanded="false" aria-controls="cmdk"><i data-lucide="search"></i></button>
+          <button type="button" class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle light or dark theme">
+            <i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i>
           </button>
-
-          <button type="button" class="icon-btn theme-toggle" id="themeToggle"
-            aria-label="Ganti tema terang atau gelap">
-            <i data-lucide="moon" class="moon"></i>
-            <i data-lucide="sun" class="sun"></i>
-          </button>
-
-          <button type="button" class="icon-btn bell" id="notifBtn" aria-label="Notifikasi (10 belum dibaca)"
+          <button type="button" class="icon-btn bell" id="notifBtn" aria-label="Notifications (10 unread)"
             aria-haspopup="true" aria-expanded="false">
             <i data-lucide="bell"></i>
             <span class="ndot">10</span>
           </button>
         </div>
 
-        <!-- Panel dropdown notifikasi -->
+        <!-- Notifications dropdown -->
         <div class="notif-pop" id="notifPop" hidden>
           <div class="notif-head">
-            <span>Notifikasi</span>
-            <button type="button" class="notif-readall">Tandai dibaca</button>
+            <span>Notifications</span>
+            <button type="button" class="notif-readall">Mark as read</button>
           </div>
           <div class="notif-list">
             <a href="#" class="notif-item unread">
               <span class="ni-ic green"><i data-lucide="user-plus"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Pengguna baru terdaftar</span><span class="ni-sub">Rina Marlina
-                  menambahkan akun</span><span class="ni-time">2 menit lalu</span></span>
+              <span class="ni-tx"><span class="ni-tt">New user registered</span><span class="ni-sub">Rina Marlina added
+                  an account</span><span class="ni-time">2 minutes ago</span></span>
             </a>
             <a href="#" class="notif-item unread">
               <span class="ni-ic amber"><i data-lucide="alert-triangle"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Percobaan login gagal</span><span class="ni-sub">3 kali dari IP
-                  10.20.1.5</span><span class="ni-time">18 menit lalu</span></span>
+              <span class="ni-tx"><span class="ni-tt">Failed login attempt</span><span class="ni-sub">3 times from IP
+                  10.20.1.5</span><span class="ni-time">18 minutes ago</span></span>
             </a>
             <a href="#" class="notif-item unread">
               <span class="ni-ic blue"><i data-lucide="file-text"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Laporan harian siap</span><span class="ni-sub">Rekap transaksi 7
-                  Sep 2026</span><span class="ni-time">1 jam lalu</span></span>
+              <span class="ni-tx"><span class="ni-tt">Daily report ready</span><span class="ni-sub">Transaction summary
+                  Sep 7, 2026</span><span class="ni-time">1 hour ago</span></span>
             </a>
             <a href="#" class="notif-item">
               <span class="ni-ic red"><i data-lucide="shield-alert"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Sesi kedaluwarsa</span><span class="ni-sub">Perlu login ulang di
-                  perangkat lama</span><span class="ni-time">3 jam lalu</span></span>
+              <span class="ni-tx"><span class="ni-tt">Session expired</span><span class="ni-sub">Re-login required on
+                  old device</span><span class="ni-time">3 hours ago</span></span>
             </a>
           </div>
-          <a href="#" class="notif-foot">Lihat semua notifikasi</a>
+          <a href="#" class="notif-foot">View all notifications</a>
         </div>
       </header>
 
-      <!-- Command palette pencarian -->
+      <!-- Search command palette -->
       <div class="cmdk" id="cmdk" hidden>
         <div class="cmdk-scrim" data-cmdk-close></div>
-        <div class="cmdk-box" role="dialog" aria-modal="true" aria-label="Pencarian">
+        <div class="cmdk-box" role="dialog" aria-modal="true" aria-label="Search">
           <div class="cmdk-input">
             <i data-lucide="search"></i>
-            <input type="text" id="cmdkInput" placeholder="Cari menu, halaman, atau perintah…" autocomplete="off"
-              spellcheck="false" aria-label="Kata kunci pencarian">
+            <input type="text" id="cmdkInput" placeholder="Search menu, page, or command…" autocomplete="off"
+              spellcheck="false" aria-label="Search query">
             <kbd class="kbd">Esc</kbd>
           </div>
-          <div class="cmdk-list" id="cmdkList" role="listbox" aria-label="Hasil pencarian"></div>
+          <div class="cmdk-list" id="cmdkList" role="listbox" aria-label="Search results"></div>
           <div class="cmdk-foot">
-            <span><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd> navigasi</span>
-            <span><kbd class="kbd">↵</kbd> buka</span>
-            <span><kbd class="kbd">esc</kbd> tutup</span>
+            <span><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd> navigate</span>
+            <span><kbd class="kbd">↵</kbd> open</span>
+            <span><kbd class="kbd">esc</kbd> close</span>
           </div>
         </div>
       </div>
@@ -427,7 +578,7 @@
   <script src="assets/js/init/vectormap.js"></script>
   <script src="assets/js/init/apexcharts.js"></script>
   <script>
-    // data chart khusus halaman; tema & rebuild ditangani ApexTheme
+    // page-specific chart data; theming & rebuild handled by ApexTheme
     var _sales, _cat, _tgt, _sp = [];
     function spark(el, data, color) {
       var c = new ApexCharts(el, {
