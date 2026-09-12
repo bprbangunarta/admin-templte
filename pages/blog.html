@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -11,443 +11,141 @@
 </head>
 
 <body>
-  <div class="app">
-    <div class="backdrop" id="backdrop"></div>
-  <div class="drawer">
-    <aside class="sidebar">
-      <div class="brand">
-        <svg class="brand-logo" viewBox="0 0 48 48" role="img" aria-label="Mutiara">
-          <defs><radialGradient id="mp" cx="0.38" cy="0.33" r="0.8">
-            <stop offset="0" stop-color="#ffffff"/><stop offset="0.55" stop-color="#fbeee8"/><stop offset="1" stop-color="#e4c7b8"/>
-          </radialGradient></defs>
-          <rect x="2" y="2" width="44" height="44" rx="13" fill="var(--accent)"/>
-          <ellipse cx="24" cy="11" rx="18" ry="8" fill="#ffffff" opacity="0.12"/>
-          <circle cx="24" cy="24" r="12.5" fill="url(#mp)"/>
-          <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.32"/>
+  <nav class="lp-nav glass">
+    <div class="in">
+      <a href="landing.html" class="lp-brand" aria-label="Mutiara home">
+        <svg class="lp-brand-logo" viewBox="0 0 208 48" role="img" aria-label="Mutiara">
+          <defs>
+            <linearGradient id="lgc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0875f"/><stop offset="1" stop-color="#c25a3b"/></linearGradient>
+            <radialGradient id="lgp" cx="0.38" cy="0.33" r="0.8"><stop offset="0" stop-color="#ffffff"/><stop offset="0.55" stop-color="#fbeee8"/><stop offset="1" stop-color="#e4c7b8"/></radialGradient>
+          </defs>
+          <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#lgc)"/>
+          <circle cx="24" cy="24" r="12.5" fill="url(#lgp)"/>
+          <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.35"/>
           <ellipse cx="19.8" cy="19.5" rx="4" ry="2.8" fill="#ffffff" opacity="0.9"/>
+          <text x="60" y="31" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif" font-size="24" font-weight="700" letter-spacing="-0.5" fill="currentColor">Mutia<tspan fill="var(--accent)">ra</tspan></text>
         </svg>
-        <div class="name">Mutiara</div>
-      </div>
-
-      <div class="sidebar-scroll">
-        <nav class="nav">
-          <a class="nav-item" href="../index.html"><i data-lucide="layout-dashboard"></i><span>Dashboard</span><span class="nav-badge">4</span></a>
-        </nav>
-
-        <div class="nav-group open">
-          <button type="button" class="nav-section" aria-expanded="true"><span>UI Kit</span><i data-lucide="chevron-down" class="chev"></i></button>
-          <div class="nav-group-body"><div class="nav">
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="layout-grid" class="ico"></i><span>UI Elements</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="ui-components.html">Components</a>
-                  <a class="nav-sub" href="ui-buttons.html">Buttons</a>
-                  <a class="nav-sub" href="ui-typography.html">Typography</a>
-                  <a class="nav-sub" href="ui-icons.html">Icons</a>
-                  <a class="nav-sub" href="ui-cards.html">Cards</a>
-                  <a class="nav-sub" href="ui-modals.html">Modals & Toasts</a>
-                  <a class="nav-sub" href="ui-loaders.html">Loaders & Progress</a>
-                  <a class="nav-sub" href="ui-media.html">Media</a>
-              </div>
-            </div>
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="clipboard-list" class="ico"></i><span>Forms</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="form-elements.html">Form Elements</a>
-                  <a class="nav-sub" href="form-advanced.html">Advanced Inputs</a>
-                  <a class="nav-sub" href="form-editor.html">Editor</a>
-                  <a class="nav-sub" href="wizard.html">Form Wizard</a>
-              </div>
-            </div>
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="table" class="ico"></i><span>Tables</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="tables-basic.html">Basic Tables</a>
-                  <a class="nav-sub" href="datatable.html">DataTables</a>
-              </div>
-            </div>
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="bar-chart-3" class="ico"></i><span>Charts &amp; Maps</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="charts.html">Charts</a>
-                  <a class="nav-sub" href="maps.html">Maps</a>
-                  <a class="nav-sub" href="calendar.html">Calendar</a>
-              </div>
-            </div>
-          </div></div>
-        </div>
-
-        <div class="nav-group open">
-          <button type="button" class="nav-section" aria-expanded="true"><span>Apps</span><i data-lucide="chevron-down" class="chev"></i></button>
-          <div class="nav-group-body"><div class="nav">
-                  <a class="nav-sub lead" href="files.html"><i data-lucide="folder" class="ico"></i><span>File Manager</span></a>
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="newspaper" class="ico"></i><span>Blog</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub active" href="blog.html">All Articles</a>
-                  <a class="nav-sub" href="blog-detail.html">Article Detail</a>
-              </div>
-            </div>
-                  <a class="nav-sub lead" href="mailbox.html"><i data-lucide="inbox" class="ico"></i><span>Mailbox</span></a>
-                  <a class="nav-sub lead" href="invoice.html"><i data-lucide="file-text" class="ico"></i><span>Invoice</span></a>
-                  <a class="nav-sub lead" href="pricing.html"><i data-lucide="tag" class="ico"></i><span>Pricing</span></a>
-          </div></div>
-        </div>
-
-        <div class="nav-group open">
-          <button type="button" class="nav-section" aria-expanded="true"><span>Access Control</span><i data-lucide="chevron-down" class="chev"></i></button>
-          <div class="nav-group-body"><div class="nav">
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="layers" class="ico"></i><span>Management</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="manajemen/pengguna.html">Users</a>
-                  <a class="nav-sub" href="manajemen/peran.html">Roles</a>
-                  <a class="nav-sub" href="manajemen/perizinan.html">Permissions</a>
-              </div>
-            </div>
-          </div></div>
-        </div>
-
-        <div class="nav-group open">
-          <button type="button" class="nav-section" aria-expanded="true"><span>Credentials</span><i data-lucide="chevron-down" class="chev"></i></button>
-          <div class="nav-group-body"><div class="nav">
-                  <a class="nav-sub lead" href="kredensial/perizinan.html"><i data-lucide="shield-check" class="ico"></i><span>Permissions</span></a>
-                  <a class="nav-sub lead" href="kredensial/hak-akses.html"><i data-lucide="key-round" class="ico"></i><span>Access Rights</span></a>
-                  <a class="nav-sub lead" href="kredensial/pengguna.html"><i data-lucide="users" class="ico"></i><span>Users</span></a>
-          </div></div>
-        </div>
-
-        <div class="nav-group open">
-          <button type="button" class="nav-section" aria-expanded="true"><span>Pages</span><i data-lucide="chevron-down" class="chev"></i></button>
-          <div class="nav-group-body"><div class="nav">
-                  <a class="nav-sub lead" href="profile.html"><i data-lucide="user" class="ico"></i><span>Profile</span></a>
-                  <a class="nav-sub lead" href="settings.html"><i data-lucide="settings" class="ico"></i><span>Settings</span></a>
-                  <a class="nav-sub lead" href="detail.html"><i data-lucide="eye" class="ico"></i><span>Detail / Show</span></a>
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="log-in" class="ico"></i><span>Authentication</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="auth/login.html" target="_blank">Login</a>
-                  <a class="nav-sub" href="auth/register.html" target="_blank">Register</a>
-                  <a class="nav-sub" href="auth/forgot-password.html" target="_blank">Forgot Password</a>
-                  <a class="nav-sub" href="auth/reset-password.html" target="_blank">Reset Password</a>
-              </div>
-            </div>
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="triangle-alert" class="ico"></i><span>Error Pages</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="error/404.html" target="_blank">404</a>
-                  <a class="nav-sub" href="error/500.html" target="_blank">500</a>
-                  <a class="nav-sub" href="error/maintenance.html" target="_blank">Maintenance</a>
-              </div>
-            </div>
-                  <a class="nav-sub lead" href="landing.html" target="_blank"><i data-lucide="globe" class="ico"></i><span>Landing Page</span></a>
-                  <a class="nav-sub lead" href="blank.html"><i data-lucide="square" class="ico"></i><span>Blank Page</span></a>
-          </div></div>
-        </div>
-
-        <div class="nav-group open">
-          <button type="button" class="nav-section" aria-expanded="true"><span>Tools</span><i data-lucide="chevron-down" class="chev"></i></button>
-          <div class="nav-group-body"><div class="nav">
-                  <a class="nav-sub lead" href="html-parser.html"><i data-lucide="code-2" class="ico"></i><span>HTML Parser</span></a>
-                  <a class="nav-sub lead" href="assertions.html"><i data-lucide="check-check" class="ico"></i><span>Assertions</span></a>
-          </div></div>
-        </div>
-      </div>
-
-      <div class="profile">
-        <div class="profile-menu" id="profileMenu">
-          <div class="pm-email">zulfr@bprbangunarta.co.id</div>
-          <a href="settings.html"><div class="pm-item"><i data-lucide="settings"></i>Settings <span class="sc">⌘ ,</span></div></a>
-          <div class="pm-item"><i data-lucide="globe"></i>Language</div>
-          <div class="pm-item"><i data-lucide="help-circle"></i>Get help</div>
-          <div class="pm-div"></div>
-          <a href="profile.html"><div class="pm-item"><i data-lucide="user"></i>My Profile</div></a>
-          <div class="pm-item"><i data-lucide="shield-check"></i>Security</div>
-          <div class="pm-item"><i data-lucide="star"></i>Subscription <span class="tag">Pro</span></div>
-          <div class="pm-div"></div>
-          <div class="pm-item"><i data-lucide="log-out"></i>Logout</div>
-        </div>
-        <button class="profile-trigger" id="profileTrigger">
-          <div class="avatar">ZR</div>
-          <div class="who"><b>Zulfadli Rizal</b><small>zulfr@bprbangunarta.co.id</small></div>
-          <i data-lucide="chevrons-up-down" class="swap"></i>
-        </button>
-      </div>
-    </aside>
-  </div>
-
-    <div class="main">
-      <header class="topbar topbar--search-left">
-        <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Buka atau tutup menu"><i data-lucide="panel-left"></i></button>
-
-        <!-- Pencarian: tombol yang membuka command palette (⌘K / Ctrl+K) -->
-        <button type="button" class="searchbar" id="searchOpen" aria-label="Cari (Ctrl+K)" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk">
-          <i data-lucide="search"></i>
-          <span class="ph">Cari menu atau halaman…</span>
-          <kbd class="kbd"><span class="mod">⌘</span>K</kbd>
-        </button>
-
-        <div class="topbar-actions">
-          <button type="button" class="icon-btn search-sm" id="searchOpenSm" aria-label="Cari" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk"><i data-lucide="search"></i></button>
-          <button type="button" class="icon-btn theme-toggle" id="themeToggle" aria-label="Ganti tema terang atau gelap">
-            <i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i>
-          </button>
-          <button type="button" class="icon-btn bell" id="notifBtn" aria-label="Notifikasi (10 belum dibaca)" aria-haspopup="true" aria-expanded="false">
-            <i data-lucide="bell"></i>
-            <span class="ndot">10</span>
-          </button>
-        </div>
-
-        <!-- Panel dropdown notifikasi -->
-        <div class="notif-pop" id="notifPop" hidden>
-          <div class="notif-head">
-            <span>Notifikasi</span>
-            <button type="button" class="notif-readall">Tandai dibaca</button>
-          </div>
-          <div class="notif-list">
-            <a href="#" class="notif-item unread">
-              <span class="ni-ic green"><i data-lucide="user-plus"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Pengguna baru terdaftar</span><span class="ni-sub">Rina Marlina menambahkan akun</span><span class="ni-time">2 menit lalu</span></span>
-            </a>
-            <a href="#" class="notif-item unread">
-              <span class="ni-ic amber"><i data-lucide="alert-triangle"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Percobaan login gagal</span><span class="ni-sub">3 kali dari IP 10.20.1.5</span><span class="ni-time">18 menit lalu</span></span>
-            </a>
-            <a href="#" class="notif-item unread">
-              <span class="ni-ic blue"><i data-lucide="file-text"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Laporan harian siap</span><span class="ni-sub">Rekap transaksi 7 Sep 2026</span><span class="ni-time">1 jam lalu</span></span>
-            </a>
-            <a href="#" class="notif-item">
-              <span class="ni-ic red"><i data-lucide="shield-alert"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Sesi kedaluwarsa</span><span class="ni-sub">Perlu login ulang di perangkat lama</span><span class="ni-time">3 jam lalu</span></span>
-            </a>
-          </div>
-          <a href="#" class="notif-foot">Lihat semua notifikasi</a>
-        </div>
-      </header>
-
-      <!-- Command palette pencarian -->
-      <div class="cmdk" id="cmdk" hidden>
-        <div class="cmdk-scrim" data-cmdk-close></div>
-        <div class="cmdk-box" role="dialog" aria-modal="true" aria-label="Pencarian">
-          <div class="cmdk-input">
-            <i data-lucide="search"></i>
-            <input type="text" id="cmdkInput" placeholder="Cari menu, halaman, atau perintah…" autocomplete="off" spellcheck="false" aria-label="Kata kunci pencarian">
-            <kbd class="kbd">Esc</kbd>
-          </div>
-          <div class="cmdk-list" id="cmdkList" role="listbox" aria-label="Hasil pencarian"></div>
-          <div class="cmdk-foot">
-            <span><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd> navigasi</span>
-            <span><kbd class="kbd">↵</kbd> buka</span>
-            <span><kbd class="kbd">esc</kbd> tutup</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="workspace">
-        <div class="content">
-          <nav class="breadcrumb">
-            <a href="../index.html">Beranda</a>
-            <span class="sep"><i data-lucide="chevron-right"></i></span>
-            <span class="current">Blog</span>
-          </nav>
-
-          <div class="page-head">
-            <h2>Blog</h2>
-            <p>Artikel, tutorial, dan catatan rilis terbaru dari tim.</p>
-          </div>
-
-          <!-- Toolbar filter kategori -->
-          <div class="blog-toolbar">
-            <div class="blog-chips">
-              <button class="blog-chip active">Semua</button>
-              <button class="blog-chip">Tutorial</button>
-              <button class="blog-chip">Berita</button>
-              <button class="blog-chip">Tips &amp; Trik</button>
-              <button class="blog-chip">Rilis</button>
-            </div>
-            <span class="blog-count">Menampilkan 5 dari 24 artikel</span>
-          </div>
-
-          <div class="row">
-            <!-- Kolom utama -->
-            <div class="col-8">
-              <!-- Artikel unggulan -->
-              <article class="blog-card blog-feature mb-4">
-                <div class="blog-thumb">
-                  <i data-lucide="layout-dashboard"></i>
-                  <span class="tag-pill">Tutorial</span>
-                  <button class="bm" aria-label="Simpan"><i data-lucide="bookmark"></i></button>
-                </div>
-                <div class="blog-body">
-                  <div class="blog-kicker"><b>Tutorial</b> · Panduan</div>
-                  <h3 class="blog-title"><a href="blog-detail.html">Membangun Dashboard Admin yang Rapi dengan Design Token</a></h3>
-                  <p class="blog-excerpt">Pelajari cara menyusun sistem warna, tipografi, dan spacing memakai CSS variable agar konsisten di mode terang maupun gelap — tanpa framework berat.</p>
-                  <div class="post-meta">
-                    <div class="avatar">ZR</div>
-                    <span class="who">Zulfadli Rizal</span>
-                    <span class="dot"></span>
-                    <span>7 Sep 2026</span>
-                    <span class="dot"></span>
-                    <span class="mi"><i data-lucide="clock"></i> 8 mnt baca</span>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Grid artikel -->
-              <div class="blog-grid">
-                <article class="blog-card">
-                  <div class="blog-thumb">
-                    <i data-lucide="palette"></i>
-                    <span class="tag-pill">Tips</span>
-                    <button class="bm" aria-label="Simpan"><i data-lucide="bookmark"></i></button>
-                  </div>
-                  <div class="blog-body">
-                    <div class="blog-kicker"><b>Tips &amp; Trik</b> · UI</div>
-                    <h3 class="blog-title"><a href="blog-detail.html">7 Prinsip Warna untuk Antarmuka yang Nyaman Dibaca</a></h3>
-                    <p class="blog-excerpt">Kontras, hierarki, dan aksen — panduan singkat memilih palet yang tetap terbaca di segala kondisi layar.</p>
-                    <div class="post-meta">
-                      <div class="avatar">ZR</div><span class="who">Zulfadli Rizal</span>
-                      <span class="dot"></span><span>6 Sep 2026</span>
-                      <span class="mi" style="margin-left:auto;"><i data-lucide="message-circle"></i> 12</span>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="blog-card">
-                  <div class="blog-thumb">
-                    <i data-lucide="gauge"></i>
-                    <span class="tag-pill">Tutorial</span>
-                    <button class="bm" aria-label="Simpan"><i data-lucide="bookmark"></i></button>
-                  </div>
-                  <div class="blog-body">
-                    <div class="blog-kicker"><b>Tutorial</b> · Performa</div>
-                    <h3 class="blog-title"><a href="blog-detail.html">Mengoptimalkan Waktu Muat Halaman Tanpa Build Tool</a></h3>
-                    <p class="blog-excerpt">Teknik lazy-load, preconnect, dan pemecahan aset agar halaman statis tetap ngebut.</p>
-                    <div class="post-meta">
-                      <div class="avatar">ZR</div><span class="who">Zulfadli Rizal</span>
-                      <span class="dot"></span><span>4 Sep 2026</span>
-                      <span class="mi" style="margin-left:auto;"><i data-lucide="message-circle"></i> 5</span>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="blog-card">
-                  <div class="blog-thumb">
-                    <i data-lucide="shield-check"></i>
-                    <span class="tag-pill">Berita</span>
-                    <button class="bm" aria-label="Simpan"><i data-lucide="bookmark"></i></button>
-                  </div>
-                  <div class="blog-body">
-                    <div class="blog-kicker"><b>Berita</b> · Keamanan</div>
-                    <h3 class="blog-title"><a href="blog-detail.html">Rilis Fitur Otentikasi Dua Faktor untuk Semua Akun</a></h3>
-                    <p class="blog-excerpt">Lapisan keamanan tambahan kini aktif — begini cara mengatur dan memulihkannya.</p>
-                    <div class="post-meta">
-                      <div class="avatar">ZR</div><span class="who">Zulfadli Rizal</span>
-                      <span class="dot"></span><span>2 Sep 2026</span>
-                      <span class="mi" style="margin-left:auto;"><i data-lucide="message-circle"></i> 9</span>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="blog-card">
-                  <div class="blog-thumb">
-                    <i data-lucide="rocket"></i>
-                    <span class="tag-pill">Rilis</span>
-                    <button class="bm" aria-label="Simpan"><i data-lucide="bookmark"></i></button>
-                  </div>
-                  <div class="blog-body">
-                    <div class="blog-kicker"><b>Rilis</b> · v2.4</div>
-                    <h3 class="blog-title"><a href="blog-detail.html">Apa yang Baru di Versi 2.4: Command Palette &amp; Dark Mode</a></h3>
-                    <p class="blog-excerpt">Pencarian cepat ⌘K, mode gelap otomatis, dan puluhan perbaikan kecil lainnya.</p>
-                    <div class="post-meta">
-                      <div class="avatar">ZR</div><span class="who">Zulfadli Rizal</span>
-                      <span class="dot"></span><span>29 Agu 2026</span>
-                      <span class="mi" style="margin-left:auto;"><i data-lucide="message-circle"></i> 18</span>
-                    </div>
-                  </div>
-                </article>
-              </div>
-
-              <!-- Pagination -->
-              <div class="pagination" style="justify-content:center; margin-top:22px;">
-                <a class="page disabled" href="#" aria-label="Sebelumnya"><i data-lucide="chevron-left"></i></a>
-                <a class="page active" href="#">1</a>
-                <a class="page" href="#">2</a>
-                <a class="page" href="#">3</a>
-                <span class="ellipsis">…</span>
-                <a class="page" href="#">6</a>
-                <a class="page" href="#" aria-label="Berikutnya"><i data-lucide="chevron-right"></i></a>
-              </div>
-            </div>
-
-            <!-- Sidebar kanan -->
-            <div class="col-4">
-              <div class="widget">
-                <div class="widget-head"><i data-lucide="flame"></i> Artikel Populer</div>
-                <div class="pp-item">
-                  <div class="pp-num">01</div>
-                  <div class="pp-tx">
-                    <a class="pp-title" href="blog-detail.html">Membangun Dashboard Admin dengan Design Token</a>
-                    <div class="pp-meta">Tutorial · 8 mnt</div>
-                  </div>
-                </div>
-                <div class="pp-item">
-                  <div class="pp-num">02</div>
-                  <div class="pp-tx">
-                    <a class="pp-title" href="blog-detail.html">Apa yang Baru di Versi 2.4</a>
-                    <div class="pp-meta">Rilis · 5 mnt</div>
-                  </div>
-                </div>
-                <div class="pp-item">
-                  <div class="pp-num">03</div>
-                  <div class="pp-tx">
-                    <a class="pp-title" href="blog-detail.html">7 Prinsip Warna untuk Antarmuka</a>
-                    <div class="pp-meta">Tips · 6 mnt</div>
-                  </div>
-                </div>
-                <div class="pp-item">
-                  <div class="pp-num">04</div>
-                  <div class="pp-tx">
-                    <a class="pp-title" href="blog-detail.html">Optimasi Waktu Muat Tanpa Build Tool</a>
-                    <div class="pp-meta">Tutorial · 7 mnt</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="widget">
-                <div class="widget-head"><i data-lucide="folder"></i> Kategori</div>
-                <div class="cat-list">
-                  <a href="#">Tutorial <span class="n">12</span></a>
-                  <a href="#">Tips &amp; Trik <span class="n">7</span></a>
-                  <a href="#">Berita <span class="n">3</span></a>
-                  <a href="#">Rilis <span class="n">2</span></a>
-                </div>
-              </div>
-
-              <div class="widget">
-                <div class="widget-head"><i data-lucide="tag"></i> Tag Populer</div>
-                <div class="tagcloud">
-                  <a href="#">CSS</a><a href="#">Dark Mode</a><a href="#">UI</a>
-                  <a href="#">Performa</a><a href="#">Keamanan</a><a href="#">Design Token</a>
-                  <a href="#">Aksesibilitas</a><a href="#">HTML</a>
-                </div>
-              </div>
-
-              <div class="widget widget-cta">
-                <div class="widget-head" style="justify-content:center;"><i data-lucide="mail"></i> Newsletter</div>
-                <p>Dapatkan artikel terbaru langsung ke email Anda.</p>
-                <div class="form-group" style="margin-bottom:8px;">
-                  <input type="email" class="form-control" placeholder="nama@email.com">
-                </div>
-                <button class="btn primary w-100">Berlangganan</button>
-              </div>
-            </div>
-          </div>
-        </div>
+      </a>
+      <div class="links"><a href="landing.html#features">Features</a><a href="landing.html#showcase">Showcase</a><a href="landing.html#pricing">Pricing</a><a href="blog.html" class="active">Blog</a><a href="landing.html#faq">FAQ</a></div>
+      <div class="right">
+        <div class="icon-btn theme-toggle" id="themeToggle" title="Toggle theme"><i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i></div>
+        <a class="btn outline" href="../index.html">Live Preview</a>
+        <a class="btn primary" href="landing.html#pricing">Buy Now</a>
       </div>
     </div>
-  </div>
+  </nav>
+
+  <header class="blog-page-head">
+    <span class="lp-eyebrow">Blog</span>
+    <h1>Guides, tips &amp; release notes</h1>
+    <p>Learn how to build faster with Mutiara — tutorials, tips and product updates from the team.</p>
+  </header>
+
+  <section class="lp-wrap" style="padding-bottom:64px;">
+    <div class="blog-filter">
+      <button class="active">All</button>
+      <button>Tutorial</button>
+      <button>Tips</button>
+      <button>Design</button>
+      <button>Release</button>
+      <button>News</button>
+    </div>
+
+    <a class="blog-featured" href="blog-detail.html">
+      <div class="cover"><img src="../assets/img/ph/1.svg" alt=""></div>
+      <div class="body">
+        <span class="chip">Tutorial · Featured</span>
+        <h2>Building a clean admin dashboard with design tokens</h2>
+        <p>Structure color, typography and spacing with CSS variables so everything stays consistent in light and dark — without a heavy framework.</p>
+        <div class="meta">By Zulfadli Rizal <span class="dot"></span> Sep 10, 2026 <span class="dot"></span> 5 min read</div>
+      </div>
+    </a>
+
+    <div class="lp-blog">
+        <a class="lp-post" href="blog-detail.html">
+          <div class="thumb"><img src="../assets/img/ph/2.svg" alt=""></div>
+          <div class="body">
+            <span class="chip">Tips</span>
+            <h3>Optimizing load time without a build tool</h3>
+            <p>Lazy-loading, preconnect and asset splitting techniques that keep a static site blazing fast.</p>
+            <div class="meta">Sep 6, 2026 <span class="dot"></span> 6 min read</div>
+          </div>
+        </a>
+        <a class="lp-post" href="blog-detail.html">
+          <div class="thumb"><img src="../assets/img/ph/3.svg" alt=""></div>
+          <div class="body">
+            <span class="chip">Release</span>
+            <h3>Two-factor authentication for every account</h3>
+            <p>An extra security layer is now live — here's how to enable and recover it in a few clicks.</p>
+            <div class="meta">Sep 1, 2026 <span class="dot"></span> 4 min read</div>
+          </div>
+        </a>
+        <a class="lp-post" href="blog-detail.html">
+          <div class="thumb"><img src="../assets/img/ph/4.svg" alt=""></div>
+          <div class="body">
+            <span class="chip">Design</span>
+            <h3>Choosing an accessible color palette</h3>
+            <p>Contrast, hierarchy and accent — a short guide to picking colors that stay readable everywhere.</p>
+            <div class="meta">Aug 26, 2026 <span class="dot"></span> 5 min read</div>
+          </div>
+        </a>
+        <a class="lp-post" href="blog-detail.html">
+          <div class="thumb"><img src="../assets/img/ph/5.svg" alt=""></div>
+          <div class="body">
+            <span class="chip">Tutorial</span>
+            <h3>Dark mode done right with CSS variables</h3>
+            <p>One source of truth for every color, so light and dark stay in perfect sync with zero duplication.</p>
+            <div class="meta">Aug 20, 2026 <span class="dot"></span> 7 min read</div>
+          </div>
+        </a>
+        <a class="lp-post" href="blog-detail.html">
+          <div class="thumb"><img src="../assets/img/ph/6.svg" alt=""></div>
+          <div class="body">
+            <span class="chip">News</span>
+            <h3>What's new in Mutiara 1.0</h3>
+            <p>A compact icon rail, a redesigned mailbox, dozens of components and a whole lot of polish.</p>
+            <div class="meta">Aug 14, 2026 <span class="dot"></span> 3 min read</div>
+          </div>
+        </a>
+        <a class="lp-post" href="blog-detail.html">
+          <div class="thumb"><img src="../assets/img/ph/1.svg" alt=""></div>
+          <div class="body">
+            <span class="chip">Tips</span>
+            <h3>Command palette patterns for power users</h3>
+            <p>Design a ⌘K search that feels instant and helps users jump anywhere in your app.</p>
+            <div class="meta">Aug 8, 2026 <span class="dot"></span> 5 min read</div>
+          </div>
+        </a>
+    </div>
+
+    <div class="lp-blog-more">
+      <button class="btn outline lg">Load more articles</button>
+    </div>
+  </section>
+
+  <footer class="lp-foot">
+    <div class="in">
+      <div class="col">
+        <div class="brand-row">
+          <svg class="lp-brand-logo" viewBox="0 0 208 48" role="img" aria-label="Mutiara">
+            <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#lgc)"/>
+            <circle cx="24" cy="24" r="12.5" fill="url(#lgp)"/>
+            <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.35"/>
+            <ellipse cx="19.8" cy="19.5" rx="4" ry="2.8" fill="#ffffff" opacity="0.9"/>
+            <text x="60" y="31" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif" font-size="24" font-weight="700" letter-spacing="-0.5" fill="currentColor">Mutia<tspan fill="var(--accent)">ra</tspan></text>
+          </svg>
+        </div>
+        <p>A compact, responsive HTML admin dashboard template. Built for developers who value clean code and fast delivery.</p>
+      </div>
+      <div class="col"><h4>Product</h4><a href="landing.html#features">Features</a><a href="landing.html#showcase">Showcase</a><a href="landing.html#pricing">Pricing</a><a href="../index.html">Live Preview</a></div>
+      <div class="col"><h4>Resources</h4><a href="elements.html">Components</a><a href="blog.html">Blog</a><a href="landing.html#faq">FAQ</a><a href="#">Changelog</a></div>
+      <div class="col"><h4>Company</h4><a href="#">About</a><a href="#">License</a><a href="#">Privacy</a><a href="#">Contact</a></div>
+    </div>
+    <div class="bottom">
+      <div>© 2026 Mutiara. Crafted with care.</div>
+      <div class="d-flex gap-3"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">License</a></div>
+    </div>
+  </footer>
 
   <script src="../assets/vendor/lucide/lucide-0.294.0.min.js"></script>
   <script src="../assets/js/app.js"></script>

@@ -1,435 +1,148 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
-  <title>Detail Artikel — Mutiara</title>
+  <title>Building a clean admin dashboard with design tokens — Mutiara</title>
   <link rel="icon" type="image/svg+xml" href="../assets/img/logo-mark.svg">
   <link rel="stylesheet" href="../assets/css/app.css">
 </head>
 
 <body>
-  <div class="app">
-    <div class="backdrop" id="backdrop"></div>
-  <div class="drawer">
-    <aside class="sidebar">
-      <div class="brand">
-        <svg class="brand-logo" viewBox="0 0 48 48" role="img" aria-label="Mutiara">
-          <defs><radialGradient id="mp" cx="0.38" cy="0.33" r="0.8">
-            <stop offset="0" stop-color="#ffffff"/><stop offset="0.55" stop-color="#fbeee8"/><stop offset="1" stop-color="#e4c7b8"/>
-          </radialGradient></defs>
-          <rect x="2" y="2" width="44" height="44" rx="13" fill="var(--accent)"/>
-          <ellipse cx="24" cy="11" rx="18" ry="8" fill="#ffffff" opacity="0.12"/>
-          <circle cx="24" cy="24" r="12.5" fill="url(#mp)"/>
-          <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.32"/>
+  <nav class="lp-nav glass">
+    <div class="in">
+      <a href="landing.html" class="lp-brand" aria-label="Mutiara home">
+        <svg class="lp-brand-logo" viewBox="0 0 208 48" role="img" aria-label="Mutiara">
+          <defs>
+            <linearGradient id="lgc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0875f"/><stop offset="1" stop-color="#c25a3b"/></linearGradient>
+            <radialGradient id="lgp" cx="0.38" cy="0.33" r="0.8"><stop offset="0" stop-color="#ffffff"/><stop offset="0.55" stop-color="#fbeee8"/><stop offset="1" stop-color="#e4c7b8"/></radialGradient>
+          </defs>
+          <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#lgc)"/>
+          <circle cx="24" cy="24" r="12.5" fill="url(#lgp)"/>
+          <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.35"/>
           <ellipse cx="19.8" cy="19.5" rx="4" ry="2.8" fill="#ffffff" opacity="0.9"/>
+          <text x="60" y="31" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif" font-size="24" font-weight="700" letter-spacing="-0.5" fill="currentColor">Mutia<tspan fill="var(--accent)">ra</tspan></text>
         </svg>
-        <div class="name">Mutiara</div>
+      </a>
+      <div class="links"><a href="landing.html#features">Features</a><a href="landing.html#showcase">Showcase</a><a href="landing.html#pricing">Pricing</a><a href="blog.html" class="active">Blog</a><a href="landing.html#faq">FAQ</a></div>
+      <div class="right">
+        <div class="icon-btn theme-toggle" id="themeToggle" title="Toggle theme"><i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i></div>
+        <a class="btn outline" href="../index.html">Live Preview</a>
+        <a class="btn primary" href="landing.html#pricing">Buy Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <article class="article">
+    <div class="article-head">
+      <a class="article-back" href="blog.html"><i data-lucide="arrow-left"></i> Back to blog</a><br>
+      <span class="chip">Tutorial</span>
+      <h1>Building a clean admin dashboard with design tokens</h1>
+      <div class="article-meta">
+        <span class="av" style="background:#d97757">ZR</span>
+        <span>Zulfadli Rizal</span><span class="dot"></span><span>Sep 10, 2026</span><span class="dot"></span><span>5 min read</span>
+      </div>
+    </div>
+  </article>
+
+  <div class="article-cover"><img src="../assets/img/ph/1.svg" alt="Cover"></div>
+
+  <article class="article">
+    <div class="article-body prose">
+      <p>A design system doesn't have to be complicated. With a handful of CSS custom properties you can keep an entire admin dashboard consistent — spacing, color, typography and radius all flowing from one source of truth. In this guide we'll walk through the approach used across Mutiara.</p>
+
+      <h2>Start with tokens, not components</h2>
+      <p>Before styling a single button, define the vocabulary your interface speaks. Tokens are named values — <code>--bg-card</code>, <code>--text-muted</code>, <code>--accent</code> — that every component references instead of hard-coding a hex value. Change the token and the whole product updates.</p>
+      <blockquote>Hard-coded colors are technical debt. A token is a promise that the value can change in exactly one place.</blockquote>
+
+      <h2>Make dark mode a first-class citizen</h2>
+      <p>Because components never reference raw colors, supporting dark mode is simply redefining the tokens under a theme selector. No component code changes — the same markup renders correctly in both themes, including charts and maps.</p>
+      <ul>
+        <li>Define the full light palette on <code>:root</code>.</li>
+        <li>Override only the tokens that change under the dark selector.</li>
+        <li>Let <code>color-mix()</code> derive soft backgrounds so they adapt automatically.</li>
+      </ul>
+
+      <h2>Keep spacing on a rhythm</h2>
+      <p>Compact interfaces live or die by consistent spacing. Pick a small base unit and let padding, gaps and row heights snap to it. The result feels intentional rather than arbitrary, and dense screens stay readable.</p>
+
+      <h3>Putting it together</h3>
+      <p>Once tokens are in place, building new screens becomes assembly rather than authoring. Reach for existing components, lean on the spacing scale, and trust the palette. That's how a full dashboard — 46 pages and counting — stays coherent as it grows.</p>
+
+      <div class="article-tags">
+        <span class="t">#design-tokens</span><span class="t">#css</span><span class="t">#dark-mode</span><span class="t">#dashboard</span>
       </div>
 
-      <div class="sidebar-scroll">
-        <nav class="nav">
-          <a class="nav-item" href="../index.html"><i data-lucide="layout-dashboard"></i><span>Dashboard</span><span class="nav-badge">4</span></a>
-        </nav>
-
-        <div class="nav-group open">
-          <button type="button" class="nav-section" aria-expanded="true"><span>UI Kit</span><i data-lucide="chevron-down" class="chev"></i></button>
-          <div class="nav-group-body"><div class="nav">
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="layout-grid" class="ico"></i><span>UI Elements</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="ui-components.html">Components</a>
-                  <a class="nav-sub" href="ui-buttons.html">Buttons</a>
-                  <a class="nav-sub" href="ui-typography.html">Typography</a>
-                  <a class="nav-sub" href="ui-icons.html">Icons</a>
-                  <a class="nav-sub" href="ui-cards.html">Cards</a>
-                  <a class="nav-sub" href="ui-modals.html">Modals & Toasts</a>
-                  <a class="nav-sub" href="ui-loaders.html">Loaders & Progress</a>
-                  <a class="nav-sub" href="ui-media.html">Media</a>
-              </div>
-            </div>
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="clipboard-list" class="ico"></i><span>Forms</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="form-elements.html">Form Elements</a>
-                  <a class="nav-sub" href="form-advanced.html">Advanced Inputs</a>
-                  <a class="nav-sub" href="form-editor.html">Editor</a>
-                  <a class="nav-sub" href="wizard.html">Form Wizard</a>
-              </div>
-            </div>
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="table" class="ico"></i><span>Tables</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="tables-basic.html">Basic Tables</a>
-                  <a class="nav-sub" href="datatable.html">DataTables</a>
-              </div>
-            </div>
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="bar-chart-3" class="ico"></i><span>Charts &amp; Maps</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="charts.html">Charts</a>
-                  <a class="nav-sub" href="maps.html">Maps</a>
-                  <a class="nav-sub" href="calendar.html">Calendar</a>
-              </div>
-            </div>
-          </div></div>
-        </div>
-
-        <div class="nav-group open">
-          <button type="button" class="nav-section" aria-expanded="true"><span>Apps</span><i data-lucide="chevron-down" class="chev"></i></button>
-          <div class="nav-group-body"><div class="nav">
-                  <a class="nav-sub lead" href="files.html"><i data-lucide="folder" class="ico"></i><span>File Manager</span></a>
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="newspaper" class="ico"></i><span>Blog</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="blog.html">All Articles</a>
-                  <a class="nav-sub active" href="blog-detail.html">Article Detail</a>
-              </div>
-            </div>
-                  <a class="nav-sub lead" href="mailbox.html"><i data-lucide="inbox" class="ico"></i><span>Mailbox</span></a>
-                  <a class="nav-sub lead" href="invoice.html"><i data-lucide="file-text" class="ico"></i><span>Invoice</span></a>
-                  <a class="nav-sub lead" href="pricing.html"><i data-lucide="tag" class="ico"></i><span>Pricing</span></a>
-          </div></div>
-        </div>
-
-        <div class="nav-group open">
-          <button type="button" class="nav-section" aria-expanded="true"><span>Access Control</span><i data-lucide="chevron-down" class="chev"></i></button>
-          <div class="nav-group-body"><div class="nav">
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="layers" class="ico"></i><span>Management</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="manajemen/pengguna.html">Users</a>
-                  <a class="nav-sub" href="manajemen/peran.html">Roles</a>
-                  <a class="nav-sub" href="manajemen/perizinan.html">Permissions</a>
-              </div>
-            </div>
-          </div></div>
-        </div>
-
-        <div class="nav-group open">
-          <button type="button" class="nav-section" aria-expanded="true"><span>Credentials</span><i data-lucide="chevron-down" class="chev"></i></button>
-          <div class="nav-group-body"><div class="nav">
-                  <a class="nav-sub lead" href="kredensial/perizinan.html"><i data-lucide="shield-check" class="ico"></i><span>Permissions</span></a>
-                  <a class="nav-sub lead" href="kredensial/hak-akses.html"><i data-lucide="key-round" class="ico"></i><span>Access Rights</span></a>
-                  <a class="nav-sub lead" href="kredensial/pengguna.html"><i data-lucide="users" class="ico"></i><span>Users</span></a>
-          </div></div>
-        </div>
-
-        <div class="nav-group open">
-          <button type="button" class="nav-section" aria-expanded="true"><span>Pages</span><i data-lucide="chevron-down" class="chev"></i></button>
-          <div class="nav-group-body"><div class="nav">
-                  <a class="nav-sub lead" href="profile.html"><i data-lucide="user" class="ico"></i><span>Profile</span></a>
-                  <a class="nav-sub lead" href="settings.html"><i data-lucide="settings" class="ico"></i><span>Settings</span></a>
-                  <a class="nav-sub lead" href="detail.html"><i data-lucide="eye" class="ico"></i><span>Detail / Show</span></a>
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="log-in" class="ico"></i><span>Authentication</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="auth/login.html" target="_blank">Login</a>
-                  <a class="nav-sub" href="auth/register.html" target="_blank">Register</a>
-                  <a class="nav-sub" href="auth/forgot-password.html" target="_blank">Forgot Password</a>
-                  <a class="nav-sub" href="auth/reset-password.html" target="_blank">Reset Password</a>
-              </div>
-            </div>
-            <div class="tree open">
-              <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="triangle-alert" class="ico"></i><span>Error Pages</span><i data-lucide="chevron-right" class="chev"></i></button>
-              <div class="tree-children">
-                  <a class="nav-sub" href="error/404.html" target="_blank">404</a>
-                  <a class="nav-sub" href="error/500.html" target="_blank">500</a>
-                  <a class="nav-sub" href="error/maintenance.html" target="_blank">Maintenance</a>
-              </div>
-            </div>
-                  <a class="nav-sub lead" href="landing.html" target="_blank"><i data-lucide="globe" class="ico"></i><span>Landing Page</span></a>
-                  <a class="nav-sub lead" href="blank.html"><i data-lucide="square" class="ico"></i><span>Blank Page</span></a>
-          </div></div>
-        </div>
-
-        <div class="nav-group open">
-          <button type="button" class="nav-section" aria-expanded="true"><span>Tools</span><i data-lucide="chevron-down" class="chev"></i></button>
-          <div class="nav-group-body"><div class="nav">
-                  <a class="nav-sub lead" href="html-parser.html"><i data-lucide="code-2" class="ico"></i><span>HTML Parser</span></a>
-                  <a class="nav-sub lead" href="assertions.html"><i data-lucide="check-check" class="ico"></i><span>Assertions</span></a>
-          </div></div>
-        </div>
+      <div class="article-author">
+        <span class="av" style="background:#d97757">ZR</span>
+        <div><b>Zulfadli Rizal</b><p>Builder of Mutiara. Writes about clean front-end architecture, design systems and shipping fast without heavy tooling.</p></div>
       </div>
+    </div>
+  </article>
 
-      <div class="profile">
-        <div class="profile-menu" id="profileMenu">
-          <div class="pm-email">zulfr@bprbangunarta.co.id</div>
-          <a href="settings.html"><div class="pm-item"><i data-lucide="settings"></i>Settings <span class="sc">⌘ ,</span></div></a>
-          <div class="pm-item"><i data-lucide="globe"></i>Language</div>
-          <div class="pm-item"><i data-lucide="help-circle"></i>Get help</div>
-          <div class="pm-div"></div>
-          <a href="profile.html"><div class="pm-item"><i data-lucide="user"></i>My Profile</div></a>
-          <div class="pm-item"><i data-lucide="shield-check"></i>Security</div>
-          <div class="pm-item"><i data-lucide="star"></i>Subscription <span class="tag">Pro</span></div>
-          <div class="pm-div"></div>
-          <div class="pm-item"><i data-lucide="log-out"></i>Logout</div>
-        </div>
-        <button class="profile-trigger" id="profileTrigger">
-          <div class="avatar">ZR</div>
-          <div class="who"><b>Zulfadli Rizal</b><small>zulfr@bprbangunarta.co.id</small></div>
-          <i data-lucide="chevrons-up-down" class="swap"></i>
-        </button>
-      </div>
-    </aside>
-  </div>
-
-    <div class="main">
-      <header class="topbar">
-        <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Buka atau tutup menu"><i data-lucide="panel-left"></i></button>
-        <h1>Detail Artikel</h1>
-
-        <!-- Pencarian: tombol yang membuka command palette (⌘K / Ctrl+K) -->
-        <button type="button" class="searchbar" id="searchOpen" aria-label="Cari (Ctrl+K)" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk">
-          <i data-lucide="search"></i>
-          <span class="ph">Cari menu atau halaman…</span>
-          <kbd class="kbd"><span class="mod">⌘</span>K</kbd>
-        </button>
-
-        <div class="topbar-actions">
-          <button type="button" class="icon-btn search-sm" id="searchOpenSm" aria-label="Cari" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk"><i data-lucide="search"></i></button>
-          <button type="button" class="icon-btn theme-toggle" id="themeToggle" aria-label="Ganti tema terang atau gelap">
-            <i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i>
-          </button>
-          <button type="button" class="icon-btn bell" id="notifBtn" aria-label="Notifikasi (10 belum dibaca)" aria-haspopup="true" aria-expanded="false">
-            <i data-lucide="bell"></i>
-            <span class="ndot">10</span>
-          </button>
-        </div>
-
-        <!-- Panel dropdown notifikasi -->
-        <div class="notif-pop" id="notifPop" hidden>
-          <div class="notif-head">
-            <span>Notifikasi</span>
-            <button type="button" class="notif-readall">Tandai dibaca</button>
+  <section class="article-related">
+    <div class="lp-section" style="padding:48px 0;">
+      <div class="lp-wrap">
+        <span class="lp-eyebrow">Keep reading</span>
+        <h2>Related articles</h2>
+        <div class="lp-blog" style="margin-top:26px;">
+        <a class="lp-post" href="blog-detail.html">
+          <div class="thumb"><img src="../assets/img/ph/2.svg" alt=""></div>
+          <div class="body">
+            <span class="chip">Tips</span>
+            <h3>Optimizing load time without a build tool</h3>
+            <p>Techniques that keep a static site fast.</p>
+            <div class="meta">Sep 6, 2026 <span class="dot"></span> 6 min read</div>
           </div>
-          <div class="notif-list">
-            <a href="#" class="notif-item unread">
-              <span class="ni-ic green"><i data-lucide="user-plus"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Pengguna baru terdaftar</span><span class="ni-sub">Rina Marlina menambahkan akun</span><span class="ni-time">2 menit lalu</span></span>
-            </a>
-            <a href="#" class="notif-item unread">
-              <span class="ni-ic amber"><i data-lucide="alert-triangle"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Percobaan login gagal</span><span class="ni-sub">3 kali dari IP 10.20.1.5</span><span class="ni-time">18 menit lalu</span></span>
-            </a>
-            <a href="#" class="notif-item unread">
-              <span class="ni-ic blue"><i data-lucide="file-text"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Laporan harian siap</span><span class="ni-sub">Rekap transaksi 7 Sep 2026</span><span class="ni-time">1 jam lalu</span></span>
-            </a>
-            <a href="#" class="notif-item">
-              <span class="ni-ic red"><i data-lucide="shield-alert"></i></span>
-              <span class="ni-tx"><span class="ni-tt">Sesi kedaluwarsa</span><span class="ni-sub">Perlu login ulang di perangkat lama</span><span class="ni-time">3 jam lalu</span></span>
-            </a>
+        </a>
+        <a class="lp-post" href="blog-detail.html">
+          <div class="thumb"><img src="../assets/img/ph/4.svg" alt=""></div>
+          <div class="body">
+            <span class="chip">Design</span>
+            <h3>Choosing an accessible color palette</h3>
+            <p>Colors that stay readable everywhere.</p>
+            <div class="meta">Aug 26, 2026 <span class="dot"></span> 5 min read</div>
           </div>
-          <a href="#" class="notif-foot">Lihat semua notifikasi</a>
-        </div>
-      </header>
-
-      <!-- Command palette pencarian -->
-      <div class="cmdk" id="cmdk" hidden>
-        <div class="cmdk-scrim" data-cmdk-close></div>
-        <div class="cmdk-box" role="dialog" aria-modal="true" aria-label="Pencarian">
-          <div class="cmdk-input">
-            <i data-lucide="search"></i>
-            <input type="text" id="cmdkInput" placeholder="Cari menu, halaman, atau perintah…" autocomplete="off" spellcheck="false" aria-label="Kata kunci pencarian">
-            <kbd class="kbd">Esc</kbd>
+        </a>
+        <a class="lp-post" href="blog-detail.html">
+          <div class="thumb"><img src="../assets/img/ph/5.svg" alt=""></div>
+          <div class="body">
+            <span class="chip">Tutorial</span>
+            <h3>Dark mode done right with CSS variables</h3>
+            <p>One source of truth for every color.</p>
+            <div class="meta">Aug 20, 2026 <span class="dot"></span> 7 min read</div>
           </div>
-          <div class="cmdk-list" id="cmdkList" role="listbox" aria-label="Hasil pencarian"></div>
-          <div class="cmdk-foot">
-            <span><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd> navigasi</span>
-            <span><kbd class="kbd">↵</kbd> buka</span>
-            <span><kbd class="kbd">esc</kbd> tutup</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="workspace">
-        <div class="content">
-          <nav class="breadcrumb">
-            <a href="../index.html">Beranda</a>
-            <span class="sep"><i data-lucide="chevron-right"></i></span>
-            <a href="blog.html">Blog</a>
-            <span class="sep"><i data-lucide="chevron-right"></i></span>
-            <span class="current">Detail Artikel</span>
-          </nav>
-
-          <div class="row">
-            <!-- Artikel -->
-            <div class="col-8">
-              <article>
-                <header class="article-hero">
-                  <div class="kick">TUTORIAL · PANDUAN</div>
-                  <h1>Membangun Dashboard Admin yang Rapi dengan Design Token</h1>
-                  <div class="article-meta">
-                    <div class="avatar">ZR</div>
-                    <span class="who">Zulfadli Rizal</span>
-                    <span class="dot"></span>
-                    <span>7 September 2026</span>
-                    <span class="dot"></span>
-                    <span class="mi"><i data-lucide="clock"></i> 8 menit baca</span>
-                    <span class="dot"></span>
-                    <span class="mi"><i data-lucide="message-circle"></i> 12 komentar</span>
-                  </div>
-                </header>
-
-                <div class="article-cover">
-                  <i data-lucide="layout-dashboard"></i>
-                </div>
-
-                <div class="article">
-                  <p>Konsistensi visual adalah fondasi setiap dashboard yang enak dipakai. Alih-alih menuliskan nilai warna dan ukuran berulang-ulang, kita bisa memusatkannya dalam <em>design token</em> — sekumpulan variabel yang menjadi satu sumber kebenaran untuk seluruh antarmuka.</p>
-
-                  <h2>Apa itu Design Token?</h2>
-                  <p>Design token adalah nama yang mewakili keputusan desain: warna latar, warna teks, radius sudut, jarak, hingga tipografi. Di CSS, token diwujudkan sebagai <em>custom property</em> pada <code>:root</code>, lalu dipakai ulang di seluruh komponen.</p>
-
-                  <pre><code>:root {
-  --bg-content: #fcfcfb;
-  --text: #29261f;
-  --accent: #d97757;
-  --radius: 9px;
-}</code></pre>
-
-                  <p>Dengan pola ini, mengganti tema cukup menimpa nilai token pada selektor <code>:root[data-theme="dark"]</code> — seluruh halaman ikut berubah tanpa menyentuh satu pun komponen.</p>
-
-                  <blockquote>
-                    <p>“Satu perubahan token, ratusan komponen ikut menyesuaikan. Itulah kekuatan sistem yang terpusat.”</p>
-                  </blockquote>
-
-                  <h2>Menyusun Skala yang Konsisten</h2>
-                  <p>Gunakan skala tipografi dan spacing yang berjenjang agar hierarki terasa alami. Beberapa prinsip yang kami pakai:</p>
-                  <ul>
-                    <li><b>Tipografi compact</b> — rentang ukuran rapat (11–19px) agar padat informasi namun tetap terbaca.</li>
-                    <li><b>Warna hangat</b> — latar <em>near-white</em> dengan aksen clay untuk kesan tenang.</li>
-                    <li><b>Radius seragam</b> — satu nilai radius utama dipakai di kartu, tombol, dan input.</li>
-                  </ul>
-
-                  <h3>Mode Gelap Tanpa Duplikasi</h3>
-                  <p>Karena setiap komponen membaca token, mode gelap cukup mendefinisikan ulang nilai warnanya. Tidak perlu menulis ulang gaya komponen — pendekatan ini menekan ukuran CSS sekaligus mengurangi risiko inkonsistensi.</p>
-
-                  <p>Hasil akhirnya: antarmuka yang <a href="#">konsisten, mudah dirawat</a>, dan siap tumbuh seiring bertambahnya halaman baru.</p>
-                </div>
-
-                <!-- Tag -->
-                <div class="article-tags">
-                  <span class="lbl">Tag:</span>
-                  <a class="blog-chip" href="#">CSS</a>
-                  <a class="blog-chip" href="#">Design Token</a>
-                  <a class="blog-chip" href="#">Dark Mode</a>
-                  <a class="blog-chip" href="#">UI</a>
-                </div>
-
-                <!-- Bagikan -->
-                <div class="share-row">
-                  <span class="lbl">Bagikan artikel ini</span>
-                  <button class="btn sm"><i data-lucide="twitter"></i> Twitter</button>
-                  <button class="btn sm"><i data-lucide="facebook"></i> Facebook</button>
-                  <button class="btn sm"><i data-lucide="link"></i> Salin tautan</button>
-                </div>
-
-                <!-- Penulis -->
-                <div class="author-box">
-                  <div class="avatar">ZR</div>
-                  <div>
-                    <h4>Zulfadli Rizal</h4>
-                    <div class="role">Front-End Engineer</div>
-                    <p>Menulis tentang antarmuka, sistem desain, dan praktik front-end yang rapi. Suka menyederhanakan hal rumit menjadi komponen yang mudah dipakai ulang.</p>
-                  </div>
-                </div>
-
-                <!-- Navigasi antar artikel -->
-                <div class="row" style="margin-top:8px;">
-                  <div class="col-6">
-                    <a class="panel hoverable" href="blog-detail.html" style="display:block; padding:14px 16px;">
-                      <div class="text-muted fs-sm"><i data-lucide="arrow-left" style="width:13px;height:13px;vertical-align:-2px;"></i> Sebelumnya</div>
-                      <div style="font-weight:600; margin-top:4px;">7 Prinsip Warna untuk Antarmuka</div>
-                    </a>
-                  </div>
-                  <div class="col-6">
-                    <a class="panel hoverable" href="blog-detail.html" style="display:block; padding:14px 16px; text-align:right;">
-                      <div class="text-muted fs-sm">Berikutnya <i data-lucide="arrow-right" style="width:13px;height:13px;vertical-align:-2px;"></i></div>
-                      <div style="font-weight:600; margin-top:4px;">Optimasi Waktu Muat Tanpa Build Tool</div>
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Komentar -->
-                <div class="panel" style="margin-top:8px;">
-                  <div class="panel-head"><h3>Komentar (12)</h3></div>
-                  <div class="panel-body">
-                    <div class="track" style="--dummy:0;">
-                      <div style="display:flex; gap:12px; padding-bottom:16px; border-bottom:1px solid var(--border);">
-                        <div class="avatar">BR</div>
-                        <div>
-                          <div><b>Budi Rahardjo</b> <span class="text-faint fs-sm">· 2 jam lalu</span></div>
-                          <p class="text-muted" style="font-size:var(--fs-base); line-height:1.55; margin-top:4px;">Penjelasan token-nya jelas banget. Langsung saya terapkan di proyek internal.</p>
-                        </div>
-                      </div>
-                      <div style="display:flex; gap:12px; padding-top:16px;">
-                        <div class="avatar">SW</div>
-                        <div>
-                          <div><b>Siti Wulandari</b> <span class="text-faint fs-sm">· kemarin</span></div>
-                          <p class="text-muted" style="font-size:var(--fs-base); line-height:1.55; margin-top:4px;">Bagian dark mode tanpa duplikasi itu insight yang berguna. Terima kasih!</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group" style="margin:16px 0 8px;">
-                      <textarea class="form-control" rows="3" placeholder="Tulis komentar…"></textarea>
-                    </div>
-                    <button class="btn primary"><i data-lucide="send"></i> Kirim Komentar</button>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <!-- Sidebar kanan -->
-            <div class="col-4">
-              <div class="widget toc">
-                <div class="widget-head"><i data-lucide="list"></i> Daftar Isi</div>
-                <a href="#" class="active">Apa itu Design Token?</a>
-                <a href="#">Menyusun Skala yang Konsisten</a>
-                <a href="#">Mode Gelap Tanpa Duplikasi</a>
-              </div>
-
-              <div class="widget">
-                <div class="widget-head"><i data-lucide="flame"></i> Artikel Terkait</div>
-                <div class="pp-item">
-                  <div class="pp-num">01</div>
-                  <div class="pp-tx">
-                    <a class="pp-title" href="blog-detail.html">Apa yang Baru di Versi 2.4</a>
-                    <div class="pp-meta">Rilis · 5 mnt</div>
-                  </div>
-                </div>
-                <div class="pp-item">
-                  <div class="pp-num">02</div>
-                  <div class="pp-tx">
-                    <a class="pp-title" href="blog-detail.html">7 Prinsip Warna untuk Antarmuka</a>
-                    <div class="pp-meta">Tips · 6 mnt</div>
-                  </div>
-                </div>
-                <div class="pp-item">
-                  <div class="pp-num">03</div>
-                  <div class="pp-tx">
-                    <a class="pp-title" href="blog-detail.html">Optimasi Waktu Muat Tanpa Build Tool</a>
-                    <div class="pp-meta">Tutorial · 7 mnt</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="widget">
-                <div class="widget-head"><i data-lucide="tag"></i> Tag</div>
-                <div class="tagcloud">
-                  <a href="#">CSS</a><a href="#">Dark Mode</a><a href="#">UI</a>
-                  <a href="#">Performa</a><a href="#">Design Token</a>
-                </div>
-              </div>
-            </div>
-          </div>
+        </a>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <footer class="lp-foot">
+    <div class="in">
+      <div class="col">
+        <div class="brand-row">
+          <svg class="lp-brand-logo" viewBox="0 0 208 48" role="img" aria-label="Mutiara">
+            <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#lgc)"/>
+            <circle cx="24" cy="24" r="12.5" fill="url(#lgp)"/>
+            <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.35"/>
+            <ellipse cx="19.8" cy="19.5" rx="4" ry="2.8" fill="#ffffff" opacity="0.9"/>
+            <text x="60" y="31" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif" font-size="24" font-weight="700" letter-spacing="-0.5" fill="currentColor">Mutia<tspan fill="var(--accent)">ra</tspan></text>
+          </svg>
+        </div>
+        <p>A compact, responsive HTML admin dashboard template. Built for developers who value clean code and fast delivery.</p>
+      </div>
+      <div class="col"><h4>Product</h4><a href="landing.html#features">Features</a><a href="landing.html#showcase">Showcase</a><a href="landing.html#pricing">Pricing</a><a href="../index.html">Live Preview</a></div>
+      <div class="col"><h4>Resources</h4><a href="elements.html">Components</a><a href="blog.html">Blog</a><a href="landing.html#faq">FAQ</a><a href="#">Changelog</a></div>
+      <div class="col"><h4>Company</h4><a href="#">About</a><a href="#">License</a><a href="#">Privacy</a><a href="#">Contact</a></div>
+    </div>
+    <div class="bottom">
+      <div>© 2026 Mutiara. Crafted with care.</div>
+      <div class="d-flex gap-3"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">License</a></div>
+    </div>
+  </footer>
 
   <script src="../assets/vendor/lucide/lucide-0.294.0.min.js"></script>
   <script src="../assets/js/app.js"></script>
