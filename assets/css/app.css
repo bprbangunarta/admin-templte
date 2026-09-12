@@ -2113,7 +2113,7 @@ hr.divider { border: 0; border-top: 1px solid var(--border); margin: 16px 0; }
 }
 .mail-folder:hover { background: var(--bg-hover); }
 .mail-folder.active { background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent); }
-.mail-folder i { width: 15px; height: 15px; flex-shrink: 0; }
+.mail-folder i, .mail-folder svg { width: 15px; height: 15px; flex-shrink: 0; }
 .mail-folder .cnt { margin-left: auto; font-size: 11px; font-weight: 600; color: var(--text-muted); }
 .mail-folder.active .cnt { color: var(--accent); }
 .mail-labels { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
@@ -2176,7 +2176,7 @@ hr.divider { border: 0; border-top: 1px solid var(--border); margin: 16px 0; }
   padding: 6px 9px; border: 1px solid var(--border); border-radius: var(--radius-sm);
   font-size: 11px; color: var(--text); background: var(--bg-content);
 }
-.mail-att i { width: 14px; height: 14px; color: var(--accent); }
+.mail-att i, .mail-att svg { width: 14px; height: 14px; color: var(--accent); }
 .mail-att small { color: var(--text-muted); }
 .mail-reply { padding: 9px 12px; border-top: 1px solid var(--border); display: flex; gap: 8px; }
 .mail-reply .form-control { flex: 1; }
