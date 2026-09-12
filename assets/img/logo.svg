@@ -11,5 +11,5 @@
   <circle cx="24" cy="24" r="12.5" fill="url(#pearl2)"/>
   <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.35"/>
   <ellipse cx="19.8" cy="19.5" rx="4" ry="2.8" fill="#ffffff" opacity="0.9"/>
-  <text x="60" y="31" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif" font-size="24" font-weight="700" letter-spacing="-0.5" fill="#29261f">Mutia<tspan fill="#d97757">ra</tspan></text>
+  <text x="60" y="31" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif" font-size="24" font-weight="700" letter-spacing="-0.5" fill="currentColor">Mutia<tspan fill="#d97757">ra</tspan></text>
 </svg>

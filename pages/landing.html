@@ -15,18 +15,20 @@
   <!-- NAV -->
   <nav class="lp-nav glass">
     <div class="in">
-      <svg class="brand-logo" viewBox="0 0 48 48" role="img" aria-label="Mutiara">
-        <defs><radialGradient id="mp" cx="0.38" cy="0.33" r="0.8">
-          <stop offset="0" stop-color="#ffffff"/><stop offset="0.55" stop-color="#fbeee8"/><stop offset="1" stop-color="#e4c7b8"/>
-        </radialGradient></defs>
-        <rect x="2" y="2" width="44" height="44" rx="13" fill="var(--accent)"/>
-        <ellipse cx="24" cy="11" rx="18" ry="8" fill="#ffffff" opacity="0.12"/>
-        <circle cx="24" cy="24" r="12.5" fill="url(#mp)"/>
-        <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.32"/>
-        <ellipse cx="19.8" cy="19.5" rx="4" ry="2.8" fill="#ffffff" opacity="0.9"/>
-      </svg>
-      <div class="brand-name">Mutiara</div>
-      <div class="links"><a href="#features">Features</a><a href="#showcase">Showcase</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></div>
+      <a href="../index.html" class="lp-brand" aria-label="Mutiara home">
+        <svg class="lp-brand-logo" viewBox="0 0 208 48" role="img" aria-label="Mutiara">
+          <defs>
+            <linearGradient id="lgc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0875f"/><stop offset="1" stop-color="#c25a3b"/></linearGradient>
+            <radialGradient id="lgp" cx="0.38" cy="0.33" r="0.8"><stop offset="0" stop-color="#ffffff"/><stop offset="0.55" stop-color="#fbeee8"/><stop offset="1" stop-color="#e4c7b8"/></radialGradient>
+          </defs>
+          <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#lgc)"/>
+          <circle cx="24" cy="24" r="12.5" fill="url(#lgp)"/>
+          <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.35"/>
+          <ellipse cx="19.8" cy="19.5" rx="4" ry="2.8" fill="#ffffff" opacity="0.9"/>
+          <text x="60" y="31" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif" font-size="24" font-weight="700" letter-spacing="-0.5" fill="currentColor">Mutia<tspan fill="var(--accent)">ra</tspan></text>
+        </svg>
+      </a>
+      <div class="links"><a href="#features">Features</a><a href="#showcase">Showcase</a><a href="#pricing">Pricing</a><a href="#blog">Blog</a><a href="#faq">FAQ</a></div>
       <div class="right">
         <div class="icon-btn theme-toggle" id="themeToggle" title="Toggle theme"><i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i></div>
         <a class="btn outline" href="../index.html">Live Preview</a>
@@ -234,6 +236,47 @@
     </div>
   </section>
 
+  <!-- BLOG -->
+  <section class="lp-section" id="blog">
+    <div class="lp-wrap">
+      <span class="lp-eyebrow">From the blog</span>
+      <h2>Guides, tips &amp; release notes</h2>
+      <p class="sub">Learn how to get the most out of Mutiara — straight from the team.</p>
+      <div class="lp-blog">
+        <a class="lp-post" href="blog-detail.html">
+          <div class="thumb"><img src="../assets/img/ph/6.svg" alt=""></div>
+          <div class="body">
+            <span class="chip">Tutorial</span>
+            <h3>Building a clean admin dashboard with design tokens</h3>
+            <p>Structure color, typography and spacing with CSS variables so everything stays consistent in light and dark.</p>
+            <div class="meta">Sep 10, 2026 <span class="dot"></span> 5 min read</div>
+          </div>
+        </a>
+        <a class="lp-post" href="blog-detail.html">
+          <div class="thumb"><img src="../assets/img/ph/2.svg" alt=""></div>
+          <div class="body">
+            <span class="chip">Tips</span>
+            <h3>Optimizing load time without a build tool</h3>
+            <p>Lazy-loading, preconnect and asset splitting techniques that keep a static site blazing fast.</p>
+            <div class="meta">Sep 6, 2026 <span class="dot"></span> 6 min read</div>
+          </div>
+        </a>
+        <a class="lp-post" href="blog-detail.html">
+          <div class="thumb"><img src="../assets/img/ph/3.svg" alt=""></div>
+          <div class="body">
+            <span class="chip">Release</span>
+            <h3>Two-factor authentication for every account</h3>
+            <p>An extra security layer is now live — here's how to enable and recover it in a few clicks.</p>
+            <div class="meta">Sep 1, 2026 <span class="dot"></span> 4 min read</div>
+          </div>
+        </a>
+      </div>
+      <div class="lp-blog-more">
+        <a class="btn outline lg" href="blog.html">View all articles <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="lp-section" id="faq" style="background:var(--bg-sidebar);">
     <div class="lp-wrap">
@@ -279,14 +322,13 @@
     <div class="in">
       <div class="col">
         <div class="brand-row">
-          <svg class="brand-logo" viewBox="0 0 48 48" role="img" aria-label="Mutiara">
-            <rect x="2" y="2" width="44" height="44" rx="13" fill="var(--accent)"/>
-            <ellipse cx="24" cy="11" rx="18" ry="8" fill="#ffffff" opacity="0.12"/>
-            <circle cx="24" cy="24" r="12.5" fill="url(#mp)"/>
-            <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.32"/>
+          <svg class="lp-brand-logo" viewBox="0 0 208 48" role="img" aria-label="Mutiara">
+            <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#lgc)"/>
+            <circle cx="24" cy="24" r="12.5" fill="url(#lgp)"/>
+            <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.35"/>
             <ellipse cx="19.8" cy="19.5" rx="4" ry="2.8" fill="#ffffff" opacity="0.9"/>
+            <text x="60" y="31" font-family="Inter, -apple-system, Segoe UI, Roboto, sans-serif" font-size="24" font-weight="700" letter-spacing="-0.5" fill="currentColor">Mutia<tspan fill="var(--accent)">ra</tspan></text>
           </svg>
-          <b>Mutiara</b>
         </div>
         <p>A compact, responsive HTML admin dashboard template. Built for developers who value clean code and fast delivery.</p>
       </div>
