@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
-  <title>Pengaturan — Mutiara</title>
+  <title>Mailbox — Mutiara</title>
   <link rel="icon" type="image/svg+xml" href="../assets/img/logo-mark.svg">
   <link rel="stylesheet" href="../assets/css/app.css">
 </head>
@@ -80,7 +80,7 @@
         <div class="nav-group open">
           <button type="button" class="nav-section" aria-expanded="true"><span>Apps</span><i data-lucide="chevron-down" class="chev"></i></button>
           <div class="nav-group-body"><div class="nav">
-                  <a class="nav-sub" href="files.html">File Manager</a>
+                  <a class="nav-sub active" href="files.html">File Manager</a>
             <div class="tree open">
               <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="newspaper" class="ico"></i><span>Blog</span><i data-lucide="chevron-right" class="chev"></i></button>
               <div class="tree-children">
@@ -88,7 +88,7 @@
                   <a class="nav-sub" href="blog-detail.html">Article Detail</a>
               </div>
             </div>
-                  <a class="nav-sub" href="mailbox.html">Mailbox</a>
+                  <a class="nav-sub active" href="mailbox.html">Mailbox</a>
                   <a class="nav-sub" href="invoice.html">Invoice</a>
                   <a class="nav-sub" href="pricing.html">Pricing</a>
           </div></div>
@@ -121,7 +121,7 @@
           <button type="button" class="nav-section" aria-expanded="true"><span>Pages</span><i data-lucide="chevron-down" class="chev"></i></button>
           <div class="nav-group-body"><div class="nav">
                   <a class="nav-sub" href="profile.html">Profile</a>
-                  <a class="nav-sub active" href="settings.html">Settings</a>
+                  <a class="nav-sub" href="settings.html">Settings</a>
                   <a class="nav-sub" href="detail.html">Detail / Show</a>
             <div class="tree open">
               <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="log-in" class="ico"></i><span>Authentication</span><i data-lucide="chevron-right" class="chev"></i></button>
@@ -178,7 +178,7 @@
     <div class="main">
       <header class="topbar">
         <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Buka atau tutup menu"><i data-lucide="panel-left"></i></button>
-        <h1>Pengaturan</h1>
+        <h1>Mailbox</h1>
 
         <!-- Pencarian: tombol yang membuka command palette (⌘K / Ctrl+K) -->
         <button type="button" class="searchbar" id="searchOpen" aria-label="Cari (Ctrl+K)" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk">
@@ -244,86 +244,146 @@
         </div>
       </div>
       <div class="content">
-        <nav class="breadcrumb">
-          <a href="../index.html">Beranda</a>
-          <span class="sep"><i data-lucide="chevron-right"></i></span>
-          <span class="current">Pengaturan</span>
-        </nav>
+        <div class="mail">
 
-        <form onsubmit="return false">
-          <!-- Umum -->
-          <div class="panel mb-4">
-            <div class="panel-head">
-              <h3>Umum</h3>
+          <!-- Kolom folder -->
+          <div class="mail-col mail-aside">
+            <button class="btn primary mail-compose"><i data-lucide="pencil-line"></i> Tulis Pesan</button>
+            <div class="mail-folders">
+              <button class="mail-folder active"><i data-lucide="inbox"></i> Kotak Masuk <span class="cnt">6</span></button>
+              <button class="mail-folder"><i data-lucide="star"></i> Berbintang <span class="cnt">2</span></button>
+              <button class="mail-folder"><i data-lucide="send"></i> Terkirim</button>
+              <button class="mail-folder"><i data-lucide="file"></i> Draf <span class="cnt">1</span></button>
+              <button class="mail-folder"><i data-lucide="archive"></i> Arsip</button>
+              <button class="mail-folder"><i data-lucide="shield-alert"></i> Spam <span class="cnt">3</span></button>
+              <button class="mail-folder"><i data-lucide="trash-2"></i> Sampah</button>
             </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-6">
-                  <div class="form-group mb-0"><label class="form-label">Nama Aplikasi</label><input
-                      class="form-control" value="Admin Panel"></div>
-                </div>
-                <div class="col-6">
-                  <div class="form-group mb-0"><label class="form-label">Zona Waktu</label>
-                    <select class="form-control">
-                      <option>WIB (GMT+7)</option>
-                      <option>WITA (GMT+8)</option>
-                      <option>WIT (GMT+9)</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="form-group mb-0 mt-3"><label class="form-label">Bahasa</label>
-                    <select class="form-control">
-                      <option>Indonesia</option>
-                      <option>English</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="form-group mb-0 mt-3"><label class="form-label">Format Tanggal</label>
-                    <select class="form-control">
-                      <option>DD/MM/YYYY</option>
-                      <option>YYYY-MM-DD</option>
-                    </select>
-                  </div>
-                </div>
+            <div class="mail-labels">
+              <div class="lbl-title">Label</div>
+              <div class="mail-tag-row"><span class="dot" style="background:#d97757"></span> Pekerjaan</div>
+              <div class="mail-tag-row"><span class="dot" style="background:#4f9d78"></span> Pribadi</div>
+              <div class="mail-tag-row"><span class="dot" style="background:#4a7fb5"></span> Tagihan</div>
+            </div>
+          </div>
+
+          <!-- Kolom daftar pesan -->
+          <div class="mail-col mail-listcol">
+            <div class="mail-list-head">
+              <span class="title">Kotak Masuk</span>
+              <span class="count">6 pesan</span>
+              <div class="ms-auto" style="margin-left:auto; display:flex; gap:4px;">
+                <button class="icon-btn" aria-label="Segarkan"><i data-lucide="refresh-cw"></i></button>
+                <button class="icon-btn" aria-label="Filter"><i data-lucide="sliders-horizontal"></i></button>
               </div>
             </div>
+            <div class="mail-list">
+
+              <div class="mail-item unread active">
+                <div class="av av-c1">RM</div>
+                <div class="bd">
+                  <div class="from">Rina Marlina</div>
+                  <div class="subj">Undangan rapat evaluasi Q3</div>
+                  <div class="snip">Halo, mohon konfirmasi kehadiran untuk rapat evaluasi kuartal…</div>
+                </div>
+                <div class="rt"><span class="time">09:24</span><span class="udot"></span></div>
+              </div>
+
+              <div class="mail-item unread">
+                <div class="av av-c2">BS</div>
+                <div class="bd">
+                  <div class="from">Bagus Santoso</div>
+                  <div class="subj">Laporan transaksi harian siap diunduh</div>
+                  <div class="snip">Rekap transaksi 11 September 2026 telah selesai diproses…</div>
+                </div>
+                <div class="rt"><span class="time">08:10</span><span class="udot"></span></div>
+              </div>
+
+              <div class="mail-item">
+                <div class="av av-c3">DP</div>
+                <div class="bd">
+                  <div class="from">Dewi Puspita</div>
+                  <div class="subj">Revisi desain halaman pricing</div>
+                  <div class="snip">Terlampir versi revisi sesuai catatan kemarin, mohon ditinjau…</div>
+                </div>
+                <div class="rt"><span class="time">Kemarin</span><i data-lucide="star" class="star on"></i></div>
+              </div>
+
+              <div class="mail-item">
+                <div class="av av-c4">AH</div>
+                <div class="bd">
+                  <div class="from">Andi Hidayat</div>
+                  <div class="subj">Permintaan akses modul kredensial</div>
+                  <div class="snip">Mohon dibantu penambahan hak akses untuk tim baru…</div>
+                </div>
+                <div class="rt"><span class="time">Kemarin</span></div>
+              </div>
+
+              <div class="mail-item">
+                <div class="av av-c5">SW</div>
+                <div class="bd">
+                  <div class="from">Sri Wahyuni</div>
+                  <div class="subj">Notulen rapat mingguan</div>
+                  <div class="snip">Berikut ringkasan poin-poin hasil rapat tim minggu ini…</div>
+                </div>
+                <div class="rt"><span class="time">9 Sep</span><i data-lucide="star" class="star on"></i></div>
+              </div>
+
+              <div class="mail-item">
+                <div class="av av-c6">FT</div>
+                <div class="bd">
+                  <div class="from">Fajar Tri</div>
+                  <div class="subj">Pengingat: perpanjangan domain</div>
+                  <div class="snip">Domain akan kedaluwarsa dalam 14 hari, segera diperpanjang…</div>
+                </div>
+                <div class="rt"><span class="time">8 Sep</span></div>
+              </div>
+
+            </div>
           </div>
 
-          <!-- Notifikasi -->
-          <div class="panel mb-4">
-            <div class="panel-head">
-              <h3>Notifikasi</h3>
+          <!-- Kolom baca pesan -->
+          <div class="mail-col mail-read">
+            <div class="mail-read-head">
+              <div class="mail-read-actions">
+                <button class="btn outline sm"><i data-lucide="reply"></i> Balas</button>
+                <button class="btn outline sm"><i data-lucide="forward"></i> Teruskan</button>
+                <span class="sp"></span>
+                <button class="icon-btn" aria-label="Arsipkan"><i data-lucide="archive"></i></button>
+                <button class="icon-btn" aria-label="Beri bintang"><i data-lucide="star"></i></button>
+                <button class="icon-btn" aria-label="Hapus"><i data-lucide="trash-2"></i></button>
+              </div>
+              <h2>Undangan rapat evaluasi Q3</h2>
+              <div class="mail-sender">
+                <div class="av av-c1">RM</div>
+                <div class="who">
+                  <b>Rina Marlina</b>
+                  <small>rina.marlina@bprbangunarta.co.id</small>
+                </div>
+                <span class="when">12 Sep 2026, 09:24</span>
+              </div>
             </div>
-            <div class="panel-body d-flex flex-col gap-3">
-              <label class="switch"><input type="checkbox" checked><span class="track"></span> Email untuk order
-                baru</label>
-              <label class="switch"><input type="checkbox" checked><span class="track"></span> Notifikasi push di
-                browser</label>
-              <label class="switch"><input type="checkbox"><span class="track"></span> Ringkasan mingguan</label>
+            <div class="mail-body">
+              <p>Halo Zulfadli,</p>
+              <p>Bersama email ini saya mengundang Anda untuk menghadiri rapat evaluasi kinerja kuartal ketiga (Q3) yang akan diselenggarakan pada:</p>
+              <p>
+                <b>Hari/Tanggal:</b> Senin, 15 September 2026<br>
+                <b>Waktu:</b> 09.00 – 11.00 WIB<br>
+                <b>Lokasi:</b> Ruang Rapat Utama, Lantai 3
+              </p>
+              <p>Mohon konfirmasi kehadiran Anda paling lambat Jumat sore. Terlampir agenda rapat dan laporan ringkas kuartal ini sebagai bahan diskusi.</p>
+              <div class="mail-attach">
+                <div class="mail-att"><i data-lucide="file-text"></i> Agenda-Rapat-Q3.pdf <small>240 KB</small></div>
+                <div class="mail-att"><i data-lucide="file-spreadsheet"></i> Laporan-Q3.xlsx <small>1,2 MB</small></div>
+              </div>
+              <p style="margin-top:16px">Terima kasih,<br>Rina Marlina<br><small style="color:var(--text-muted)">Manajer Operasional</small></p>
+            </div>
+            <div class="mail-reply">
+              <input type="text" class="form-control" placeholder="Balas cepat ke Rina…">
+              <button class="btn primary"><i data-lucide="send"></i> Kirim</button>
             </div>
           </div>
 
-          <!-- Keamanan -->
-          <div class="panel mb-4">
-            <div class="panel-head">
-              <h3>Keamanan</h3>
-            </div>
-            <div class="panel-body d-flex flex-col gap-3">
-              <label class="switch"><input type="checkbox"><span class="track"></span> Autentikasi dua faktor
-                (2FA)</label>
-              <label class="switch"><input type="checkbox" checked><span class="track"></span> Keluar otomatis setelah
-                30 menit</label>
-            </div>
-          </div>
-
-          <div class="d-flex justify-end gap-2">
-            <button class="btn outline">Reset</button>
-            <button class="btn primary" data-toast="success" data-toast-title="Tersimpan"
-              data-toast-msg="Pengaturan berhasil diperbarui.">Simpan Pengaturan</button>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>

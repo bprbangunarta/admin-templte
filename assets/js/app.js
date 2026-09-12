@@ -518,6 +518,7 @@
       { t: 'Profil',      s: 'Pengaturan akun',       i: 'user', h: '/pages/profile.html', g: 'Halaman' },
       { t: 'Pengaturan',  s: 'Konfigurasi aplikasi',  i: 'settings', h: '/pages/settings.html', g: 'Halaman' },
       { t: 'Landing Page',s: 'Halaman publik',        i: 'globe', h: '/pages/landing.html', g: 'Halaman' },
+      { t: 'Mailbox',     s: 'Kotak masuk email',     i: 'inbox', h: '/pages/mailbox.html', g: 'Halaman' },
       { t: 'Email',       s: 'Template email',        i: 'mail', h: '/pages/email.html', g: 'Halaman' },
       { t: 'Ganti tema terang/gelap', s: 'Perintah', i: 'sun-moon', g: 'Perintah',
         run: () => { const d = document.documentElement.getAttribute('data-theme') === 'dark'; setTheme(d ? 'light' : 'dark'); } },

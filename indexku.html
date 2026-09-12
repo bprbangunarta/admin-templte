@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
+  <title>Dashboard — Mutiara: Compact Mutiara Responsive HTML</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo-mark.svg">
+  <meta name="description" content="Mutiara: Compact Mutiara Responsive HTML">
+  <meta name="apple-mobile-web-app-title" content="Mutiara">
+  <link rel="stylesheet" href="assets/vendor/jsvectormap/jsvectormap-1.5.3.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+
+  <meta name="theme-color" content="#fcfcfb">
+  <script>
+    const color = getComputedStyle(document.documentElement)
+      .getPropertyValue('--accent')
+      .trim();
+
+    document.querySelector('meta[name="theme-color"]')
+      .setAttribute('content', color);
+  </script>
+</head>
+
+<body>
+  <div class="page-loader" id="pageLoader">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
+      <img src="assets/img/logo-mark.svg" alt="Mutiara" style="width:46px; height:46px;">
+      <span class="loader dots"><span></span><span></span><span></span></span>
+    </div>
+  </div>
+
+  <div class="app">
+    <div class="backdrop" id="backdrop"></div>
+
+    <div class="drawer">
+      <aside class="sidebar">
+        <div class="brand">
+          <svg class="brand-logo" viewBox="0 0 48 48" role="img" aria-label="Mutiara">
+            <defs>
+              <radialGradient id="mp" cx="0.38" cy="0.33" r="0.8">
+                <stop offset="0" stop-color="#ffffff" />
+                <stop offset="0.55" stop-color="#fbeee8" />
+                <stop offset="1" stop-color="#e4c7b8" />
+              </radialGradient>
+            </defs>
+            <rect x="2" y="2" width="44" height="44" rx="13" fill="var(--accent)" />
+            <ellipse cx="24" cy="11" rx="18" ry="8" fill="#ffffff" opacity="0.12" />
+            <circle cx="24" cy="24" r="12.5" fill="url(#mp)" />
+            <ellipse cx="24" cy="30" rx="8.5" ry="3.4" fill="#c79a86" opacity="0.32" />
+            <ellipse cx="19.8" cy="19.5" rx="4" ry="2.8" fill="#ffffff" opacity="0.9" />
+          </svg>
+          <div class="name">Mutiara</div>
+        </div>
+
+        <div class="sidebar-scroll">
+          <nav class="nav">
+            <a class="nav-item active" href="indexku.html">
+              <i data-lucide="layout-dashboard"></i>
+              <span>Dashboard</span><span class="nav-badge">4</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="profile">
+          <div class="profile-menu" id="profileMenu">
+            <div class="pm-email">zulfr@bprbangunarta.co.id</div>
+            <a href="pages/settings.html">
+              <div class="pm-item"><i data-lucide="settings"></i>Settings <span class="sc">⌘ ,</span></div>
+            </a>
+            <div class="pm-item"><i data-lucide="globe"></i>Language</div>
+            <div class="pm-item"><i data-lucide="help-circle"></i>Get help</div>
+            <div class="pm-div"></div>
+            <a href="pages/profile.html">
+              <div class="pm-item"><i data-lucide="user"></i>My Profile</div>
+            </a>
+            <div class="pm-item"><i data-lucide="shield-check"></i>Security</div>
+            <div class="pm-item"><i data-lucide="star"></i>Subscription <span class="tag">Pro</span></div>
+            <div class="pm-div"></div>
+            <div class="pm-item"><i data-lucide="log-out"></i>Logout</div>
+          </div>
+          <button class="profile-trigger" id="profileTrigger">
+            <div class="avatar">ZR</div>
+            <div class="who"><b>Zulfadli Rizal</b><small>zulfr@bprbangunarta.co.id</small></div>
+            <i data-lucide="chevrons-up-down" class="swap"></i>
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <div class="main">
+      <header class="topbar">
+        <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Buka atau tutup menu"><i
+            data-lucide="panel-left"></i></button>
+        <h1>Dashboard</h1>
+
+        <!-- Pencarian: tombol yang membuka command palette (⌘K / Ctrl+K) -->
+        <button type="button" class="searchbar" id="searchOpen" aria-label="Cari (Ctrl+K)" aria-haspopup="dialog"
+          aria-expanded="false" aria-controls="cmdk">
+          <i data-lucide="search"></i>
+          <span class="ph">Cari menu atau halaman…</span>
+          <kbd class="kbd"><span class="mod">⌘</span>K</kbd>
+        </button>
+
+        <div class="topbar-actions">
+          <button type="button" class="icon-btn search-sm" id="searchOpenSm" aria-label="Cari" aria-haspopup="dialog"
+            aria-expanded="false" aria-controls="cmdk"><i data-lucide="search"></i></button>
+          <button type="button" class="icon-btn theme-toggle" id="themeToggle"
+            aria-label="Ganti tema terang atau gelap">
+            <i data-lucide="moon" class="moon"></i><i data-lucide="sun" class="sun"></i>
+          </button>
+          <button type="button" class="icon-btn bell" id="notifBtn" aria-label="Notifikasi (10 belum dibaca)"
+            aria-haspopup="true" aria-expanded="false">
+            <i data-lucide="bell"></i>
+            <span class="ndot">10</span>
+          </button>
+        </div>
+
+        <!-- Panel dropdown notifikasi -->
+        <div class="notif-pop" id="notifPop" hidden>
+          <div class="notif-head">
+            <span>Notifikasi</span>
+            <button type="button" class="notif-readall">Tandai dibaca</button>
+          </div>
+          <div class="notif-list">
+            <a href="#" class="notif-item unread">
+              <span class="ni-ic green"><i data-lucide="user-plus"></i></span>
+              <span class="ni-tx"><span class="ni-tt">Pengguna baru terdaftar</span><span class="ni-sub">Rina Marlina
+                  menambahkan akun</span><span class="ni-time">2 menit lalu</span></span>
+            </a>
+            <a href="#" class="notif-item unread">
+              <span class="ni-ic amber"><i data-lucide="alert-triangle"></i></span>
+              <span class="ni-tx"><span class="ni-tt">Percobaan login gagal</span><span class="ni-sub">3 kali dari IP
+                  10.20.1.5</span><span class="ni-time">18 menit lalu</span></span>
+            </a>
+            <a href="#" class="notif-item unread">
+              <span class="ni-ic blue"><i data-lucide="file-text"></i></span>
+              <span class="ni-tx"><span class="ni-tt">Laporan harian siap</span><span class="ni-sub">Rekap transaksi 7
+                  Sep 2026</span><span class="ni-time">1 jam lalu</span></span>
+            </a>
+            <a href="#" class="notif-item">
+              <span class="ni-ic red"><i data-lucide="shield-alert"></i></span>
+              <span class="ni-tx"><span class="ni-tt">Sesi kedaluwarsa</span><span class="ni-sub">Perlu login ulang di
+                  perangkat lama</span><span class="ni-time">3 jam lalu</span></span>
+            </a>
+          </div>
+          <a href="#" class="notif-foot">Lihat semua notifikasi</a>
+        </div>
+      </header>
+
+      <!-- Command palette pencarian -->
+      <div class="cmdk" id="cmdk" hidden>
+        <div class="cmdk-scrim" data-cmdk-close></div>
+        <div class="cmdk-box" role="dialog" aria-modal="true" aria-label="Pencarian">
+          <div class="cmdk-input">
+            <i data-lucide="search"></i>
+            <input type="text" id="cmdkInput" placeholder="Cari menu, halaman, atau perintah…" autocomplete="off"
+              spellcheck="false" aria-label="Kata kunci pencarian">
+            <kbd class="kbd">Esc</kbd>
+          </div>
+          <div class="cmdk-list" id="cmdkList" role="listbox" aria-label="Hasil pencarian"></div>
+          <div class="cmdk-foot">
+            <span><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd> navigasi</span>
+            <span><kbd class="kbd">↵</kbd> buka</span>
+            <span><kbd class="kbd">esc</kbd> tutup</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="page-head">
+          <h2>Selamat datang kembali 👋</h2>
+          <p>Ringkasan aktivitas sistem hari ini, 7 September 2026.</p>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat">
+            <div class="label">Total Pengguna</div>
+            <div class="value">8.240</div>
+            <div class="delta up">▲ 12,5% bulan ini</div>
+          </div>
+          <div class="stat">
+            <div class="label">Pendapatan</div>
+            <div class="value">Rp 142jt</div>
+            <div class="delta up">▲ 8,1% bulan ini</div>
+          </div>
+          <div class="stat">
+            <div class="label">Order Baru</div>
+            <div class="value">1.320</div>
+            <div class="delta down">▼ 3,2% bulan ini</div>
+          </div>
+          <div class="stat">
+            <div class="label">Tingkat Konversi</div>
+            <div class="value">4,7%</div>
+            <div class="delta up">▲ 0,6% bulan ini</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-8">
+            <div class="panel mb-4">
+              <div class="panel-head">
+                <h3>Pendapatan 6 Bulan</h3><span class="text-muted fs-sm">dalam juta rupiah</span>
+              </div>
+              <div class="p-3">
+                <div id="chartRevenue" style="height:280px;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="panel mb-4">
+              <div class="panel-head">
+                <h3>Komposisi Order</h3>
+              </div>
+              <div class="p-3">
+                <div id="chartDonut" style="height:280px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel mb-4">
+          <div class="panel-head">
+            <h3>Sebaran Wilayah</h3>
+            <span class="text-muted fs-sm">Sebaran pengguna per wilayah</span>
+          </div>
+          <div class="p-3">
+            <div id="vmap" class="js-vectormap"
+              data-markers='[["Jakarta",-6.2,106.8],["Surabaya",-7.25,112.75],["Medan",3.6,98.7]]'
+              style="height:340px;"></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Order Terbaru</h3>
+            <button class="btn primary">+ Order Baru</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pelanggan</th>
+                  <th>Order ID</th>
+                  <th>Tanggal</th>
+                  <th>Jumlah</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar">BR</div><span>Budi Rahardjo</span>
+                    </div>
+                  </td>
+                  <td>#ORD-7841</td>
+                  <td>7 Sep 2026</td>
+                  <td>Rp 1.250.000</td>
+                  <td><span class="badge green">Selesai</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar">SW</div><span>Siti Wulandari</span>
+                    </div>
+                  </td>
+                  <td>#ORD-7840</td>
+                  <td>7 Sep 2026</td>
+                  <td>Rp 890.000</td>
+                  <td><span class="badge amber">Diproses</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar">AH</div><span>Ahmad Hidayat</span>
+                    </div>
+                  </td>
+                  <td>#ORD-7839</td>
+                  <td>6 Sep 2026</td>
+                  <td>Rp 2.400.000</td>
+                  <td><span class="badge green">Selesai</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar">DK</div><span>Dewi Kartika</span>
+                    </div>
+                  </td>
+                  <td>#ORD-7838</td>
+                  <td>6 Sep 2026</td>
+                  <td>Rp 560.000</td>
+                  <td><span class="badge red">Batal</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar">RP</div><span>Rizky Pratama</span>
+                    </div>
+                  </td>
+                  <td>#ORD-7837</td>
+                  <td>5 Sep 2026</td>
+                  <td>Rp 1.780.000</td>
+                  <td><span class="badge amber">Diproses</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="assets/vendor/lucide/lucide-0.294.0.min.js"></script>
+  <script src="assets/vendor/jsvectormap/jsvectormap-1.5.3.min.js"></script>
+  <script src="assets/vendor/jsvectormap/world.js"></script>
+  <script src="assets/vendor/apexcharts/apexcharts-3.45.2.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <!-- peta (auto-init dari .js-vectormap) + helper tema chart -->
+  <script src="assets/js/init/vectormap.js"></script>
+  <script src="assets/js/init/apexcharts.js"></script>
+  <script>
+    // data chart khusus halaman; tema & rebuild ditangani ApexTheme
+    var _revenue, _donut;
+    ApexTheme.onReady(function (v) {
+      if (_revenue) _revenue.destroy();
+      if (_donut) _donut.destroy();
+      _revenue = new ApexCharts(document.getElementById('chartRevenue'), {
+        chart: { type: 'area', height: 280, toolbar: { show: false }, foreColor: v.text, fontFamily: 'inherit' },
+        series: [{ name: 'Pendapatan', data: [92, 105, 98, 120, 135, 142] }],
+        xaxis: { categories: ['Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep'], axisBorder: { color: v.border }, axisTicks: { color: v.border } },
+        colors: [v.accent], stroke: { curve: 'smooth', width: 2.5 },
+        fill: { type: 'gradient', gradient: { opacityFrom: 0.35, opacityTo: 0.02 } },
+        grid: { borderColor: v.border, strokeDashArray: 4 }, dataLabels: { enabled: false },
+        tooltip: { theme: v.dark ? 'dark' : 'light' }
+      });
+      _revenue.render();
+      _donut = new ApexCharts(document.getElementById('chartDonut'), {
+        chart: { type: 'donut', height: 280, foreColor: v.text, fontFamily: 'inherit' },
+        series: [62, 28, 10], labels: ['Selesai', 'Diproses', 'Batal'],
+        colors: [v.green, v.amber, v.red], stroke: { colors: [v.dark ? '#262624' : '#ffffff'] },
+        legend: { position: 'bottom' }, dataLabels: { enabled: false },
+        plotOptions: { pie: { donut: { size: '68%' } } }, tooltip: { theme: v.dark ? 'dark' : 'light' }
+      });
+      _donut.render();
+    });
+  </script>
+</body>
+
+</html>
