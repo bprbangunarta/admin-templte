@@ -2174,3 +2174,49 @@ hr.divider { border: 0; border-top: 1px solid var(--border); margin: 16px 0; }
   .mail { grid-template-columns: 1fr; height: auto; }
   .mail-read { display: none; }
 }
+
+/* ============================================================
+   DASHBOARD PENJUALAN (KPI+sparkline, segmented, produk terlaris)
+   ============================================================ */
+.dash-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
+.dash-head .ttl h2 { margin: 0; }
+.dash-head .ttl p { margin: 3px 0 0; color: var(--text-muted); font-size: var(--fs-sm); }
+.dash-head .tools { display: flex; align-items: center; gap: 8px; }
+
+.seg { display: inline-flex; background: var(--bg-hover); border: 1px solid var(--border); border-radius: 9px; padding: 2px; gap: 2px; }
+.seg button { border: none; background: none; padding: 5px 11px; border-radius: 7px; font-size: var(--fs-sm); color: var(--text-muted); cursor: pointer; font-weight: 500; }
+.seg button.active { background: var(--bg-card); color: var(--text); box-shadow: 0 1px 2px rgba(0,0,0,.07); }
+
+.kpi { position: relative; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 15px; overflow: hidden; }
+.kpi-top { display: flex; align-items: center; gap: 9px; }
+.kpi-ic { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; }
+.kpi-ic i { width: 17px; height: 17px; }
+.kpi-ic.a { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); }
+.kpi-ic.g { background: color-mix(in srgb, var(--green) 16%, transparent); color: var(--green); }
+.kpi-ic.b { background: color-mix(in srgb, var(--blue) 16%, transparent); color: var(--blue); }
+.kpi-ic.m { background: color-mix(in srgb, var(--amber) 18%, transparent); color: var(--amber); }
+.kpi .label { font-size: var(--fs-sm); color: var(--text-muted); }
+.kpi .value { font-size: 23px; font-weight: 700; letter-spacing: -.02em; margin-top: 10px; }
+.kpi-foot { display: flex; align-items: center; gap: 6px; margin-top: 3px; font-size: var(--fs-sm); }
+.kpi-foot .sub { color: var(--text-muted); }
+.kpi .spark { height: 36px; margin: 8px -6px -8px; }
+
+/* daftar produk terlaris / metode bayar */
+.prod { display: flex; align-items: center; gap: 11px; padding: 11px 0; border-bottom: 1px solid var(--border); }
+.prod:last-child { border-bottom: none; padding-bottom: 2px; }
+.prod:first-child { padding-top: 2px; }
+.prod .thumb { width: 38px; height: 38px; border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; }
+.prod .thumb i { width: 18px; height: 18px; }
+.prod .pn { flex: 1; min-width: 0; }
+.prod .pn b { font-size: var(--fs-sm); display: block; }
+.prod .pn small { color: var(--text-muted); font-size: 12px; }
+.prod .pv { text-align: right; font-size: var(--fs-sm); font-weight: 600; white-space: nowrap; }
+.prod .pv small { display: block; font-weight: 500; color: var(--text-muted); font-size: 11px; }
+.prod-bar { height: 5px; border-radius: 3px; background: var(--bg-hover); margin-top: 7px; overflow: hidden; }
+.prod-bar i { display: block; height: 100%; border-radius: 3px; }
+
+/* ringkasan target di bawah radial */
+.tgt-sum { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 4px 4px; }
+.tgt-sum .cell { text-align: center; }
+.tgt-sum .cell b { display: block; font-size: var(--fs-md); font-weight: 700; }
+.tgt-sum .cell small { color: var(--text-muted); font-size: 12px; }
