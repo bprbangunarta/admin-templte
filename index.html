@@ -5,7 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
-  <title>Dashboard — Admin Template</title>
+  <title>Dashboard — Mutiara</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo-mark.svg">
+  <meta name="description" content="Mutiara: Compact Admin Template Responsive HTML">
+  <meta name="apple-mobile-web-app-title" content="Mutiara">
   <link rel="stylesheet" href="assets/vendor/jsvectormap/jsvectormap-1.5.3.min.css">
   <link rel="stylesheet" href="assets/css/app.css">
 
@@ -21,14 +24,22 @@
 </head>
 
 <body>
+  <!-- Preloader: disembunyikan otomatis oleh app.js setelah halaman siap -->
+  <div class="page-loader" id="pageLoader">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
+      <img src="assets/img/logo-mark.svg" alt="Mutiara" style="width:46px; height:46px;">
+      <span class="loader dots"><span></span><span></span><span></span></span>
+    </div>
+  </div>
+
   <div class="app">
     <div class="backdrop" id="backdrop"></div>
 
   <div class="drawer">
     <aside class="sidebar">
       <div class="brand">
-        <div class="logo">A</div>
-        <div class="name">Admin Panel</div>
+        <img class="brand-logo" src="assets/img/logo-mark.svg" alt="Mutiara">
+        <div class="name">Mutiara</div>
       </div>
 
       <div class="sidebar-scroll">
@@ -39,7 +50,7 @@
           </a>
 
           <a class="nav-item" href="pages/charts.html">
-            <i data-lucide="panel-left"></i><span>UI Element</span>
+            <i data-lucide="panel-left"></i><span>UI Element</span><span class="nav-badge">4</span>
           </a>
 
           <a class="nav-item" href="pages/files.html">
