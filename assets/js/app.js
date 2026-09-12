@@ -300,6 +300,16 @@
     initCopyInput();
     initPopover();
     initAssertions();
+
+    // hapus tag: klik .x di dalam .tag
+    document.addEventListener('click', function (e) {
+      var x = e.target.closest('.tag .x'); if (x) x.closest('.tag').remove();
+    });
+    // tampilkan ulang cookie banner: [data-cookie-reset]
+    document.querySelectorAll('[data-cookie-reset]').forEach(function (b) {
+      b.addEventListener('click', function () { try { localStorage.removeItem('cookieAccepted'); } catch (e) {} location.reload(); });
+    });
+
     initCmdK(setTheme);
   }
 

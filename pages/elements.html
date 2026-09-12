@@ -343,6 +343,185 @@
             </div>
           </div>
 
+          <!-- Loaders / Preloader & Divider -->
+          <div class="row equal">
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Loaders / Preloader</h3><span class="text-muted fs-sm">CSS, tanpa vendor</span></div>
+                <div class="panel-body">
+                  <div class="d-flex flex-wrap items-center" style="gap:26px;">
+                    <div class="text-center"><span class="loader ring"></span><div class="pattern-cap">.ring</div></div>
+                    <div class="text-center"><span class="loader dual"></span><div class="pattern-cap">.dual</div></div>
+                    <div class="text-center"><span class="loader dots"><span></span><span></span><span></span></span><div class="pattern-cap">.dots</div></div>
+                    <div class="text-center"><span class="loader bars"><span></span><span></span><span></span><span></span></span><div class="pattern-cap">.bars</div></div>
+                    <div class="text-center"><span class="loader pulse"></span><div class="pattern-cap">.pulse</div></div>
+                  </div>
+                  <div style="margin-top:18px;">
+                    <div class="text-muted fs-sm mb-1">Bar indeterminate</div>
+                    <div class="loader-bar"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Divider</h3></div>
+                <div class="panel-body">
+                  <p class="text-muted" style="margin:0;font-size:var(--fs-base)">Konten bagian atas.</p>
+                  <hr class="divider">
+                  <p class="text-muted" style="margin:0;font-size:var(--fs-base)">Setelah garis polos <code>hr.divider</code>.</p>
+                  <div class="divider label">ATAU</div>
+                  <p class="text-muted" style="margin:0;font-size:var(--fs-base)">Setelah divider berlabel <code>.divider.label</code>.</p>
+                  <div class="d-flex items-center" style="margin-top:14px;">
+                    <span>Kiri</span><span class="divider-v" style="height:18px;"></span><span>Tengah</span><span class="divider-v" style="height:18px;"></span><span>Kanan</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tag & Trend -->
+          <div class="row equal">
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Tag</h3><span class="text-muted fs-sm">label/kategori, bisa dihapus</span></div>
+                <div class="panel-body">
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="tag">Default</span>
+                    <span class="tag primary">Primary</span>
+                    <span class="tag green">Aktif</span>
+                    <span class="tag amber">Draft</span>
+                    <span class="tag red">Blokir</span>
+                    <span class="tag blue">Info</span>
+                  </div>
+                  <div class="d-flex flex-wrap gap-2">
+                    <span class="tag primary">React <span class="x"><i data-lucide="x"></i></span></span>
+                    <span class="tag primary">Laravel <span class="x"><i data-lucide="x"></i></span></span>
+                    <span class="tag primary">Tailwind <span class="x"><i data-lucide="x"></i></span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Trend</h3><span class="text-muted fs-sm">naik / turun ringkas</span></div>
+                <div class="panel-body">
+                  <div class="d-flex flex-wrap items-center gap-3 mb-3">
+                    <span class="trend up"><i data-lucide="trending-up"></i> 12,5%</span>
+                    <span class="trend down"><i data-lucide="trending-down"></i> 3,2%</span>
+                    <span class="trend flat"><i data-lucide="minus"></i> 0%</span>
+                  </div>
+                  <div class="d-flex items-center gap-3">
+                    <div><div class="text-muted fs-sm">Pendapatan</div><div style="font-size:var(--fs-xl);font-weight:600;">Rp 142jt</div></div>
+                    <span class="trend up"><i data-lucide="arrow-up-right"></i> 8,1%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress Steps -->
+          <div class="panel mb-4">
+            <div class="panel-head"><h3>Progress Steps</h3><span class="text-muted fs-sm">indikator langkah mandiri</span></div>
+            <div class="panel-body">
+              <div class="steps">
+                <div class="step done"><div class="dot"><i data-lucide="check"></i></div><div class="lbl">Keranjang</div></div>
+                <div class="step done"><div class="dot"><i data-lucide="check"></i></div><div class="lbl">Pengiriman</div></div>
+                <div class="step active"><div class="dot">3</div><div class="lbl">Pembayaran</div></div>
+                <div class="step"><div class="dot">4</div><div class="lbl">Selesai</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ribbon & Cookie Banner -->
+          <div class="row equal">
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Ribbon</h3><span class="text-muted fs-sm">pita sudut kartu</span></div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="panel ribbon-wrap" style="border:1px solid var(--border);">
+                        <span class="ribbon">PRO</span>
+                        <div class="panel-body"><b>Paket Pro</b><div class="text-muted fs-sm" style="margin-top:2px;">Fitur lengkap.</div></div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="panel ribbon-wrap" style="border:1px solid var(--border);">
+                        <span class="ribbon green">NEW</span>
+                        <div class="panel-body"><b>Modul Baru</b><div class="text-muted fs-sm" style="margin-top:2px;">Baru dirilis.</div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Cookie Banner</h3><span class="text-muted fs-sm">muncul otomatis saat kunjungan pertama</span></div>
+                <div class="panel-body">
+                  <div class="cookie-banner" style="position:static; left:auto; right:auto; bottom:auto; max-width:none; margin:0; box-shadow:none;">
+                    <p>Kami menggunakan cookie untuk meningkatkan pengalaman Anda.</p>
+                    <div class="ck-actions">
+                      <button class="btn outline">Tolak</button>
+                      <button class="btn primary">Terima</button>
+                    </div>
+                  </div>
+                  <div class="d-flex items-center gap-2" style="margin-top:12px;">
+                    <button class="btn outline sm" data-cookie-reset><i data-lucide="refresh-ccw"></i> Tampilkan ulang banner asli</button>
+                    <span class="text-muted fs-sm">reset persetujuan &amp; muat ulang</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Illustrations -->
+          <div class="panel mb-4">
+            <div class="panel-head"><h3>Illustrations</h3><span class="text-muted fs-sm">SVG on-theme · kompatibel unDraw</span></div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-4 text-center">
+                  <span class="illus"><img src="../assets/img/illustrations/empty.svg" alt="Tidak ada data"></span>
+                  <div class="pattern-cap">assets/img/illustrations/empty.svg</div>
+                </div>
+                <div class="col-4 text-center">
+                  <span class="illus" style="color:var(--accent)">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-label="Analitik">
+                      <ellipse cx="200" cy="255" rx="150" ry="14" fill="#000" opacity="0.06"/>
+                      <rect x="90" y="170" width="44" height="70" rx="6" fill="currentColor" opacity="0.35"/>
+                      <rect x="150" y="130" width="44" height="110" rx="6" fill="currentColor" opacity="0.6"/>
+                      <rect x="210" y="95" width="44" height="145" rx="6" fill="currentColor"/>
+                      <rect x="270" y="150" width="44" height="90" rx="6" fill="currentColor" opacity="0.45"/>
+                      <path d="M100 150 L172 118 L232 90 L300 120" fill="none" stroke="var(--green)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="300" cy="120" r="7" fill="var(--green)"/>
+                    </svg>
+                  </span>
+                  <div class="pattern-cap">inline · ikut tema (currentColor)</div>
+                </div>
+                <div class="col-4 text-center">
+                  <span class="illus" style="color:var(--accent)">
+                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-label="Selesai">
+                      <ellipse cx="200" cy="255" rx="110" ry="14" fill="#000" opacity="0.06"/>
+                      <circle cx="200" cy="140" r="74" fill="currentColor" opacity="0.15"/>
+                      <circle cx="200" cy="140" r="54" fill="currentColor"/>
+                      <path d="M176 140 l16 16 l32 -34" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="120" cy="80" r="6" fill="var(--amber)"/>
+                      <circle cx="290" cy="90" r="5" fill="var(--blue)"/>
+                      <circle cx="300" cy="180" r="6" fill="var(--green)"/>
+                    </svg>
+                  </span>
+                  <div class="pattern-cap">inline · ikut tema</div>
+                </div>
+              </div>
+              <div class="text-muted fs-sm" style="margin-top:6px; line-height:1.6;">
+                Unduh ilustrasi <b>unDraw</b> (SVG) ke <code>assets/img/illustrations/</code>. Pakai lewat <code>&lt;img&gt;</code>,
+                atau <b>inline</b> lalu ganti warnanya jadi <code>currentColor</code>/<code>var(--accent)</code> agar mengikuti tema &amp; dark mode.
+              </div>
+            </div>
+          </div>
+
+
           <!-- Alert -->
           <div class="panel mb-4">
             <div class="panel-head">

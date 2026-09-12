@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Tidak ada data">
+  <ellipse cx="200" cy="252" rx="120" ry="16" fill="#000" opacity="0.06"/>
+  <!-- kotak -->
+  <path d="M120 150 L200 130 L280 150 L200 172 Z" fill="#d97757"/>
+  <path d="M120 150 L120 210 L200 232 L200 172 Z" fill="#c15f42"/>
+  <path d="M280 150 L280 210 L200 232 L200 172 Z" fill="#e08769"/>
+  <!-- flap -->
+  <path d="M120 150 L150 122 L228 104 L200 130 Z" fill="#eab29c"/>
+  <path d="M280 150 L250 122 L172 104 L200 130 Z" fill="#f0c4b2"/>
+  <!-- dokumen melayang -->
+  <rect x="176" y="60" width="48" height="60" rx="5" fill="#ffffff" stroke="#e3e1d8" stroke-width="2"/>
+  <rect x="186" y="74" width="28" height="4" rx="2" fill="#d0ccc0"/>
+  <rect x="186" y="84" width="28" height="4" rx="2" fill="#d0ccc0"/>
+  <rect x="186" y="94" width="18" height="4" rx="2" fill="#d0ccc0"/>
+  <!-- titik dekor -->
+  <circle cx="110" cy="90" r="5" fill="#d97757" opacity="0.5"/>
+  <circle cx="300" cy="110" r="7" fill="#3c9a5f" opacity="0.35"/>
+  <circle cx="305" cy="70" r="4" fill="#cf913a" opacity="0.5"/>
+</svg>

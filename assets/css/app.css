@@ -1983,3 +1983,82 @@ table.table-sm th, table.table-sm td { padding: 6px 12px; }
 .pattern-accent{ background-image: radial-gradient(var(--accent) 1.5px, transparent 1.5px); background-size: 16px 16px; opacity: 1; }
 .pattern-accent { background-color: var(--accent-soft); }
 .pattern-cap { font-size: var(--fs-sm); color: var(--text-muted); margin-top: 6px; text-align: center; font-family: var(--mono); }
+
+/* ============================================================
+   LOADERS / PRELOADER (CSS, tanpa vendor)
+   ============================================================ */
+.loader { display: inline-block; --sz: 28px; --c: var(--accent); }
+.loader.sm { --sz: 18px; } .loader.lg { --sz: 44px; }
+.loader.ring { width: var(--sz); height: var(--sz); border: 3px solid var(--border-strong); border-top-color: var(--c); border-radius: 50%; animation: spin .7s linear infinite; }
+.loader.dual { width: var(--sz); height: var(--sz); border: 3px solid transparent; border-top-color: var(--c); border-bottom-color: var(--c); border-radius: 50%; animation: spin .8s linear infinite; }
+.loader.dots { display: inline-flex; gap: 6px; align-items: center; }
+.loader.dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--c); animation: ldr-bounce 1s ease-in-out infinite; }
+.loader.dots span:nth-child(2) { animation-delay: .15s; } .loader.dots span:nth-child(3) { animation-delay: .3s; }
+@keyframes ldr-bounce { 0%,80%,100% { transform: scale(.5); opacity: .5; } 40% { transform: scale(1); opacity: 1; } }
+.loader.bars { display: inline-flex; gap: 4px; align-items: flex-end; height: var(--sz); }
+.loader.bars span { width: 5px; height: 100%; background: var(--c); border-radius: 3px; animation: ldr-bars 1s ease-in-out infinite; }
+.loader.bars span:nth-child(2) { animation-delay: .15s; } .loader.bars span:nth-child(3) { animation-delay: .3s; } .loader.bars span:nth-child(4) { animation-delay: .45s; }
+@keyframes ldr-bars { 0%,100% { transform: scaleY(.4); } 50% { transform: scaleY(1); } }
+.loader.pulse { width: var(--sz); height: var(--sz); border-radius: 50%; background: var(--c); animation: ldr-pulse 1s ease-in-out infinite; }
+@keyframes ldr-pulse { 0% { transform: scale(.35); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
+.loader-bar { width: 100%; height: 4px; background: var(--bg-hover); border-radius: 20px; overflow: hidden; position: relative; }
+.loader-bar::after { content: ""; position: absolute; top: 0; left: -40%; height: 100%; width: 40%; background: var(--accent); border-radius: 20px; animation: ldr-indet 1.1s ease-in-out infinite; }
+@keyframes ldr-indet { 0% { left: -40%; } 100% { left: 100%; } }
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+hr.divider { border: 0; border-top: 1px solid var(--border); margin: 16px 0; }
+.divider.label { display: flex; align-items: center; gap: 12px; margin: 16px 0; color: var(--text-muted); font-size: var(--fs-sm); }
+.divider.label::before, .divider.label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+.divider-v { display: inline-block; width: 1px; align-self: stretch; background: var(--border); margin: 0 12px; }
+
+/* ============================================================
+   TAG (label/kategori; beda dari badge=status)
+   ============================================================ */
+.tag { display: inline-flex; align-items: center; gap: 5px; font-size: var(--fs-sm); font-weight: 500; padding: 3px 9px; border-radius: 6px; background: var(--bg-active); color: var(--text-muted); }
+.tag.primary { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); }
+.tag.green   { background: color-mix(in srgb, var(--green) 16%, transparent); color: var(--green); }
+.tag.amber   { background: color-mix(in srgb, var(--amber) 18%, transparent); color: var(--amber); }
+.tag.red     { background: color-mix(in srgb, var(--red) 16%, transparent); color: var(--red); }
+.tag.blue    { background: color-mix(in srgb, var(--blue) 16%, transparent); color: var(--blue); }
+.tag .x { cursor: pointer; display: inline-grid; place-items: center; width: 15px; height: 15px; border-radius: 50%; opacity: .7; }
+.tag .x:hover { opacity: 1; background: color-mix(in srgb, currentColor 22%, transparent); }
+.tag .x svg { width: 11px; height: 11px; }
+
+/* ============================================================
+   RIBBON (pita sudut kartu — di dalam .panel yang overflow:hidden)
+   ============================================================ */
+.ribbon-wrap { position: relative; }
+.ribbon { position: absolute; top: 15px; right: -34px; transform: rotate(45deg); background: var(--accent); color: #fff; font-size: var(--fs-xs); font-weight: 700; letter-spacing: .03em; padding: 4px 42px; box-shadow: 0 2px 8px rgba(20,16,10,.18); z-index: 3; }
+.ribbon.green { background: var(--green); } .ribbon.amber { background: var(--amber); } .ribbon.red { background: var(--red); } .ribbon.blue { background: var(--blue); } .ribbon.dark { background: var(--text); }
+
+/* ============================================================
+   PROGRESS STEPS (indikator langkah mandiri)
+   ============================================================ */
+.steps { display: flex; }
+.steps .step { flex: 1; text-align: center; position: relative; font-size: var(--fs-sm); color: var(--text-muted); }
+.steps .step::before { content: ""; position: absolute; top: 13px; left: -50%; width: 100%; height: 2px; background: var(--border-strong); z-index: 0; }
+.steps .step:first-child::before { display: none; }
+.steps .step.done::before, .steps .step.active::before { background: var(--accent); }
+.steps .step .dot { position: relative; z-index: 1; width: 28px; height: 28px; margin: 0 auto 6px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-content); border: 2px solid var(--border-strong); color: var(--text-faint); font-size: var(--fs-sm); font-weight: 600; }
+.steps .step .dot svg { width: 14px; height: 14px; }
+.steps .step.active .dot { border-color: var(--accent); color: var(--accent); }
+.steps .step.done .dot { background: var(--accent); border-color: var(--accent); color: #fff; }
+.steps .step.active { color: var(--text); font-weight: 500; }
+@media (max-width: 560px) { .steps .step .lbl { display: none; } }
+
+/* ============================================================
+   TREND (indikator naik/turun ringkas)
+   ============================================================ */
+.trend { display: inline-flex; align-items: center; gap: 3px; font-size: var(--fs-sm); font-weight: 600; padding: 2px 7px; border-radius: 6px; }
+.trend svg { width: 13px; height: 13px; }
+.trend.up   { color: var(--green); background: color-mix(in srgb, var(--green) 14%, transparent); }
+.trend.down { color: var(--red);   background: color-mix(in srgb, var(--red) 14%, transparent); }
+.trend.flat { color: var(--text-muted); background: var(--bg-active); }
+
+/* ============================================================
+   ILUSTRASI (SVG on-theme; drop unDraw ke assets/img/illustrations)
+   ============================================================ */
+.illus { display: inline-block; max-width: 240px; width: 100%; }
+.illus svg, .illus img { width: 100%; height: auto; display: block; }
