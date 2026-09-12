@@ -2429,10 +2429,10 @@ hr.divider { border: 0; border-top: 1px solid var(--border); margin: 16px 0; }
 /* ============================================================
    EMAIL TEMPLATES (galeri di halaman admin) — kanvas email selalu terang
    ============================================================ */
-.mail-tpl-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-items: start; }
+.mail-tpl-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-items: stretch; }
 @media (max-width: 900px) { .mail-tpl-grid { grid-template-columns: 1fr; } }
 .mail-tpl { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--bg-card); display: flex; flex-direction: column; }
-.mail-tpl .canvas { background: #efede7; padding: 22px 20px; display: flex; justify-content: center; flex: 1; }
+.mail-tpl .canvas { background: #efede7; padding: 22px 20px; display: flex; justify-content: center; align-items: center; flex: 1; }
 .mail-tpl .cap { padding: 12px 16px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
 .mail-tpl .cap .nm { font-weight: 600; font-size: var(--fs-md); }
 .mail-tpl .cap .desc { color: var(--text-muted); font-size: var(--fs-sm); }
