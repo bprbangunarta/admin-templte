@@ -62,18 +62,18 @@
             </a>
 
             <a class="nav-item">
-              <i data-lucide="folder"></i>
+              <i data-lucide="calendar"></i>
               <span>Calendar</span>
             </a>
 
             <a class="nav-item">
-              <i data-lucide="folder"></i>
+              <i data-lucide="bar-chart-3"></i>
               <span>Charts</span>
             </a>
 
             <div class="tree">
               <button type="button" class="tree-toggle" aria-expanded="true">
-                <i data-lucide="folder" class="ico"></i>
+                <i data-lucide="component" class="ico"></i>
                 <span>Elements</span>
                 <i data-lucide="chevron-right" class="chev"></i>
               </button>
@@ -88,7 +88,7 @@
 
             <div class="tree">
               <button type="button" class="tree-toggle" aria-expanded="true">
-                <i data-lucide="folder" class="ico"></i>
+                <i data-lucide="clipboard-list" class="ico"></i>
                 <span>Forms</span>
                 <i data-lucide="chevron-right" class="chev"></i>
               </button>
@@ -102,18 +102,23 @@
             </div>
 
             <a class="nav-item">
-              <i data-lucide="folder"></i>
+              <i data-lucide="file-text"></i>
               <span>Invoice</span>
             </a>
 
             <a class="nav-item">
-              <i data-lucide="folder"></i>
+              <i data-lucide="inbox"></i>
               <span>Mailbox</span><span class="nav-badge">4</span>
+            </a>
+
+            <a class="nav-item">
+              <i data-lucide="tag"></i>
+              <span>Pricing</span>
             </a>
 
             <div class="tree">
               <button type="button" class="tree-toggle" aria-expanded="true">
-                <i data-lucide="folder" class="ico"></i>
+                <i data-lucide="table" class="ico"></i>
                 <span>Tables</span>
                 <i data-lucide="chevron-right" class="chev"></i>
               </button>
@@ -125,21 +130,7 @@
             </div>
           </nav>
 
-          <div class="nav-group">
-            <button type="button" class="nav-section" aria-expanded="true">
-              <span>Landing Page</span>
-              <i data-lucide="chevron-down" class="chev"></i>
-            </button>
-
-            <div class="nav-group-body">
-              <div class="nav">
-                <a class="nav-sub">Marketing</a>
-                <a class="nav-sub">Articles</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="nav-group">
+          <div class="nav-group open">
             <button type="button" class="nav-section" aria-expanded="true">
               <span>Sample Page</span>
               <i data-lucide="chevron-down" class="chev"></i>
@@ -147,124 +138,61 @@
 
             <div class="nav-group-body">
               <div class="nav">
-                <a class="nav-sub">Login</a>
-                <a class="nav-sub">Register</a>
-                <a class="nav-sub">Forgot Password</a>
-                <a class="nav-sub">Reset Password</a>
-                <a class="nav-sub">Reset Password</a>
-                <a class="nav-sub">Error 404</a>
-                <a class="nav-sub">Error 500</a>
-                <a class="nav-sub">Maintenance</a>
-              </div>
-            </div>
-          </div>
+                <div class="tree">
+                  <button type="button" class="tree-toggle" aria-expanded="true">
+                    <i data-lucide="shield" class="ico"></i>
+                    <span>Auth</span>
+                    <i data-lucide="chevron-right" class="chev"></i>
+                  </button>
 
-          <div class="nav-group open">
-            <button type="button" class="nav-section" aria-expanded="true"><span>Sample Page</span><i
-                data-lucide="chevron-down" class="chev"></i></button>
-            <div class="nav-group-body">
-              <div class="nav">
-                <a class="nav-sub lead" href="pages/files.html"><i data-lucide="folder" class="ico"></i><span>File
-                    Manager</span></a>
-                <div class="tree open">
-                  <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="newspaper"
-                      class="ico"></i><span>Blog</span><i data-lucide="chevron-right" class="chev"></i></button>
                   <div class="tree-children">
-                    <a class="nav-sub" href="pages/blog.html">All Articles</a>
-                    <a class="nav-sub" href="pages/blog-detail.html">Article Detail</a>
+                    <a class="nav-sub">Login</a>
+                    <a class="nav-sub">Register</a>
+                    <a class="nav-sub">Forgot Password</a>
+                    <a class="nav-sub">Reset Password</a>
                   </div>
                 </div>
-                <a class="nav-sub lead" href="pages/mailbox.html"><i data-lucide="inbox"
-                    class="ico"></i><span>Mailbox</span></a>
-                <a class="nav-sub lead" href="pages/invoice.html"><i data-lucide="file-text"
-                    class="ico"></i><span>Invoice</span></a>
-                <a class="nav-sub lead" href="pages/pricing.html"><i data-lucide="tag"
-                    class="ico"></i><span>Pricing</span></a>
-              </div>
-            </div>
-          </div>
 
-          <div class="nav-group open">
-            <button type="button" class="nav-section" aria-expanded="true"><span>Access Control</span><i
-                data-lucide="chevron-down" class="chev"></i></button>
-            <div class="nav-group-body">
-              <div class="nav">
-                <div class="tree open">
-                  <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="layers"
-                      class="ico"></i><span>Management</span><i data-lucide="chevron-right" class="chev"></i></button>
+                <div class="tree">
+                  <button type="button" class="tree-toggle" aria-expanded="true">
+                    <i data-lucide="mail" class="ico"></i>
+                    <span>Email</span>
+                    <i data-lucide="chevron-right" class="chev"></i>
+                  </button>
+
                   <div class="tree-children">
-                    <a class="nav-sub" href="pages/manajemen/pengguna.html">Users</a>
-                    <a class="nav-sub" href="pages/manajemen/peran.html">Roles</a>
-                    <a class="nav-sub" href="pages/manajemen/perizinan.html">Permissions</a>
+                    <a class="nav-sub">Error 404</a>
+                    <a class="nav-sub">Error 500</a>
+                    <a class="nav-sub">Maintanance</a>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="nav-group open">
-            <button type="button" class="nav-section" aria-expanded="true"><span>Credentials</span><i
-                data-lucide="chevron-down" class="chev"></i></button>
-            <div class="nav-group-body">
-              <div class="nav">
-                <a class="nav-sub lead" href="pages/kredensial/perizinan.html"><i data-lucide="shield-check"
-                    class="ico"></i><span>Permissions</span></a>
-                <a class="nav-sub lead" href="pages/kredensial/hak-akses.html"><i data-lucide="key-round"
-                    class="ico"></i><span>Access Rights</span></a>
-                <a class="nav-sub lead" href="pages/kredensial/pengguna.html"><i data-lucide="users"
-                    class="ico"></i><span>Users</span></a>
-              </div>
-            </div>
-          </div>
+                <div class="tree">
+                  <button type="button" class="tree-toggle" aria-expanded="true">
+                    <i data-lucide="bug" class="ico"></i>
+                    <span>Error</span>
+                    <i data-lucide="chevron-right" class="chev"></i>
+                  </button>
 
-          <div class="nav-group open">
-            <button type="button" class="nav-section" aria-expanded="true"><span>Pages</span><i
-                data-lucide="chevron-down" class="chev"></i></button>
-            <div class="nav-group-body">
-              <div class="nav">
-                <a class="nav-sub lead" href="pages/profile.html"><i data-lucide="user"
-                    class="ico"></i><span>Profile</span></a>
-                <a class="nav-sub lead" href="pages/settings.html"><i data-lucide="settings"
-                    class="ico"></i><span>Settings</span></a>
-                <a class="nav-sub lead" href="pages/detail.html"><i data-lucide="eye" class="ico"></i><span>Detail /
-                    Show</span></a>
-                <div class="tree open">
-                  <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="log-in"
-                      class="ico"></i><span>Authentication</span><i data-lucide="chevron-right"
-                      class="chev"></i></button>
                   <div class="tree-children">
-                    <a class="nav-sub" href="pages/auth/login.html" target="_blank">Login</a>
-                    <a class="nav-sub" href="pages/auth/register.html" target="_blank">Register</a>
-                    <a class="nav-sub" href="pages/auth/forgot-password.html" target="_blank">Forgot Password</a>
-                    <a class="nav-sub" href="pages/auth/reset-password.html" target="_blank">Reset Password</a>
+                    <a class="nav-sub">Error 404</a>
+                    <a class="nav-sub">Error 500</a>
+                    <a class="nav-sub">Maintanance</a>
                   </div>
                 </div>
-                <div class="tree open">
-                  <button type="button" class="tree-toggle" aria-expanded="true"><i data-lucide="triangle-alert"
-                      class="ico"></i><span>Error Pages</span><i data-lucide="chevron-right" class="chev"></i></button>
+
+                <div class="tree">
+                  <button type="button" class="tree-toggle" aria-expanded="true">
+                    <i data-lucide="panel-top" class="ico"></i>
+                    <span>Landing</span>
+                    <i data-lucide="chevron-right" class="chev"></i>
+                  </button>
+
                   <div class="tree-children">
-                    <a class="nav-sub" href="pages/error/404.html" target="_blank">404</a>
-                    <a class="nav-sub" href="pages/error/500.html" target="_blank">500</a>
-                    <a class="nav-sub" href="pages/error/maintenance.html" target="_blank">Maintenance</a>
+                    <a class="nav-sub">Marketing</a>
+                    <a class="nav-sub">Articles</a>
                   </div>
                 </div>
-                <a class="nav-sub lead" href="pages/landing.html" target="_blank"><i data-lucide="globe"
-                    class="ico"></i><span>Landing Page</span></a>
-                <a class="nav-sub lead" href="pages/blank.html"><i data-lucide="square" class="ico"></i><span>Blank
-                    Page</span></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="nav-group open">
-            <button type="button" class="nav-section" aria-expanded="true"><span>Tools</span><i
-                data-lucide="chevron-down" class="chev"></i></button>
-            <div class="nav-group-body">
-              <div class="nav">
-                <a class="nav-sub lead" href="pages/html-parser.html"><i data-lucide="code-2" class="ico"></i><span>HTML
-                    Parser</span></a>
-                <a class="nav-sub lead" href="pages/assertions.html"><i data-lucide="check-check"
-                    class="ico"></i><span>Assertions</span></a>
               </div>
             </div>
           </div>
