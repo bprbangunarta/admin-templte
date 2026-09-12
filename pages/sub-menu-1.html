@@ -5,13 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function () { try { var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); document.documentElement.setAttribute("data-theme", t); } catch (e) { } })();</script>
-  <title>Charts — Admin Template</title>
+  <title>Sub Menu 1 — Admin Template</title>
   <link rel="stylesheet" href="../assets/css/app.css">
 </head>
 
 <body>
   <div class="app">
     <div class="backdrop" id="backdrop"></div>
+
   <div class="drawer">
     <aside class="sidebar">
       <div class="brand">
@@ -27,7 +28,7 @@
           </a>
 
           <a class="nav-item active" href="../pages/charts.html">
-            <i data-lucide="panel-left"></i><span>UI Element</span><span class="nav-badge">4</span>
+            <i data-lucide="panel-left"></i><span>UI Element</span>
           </a>
 
           <a class="nav-item" href="../pages/files.html">
@@ -139,10 +140,11 @@
       </div>
     </aside>
   </div>
+
     <div class="main">
       <header class="topbar">
         <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Buka atau tutup menu"><i data-lucide="panel-left"></i></button>
-        <h1>Charts</h1>
+        <h1>Sub Menu 1</h1>
 
         <!-- Pencarian: tombol yang membuka command palette (⌘K / Ctrl+K) -->
         <button type="button" class="searchbar" id="searchOpen" aria-label="Cari (Ctrl+K)" aria-haspopup="dialog" aria-expanded="false" aria-controls="cmdk">
@@ -207,159 +209,52 @@
           </div>
         </div>
       </div>
+
       <div class="workspace">
   <aside class="subsidebar">
     <div class="sub-head">Sub Menu</div>
-    <a class="sub-item active" href="../pages/charts.html"><i data-lucide="pie-chart"></i>Charts</a>
+    <a class="sub-item" href="../pages/charts.html"><i data-lucide="pie-chart"></i>Charts</a>
     <a class="sub-item" href="../pages/datatable.html"><i data-lucide="table"></i>Datatable</a>
     <a class="sub-item" href="../pages/elements.html"><i data-lucide="layout-grid"></i>Elements</a>
-    <div class="tree">
-      <button type="button" class="sub-item" aria-expanded="false"><i data-lucide="list"></i>Multi Menu<i data-lucide="chevron-down" class="chev"></i></button>
+    <div class="tree open">
+      <button type="button" class="sub-item" aria-expanded="true"><i data-lucide="list"></i>Multi Menu<i data-lucide="chevron-down" class="chev"></i></button>
       <div class="tree-children">
-        <a class="sub-item" href="sub-menu-1.html">Sub Menu 1</a>
+        <a class="sub-item active" href="sub-menu-1.html">Sub Menu 1</a>
         <a class="sub-item" href="#">Sub Menu 2</a>
         <a class="sub-item" href="#">Sub Menu 3</a>
       </div>
     </div>
   </aside>
+
         <div class="content">
           <nav class="breadcrumb">
-            <a>UI Element</a>
+            <a href="../pages/elements.html">UI Element</a>
             <span class="sep"><i data-lucide="chevron-right"></i></span>
-            <span class="current">Charts</span>
+            <span>Multi Menu</span>
+            <span class="sep"><i data-lucide="chevron-right"></i></span>
+            <span class="current">Sub Menu 1</span>
           </nav>
 
-          <div class="row">
-            <div class="col-6">
-              <div class="panel mb-4">
-                <div class="panel-head">
-                  <h3>Area Chart</h3>
-                </div>
-                <div class="p-3">
-                  <div id="cArea" style="height:280px;"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="panel mb-4">
-                <div class="panel-head">
-                  <h3>Line Chart</h3>
-                </div>
-                <div class="p-3">
-                  <div id="cLine" style="height:280px;"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="panel mb-4">
-                <div class="panel-head">
-                  <h3>Bar Chart</h3>
-                </div>
-                <div class="p-3">
-                  <div id="cBar" style="height:280px;"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="panel mb-4">
-                <div class="panel-head">
-                  <h3>Donut Chart</h3>
-                </div>
-                <div class="p-3">
-                  <div id="cDonut" style="height:280px;"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="panel mb-4">
-                <div class="panel-head">
-                  <h3>Radial (Target)</h3>
-                </div>
-                <div class="p-3">
-                  <div id="cRadial" style="height:280px;"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="panel mb-4">
-                <div class="panel-head">
-                  <h3>Bar Bertumpuk</h3>
-                </div>
-                <div class="p-3">
-                  <div id="cStacked" style="height:280px;"></div>
-                </div>
-              </div>
+          <div class="page-head">
+            <h2>Sub Menu 1</h2>
+            <p>Halaman contoh untuk memperlihatkan kondisi menu <b>Sub Menu 1</b> saat aktif.</p>
+          </div>
+
+          <div class="panel">
+            <div class="empty-state">
+              <div class="es-ic"><i data-lucide="layout-grid"></i></div>
+              <h4>Halaman Kosong</h4>
+              <p>Ini halaman sample. Perhatikan sub-menu di kiri: <b>Multi Menu</b> terbuka dan <b>Sub Menu 1</b> ditandai aktif.</p>
+              <a class="btn primary" href="../pages/elements.html"><i data-lucide="arrow-left"></i> Kembali ke Elements</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
   <script src="../assets/vendor/lucide/lucide-0.294.0.min.js"></script>
-  <script src="../assets/vendor/apexcharts/apexcharts-3.45.2.min.js"></script>
   <script src="../assets/js/app.js"></script>
-  <script src="../assets/js/init/apexcharts.js"></script>
-  <script>
-    (function () {
-      var charts = [], cats = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul'];
-      function make(el, opt) { var c = new ApexCharts(document.getElementById(el), opt); c.render(); charts.push(c); }
-      ApexTheme.onReady(function (v) {
-        charts.forEach(function (c) { c.destroy(); }); charts = [];
-        var muted = v.muted, dark = v.dark;
-        var base = {
-          chart: { height: 280, toolbar: { show: false }, foreColor: v.text, fontFamily: 'inherit' },
-          dataLabels: { enabled: false }, grid: { borderColor: v.border, strokeDashArray: 4 },
-          tooltip: { theme: dark ? 'dark' : 'light' }, legend: { position: 'bottom' }
-        };
-
-        make('cArea', Object.assign({}, base, {
-          chart: Object.assign({ type: 'area' }, base.chart),
-          series: [{ name: 'Tahun Ini', data: [31, 40, 28, 51, 42, 85, 90] }, { name: 'Tahun Lalu', data: [45, 52, 38, 45, 60, 55, 48] }],
-          xaxis: { categories: cats }, colors: [v.accent, muted], stroke: { curve: 'smooth', width: 2.5 },
-          fill: { type: 'gradient', gradient: { opacityFrom: 0.35, opacityTo: 0.02 } }
-        }));
-
-        make('cLine', Object.assign({}, base, {
-          chart: Object.assign({ type: 'line' }, base.chart),
-          series: [{ name: 'Kunjungan', data: [28, 48, 40, 19, 86, 27, 90] }, { name: 'Target', data: [65, 59, 80, 81, 56, 55, 40] }],
-          xaxis: { categories: cats }, colors: [v.accent, muted], stroke: { curve: 'smooth', width: 2.5 }
-        }));
-
-        make('cBar', Object.assign({}, base, {
-          chart: Object.assign({ type: 'bar' }, base.chart),
-          series: [{ name: 'Penjualan', data: [44, 55, 57, 56, 61, 58, 63] }, { name: 'Retur', data: [12, 10, 14, 9, 11, 8, 10] }],
-          xaxis: { categories: cats }, colors: [v.accent, muted],
-          plotOptions: { bar: { borderRadius: 4, columnWidth: '55%' } }
-        }));
-
-        make('cDonut', {
-          chart: { type: 'donut', height: 280, foreColor: v.text, fontFamily: 'inherit' },
-          series: [44, 25, 18, 13], labels: ['Selesai', 'Diproses', 'Batal', 'Pending'],
-          colors: [v.green, v.amber, v.red, v.blue], stroke: { colors: [dark ? '#262624' : '#ffffff'] },
-          legend: { position: 'bottom' }, dataLabels: { enabled: false }, plotOptions: { pie: { donut: { size: '68%' } } },
-          tooltip: { theme: dark ? 'dark' : 'light' }
-        });
-
-        make('cRadial', {
-          chart: { type: 'radialBar', height: 280, foreColor: v.text, fontFamily: 'inherit' },
-          series: [72], labels: ['Tercapai'], colors: [v.accent],
-          plotOptions: {
-            radialBar: {
-              hollow: { size: '62%' }, track: { background: v.border },
-              dataLabels: { name: { color: v.text }, value: { color: getComputedStyle(document.documentElement).getPropertyValue('--text').trim(), fontSize: '22px', fontWeight: 600 } }
-            }
-          }
-        });
-
-        make('cStacked', Object.assign({}, base, {
-          chart: Object.assign({ type: 'bar', stacked: true }, base.chart),
-          series: [{ name: 'Simpanan', data: [23, 34, 28, 41, 35, 44, 40] }, { name: 'Pinjaman', data: [18, 20, 25, 19, 28, 22, 30] }, { name: 'Deposito', data: [10, 12, 9, 14, 11, 16, 13] }],
-          xaxis: { categories: cats }, colors: [v.accent, v.blue, v.amber],
-          plotOptions: { bar: { borderRadius: 3, columnWidth: '55%' } }
-        }));
-      });
-    })();
-  </script>
 </body>
 
 </html>
