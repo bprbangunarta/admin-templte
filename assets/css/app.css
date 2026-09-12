@@ -430,7 +430,8 @@ html, body {
 
 /* Panel + tabel */
 .panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+/* tinggi head konsisten baik ada tombol maupun tidak (min-height + padding kecil) */
+.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 53px; padding: 8px 16px; border-bottom: 1px solid var(--border); }
 .panel-head h3 { font-size: var(--fs-md); font-weight: 600; }
 /* isi & footer panel — konsisten dengan .modal-head/.modal-body/.modal-foot */
 .panel-body { padding: 16px; font-size: var(--fs-base); color: var(--text); line-height: 1.6; }
