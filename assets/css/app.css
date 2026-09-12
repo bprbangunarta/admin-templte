@@ -432,6 +432,19 @@ html, body {
 
 /* Panel + tabel */
 .panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+/* Varian garis atas berwarna (setara box-primary/box-info dll di AdminLTE) */
+.panel.primary { border-top: 3px solid var(--accent); }
+.panel.info    { border-top: 3px solid var(--blue); }
+.panel.success { border-top: 3px solid var(--green); }
+.panel.warning { border-top: 3px solid var(--amber); }
+.panel.danger  { border-top: 3px solid var(--red); }
+.panel.dark    { border-top: 3px solid var(--text); }
+/* opsional: warnai juga judul agar senada dgn garisnya (.panel.<warna>.tinted) */
+.panel.tinted.primary .panel-head h3 { color: var(--accent); }
+.panel.tinted.info    .panel-head h3 { color: var(--blue); }
+.panel.tinted.success .panel-head h3 { color: var(--green); }
+.panel.tinted.warning .panel-head h3 { color: var(--amber); }
+.panel.tinted.danger  .panel-head h3 { color: var(--red); }
 /* tinggi head konsisten baik ada tombol maupun tidak (min-height + padding kecil) */
 .panel-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 46px; padding: 6px 16px; border-bottom: 1px solid var(--border); }
 .panel-head h3 { font-size: var(--fs-md); font-weight: 600; }
@@ -1402,9 +1415,25 @@ body, .sidebar, .topbar, .panel, .stat, .form-control, .btn, .drawer, .subsideba
 .flatpickr-calendar.arrowTop:before, .flatpickr-calendar.arrowTop:after { border-bottom-color: var(--bg-content); }
 span.flatpickr-weekday { background: transparent; }
 .flatpickr-monthDropdown-months, .numInputWrapper { color: var(--text); }
-/* FIX: sel hari (max-width 39px dari base) tidak sejajar dgn weekday (44px).
-   Lepas cap agar hari mengisi 14,2857% (=lebar weekday) → kolom sejajar. */
-.flatpickr-day { max-width: none; }
+/* Kompak & selaras tema — flatpickr default terlalu longgar utk UI padat kita.
+   Lebar dipatok konsisten (7×36=252) agar sel hari & header weekday sejajar. */
+.flatpickr-calendar { width: auto; padding: 4px; border-radius: 10px; }
+.flatpickr-innerContainer, .flatpickr-rContainer { width: auto; }
+.flatpickr-days { width: 252px; }
+.flatpickr-days .dayContainer { width: 252px; min-width: 252px; max-width: 252px; }
+.flatpickr-weekdaycontainer, .flatpickr-weekdays { width: 252px; }
+.flatpickr-weekday { max-width: 36px; font-size: var(--fs-xs) !important; font-weight: 600; }
+.flatpickr-day { max-width: 36px; height: 32px; line-height: 31px; font-size: var(--fs-base); border-radius: 7px; }
+/* header bulan/tahun + navigasi */
+.flatpickr-months { padding-bottom: 4px; align-items: center; }
+.flatpickr-months .flatpickr-month { height: 32px; }
+.flatpickr-current-month { font-size: var(--fs-md); padding: 4px 0 0; }
+.flatpickr-current-month .flatpickr-monthDropdown-months { font-size: var(--fs-md); font-weight: 600; padding: 0 4px; }
+.flatpickr-current-month .numInputWrapper { width: 54px; }
+.flatpickr-current-month input.cur-year { font-size: var(--fs-md); font-weight: 600; }
+.flatpickr-months .flatpickr-prev-month, .flatpickr-months .flatpickr-next-month { padding: 6px 9px; }
+.flatpickr-months .flatpickr-prev-month svg, .flatpickr-months .flatpickr-next-month svg { width: 13px; height: 13px; }
+.flatpickr-monthDropdown-months:hover, .numInputWrapper:hover { background: var(--bg-hover); }
 
 /* ============================================================
    BATCH 2: signature, dropzone, color picker, quill, player
