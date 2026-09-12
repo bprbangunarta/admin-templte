@@ -297,7 +297,69 @@
     initAvatarUpload();
     initInputMask();
     initCarousel();
+    initCopyInput();
+    initPopover();
+    initAssertions();
     initCmdK(setTheme);
+  }
+
+  /* ---- Input salin: tombol .copy-btn menyalin nilai .form-control ---- */
+  function initCopyInput() {
+    document.querySelectorAll('.input-copy .copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var wrap = btn.closest('.input-copy');
+        var inp = wrap.querySelector('.form-control');
+        if (!inp) return;
+        var done = function () {
+          wrap.classList.add('copied');
+          if (window.toast) toast('Disalin ke papan klip.', { type: 'success' });
+          setTimeout(function () { wrap.classList.remove('copied'); }, 1400);
+        };
+        try {
+          navigator.clipboard.writeText(inp.value).then(done, function () { inp.select(); document.execCommand('copy'); done(); });
+        } catch (e) { inp.select(); document.execCommand('copy'); done(); }
+      });
+    });
+  }
+
+  /* ---- Popover: [data-popover] membuka .popover terdekat ---- */
+  function initPopover() {
+    document.querySelectorAll('[data-popover]').forEach(function (trigger) {
+      var pop = trigger.parentElement.querySelector('.popover');
+      if (!pop) return;
+      pop.hidden = true;
+      var set = function (open) { pop.hidden = !open; trigger.setAttribute('aria-expanded', String(open)); };
+      trigger.addEventListener('click', function (e) { e.stopPropagation(); set(pop.hidden); });
+      document.addEventListener('click', function (e) { if (!pop.contains(e.target) && !trigger.contains(e.target)) set(false); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    });
+  }
+
+  /* ---- Assertions: tambah/hapus baris ---- */
+  function initAssertions() {
+    var host = document.getElementById('assertRows');
+    if (!host) return;
+    var SRC = ['Status code', 'JSON body', 'Response time', 'Headers', 'Cookies'];
+    var CMP = ['Equals', 'Not equals', 'Has value', 'Contains', 'Less than', 'Greater than'];
+    var opt = function (arr) { return arr.map(function (v) { return '<option>' + v + '</option>'; }).join(''); };
+    var rowHtml = function () {
+      return '<div class="assert-row">' +
+        '<select class="form-control sm">' + opt(SRC) + '</select>' +
+        '<input class="form-control sm" placeholder="properti…">' +
+        '<select class="form-control sm">' + opt(CMP) + '</select>' +
+        '<input class="form-control sm" placeholder="target…">' +
+        '<button type="button" class="assert-del" data-assert-del aria-label="Hapus baris"><i data-lucide="trash-2"></i></button>' +
+        '</div>';
+    };
+    var add = document.querySelector('[data-assert-add]');
+    if (add) add.addEventListener('click', function () {
+      host.insertAdjacentHTML('beforeend', rowHtml());
+      if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });
+    });
+    host.addEventListener('click', function (e) {
+      var del = e.target.closest('[data-assert-del]');
+      if (del) del.closest('.assert-row').remove();
+    });
   }
 
   /* ---- Input mask ringan (tanpa vendor) ----

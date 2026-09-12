@@ -1833,3 +1833,120 @@ table.table-sm th, table.table-sm td { padding: 6px 12px; }
 .nav-item .nav-badge { margin-left: auto; }
 .nav-badge { min-width: 18px; height: 18px; padding: 0 6px; display: inline-grid; place-items: center; background: var(--accent); color: #fff; font-size: var(--fs-xs); font-weight: 600; line-height: 1; border-radius: 20px; flex-shrink: 0; }
 .app.mini .sidebar:not(:hover) .nav-badge { display: none; }
+
+/* ============================================================
+   BADGES — varian tambahan (dasar .badge sudah ada)
+   ============================================================ */
+.badge.gray    { background: var(--bg-active); color: var(--text-muted); }
+.badge.primary { background: var(--accent-soft); color: var(--accent); }
+:root[data-theme="dark"] .badge.gray { background: #3a352c; color: var(--text-muted); }
+.badge.outline { background: transparent; border: 1px solid var(--border-strong); color: var(--text-muted); }
+.badge.solid          { color: #fff; }
+.badge.solid.primary  { background: var(--accent); color: #fff; }
+.badge.solid.green    { background: var(--green); }
+.badge.solid.amber    { background: var(--amber); }
+.badge.solid.red      { background: var(--red); }
+.badge.solid.blue     { background: var(--blue); }
+.badge .bdot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; display: inline-block; margin-right: 5px; vertical-align: 1px; }
+.badge.count { min-width: 18px; height: 18px; padding: 0 5px; display: inline-grid; place-items: center; background: var(--accent); color: #fff; }
+
+/* ============================================================
+   AVATARS — ukuran, gambar, status, grup
+   ============================================================ */
+.avatar.sm { width: 24px; height: 24px; font-size: 10px; }
+.avatar.lg { width: 44px; height: 44px; font-size: 16px; }
+.avatar.xl { width: 60px; height: 60px; font-size: 22px; }
+.avatar.square { border-radius: 10px; }
+.avatar > img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+.avatar-badge { position: relative; display: inline-block; line-height: 0; }
+.avatar-badge .a-status { position: absolute; right: -1px; bottom: -1px; width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--bg-card); background: var(--text-faint); }
+.avatar-badge .a-status.green { background: var(--green); }
+.avatar-badge .a-status.amber { background: var(--amber); }
+.avatar-badge .a-status.red   { background: var(--red); }
+.avatar-group { display: inline-flex; }
+.avatar-group .avatar { border: 2px solid var(--bg-card); margin-left: -8px; }
+.avatar-group .avatar:first-child { margin-left: 0; }
+.avatar-group .avatar.more { background: var(--bg-active); color: var(--text-muted); font-size: 10px; }
+
+/* ============================================================
+   STATUS DOTS
+   ============================================================ */
+.status-dot { display: inline-flex; align-items: center; gap: 7px; font-size: var(--fs-base); color: var(--text); }
+.status-dot::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--text-faint); flex-shrink: 0; }
+.status-dot.green::before { background: var(--green); }
+.status-dot.amber::before { background: var(--amber); }
+.status-dot.red::before   { background: var(--red); }
+.status-dot.blue::before  { background: var(--blue); }
+.status-dot.pulse::before { animation: pulse-dot 1.6s ease-out infinite; }
+@keyframes pulse-dot { 0% { box-shadow: 0 0 0 0 rgba(60,154,95,.45); } 70% { box-shadow: 0 0 0 6px rgba(60,154,95,0); } 100% { box-shadow: 0 0 0 0 rgba(60,154,95,0); } }
+
+/* ============================================================
+   TOOLTIP (CSS-only via data-tooltip) & POPOVER (klik, via JS)
+   ============================================================ */
+[data-tooltip] { position: relative; }
+[data-tooltip]::after {
+  content: attr(data-tooltip); position: absolute; bottom: calc(100% + 8px); left: 50%;
+  transform: translateX(-50%) translateY(4px); background: var(--text); color: var(--bg-card);
+  font-size: var(--fs-sm); font-weight: 500; white-space: nowrap; padding: 5px 9px; border-radius: 6px;
+  opacity: 0; pointer-events: none; transition: opacity .15s, transform .15s; z-index: 50;
+}
+[data-tooltip]::before {
+  content: ""; position: absolute; bottom: calc(100% + 3px); left: 50%; transform: translateX(-50%);
+  border: 5px solid transparent; border-top-color: var(--text); opacity: 0; transition: opacity .15s; z-index: 50;
+}
+[data-tooltip]:hover::after, [data-tooltip]:focus-visible::after { opacity: 1; transform: translateX(-50%) translateY(0); }
+[data-tooltip]:hover::before, [data-tooltip]:focus-visible::before { opacity: 1; }
+[data-tooltip-pos="bottom"]::after { bottom: auto; top: calc(100% + 8px); transform: translateX(-50%) translateY(-4px); }
+[data-tooltip-pos="bottom"]::before { bottom: auto; top: calc(100% + 3px); border-top-color: transparent; border-bottom-color: var(--text); }
+[data-tooltip-pos="bottom"]:hover::after { transform: translateX(-50%) translateY(0); }
+
+.popover-wrap { position: relative; display: inline-block; }
+.popover {
+  position: absolute; top: calc(100% + 8px); left: 0; min-width: 230px; max-width: 280px;
+  background: var(--bg-content); border: 1px solid var(--border-strong); border-radius: 12px;
+  box-shadow: 0 12px 34px rgba(30,25,15,.18); padding: 13px 15px; z-index: 60; animation: cmdk-pop .14s ease;
+}
+.popover h5 { font-size: var(--fs-md); font-weight: 600; margin-bottom: 4px; }
+.popover p { font-size: var(--fs-base); color: var(--text-muted); line-height: 1.55; }
+
+/* ============================================================
+   INPUT dengan ikon SALIN (mirip input password)
+   ============================================================ */
+.input-copy { position: relative; }
+.input-copy .form-control { padding-right: 36px; }
+.input-copy .copy-btn {
+  position: absolute; right: 5px; top: 50%; transform: translateY(-50%);
+  width: 28px; height: 28px; border: none; background: none; color: var(--text-muted);
+  cursor: pointer; display: grid; place-items: center; border-radius: 5px;
+}
+.input-copy .copy-btn:hover { background: var(--bg-hover); color: var(--text); }
+.input-copy .copy-btn svg { width: 16px; height: 16px; }
+.input-copy .copy-btn .ic-done { display: none; color: var(--green); }
+.input-copy.copied .copy-btn .ic-copy { display: none; }
+.input-copy.copied .copy-btn .ic-done { display: block; }
+
+/* ============================================================
+   ASSERTIONS — baris Source / Property / Comparison / Target
+   ============================================================ */
+.assert { overflow-x: auto; }
+.assert-head, .assert-row { display: grid; grid-template-columns: 1.1fr 1.1fr 1fr 1fr 32px; gap: 8px; align-items: center; min-width: 620px; }
+.assert-head { padding: 0 2px 8px; }
+.assert-head span { font-size: var(--fs-xs); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-faint); }
+.assert-row { padding: 7px 0; border-top: 1px solid var(--border); }
+.assert-del { width: 30px; height: 30px; border: none; background: none; color: var(--text-faint); border-radius: 6px; cursor: pointer; display: grid; place-items: center; }
+.assert-del:hover { background: var(--bg-hover); color: var(--red); }
+.assert-del svg { width: 15px; height: 15px; }
+.assert-foot { padding-top: 12px; }
+
+/* ============================================================
+   PATTERNS — latar dekoratif (theme-aware, gradient CSS)
+   ============================================================ */
+.pattern { height: 88px; border: 1px solid var(--border); border-radius: var(--radius); background-color: var(--bg-card); }
+.pattern-dots  { background-image: radial-gradient(var(--border-strong) 1.5px, transparent 1.5px); background-size: 14px 14px; }
+.pattern-grid  { background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 18px 18px; }
+.pattern-lines { background-image: repeating-linear-gradient(45deg, var(--border-strong), var(--border-strong) 1px, transparent 1px, transparent 10px); }
+.pattern-cross { background-image: radial-gradient(var(--border-strong) 1px, transparent 1px), radial-gradient(var(--border-strong) 1px, transparent 1px); background-size: 20px 20px; background-position: 0 0, 10px 10px; }
+.pattern-checks{ background-image: linear-gradient(45deg, var(--bg-hover) 25%, transparent 25%, transparent 75%, var(--bg-hover) 75%), linear-gradient(45deg, var(--bg-hover) 25%, transparent 25%, transparent 75%, var(--bg-hover) 75%); background-size: 22px 22px; background-position: 0 0, 11px 11px; }
+.pattern-accent{ background-image: radial-gradient(var(--accent) 1.5px, transparent 1.5px); background-size: 16px 16px; opacity: 1; }
+.pattern-accent { background-color: var(--accent-soft); }
+.pattern-cap { font-size: var(--fs-sm); color: var(--text-muted); margin-top: 6px; text-align: center; font-family: var(--mono); }

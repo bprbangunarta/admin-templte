@@ -135,6 +135,11 @@ Chart & map **theme-aware**: warnanya dibaca dari CSS variable dan otomatis diba
 Tambahan: **command palette** pencarian (⌘K / Ctrl+K), **dropdown notifikasi** (lonceng + badge),
 **tombol loading** (`.btn.loading`), **empty state** (`.empty-state`), **skeleton**, **timeline** (`.track`),
 **form wizard** (`.js-wizard` — `pages/wizard.html`), dan **halaman detail** (`.desc-list` — `pages/detail.html`).
+Juga: **badges** (soft/solid/outline/dot/count), **avatars** (ukuran/gambar/status/grup),
+**status dots** (`.status-dot`, `.pulse`), **tooltip** (`data-tooltip`) & **popover** (`.popover`),
+**input salin** (`.input-copy`), **input masks** (`data-mask`), **carousel** (`.js-carousel`),
+**assertions** (baris Source/Property/Comparison/Target + tambah/hapus), dan
+**patterns** latar dekoratif (`.pattern-*`, theme-aware).
 Aksesibilitas: toggle memakai `<button>` + `aria-expanded`, focus-trap pada palette & modal,
 `:focus-visible`, serta menghormati `prefers-reduced-motion`.
 

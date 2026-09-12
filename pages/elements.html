@@ -430,6 +430,197 @@
             </div>
           </div>
 
+          <!-- Badges & Status Dots -->
+          <div class="row equal">
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Badges</h3></div>
+                <div class="panel-body">
+                  <div class="text-muted fs-sm mb-2">Soft</div>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge primary">Primary</span>
+                    <span class="badge green">Aktif</span>
+                    <span class="badge amber">Tertunda</span>
+                    <span class="badge red">Gagal</span>
+                    <span class="badge blue">Info</span>
+                    <span class="badge gray">Draft</span>
+                  </div>
+                  <div class="text-muted fs-sm mb-2">Solid</div>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge solid primary">Primary</span>
+                    <span class="badge solid green">Sukses</span>
+                    <span class="badge solid amber">Peringatan</span>
+                    <span class="badge solid red">Bahaya</span>
+                    <span class="badge solid blue">Info</span>
+                  </div>
+                  <div class="text-muted fs-sm mb-2">Outline · Dot · Count</div>
+                  <div class="d-flex flex-wrap gap-2" style="align-items:center;">
+                    <span class="badge outline">Outline</span>
+                    <span class="badge green"><span class="bdot"></span>Online</span>
+                    <span class="badge red"><span class="bdot"></span>Offline</span>
+                    <span class="badge count">3</span>
+                    <span class="badge count">12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Status Dots</h3></div>
+                <div class="panel-body">
+                  <div class="d-flex flex-wrap" style="gap:14px 24px;">
+                    <span class="status-dot green pulse">Online</span>
+                    <span class="status-dot amber">Idle</span>
+                    <span class="status-dot red">Sibuk</span>
+                    <span class="status-dot gray">Offline</span>
+                    <span class="status-dot blue">Sinkronisasi</span>
+                  </div>
+                  <div class="text-muted fs-sm" style="margin-top:14px; line-height:1.6;">
+                    Titik status ringkas untuk menandai kondisi. Tambah <code>.pulse</code> untuk animasi denyut (mis. status online).
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Avatars & Tooltips/Popovers -->
+          <div class="row equal">
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Avatars</h3></div>
+                <div class="panel-body">
+                  <div class="text-muted fs-sm mb-2">Ukuran</div>
+                  <div class="d-flex items-center flex-wrap gap-2 mb-3">
+                    <span class="avatar sm">ZR</span>
+                    <span class="avatar">ZR</span>
+                    <span class="avatar lg">ZR</span>
+                    <span class="avatar xl">ZR</span>
+                    <span class="avatar lg square">BR</span>
+                  </div>
+                  <div class="text-muted fs-sm mb-2">Gambar · Status · Grup</div>
+                  <div class="d-flex items-center flex-wrap" style="gap:14px;">
+                    <span class="avatar lg"><img src="https://picsum.photos/seed/av1/80" alt=""></span>
+                    <span class="avatar-badge"><span class="avatar lg"><img src="https://picsum.photos/seed/av2/80" alt=""></span><span class="a-status green"></span></span>
+                    <span class="avatar-badge"><span class="avatar lg">SW</span><span class="a-status amber"></span></span>
+                    <span class="avatar-group">
+                      <span class="avatar"><img src="https://picsum.photos/seed/g1/60" alt=""></span>
+                      <span class="avatar"><img src="https://picsum.photos/seed/g2/60" alt=""></span>
+                      <span class="avatar">AH</span>
+                      <span class="avatar more">+5</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="panel">
+                <div class="panel-head"><h3>Tooltips &amp; Popovers</h3></div>
+                <div class="panel-body">
+                  <div class="text-muted fs-sm mb-2">Tooltip (hover)</div>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <button class="btn" data-tooltip="Tooltip di atas">Atas</button>
+                    <button class="btn" data-tooltip="Tooltip di bawah" data-tooltip-pos="bottom">Bawah</button>
+                    <button class="btn-icon" data-tooltip="Setelan" style="background:var(--bg-content);border:1px solid var(--border-strong);color:var(--text-muted);"><i data-lucide="settings"></i></button>
+                  </div>
+                  <div class="text-muted fs-sm mb-2">Popover (klik)</div>
+                  <div class="popover-wrap">
+                    <button class="btn primary" data-popover aria-haspopup="dialog" aria-expanded="false"><i data-lucide="info"></i> Buka Popover</button>
+                    <div class="popover" hidden>
+                      <h5>Judul Popover</h5>
+                      <p>Panel kecil yang muncul saat diklik. Klik di luar atau tekan Esc untuk menutup.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Input dengan ikon Salin -->
+          <div class="panel mb-4">
+            <div class="panel-head"><h3>Input dengan Ikon Salin</h3><span class="text-muted fs-sm">klik ikon untuk menyalin</span></div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group mb-0">
+                    <label class="form-label">API Key</label>
+                    <div class="input-copy">
+                      <input class="form-control" value="sk_live_51JZ8xK2eZvKUq9wY3nT" readonly>
+                      <button type="button" class="copy-btn" aria-label="Salin"><i data-lucide="copy" class="ic-copy"></i><i data-lucide="check" class="ic-done"></i></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group mb-0">
+                    <label class="form-label">Tautan Referral</label>
+                    <div class="input-copy">
+                      <input class="form-control" value="https://bprbangunarta.co.id/ref/ZR2026" readonly>
+                      <button type="button" class="copy-btn" aria-label="Salin"><i data-lucide="copy" class="ic-copy"></i><i data-lucide="check" class="ic-done"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Assertions -->
+          <div class="panel mb-4">
+            <div class="panel-head"><h3>Assertions</h3><span class="text-muted fs-sm">validasi respons API</span></div>
+            <div class="panel-body">
+              <div class="assert">
+                <div class="assert-head"><span>Source</span><span>Property</span><span>Comparison</span><span>Target</span><span></span></div>
+                <div class="assert-rows" id="assertRows">
+                  <div class="assert-row">
+                    <select class="form-control sm"><option selected>Status code</option><option>JSON body</option><option>Response time</option><option>Headers</option><option>Cookies</option></select>
+                    <input class="form-control sm" placeholder="properti…">
+                    <select class="form-control sm"><option selected>Equals</option><option>Not equals</option><option>Has value</option><option>Contains</option><option>Less than</option><option>Greater than</option></select>
+                    <input class="form-control sm" value="200">
+                    <button type="button" class="assert-del" data-assert-del aria-label="Hapus baris"><i data-lucide="trash-2"></i></button>
+                  </div>
+                  <div class="assert-row">
+                    <select class="form-control sm"><option>Status code</option><option selected>JSON body</option><option>Response time</option><option>Headers</option><option>Cookies</option></select>
+                    <input class="form-control sm" value="parameters.alt.type">
+                    <select class="form-control sm"><option>Equals</option><option>Not equals</option><option selected>Has value</option><option>Contains</option><option>Less than</option><option>Greater than</option></select>
+                    <input class="form-control sm" value="string">
+                    <button type="button" class="assert-del" data-assert-del aria-label="Hapus baris"><i data-lucide="trash-2"></i></button>
+                  </div>
+                  <div class="assert-row">
+                    <select class="form-control sm"><option>Status code</option><option>JSON body</option><option selected>Response time</option><option>Headers</option><option>Cookies</option></select>
+                    <input class="form-control sm" placeholder="properti…">
+                    <select class="form-control sm"><option>Equals</option><option>Not equals</option><option>Has value</option><option>Contains</option><option selected>Less than</option><option>Greater than</option></select>
+                    <input class="form-control sm" value="500">
+                    <button type="button" class="assert-del" data-assert-del aria-label="Hapus baris"><i data-lucide="trash-2"></i></button>
+                  </div>
+                  <div class="assert-row">
+                    <select class="form-control sm"><option>Status code</option><option>JSON body</option><option>Response time</option><option selected>Headers</option><option>Cookies</option></select>
+                    <input class="form-control sm" value="content-type">
+                    <select class="form-control sm"><option selected>Equals</option><option>Not equals</option><option>Has value</option><option>Contains</option><option>Less than</option><option>Greater than</option></select>
+                    <input class="form-control sm" value="application/json">
+                    <button type="button" class="assert-del" data-assert-del aria-label="Hapus baris"><i data-lucide="trash-2"></i></button>
+                  </div>
+                </div>
+                <div class="assert-foot">
+                  <button type="button" class="btn outline sm" data-assert-add><i data-lucide="plus"></i> Tambah Assertion</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Patterns -->
+          <div class="panel mb-4">
+            <div class="panel-head"><h3>Patterns</h3><span class="text-muted fs-sm">latar dekoratif, mengikuti tema</span></div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-4"><div class="pattern pattern-dots"></div><div class="pattern-cap">.pattern-dots</div></div>
+                <div class="col-4"><div class="pattern pattern-grid"></div><div class="pattern-cap">.pattern-grid</div></div>
+                <div class="col-4"><div class="pattern pattern-lines"></div><div class="pattern-cap">.pattern-lines</div></div>
+                <div class="col-4"><div class="pattern pattern-cross"></div><div class="pattern-cap">.pattern-cross</div></div>
+                <div class="col-4"><div class="pattern pattern-checks"></div><div class="pattern-cap">.pattern-checks</div></div>
+                <div class="col-4"><div class="pattern pattern-accent"></div><div class="pattern-cap">.pattern-accent</div></div>
+              </div>
+            </div>
+          </div>
+
+
           <!-- Input & Textarea -->
           <div class="panel mb-4">
             <div class="panel-head">
