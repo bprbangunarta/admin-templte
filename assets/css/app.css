@@ -659,6 +659,11 @@ select.form-control {
 /* Cegah margin ganda: .form-group terakhir di dalam kolom tidak menambah jarak
    lagi (jarak antar-baris cukup dari margin kolom). Atur jarak via .mb-* pd kolom. */
 .row > [class*="col-"] > .form-group:last-child { margin-bottom: 0; }
+/* .row.equal → semua kartu 1 baris tingginya sama; .panel-body memanjang
+   (flex-grow) sehingga .panel-foot tetap menempel di bawah & sejajar. */
+.row.equal > [class*="col-"] { display: flex; }
+.row.equal > [class*="col-"] > .panel { display: flex; flex-direction: column; width: 100%; }
+.row.equal > [class*="col-"] > .panel > .panel-body { flex: 1 1 auto; }
 .col-1  { flex: 0 0 8.3333%;  max-width: 8.3333%; }
 .col-2  { flex: 0 0 16.6667%; max-width: 16.6667%; }
 .col-3  { flex: 0 0 25%;      max-width: 25%; }
