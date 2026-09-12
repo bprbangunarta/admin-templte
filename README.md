@@ -122,6 +122,8 @@ Template mendukung tema **terang & gelap** (warm dark + aksen clay), mengikuti d
 **Card / Panel** (`.panel` + `.panel-head` / `.panel-body` / `.panel-foot` —
 struktur konsisten dgn `.modal-*`; footer default rata kanan, `.panel-foot.between`
 untuk info kiri + aksi kanan),
+**Typography** (`.prose` — heading h1–h6, penekanan teks, blockquote, list
+ordered/unordered/unstyled, description list),
 Form (input, textarea, select, **Select2**, checkbox, radio, switch, input group,
 password + ikon mata), **validasi form** (`.is-invalid`/`.is-valid` + feedback),
 tombol (varian + ukuran + ikon + state hover/active/disabled), alert, **breadcrumb**,
