@@ -20,6 +20,7 @@ Path convention: root = `index.html`; children under `pages/…`. Asset prefix b
 | — Assertions | L2 | `pages/elements/assertions.html` | ✅ | `pages/assertions.html` |
 | — Buttons | L2 | `pages/elements/buttons.html` | ✅ | `pages/ui-buttons.html` |
 | — Cards | L2 | `pages/elements/cards.html` | ✅ | `pages/ui-cards.html` |
+| — Code Block | L2 | `pages/elements/code-block.html` | 🆕 | split from `elements.html` "Code Block (syntax highlight)" (highlight.js) |
 | — Components | L2 | `pages/elements/components.html` | ✅ | `pages/ui-components.html` |
 | — Icons | L2 | `pages/elements/icons.html` | ✅ | `pages/ui-icons.html` |
 | — Loaders | L2 | `pages/elements/loaders.html` | ✅ | `pages/ui-loaders.html` |
@@ -88,8 +89,8 @@ index.html                          (Dashboard)
 pages/
   calendar.html  charts.html  invoice.html  mailbox.html  email.html  blank.html
   elements/
-    assertions.html buttons.html cards.html components.html icons.html
-    loaders.html maps.html media.html modals.html pricing.html
+    assertions.html buttons.html cards.html code-block.html components.html
+    icons.html loaders.html maps.html media.html modals.html pricing.html
     progress.html toasts.html typography.html
   forms/     basic.html advanced.html editor.html wizard.html
   tables/    basic-tables.html datatable.html
