@@ -193,7 +193,7 @@ html, body {
 .nav-sub.lead { padding-left: 8px; gap: 9px; color: var(--text); }
 .nav-sub.lead::before { display: none; }
 .nav-sub.lead .ico { width: 15px; height: 15px; flex-shrink: 0; color: var(--text-muted); }
-.nav-sub.lead.active { color: var(--text); }
+.nav-sub.lead.active { color: var(--text); background: var(--bg-active); font-weight: 500; }
 .nav-sub.lead.active .ico { color: var(--accent); }
 
 /* Multi-level (tree) */
