@@ -1137,13 +1137,13 @@ body, .sidebar, .topbar, .panel, .stat, .form-control, .btn, .drawer, .subsideba
   .app.mini .sidebar .nav-section { display: none; }
   .app.mini .sidebar .nav-group { margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--border); }
   /* tree & item utama (.lead) di rail: ikon saja, submenu disembunyikan */
-  .app.mini .sidebar .nav-group-body .nav > .tree > .tree-toggle,
-  .app.mini .sidebar .nav-group-body .nav > .nav-sub.lead {
+  .app.mini .sidebar .nav > .tree > .tree-toggle,
+  .app.mini .sidebar .nav > .nav-sub.lead {
     justify-content: center; gap: 0; padding-left: 0; padding-right: 0;
   }
-  .app.mini .sidebar .nav-group-body .nav > .tree > .tree-toggle > span,
-  .app.mini .sidebar .nav-group-body .nav > .tree > .tree-toggle > .chev,
-  .app.mini .sidebar .nav-group-body .nav > .nav-sub.lead > span { display: none; }
+  .app.mini .sidebar .nav > .tree > .tree-toggle > span,
+  .app.mini .sidebar .nav > .tree > .tree-toggle > .chev,
+  .app.mini .sidebar .nav > .nav-sub.lead > span { display: none; }
   .app.mini .sidebar .tree-children { display: none; }
   .app.mini .sidebar .profile { padding-left: 0; padding-right: 0; }
   .app.mini .sidebar .profile-trigger { justify-content: center; gap: 0; padding-left: 0; padding-right: 0; border-color: transparent; }
@@ -1158,11 +1158,11 @@ body, .sidebar, .topbar, .panel, .stat, .form-control, .btn, .drawer, .subsideba
   .app.mini .sidebar:hover .nav-item > span { display: inline; }
   .app.mini .sidebar:hover .nav-section { display: flex; }
   .app.mini .sidebar:hover .nav-group { margin-top: 0; padding-top: 0; border-top: none; }
-  .app.mini .sidebar:hover .nav-group-body .nav > .tree > .tree-toggle { justify-content: flex-start; gap: 9px; padding: 5px 8px; }
-  .app.mini .sidebar:hover .nav-group-body .nav > .nav-sub.lead { justify-content: flex-start; gap: 9px; padding: 5px 8px 5px 8px; }
-  .app.mini .sidebar:hover .nav-group-body .nav > .tree > .tree-toggle > span { display: inline; }
-  .app.mini .sidebar:hover .nav-group-body .nav > .tree > .tree-toggle > .chev { display: inline-flex; }
-  .app.mini .sidebar:hover .nav-group-body .nav > .nav-sub.lead > span { display: inline; }
+  .app.mini .sidebar:hover .nav > .tree > .tree-toggle { justify-content: flex-start; gap: 9px; padding: 5px 8px; }
+  .app.mini .sidebar:hover .nav > .nav-sub.lead { justify-content: flex-start; gap: 9px; padding: 5px 8px 5px 8px; }
+  .app.mini .sidebar:hover .nav > .tree > .tree-toggle > span { display: inline; }
+  .app.mini .sidebar:hover .nav > .tree > .tree-toggle > .chev { display: inline-flex; }
+  .app.mini .sidebar:hover .nav > .nav-sub.lead > span { display: inline; }
   .app.mini .sidebar:hover .tree.open > .tree-children { display: flex; }
   .app.mini .sidebar:hover .profile { padding: 7px 4px 4px; }
   .app.mini .sidebar:hover .profile-trigger { justify-content: flex-start; gap: 9px; padding: 7px 8px; border-color: var(--border); }
