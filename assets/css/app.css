@@ -151,7 +151,7 @@ html, body {
 .nav-item svg { width: 15px; height: 15px; flex-shrink: 0; color: var(--text-muted); }
 .nav-item:hover { background: var(--bg-hover); }
 .nav-item.active { background: var(--bg-active); font-weight: 500; }
-.nav-item.active svg { color: var(--text); }
+.nav-item.active svg { color: var(--accent); }
 
 /* Varian dengan bar aksen di kiri (dipakai halaman UI Element) */
 .sidebar.accent-bar .nav-item.active { background: var(--bg-hover); }
@@ -284,7 +284,7 @@ html, body {
 .sub-item:hover { background: var(--bg-hover); }
 /* aktif — pola SAMA dgn .nav-item (clay hangat, bukan biru) */
 .sub-item.active { background: var(--bg-active); color: var(--text); font-weight: 500; }
-.sub-item.active svg { color: var(--text); }
+.sub-item.active svg { color: var(--accent); }
 .sub-item .chev { margin-left: auto; width: 13px; height: 13px; color: var(--text-faint); transition: transform .18s ease; }
 .tree.open > .sub-item .chev { transform: rotate(180deg); }
 /* anak sub-item (Multi Menu) — indentasi seperti tree-children */
