@@ -287,9 +287,16 @@ html, body {
 .sub-item.active svg { color: var(--accent); }
 .sub-item .chev { margin-left: auto; width: 13px; height: 13px; color: var(--text-faint); transition: transform .18s ease; }
 .tree.open > .sub-item .chev { transform: rotate(180deg); }
-/* anak sub-item (Multi Menu) — indentasi seperti tree-children */
+/* anak sub-item (Multi Menu) — indentasi & gaya SAMA dgn .nav-sub (muted + dot) */
 .subsidebar .tree-children { margin-left: 15px; padding-left: 4px; border-left: 1px solid var(--border-strong); }
-.subsidebar .tree-children .sub-item { padding: 5px 8px; font-size: var(--fs-base); }
+.subsidebar .tree-children .sub-item { padding: 5px 8px 5px 11px; font-size: var(--fs-base); color: var(--text-muted); }
+.subsidebar .tree-children .sub-item::before {
+  content: ""; width: 4px; height: 4px; border-radius: 50%;
+  border: 1.5px solid var(--text-faint); flex-shrink: 0;
+}
+.subsidebar .tree-children .sub-item:hover { color: var(--text); }
+.subsidebar .tree-children .sub-item.active { color: var(--text); }
+.subsidebar .tree-children .sub-item.active::before { background: var(--accent); border-color: var(--accent); }
 
 /* ============================================================
    MAIN + topbar (STICKY)
