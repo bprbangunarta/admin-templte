@@ -1155,7 +1155,8 @@ body, .sidebar, .topbar, .panel, .stat, .form-control, .btn, .drawer, .subsideba
   .app.mini .sidebar:hover .brand { justify-content: flex-start; padding: 0 13px; }
   .app.mini .sidebar:hover .brand .name { display: block; }
   .app.mini .sidebar:hover .nav-item { justify-content: flex-start; gap: 9px; padding: 5px 8px; }
-  .app.mini .sidebar:hover .nav-item > span { display: inline; }
+  .app.mini .sidebar:hover .nav-item > span:not(.nav-badge) { display: inline; }
+  .app.mini .sidebar:hover .nav-item > .nav-badge { display: inline-grid; }
   .app.mini .sidebar:hover .nav-section { display: flex; }
   .app.mini .sidebar:hover .nav-group { margin-top: 0; padding-top: 0; border-top: none; }
   .app.mini .sidebar:hover .nav > .tree > .tree-toggle { justify-content: flex-start; gap: 9px; padding: 5px 8px; }
