@@ -1001,6 +1001,7 @@ table.dataTable thead th.sorting_desc::after  { content: "▼"; color: var(--tex
 .auth-brand { display: flex; align-items: center; justify-content: center; gap: 9px; margin-bottom: 16px; }
 .auth-brand .logo { width: 30px; height: 30px; border-radius: 8px; background: var(--accent); color: #fff; display: grid; place-items: center; font-weight: 600; font-size: 14px; }
 .auth-brand .name { font-size: 16px; font-weight: 600; }
+.auth-brand .auth-logo { height: 34px; width: auto; display: block; color: var(--text); }
 .auth-card h1 { font-size: 19px; font-weight: 600; letter-spacing: -.02em; text-align: center; }
 .auth-sub { text-align: center; color: var(--text-muted); font-size: var(--fs-md); margin: 4px 0 22px; }
 .auth-row { display: flex; align-items: center; justify-content: space-between; margin: -2px 0 16px; font-size: var(--fs-base); }
